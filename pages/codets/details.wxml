@@ -1,0 +1,81 @@
+<view class='list'>
+  <view class="list-item" style='margin-top:5px;'>
+    <label class="list-item-label">HS商品编码:</label>
+    <label class="list-item-info">{{obj.CODE_TS}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["商品名称"]}}:</label>
+    <label class="list-item-info">{{obj.G_NAME}}</label>
+  </view>
+  <view class="list-item"style='margin-top:8px;'>
+    <label class="list-item-label">{{titless["法定单位"]}}:</label>
+    <label class="list-item-info">{{obj.UNIT_1}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["第二单位"]}}:</label>
+    <label class="list-item-info">{{obj.UNIT_2}}</label>
+  </view>
+  <view class="list-item" style='margin-top:8px;'>
+    <label class="list-item-label">{{titless["最惠国进口税率"]}}:</label>
+    <label class="list-item-info">{{obj.LOW_RATE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["普通进口税率"]}}:</label>
+    <label class="list-item-info">{{obj.HIGH_RATE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["暂定进口税率"]}}:</label>
+    <label class="list-item-info">{{obj.TEMP_RATE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["消费税率"]}}:</label>
+    <label class="list-item-info">{{obj.COMM_RATE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["出口税率"]}}:</label>
+    <label class="list-item-info">{{obj.OUT_RATE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["出口退税率"]}}:</label>
+    <label class="list-item-info">{{obj.OTHER_RATE}}</label>
+  </view>
+  <view wx:if="{{obj.AGREED_RATE!=''}}" class="list-item">
+    <label class="list-item-label">{{titless["协定税率"]}}:</label>
+    <label class="list-item-info" style='color:#1296db' bindtap='showRate' data-codets='{{obj.CODE_T}}'>查看详情</label>
+  </view>
+  <view wx:if="{{obj.AGREED_RATE==''}}" class="list-item">
+    <label class="list-item-label">{{titless["协定税率"]}}:</label>
+    <label class="list-item-info">无</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["增值税率"]}}:</label>
+    <label class="list-item-info">{{obj.TAX_RATE}}</label>
+  </view>
+  <view class="list-item"style='margin-top:8px;'>
+    <label class="list-item-label">{{titless["监管条件"]}}:</label>
+    <label class="list-item-info">{{obj.CONTROL_MA}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">{{titless["检验检疫类别"]}}:</label>
+    <label class="list-item-info">{{obj.CIQ_MA}}</label>
+  </view>
+  <view class="list-item"style='margin-top:8px;height: 80px;'>
+    <label class="list-item-label">{{titless["申报要素"]}}:</label>
+    <label class="list-item-info">{{obj.G_MODEL}}</label>
+  </view>
+  <view class="list-item"style='margin-top:8px;'>
+    <label class="list-item-label">{{titless["备注"]}}:</label>
+    <label class="list-item-info">{{obj.NOTE_S}}</label>
+  </view>
+</view>
+<modal title="协定税率详情" hidden="{{hiddenModal}}" bindconfirm="listenerConfirm" bindcancel="listenerCancel" no-cancel='true'>
+  <view class='list-item1' wx:for="{{datas}}" wx:key="" data-statu="open">
+    <view class='list-item-middle'>
+      <label class='list-item-title'>{{item.ARE_COUNTRY == "" ? "_" : item.ARE_COUNTRY}}</label>
+    </view>
+    <view class='list-item-right'>
+      <label class='list-item-title' style='color:#1296DB;display: flex;justify-content:center'>{{item.RATE_DATA == "" ? "_" : item.RATE_DATA}}
+      </label>
+    </view>
+  </view>
+</modal>

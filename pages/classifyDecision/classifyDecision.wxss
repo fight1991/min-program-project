@@ -1,0 +1,66 @@
+@import "../../content/wxss/common.wxss";
+
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+.list-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fefefe;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+
+.list-item-top {
+  display: flex;
+  justify-content: space-between;
+  height: 40%;
+  /* padding-left: 15px; */
+}
+
+.list-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+}
+
+.list-item-middle {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+}
+
+.list-item-title {
+  width: 65%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2093e6;
+  font: 16px microsoft yahei;
+}
+
+.list-item-info1 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #8b8682;
+  font: 13px microsoft yahei;
+}
+
+.list-item-info {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #8b8682;
+  font: 13px microsoft yahei;
+}

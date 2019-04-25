@@ -1,0 +1,29 @@
+<scroll-view scroll-y="true">
+  <view style='background-color:#eee;padding:10px 0;'>
+    <view class='search'>
+      <image class="search-img-search" src="https://51baoguan.cn/content/images/themes/A/search.png"></image>
+      <input class='search-input' placeholder='搜索' placeholder-class='search-placeholder' bindinput='search' bindconfirm='search'></input>
+      <image class="search-img-mrc" src="https://51baoguan.cn/content/images/themes/A/microphone.png"></image>
+    </view>
+  </view>
+  <view style='padding: 0px 0px 10px 20px;font:14px microsoft yahei;color:#808080'>
+    <label>新的联系人</label>
+  </view>
+  <block wx:for="{{users}}" wx:for-item="user">
+    <view class='user-item'>
+      <view class='user-item-left'>
+        <view>
+          <image class="user-avatar-img" src="https://51baoguan.cn/content/images/themes/A/contact.png"></image>
+        </view>
+        <view class='user-item-left-info'>
+          <view class="user-name">{{user.userName}}</view>
+          <text class="user-company">{{user.corpName==null?'':user.corpName}}</text>
+        </view>
+      </view>
+      <view class='user-item-right'>
+        <button class='btn-ok' bindtap='operateOnContacts' wx:if="{{user.status=='todo'}}" data-type='agree' data-id='{{user.userId}}'>同意</button>
+        <view wx:if="{{user.status=='agree'}}" style="color:#D9D9D9;font-size:11px;">已添加</view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

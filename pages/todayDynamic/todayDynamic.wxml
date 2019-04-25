@@ -1,0 +1,123 @@
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" class='scrolls' style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop">
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <view class="myContainer">
+      <!-- 次外层 -->
+      <view wx:if="{{list.length==0}}" class='dataIsNull'>
+        <image src='https://51baoguan.cn/content/images/themes/A/bg-prompt.png' style='width:200px;height:200px;'></image>
+      </view>
+      <view class="myContainerChild" wx:for="{{list}}" wx:key="{{PID}}">
+
+        <view wx:if="{{item.EXT_CRAFTTYPE!=null&&item.EXT_CRAFTTYPE.length>0}}">
+          <!-- 1.1上部 -->
+          <view class="myTopContainer">
+            <view style="display:flex;justify-content:center;align-items:center;">
+              <!-- 今日暂无航班信息显示这个图标 -->
+              <image wx:if="{{item.EXT_CRAFTTYPE==null||item.EXT_CRAFTTYPE.length==0}}" src="/content/images/themes/A/myPlaneRed.png" mode="aspectFill" lazy-load></image>
+              <!-- 进港显示此图标 -->
+              <image wx:if="{{item.EXT_ISOFFIN.length>0 && item.EXT_ISOFFIN == '进'}}" src="/content/images/themes/A/enter.png" mode="aspectFill" lazy-load></image>
+              <!-- 出港显示此图标 -->
+              <!-- EXT_ISOFFIN 进  EXT_ISOFFIN出 -->
+              <image wx:if="{{item.EXT_ISOFFIN.length>0 && item.EXT_ISOFFIN == '出'}}" src="/content/images/themes/A/exit.png" mode="aspectFill" lazy-load></image>
+              <text class="codeText">{{item.EXT_FLIGHTNO}}</text>
+            </view>
+            <view style="display:flex;justify-content:center;align-items:center;">
+              <text class="grayText">{{item.EXT_ATTRIBUTE}}</text>
+            </view>
+          </view>
+          <!-- 分割线-虚线 -->
+          <view>
+            <view class="dividerDashed"></view>
+          </view>
+          <!-- 1.2中部 -->
+          <view class='content-supplement'>
+            <view>
+              机号：{{item.EXT_CRAFTNO}}
+            </view>
+            <view>
+              机型：{{item.EXT_CRAFTTYPE}}
+            </view>
+            <view>
+              机位：{{item.EXT_CRAFTTYPE}}
+            </view>
+
+          </view>
+          <view class="myMiddleContainer">
+
+            <!-- 第二行 -->
+            <view class="myCity commonPaddingList">
+              <text class="leftFont">{{item.EXT_AIRWAYC_1}}</text>
+              <!-- <text class="middleFont">{{item.EXT_ATTRIBUTE}}</text> -->
+              <text class="middleFont">{{item.EXT_AIRWAYC_2}}</text>
+              <text class="rightFont">{{item.EXT_AIRWAYC_3}}</text>
+            </view>
+            <!-- 第三行 -->
+            <view class="myTimer commonPaddingList">
+              <text>{{item.EXT_PLANTAKEOFF}}/{{item.EXT_REALTAKEOFF}}</text>
+              <view class="inlineBlock">
+                <text class="dotCommon dotLeft">···</text>
+                <image src="/content/images/themes/A/myPlaneBlue.png" mode="aspectFill" lazy-load></image>
+                <text class="dotCommon dotRight">···</text>
+              </view>
+              <text>{{item.EXT_PLANLANDING}}/{{item.EXT_REALLANDING}}</text>
+            </view>
+            <!-- 第四行 -->
+            <view class="record commonPaddingList">
+              <text>计划起飞/实际起飞</text>
+              <text>{{item.EXT_AIRWAYC_2}}</text>
+              <text>计划到达/实际到达</text>
+            </view>
+            <!-- 第五行 -->
+            <view class="reasonDelay commonPaddingList">
+              <text wx:if="{{item.EXT_ABNORMALREASON.length>0}}">延误原因：{{item.EXT_ABNORMALREASON}}</text>
+            </view>
+          </view>
+          <!-- 分割线-虚线 -->
+          <view>
+            <view class="dividerDashed"></view>
+          </view>
+          <!-- 1.3下部 -->
+          <view class="myBottomContainer commonPaddingList">
+            <!-- 出港 -->
+            <!-- <text class="borderCommon" wx:if="{{item.EXT_ISOFFIN.length>0}}">{{item.EXT_ISOFFIN}}港</text> -->
+            <text class="borderCommon" wx:if="{{item.EXT_TASK.length>0}}">{{item.EXT_TASK}}</text>
+            <text class="borderCommon" wx:if="{{item.EXT_PROCESSSTATE.length>0}}">{{item.EXT_PROCESSSTATE}}</text>
+            <text class="yanWu borderCommon dangerDelay" wx:if="{{item.EXT_ABNORMALSTATE.length>0}}">{{item.EXT_ABNORMALSTATE}}</text>
+          </view>
+          <!-- 粗线 -->
+          <view class="dividerDashedCu"></view>
+
+        </view>
+        <!-- 今日暂无航班信息 -->
+        <view wx:if="{{item.EXT_CRAFTTYPE==null||item.EXT_CRAFTTYPE.length==0}}">
+          <!-- 2.1上部 -->
+          <view class="myTopContainer">
+            <view style="display:flex;justify-content:center;align-items:center;">
+              <image src="/content/images/themes/A/myPlaneRed.png" mode="aspectFill" lazy-load></image>
+              <text class="codeText">{{item.EXT_FLIGHTNO}}</text>
+            </view>
+            <view style="display:flex;justify-content:center;align-items:center;">
+              <text class="grayText">机位：</text>
+              <text class="grayText">{{item.EXT_CRAFTTYPE}}</text>
+              <!-- <text class="grayText">{{item.EXT_ATTRIBUTE}}</text>            -->
+            </view>
+          </view>
+          <!-- 分割线-虚线 -->
+          <view>
+            <view class="dividerDashed"></view>
+          </view>
+          <!-- 2.2中部 -->
+          <view class="myMiddleContainer none" style="height:100px;">
+            <view>今日暂无航班信息</view>
+          </view>
+          <view class="dividerDashedCu"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />
+<view class="drawer-screen" bindtap="showDetails" data-statu="close" wx:if="{{showModalStatus}}"></view>
+
+<image class='img-logistics-add' bindtap='setting' src='{{theme}}/setting.png' lazy-load>></image>

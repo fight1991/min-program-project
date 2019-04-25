@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "签到",
+  "usingComponents": {
+    "signInSuccess": "/components/signInSuccess/signInSuccess",
+    "signInError": "/components/signInError/signInError"
+  }
+}

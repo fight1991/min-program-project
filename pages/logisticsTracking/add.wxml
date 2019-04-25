@@ -1,0 +1,117 @@
+<view>
+  <form bindsubmit="nextstep">
+    <view class='title-content' style='padding-top:10px'>
+      <label class='title-icon'>*</label>
+      <label class='title'>业务形式</label>
+    </view>
+    <view class='parameter'>
+      <block wx:for="{{parameter_business}}" wx:key="parameter">
+        <text class='parameter-info text-over {{item.checked?"checked_parameter":""}}' data-id='{{item.id}}' bindtap='parameter_businessTap'>{{item.name}}</text>
+      </block>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title'>贸易条款</label>
+    </view>
+    <view class='input-trade'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{transModes}}">
+        <view class="picker" style='padding-top:7px'>
+          {{transModes[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title'>物流方式</label>
+    </view>
+    <view class='parameter'>
+      <block wx:for="{{parameter_transport}}" wx:key="parameter">
+        <text wx:if='{{parameter_transport.length==3}}' class='parameter-info-transport text-over {{item.checked?"checked_parameter":""}} {{index=="1"?"on":""}}' data-id='{{item.id}}' bindtap='parameter_transportTap'>{{item.name}}</text>
+        <text wx:if='{{parameter_transport.length==2}}' class='parameter-info-transport1 text-over {{item.checked?"checked_parameter":""}}' data-id='{{item.id}}' bindtap='parameter_transportTap'>{{item.name}}</text>
+      </block>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title'>货物类型</label>
+    </view>
+    <view class='parameter'>
+      <block wx:for="{{parameter_goodstype}}" wx:key="parameter">
+        <text class='parameter-info-goodstype text-over {{item.checked?"checked_parameter":""}}' data-id='{{item.id}}' bindtap='parameter_goodstypeTap'>{{item.name}}</text>
+      </block>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title' wx:if="{{iEFlag=='I'}}">境外发货人/联系方式</label>
+      <label class='title' wx:if="{{iEFlag=='E'}}">境外收货人/联系方式</label>
+    </view>
+    <view>
+      <input placeholder='请点击选择' placeholder-class='remind' class='input-trade' id='overseas' name='overseas' value="{{reqData.overseasContact==''?'':reqData.overseasContact+'/'+reqData.overseasMobile}}" bindtap='chooseContact' data-type='1' disabled='disabled'
+        data-value="{{reqData.overseasContact==''?'':reqData.overseasContact+'/'+reqData.overseasMobile}}"></input>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title' wx:if="{{iEFlag=='I'}}">境外发货地址</label>
+      <label class='title' wx:if="{{iEFlag=='E'}}">境外收货地址</label>
+    </view>
+    <view>
+      <view style=" word-break: break-all" placeholder='请点击选择' placeholder-class='remind' class='area' id='overseasAddr' name='overseasAddr' value="" bindtap='chooseAddress' data-type='1' disabled='disabled'>
+        {{city1+address1}}
+      </view>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title' wx:if="{{iEFlag=='I'}}">境内收货人/联系方式</label>
+      <label class='title' wx:if="{{iEFlag=='E'}}">境内发货人/联系方式</label>
+    </view>
+    <view>
+      <input placeholder='请点击选择' placeholder-class='remind' class='input-trade' id='churchyard' name='churchyard' value="{{reqData.domesticContact==''?'':reqData.domesticContact+'/'+reqData.domesticMobile}}" bindtap='chooseContact' data-type='2' disabled='disabled'
+        data-value="{{reqData.domesticContact==''?'':reqData.domesticContact+'/'+reqData.domesticMobile}}"></input>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title' wx:if="{{iEFlag=='I'}}">境内收货地址</label>
+      <label class='title' wx:if="{{iEFlag=='E'}}">境内发货地址</label>
+    </view>
+    <view>
+      <view style=" word-break: break-all" placeholder='请点击选择' placeholder-class='remind' class='area' id='domesticAddr' name='domesticAddr' value="" bindtap='chooseAddress' data-type='2' disabled='disabled'>
+        {{city2+address2}}
+      </view>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title'>货物信息</label>
+    </view>
+    <view>
+      <textarea class='area' id='goodsInfo' name='goodsInfo' value='{{reqData.goodsInfo}}' bindinput='bindData'></textarea>
+    </view>
+    <view class='title-content'>
+      <label class='title'>申报地海关</label>
+    </view>
+    <view>
+      <input class='input-trade' placeholder='请输入4位关区代码' type='number' maxlength='4' placeholder-class='remind' id='customMaster' name='customMaster' value='{{reqData.customMaster}}' bindinput='bindData'></input>
+    </view>
+    <view class='title-content'>
+      <label class='title'>备注</label>
+    </view>
+    <view>
+      <input class='input-trade' id='notes' name='notes' value='{{reqData.notes}}' bindinput='bindData'></input>
+    </view>
+    <view class='title-content'>
+      <label class='title'>单证</label>
+    </view>
+    <view class='items'>
+      <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+        <view class='check-item'>
+          <image src="{{item}}" bindtap='showImg' data-url='{{item}}' class="upload"></image>
+          <image src="/content/images/themes/A/close.png" bindtap='clearImg' data-index="{{index}}" class="img-delete"></image>
+        </view>
+      </view>
+      <view class="educt_upload_add" bindtap="joinPicture" data-index="{{0}}">
+        <image src="/content/images/themes/A/ccbaupload.png" class="upload"></image>
+      </view>
+    </view>
+    <view class='search-btns'>
+      <button class="search-btn" formType="submit">下一步</button>
+    </view>
+  </form>
+</view>

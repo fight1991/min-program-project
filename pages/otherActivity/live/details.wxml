@@ -1,0 +1,63 @@
+<!--pages/demo/demo.wxml-->
+<view>
+  <view wx:if='{{index==0}}'>
+    <view class='content-video'>
+      <video src='http://www.5itrade.cn:8084/files/zhibopeixun/wuliugenzong20190109.mp4' controls="controls"></video>
+    </view>
+    <view class='text'>
+      <view class='text1'>
+        <text>中国报关协会智慧通关服务平台介绍</text>
+      </view>
+      <view class='text2'>
+        <view style='text-indent:32px'>
+          通关服务平台由中国报关协会倾力打造，旨在通过移动互联与人工智能的理念与技术手段 ，将通关服务全流程融入平台，引领通关服务进入新时代。
+        </view>
+        <view style='text-indent:32px'>
+          智慧通关服务平台拥有6大模块、41个子模块，同时拥有8大功能亮点，涵盖了传统报关行全流程通关业务的功能。
+        </view>
+        <view style='text-indent:32px'>
+          {{code1}}八大亮点{{code2}}：无纸化单证自动转化、智能单证识别、智能逻辑检控、快速对接企业内部系统、制单绩效考核、可视化审单、通关状态全透明、海量商品数据库。
+        </view>
+        <view style='text-indent:32px'>
+          {{code1}}六大模块{{code2}}：行业资讯、基础资料、进出口管理、财务与费用、报表中心、系统管理。
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{index==1}}'>
+    <view class=' content-video '>
+      <video src='http://www.5itrade.cn:8084/files/zhibopeixun/wuliugenzong20190109.mp4 ' controls="controls"></video>
+    </view>
+    <view class='text '>
+      <view class='text1 '>
+        <text>通关服务平台-物流跟踪模块详解</text>
+      </view>
+      <view class='text2 '>
+        <view style='text-indent:32px '>
+          智慧通关服务平台由中国报关协会倾力打造，旨在通过移动互联与人工智能的理念与技术手段，将通关服务全流程融入平台，引领通关服务进入新时代。
+        </view>
+        <view style='text-indent:32px '>
+          智慧通关服务平台-物流跟踪功能，支持线上查询物流动态，旨在改变目前货代、报关行与企业间电邮沟通时跟踪反馈滞后、效率低下的问题。线上连接物流环节中涉及的各参与方，物流环节负责人员实时反馈物流环节状态，异常消息实时推送，方便各参与方把控物流进度，及时解决问题，提高企业物流流转效率以及企业对物流环节的掌控能力，降低成本。
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{index==2}}'>
+    <view class='content-video'>
+      <video src='http://www.5itrade.cn:8084/files/zhibopeixun/wuliufeiyong20190109.mp4' controls="controls"></video>
+    </view>
+    <view class='text'>
+      <view class='text1'>
+        <text>智慧通关服务平台-物流费用管理功能详解</text>
+      </view>
+      <view class='text2'>
+        <view style='text-indent:32px'>
+          智慧通关服务平台由中国报关协会倾力打造，旨在通过移动互联与人工智能的理念与技术手段，将通关服务全流程融入平台，引领通关服务进入新时代。
+        </view>
+        <view style='text-indent:32px'>
+          智慧通关服务平台-物流费用管理功能将线下的物流合同、报价、账单管理进行流程化整合，让委托企业和受托企业都可以通过线上平台完成操作，为企业提高效率、降低成本、加强内控。满足AEO流程的合同及费用管理，多角色物流费用预估，报价流程线上审核对接，费用与账单自动生成，提高对账效率与准确性，降低财务操作重复性。
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

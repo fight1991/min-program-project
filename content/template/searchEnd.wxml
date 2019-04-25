@@ -1,0 +1,37 @@
+<template name="searchEnd">
+  <view wx:if="{{showflag == 1}}" style='width:94%;margin-left:3%;display:flex;flex-decorition:row;justify-content:space-between;height:20px;'>
+    <view style='font-size:12px;color:#DBDBDB;text-align:left;'>————————</view>
+    <view style='font-size:12px;color:#BDBDBD;text-align:center;'>我也是有底线的</view>
+    <view style='font-size:12px;color:#DBDBDB;text-align:right;'>————————</view>
+  </view>
+  <view wx:elif="{{showflag == 2}}" style='width:94%;margin-left:3%;display:flex;flex-decorition:row;justify-content:space-between;height:20px;'>
+    <!-- <view style='font-size:12px;color:#DBDBDB;text-align:left;'>————————</view>
+    <view style='font-size:12px;color:#BDBDBD;text-align:center;'>未查到相关数据</view>
+    <view style='font-size:12px;color:#DBDBDB;text-align:right;'>————————</view> -->
+  </view>
+</template>
+<template name="searchEnd1">
+  <view wx:if="{{showflag1 == 1}}" style='width:94%;margin-left:3%;display:flex;flex-decorition:row;justify-content:space-between;height:20px;'>
+    <view style='font-size:12px;color:#DBDBDB;text-align:left;'>————————</view>
+    <view style='font-size:12px;color:#BDBDBD;text-align:center;'>我也是有底线的</view>
+    <view style='font-size:12px;color:#DBDBDB;text-align:right;'>————————</view>
+  </view>
+  <view wx:elif="{{showflag1 == 2}}" style='width:94%;margin-left:3%;display:flex;flex-decorition:row;justify-content:space-between;height:20px;'>
+    <!-- <view style='font-size:12px;color:#DBDBDB;text-align:left;'>————————</view>
+    <view style='font-size:12px;color:#BDBDBD;text-align:center;'>未查到相关数据</view>
+    <view style='font-size:12px;color:#DBDBDB;text-align:right;'>————————</view> -->
+  </view>
+</template>
+<template name="searchNullPrompt">
+  <view style='text-align:center;padding-top:100px;'>
+    <image src='{{theme}}prompt.png' style='width:200px;height:200px;'></image>
+  </view>
+</template>
+<template name="searchNullPrompt4logistics">
+  <view style='text-align:center;padding-top:80px;'>
+    <image src='{{theme}}prompt4logistics.png' style='width:150px;height:150px;'></image>
+    <view class='search-btns'>
+      <button class="search-btn" bindtap='add'>立即创建</button>
+    </view>
+  </view>
+</template>

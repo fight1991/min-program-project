@@ -1,0 +1,44 @@
+<view class='question-content'>
+  <view class='question-content-title'>问题</view>
+  <view class='question-content-msg'>{{obj.QUESTION_NOTE}}</view>
+  <view class='upload' style='padding-left:0;'>
+    <view class='check-item {{index==0?"check-item-first":""}}' wx:key="" wx:for="{{qurls}}" wx:for-item="item">
+      <image src="https://51baoguan.cn/APi/File/{{item}}" animation="{{animationMenu}}" class="image-menu"></image>
+    </view>
+  </view>
+</view>
+
+<view class='answer-content'>
+  <view class='answer-content-tbar'>
+    <view class='answer-content-title'>解答</view>
+  </view>
+  <view class='select'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" disabled='disabled'>
+      <view>
+        {{array[index]}}
+      </view>
+    </picker>
+  </view>
+  <textarea class='answer-des' bindinput='bindData' id="ANSWER_NOTE" maxlength="1000" placeholder='请描述你答案' placeholder-class='placeholders' value='{{searchModel.ANSWER_NOTE}}'>
+  </textarea>
+</view>
+<view class='upload'>
+  <view class="check-item">
+    <image src="/content/images/themes/A/ccbaupload.png" wx:if="{{urls.imgUrl1==''}}" animation="{{animationMenu}}" class="image-menu" bindtap="uploadImg" id='imgUrl1'></image>
+    <image src="/content/images/themes/A/close.png" wx:if="{{urls.imgUrl1!=''}}" animation="{{animationMenu}}" class="image-remove" bindtap="colseImg" id='imgUrl1'></image>
+    <image src="{{urls.imgUrl1}}" wx:if="{{urls.imgUrl1!=''}}" animation="{{animationMenu}}" class="image-menu" id='imgUrl1'></image>
+  </view>
+  <view class="check-item">
+    <image src="/content/images/themes/A/ccbaupload.png" wx:if="{{urls.imgUrl2.length==0}}" animation="{{animationMenu}}" class="image-menu" bindtap="uploadImg" id='imgUrl2'></image>
+    <image src="/content/images/themes/A/close.png" wx:if="{{urls.imgUrl2.length>0}}" animation="{{animationMenu}}" class="image-remove" bindtap="colseImg" id='imgUrl2'></image>
+    <image src="{{urls.imgUrl2}}" wx:if="{{urls.imgUrl2.length>0}}" animation="{{animationMenu}}" class="image-menu" id='imgUrl2'></image>
+  </view>
+  <view class="check-item">
+    <image src="/content/images/themes/A/ccbaupload.png" wx:if="{{urls.imgUrl3.length==0}}" animation="{{animationMenu}}" class="image-menu" bindtap="uploadImg" id='imgUrl3'></image>
+    <image src="/content/images/themes/A/close.png" wx:if="{{urls.imgUrl3.length>0}}" animation="{{animationMenu}}" class="image-remove" bindtap="colseImg" id='imgUrl3'></image>
+    <image src="{{urls.imgUrl3}}" wx:if="{{urls.imgUrl3.length>0}}" animation="{{animationMenu}}" class="image-menu" id='imgUrl3'></image>
+  </view>
+</view>
+<view class='search-btns'>
+  <button class="search-btn" bindtap='submit'>提交</button>
+</view>

@@ -1,0 +1,36 @@
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+  <view class='wx-mask' bindtap='hide'></view>
+  <view class='wx-dialog'>
+    <view class='user'>
+      <image class="user-avatar-img" src="https://51baoguan.cn/content/images/themes/A/contact.png"></image>
+      <view class='userInfo'>
+        <view style='font: 14px microsoft yahei;text-align: left;padding-bottom:5px'>
+          {{userName}}
+        </view>
+        <view style='font: 12px microsoft yahei;color:#808080'>
+          {{companyName}}
+        </view>
+      </view>
+    </view>
+    <view class='wx-dialog-content'>
+      <image src="{{url}}" class="shared-img">
+      </image>
+    </view>
+    <view class='wx-dialog-title'>我的二维码名片</view>
+
+  </view>
+  <view class='dialog-button'>
+    <view style='display: flex;flex-direction: column;align-items: center;'>
+      <button open-type="share" bindtap='test' class='btn-shared'>
+        <image src="https://51baoguan.cn/content/images/themes/A/btn-shared1.png" class="btn-left">
+        </image>
+      </button>
+      <label style='  font: 12px microsoft yahei;color:#808080;padding-top:3px'>分享</label>
+    </view>
+    <view style='display: flex;flex-direction: column;align-items: center;'>
+      <image src="https://51baoguan.cn/content/images/themes/A/btn-down1.png" class="btn-right" bindtap='download'> </image>
+      <label style='  font: 12px microsoft yahei;color:#808080;padding-top:3px'>下载</label>
+    </view>
+
+  </view>
+</view>

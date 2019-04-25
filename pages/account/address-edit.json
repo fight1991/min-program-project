@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "编辑收发货地址",
+  "usingComponents": {
+    "logistics-dialog": "/components/logistics-dialog/logistics-dialog"
+  }
+}

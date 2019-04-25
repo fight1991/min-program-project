@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "编辑个人信息",
+  "usingComponents": {
+    "dialog": "/components/import-dialog/import-dialog"
+  }
+}

@@ -1,0 +1,62 @@
+page {
+  background-color: #f5f5f5;
+  font-family: Microsoft Yahei;
+  font-size: 14px;
+}
+
+.title-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.audit-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.info-lb {
+  padding-left: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+.bnt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 15px;
+  color: #D5617E;
+  font-size: 15px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.border-top-1{
+  border-top: 1px solid #FAFAFA;
+}
+
+.wx-switch-input {
+  width: 82rpx !important;
+  height: 40rpx !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.wx-switch-input::before {
+  width: 80rpx !important;
+  height: 36rpx !important;
+}
+
+.wx-switch-input::after {
+  width: 38rpx !important;
+  height: 36rpx !important;
+}

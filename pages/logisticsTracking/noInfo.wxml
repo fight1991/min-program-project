@@ -1,0 +1,8 @@
+<view class='items'>
+  <label class='items-title'>海关编号</label>
+  <input type='number' class='items-input' id='entryId' name='entryId' value='{{searchModel.entryId}}' bindinput='bindData'></input>
+  <image src='/content/images/themes/A/ccbascanCode.png' data-scan='entryId' class="search-item-img" bindtap='scanCode'></image>
+</view>
+<view class='buttons'wx:if='{{isOperation=="true"}}'>
+  <button class='button' disabled='{{disabled}}' bindtap='confirm'>确认</button>
+</view>

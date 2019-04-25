@@ -1,0 +1,29 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview' style='background-image:url({{theme}}newsearch.png);background-size:100% auto'>
+  <form bindsubmit="search" bindreset="reset" class='search'>
+    <view style='padding-top:50%'>
+      <view class="search-item" style='margin-bottom:20px'>
+        <label class='search-item-lb'>{{titless["代码"]}}:</label>
+        <input class='search-item-input' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="cop_g_no" value='{{searchModel.cop_g_no}}' bindinput='bindData'></input>
+        <image src='{{theme}}scanCode.png' data-scan='cop_g_no' class="search-item-img" bindtap='scanCode'></image>
+      </view>
+      <view class="search-item" style='margin-bottom:20px'>
+        <label class='search-item-lb'>{{titless["名称"]}}:</label>
+        <input class='search-item-input' type='number' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="code_t_s" value='{{searchModel.code_t_s}}' bindinput='bindData'></input>
+        <image src='{{theme}}scanCode.png' data-scan='code_t_s' class="search-item-img" bindtap='scanCode'></image>
+      </view>
+
+      <view class="search-item">
+        <label class='search-item-lb1'>{{titless["品名"]}}:</label>
+        <input class='search-item-input1' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="g_name" value='{{searchModel.g_name}}' bindinput='bindData'></input>
+        <label class="search-item-img"></label>
+      </view>
+      <view>
+        <button class="search-btn-reset" formType="reset">{{titless["重置"]}}</button>
+        <button class="search-btn" formType="submit">{{titless["搜索"]}}</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style}}" wx:if='{{showBackTo}}' />

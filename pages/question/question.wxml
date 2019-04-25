@@ -1,0 +1,172 @@
+<view class="marquee">
+  <view class="content">
+    <text>{{text}}</text>
+    <text style="display: inline-block; width: 5em;"></text>
+  </view>
+</view>
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='line-height: {{winHeight*0.08}}px;'>全部</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='line-height: {{winHeight*0.08}}px;'>我的提问</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" wx:if="{{!isShow}}" data-current="2" bindtap="swichNav" style='line-height: {{winHeight*0.08}}px;'>我要解答</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.08}}px" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y style="height:{{winHeight-20 - winHeight*0.08}}px" bindscrolltolower="loadAllMore" bindscrolltoupper="refresh1">
+      <view>
+        <picker bindchange="bindCatoryChange" value="{{arr_index}}" range="{{array}}">
+          <view class="select">
+            {{array[arr_index]}}
+          </view>
+        </picker>
+      </view>
+      <view wx:for="{{allQuestionData}}" wx:key="" data-index='{{index}}' bindtap='showDetails' id="{{item.ID}}">
+        <view wx:if="{{item.Question.CHOICENESS_YN=='5'}}" class='list-item list-item-top' style='position: relative'>
+          <view>
+            <image class="userinfo-avatar-image" src="{{item.Question.USER_IMG}}" background-size="cover"></image>
+          </view>
+          <view class='list-item-detail'>
+            <view class="list-item-answer">
+              {{item.Question.QUESTION_NOTE}}
+            </view>
+            <view class='list-item-question'>
+              {{item.Answers[0].ANSWER_NOTE}}
+            </view>
+            <view class='list-item-date'>
+              {{item.Question.LAST_REPLY_TIME}}
+            </view>
+          </view>
+          <image src="/content/images/themes/A/jing.png" class="image-jing" bindtap='submitQuestion'></image>
+        </view>
+        <view class='list-item' wx:if="{{item.Question.CHOICENESS_YN!='5'}}">
+          <view>
+            <image class="userinfo-avatar-image" src="{{item.Question.USER_IMG}}" background-size="cover"></image>
+          </view>
+          <view class='list-item-detail'>
+            <view class="list-item-answer">
+              {{item.Question.QUESTION_NOTE}}
+            </view>
+            <view class='list-item-question'>
+              {{item.Answers[0].ANSWER_NOTE}}
+            </view>
+            <view class='list-item-date'>
+              {{item.Question.LAST_REPLY_TIME}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{showflag1 == 1}}" class='foot'>
+        <view class='foot-line'>————————</view>
+        <view class='foot-font'>我也是有底线的</view>
+        <view class='foot-line'>————————</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <!-- bindscrolltoupper="refresh2" -->
+    <scroll-view scroll-y="ture" style="height:{{winHeight-20 - winHeight*0.08}}px;padding:0px;" bindscrolltolower="loadMineMore">
+      <!-- <view>
+        <picker bindchange="bindResultChange" value="{{a_index}}" range="{{result_array}}">
+          <view class="select">
+            {{result_array[a_index]}}
+          </view>
+        </picker>
+      </view> -->
+      <view class='list-item-mine list-item-frist' wx:for="{{allQueData}}" wx:key="" data-index='{{index}}' bindtap='showDetails' id="{{item.ID}}">
+        <view>
+          <image class="userinfo-avatar-image" src="{{item.Question.USER_IMG}}" background-size="cover"></image>
+        </view>
+        <view class='list-item-mine-detail'>
+          <view class="list-item-answer">
+            {{item.Question.QUESTION_NOTE}}
+          </view>
+          <view class='list-item-date'>
+            {{item.Question.QUESTION_TIME}}
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='2'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/weijiejue.png"></image>
+          <view class='list-item-imgs-lb'>
+            未解决
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='3'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/duihao.png"></image>
+          <view class='list-item-imgs-lb'>
+            已解决
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='0'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/daijieda.png"></image>
+          <view class='list-item-imgs-lb'>
+            待解答
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='1'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/daiqueren.png"></image>
+          <view class='list-item-imgs-lb'>
+            待确认
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{showflag2 == 1}}" class='foot'>
+        <view class='foot-line'>————————</view>
+        <view class='foot-font'>我也是有底线的</view>
+        <view class='foot-line'>————————</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item wx:if="{{!isShow}}">
+    <scroll-view scroll-y="ture" style="height:{{winHeight -20- winHeight*0.08}}px;padding:0px;" bindscrolltolower="loadMore" bindscrolltoupper="refresh3">
+      <view>
+        <picker bindchange="bindPickerChange" value="{{b_index}}" range="{{result_array}}">
+          <view class="select">
+            {{result_array[b_index]}}
+          </view>
+        </picker>
+      </view>
+      <view class='list-item-mine list-item-frist' wx:for="{{allAnswerData}}" wx:key="" data-index='{{index}}' bindtap='showDetails' id="{{item.ID}}" data-status="{{item.Question.QUESTION_STATUS}}">
+        <view>
+          <image class="userinfo-avatar-image" src="{{item.Question.USER_IMG}}" background-size="cover"></image>
+        </view>
+        <view class='list-item-mine-detail'>
+          <view class="list-item-answer">
+            {{item.Question.QUESTION_NOTE}}
+          </view>
+          <view class='list-item-date'>
+            {{item.Question.QUESTION_TIME}}
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='2'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/weijiejue.png"></image>
+          <view class='list-item-imgs-lb'>
+            未解决
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='3'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/duihao.png"></image>
+          <view class='list-item-imgs-lb'>
+            已解决
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='0'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/daijieda.png"></image>
+          <view class='list-item-imgs-lb'>
+            待解答
+          </view>
+        </view>
+        <view wx:if="{{item.Question.QUESTION_STATUS=='1'}}" class='list-item-imgs'>
+          <image class='list-item-answer-img' src="https://51baoguan.cn/content/images/themes/A/others/daiqueren.png"></image>
+          <view class='list-item-imgs-lb'>
+            待确认
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{showflag3 == 1}}" class='foot'>
+        <view class='foot-line'>————————</view>
+        <view class='foot-font'>我也是有底线的</view>
+        <view class='foot-line'>————————</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<image src="/content/images/themes/A/tiwen.png" class="image-menu" bindtap='submitQuestion' wx:if="{{currentTab==1||currentTab==0}}"></image>

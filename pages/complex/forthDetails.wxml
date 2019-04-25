@@ -1,0 +1,7 @@
+<view style='height:100%;'>
+  <view class='list-item1' data-statu="open">
+    <view class='list-item-middle' wx:for="{{datas}}" wx:key="" wx:for-index="i">
+      <label class='list-item-info'>{{datas[i]}}</label>
+    </view>
+  </view>
+</view>

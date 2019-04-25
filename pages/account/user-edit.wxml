@@ -1,0 +1,48 @@
+<view class='header'>
+  <image class="user-img" src="https://51baoguan.cn/content/images/themes/A/contact-big.png"></image>
+</view>
+
+<view class='margin-top-10' style='background-color: #fff; '>
+  <view class='user-info'>
+    <view class='user-info-item'>
+      <label class='user-info-lb'>姓名</label>
+      <view class='user-info-val'>
+        <input placeholder='请输入姓名' placeholder-style='color:#D8D8D8' bindinput='bindData' id="userName" value='{{user.userName}}'></input>
+      </view>
+    </view>
+    <view class='user-info-item border-top-1'>
+      <label class='user-info-lb'>邮箱</label>
+      <view class='user-info-val'>
+        <input placeholder='请输入邮箱' placeholder-style='color:#D8D8D8' bindinput='bindData' id="emailAddress" value='{{user.emailAddress}}'></input>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='margin-top-10' style='background-color: #fff;'>
+  <view class='comapny-contaner'>
+    <view class='comapny-contaner-title'>所属企业</view>
+    <view class='comapny-contaner-ls'>
+      <view class='comapny-contaner-ls-item' wx:for="{{user.corps}}" wx:key="index" wx:if="{{item.auditStatus!='dede'}}">
+        <view class='item-left'>
+          <view>{{item.corpName}}</view>
+          <image class='img-float' wx:if="{{item.defaultCorp=='1'}}" src='https://51baoguan.cn/content/images/themes/A/default_bg.jpg'></image>
+        </view>
+        <view>
+          <text style='margin-right:5px;color:#999' bindtap='showCorp' data-corpId='{{item.corpId}}' data-corpName='{{item.corpName}}'>编辑</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='margin-top-40 del' style='color:#1195DD' bindtap='addCorp'>
+  + 新增所属企业
+</view>
+
+<view style='margin:20px 10px' bindtap='updateUser'>
+  <button style='color:#fff;background-color:#1195DD;'>确定</button>
+</view>
+
+<dialog title="新增企业" id='myDialog' bindcancelEvent="colseDialog" bindconfirmEvent="addCorp">
+</dialog>

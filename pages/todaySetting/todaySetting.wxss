@@ -1,0 +1,165 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.myContainer {
+  font-size: 15px;
+}
+
+.myBgColor {
+  background-color: #fff;
+}
+
+/* 公用分割线:细的 */
+
+.divider {
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 4rpx solid #f5f5f5;
+}
+
+.divederPadding {
+  margin-left: 28rpx;
+}
+
+/* 公用分割线:粗的 */
+
+.dividerThick {
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 20rpx solid #f5f5f5;
+}
+
+/* 解决子元素上外边距溢出问题*/
+
+.myMargin:before {
+  content: "";
+  display: table;
+}
+
+.myClear:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 每一行公用的上下左边距 */
+
+.commonList {
+  padding: 11rpx 40rpx;
+}
+
+/* 1.1第一行 */
+
+.firstLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.firstLineText {
+  display: flex;
+  align-items: center;
+}
+
+/* 1.2第二行 */
+
+.secondLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secondLineBtn {
+  display: flex;
+}
+
+.secondLineBtnCommon {
+  width: 53rpx;
+  height: 53rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 1px solid #eee;
+}
+
+/* 输入框 */
+
+.secondLineIpt {
+  width: 70rpx;
+  height: 53rpx;
+  line-height: 46rpx;
+  text-align: center;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+
+/* 2.1第一行 */
+
+.middleFirstLine .myAdd {
+  /* display:inline-block; */
+  float: right;
+}
+
+.middleFirstLine .myAdd image {
+  width: 10px;
+  height: 10px;
+  padding-right: 5px;
+}
+
+.middleFirstLine .myAdd text {
+  color: #1195dd;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 红色图片- */
+
+.myCloseImage {
+  width: 22px;
+  height: 22px;
+}
+
+/* 灰色小字 */
+
+.grayText {
+  font-size: 11px;
+  color: #999;
+  padding: 5rpx 0;
+}
+
+.btn button {
+  background-color: #1195dd;
+  font-size: 16px;
+  color: #fff;
+  width: 300px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.myChildContainer {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.complete-btn {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+}
+
+.input {
+  border-radius: 5rpx;
+  padding-left: 40rpx;
+  height: 20px;
+}
+
+.placeholder {
+  font: 12px microsoft yahei;
+}

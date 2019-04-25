@@ -1,0 +1,108 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset" class='search' wx:if="{{src=='CusImg'}}">
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:20px'>
+        <label class="search-item-lb">商品序号:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入商品序号' placeholder-class='placeholder' id="g_no" value='{{searchModel.g_no}}' bindinput='bindData'></input>
+          <label class="search-item-img"></label>
+        </view>
+      </view>
+      <view class="search-item1">
+        <label class="search-item-lb">商品编码:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入商品编码' placeholder-class='placeholder' id="code_t_s" value='{{searchModel.code_t_s}}' bindinput='bindData'></input>
+          <image src='{{theme}}ccbascanCode.png' class="search-item-img" data-scan='code_t_s' bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+  <form bindsubmit="search" bindreset="reset" class='search' wx:if="{{src=='CusExg'}}">
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:20px'>
+        <label class="search-item-lb">商品序号:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入商品序号' placeholder-class='placeholder' id="g_no" value='{{searchModel.g_no}}' bindinput='bindData'></input>
+          <label class="search-item-img"></label>
+        </view>
+      </view>
+      <view class="search-item1">
+        <label class="search-item-lb">商品编码:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入商品编码' placeholder-class='placeholder' id="code_t_s" value='{{searchModel.code_t_s}}' bindinput='bindData'></input>
+          <image src='{{theme}}scanCode.png' class="search-item-img" data-scan='code_t_s' bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+  <form bindsubmit="search" bindreset="reset" class='search' wx:if="{{src=='CusConsume'}}">
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:20px'>
+        <label class="search-item-lb">成品序号:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入成品序号' placeholder-class='placeholder' id="exg_no" value='{{searchModel.exg_no}}' bindinput='bindData'></input>
+          <image src='{{theme}}scanCode.png' class="search-item-img" data-scan='exg_no' bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class="search-item1">
+        <label class="search-item-lb">版本号:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入版本号' placeholder-class='placeholder' id="exg_version" value='{{searchModel.exg_version}}' bindinput='bindData'></input>
+          <label class="search-item-img"></label>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+  <form bindsubmit="search" bindreset="reset" class='search' wx:if="{{src=='OrgImg'}}">
+    <view class="search-item">
+      <label class="search-item-lb">{{titless["项号"]}}:</label>
+      <input class='search-item-input' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="cop_g_no" value='{{searchModel.cop_g_no}}' bindinput='bindData'></input>
+      <image src='{{theme}}scanCode.png' class="search-item-img" data-scan='cop_g_no' bindtap='scanCode'></image>
+    </view>
+    <view>
+      <button class="search-btn-reset" formType="reset">{{titless["重置"]}}</button>
+      <button class="search-btn" formType="submit">{{titless["搜索"]}}</button>
+    </view>
+  </form>
+  <form bindsubmit="search" bindreset="reset" class='search' wx:if="{{src=='OrgExg'}}">
+    <view class="search-item">
+      <label class="search-item-lb">{{titless["项号"]}}:</label>
+      <input class='search-item-input' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="cop_g_no" value='{{searchModel.cop_g_no}}' bindinput='bindData'></input>
+      <image src='{{theme}}scanCode.png' class="search-item-img" data-scan='cop_g_no' bindtap='scanCode'></image>
+    </view>
+    <view>
+      <button class="search-btn-reset" formType="reset">{{titless["重置"]}}</button>
+      <button class="search-btn" formType="submit">{{titless["搜索"]}}</button>
+    </view>
+  </form>
+  <form bindsubmit="search" bindreset="reset" class='search' wx:if="{{src=='OrgBom'}}">
+    <view class="search-item">
+      <label class="search-item-lb">{{titless["成品项号"]}}:</label>
+      <input class='search-item-input' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="cop_exg_no" value='{{searchModel.cop_exg_no}}' bindinput='bindData'></input>
+    </view>
+    <view class="search-item">
+      <label class="search-item-lb">{{titless["料件项号"]}}:</label>
+      <input class='search-item-input' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="cop_img_no" value='{{searchModel.cop_img_no}}' bindinput='bindData'></input>
+    </view>
+    <view class="search-item">
+      <label class="search-item-lb">{{titless["版本号"]}}:</label>
+      <input class='search-item-input' placeholder='{{titless["请输入"]}}' placeholder-class='placeholder' id="begin_date" value='{{searchModel.begin_date}}' bindinput='bindData'></input>
+    </view>
+    <view>
+      <button class="search-btn-reset" formType="reset">{{titless["重置"]}}</button>
+      <button class="search-btn" formType="submit">{{titless["搜索"]}}</button>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style}}" />

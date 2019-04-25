@@ -1,0 +1,90 @@
+page {
+  width: 100%;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  font: 14px microsoft yahei;
+  border: 1px solid #666;
+  color: #666;
+  align-items: center;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 10px;
+  padding-left: 2%;
+  height: 35px;
+  width: 90%;
+}
+
+.items-title {
+  width: 15%;
+  padding-right: 10px;
+}
+
+.items-input {
+  width: 100%;
+}
+
+.img-date {
+  height: 20px;
+  width: 20px;
+  padding-right: 10px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 10px;
+}
+
+.button {
+  width: 90%;
+  background-color: #1296db;
+  color: #fff;
+}
+
+.placeholder {
+  color: #c1c1c1;
+}
+.educt_upload_add {
+  height: 60px;
+  width: 60px;
+}
+.upload {
+  height: 60px;
+  width: 60px;
+}
+.itemss {
+  margin-top: 10px;
+  display: flex;
+  margin-left: 4%;
+  margin-right: 2%;
+  flex-wrap:wrap;
+}
+
+.img-delete {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+.check-item {
+  padding-right: 10px;
+  position: relative;
+}
+.input{
+  height: 40px;
+  line-height: 40px;
+  border: 0.5px solid #808080;
+  padding-left: 5px
+}
+.img-close{
+  height: 15px;
+  width: 15px;
+  padding-right: 5px;
+}

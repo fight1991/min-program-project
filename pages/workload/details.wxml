@@ -1,0 +1,50 @@
+<import src="../../content/template/searchEnd.wxml" />
+<view wx:if='{{searchNone==false}}' style='heigth:100%'>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>操作员：</label>
+    <view class='list-item-lb-value'>{{obj.USER_ID}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>进口接单数：</label>
+    <view class='list-item-lb-value'>{{obj.I_BII_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>出口接单数：</label>
+    <view class='list-item-lb-value'>{{obj.E_BII_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>进口录入数：</label>
+    <view class='list-item-lb-value'>{{obj.I_ENTRY_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>出口录入数：</label>
+    <view class='list-item-lb-value'>{{obj.E_ENTRY_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>进口审核数：</label>
+    <view class='list-item-lb-value'>{{obj.I_AUDIT_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>出口审核数：</label>
+    <view class='list-item-lb-value'>{{obj.E_AUDIT_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>进口申报数：</label>
+    <view class='list-item-lb-value'>{{obj.I_DECLARE_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>出口申报数：</label>
+    <view class='list-item-lb-value'>{{obj.E_DECLARE_COUNT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>录入差错率：</label>
+    <view class='list-item-lb-value'>{{obj.CHECK_ERROR}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>审核差错率：</label>
+    <view class='list-item-lb-value'>{{obj.CHECK_ERROR3}}</view>
+  </view>
+</view>
+<view wx:if='{{searchNone==true}}' style='heigth:100%'>
+  <template is='searchNullPrompt' data='{{theme}}' />
+</view>

@@ -1,0 +1,31 @@
+<view class='contents'>
+  <view wx:for="{{datas}}" wx:key="" data-index='{{index}}'>
+    <view class='titles'>
+      集装箱{{index+1}}
+    </view>
+    <view style='display:flex;align-items:center;justify-content: space-between;'>
+      <view class='inputs {{index=="0"?"first":"other"}}'>
+        <input style='height:70rpx;line-height:70rpx;width:90%' data-index='{{index}}' bindinput='bindData' value='{{item}}'></input>
+        <image bindtap='identify' data-no='{{item}}' data-index='{{index}}' class='camera' src='https://51baoguan.cn/content/images/themes/A/camera.png'></image>
+      </view>
+      <image bindtap='delContainer' data-index='{{index}}' wx:if='{{index>0}}' class='close' src='/content/images/themes/A/close.png'></image>
+    </view> 
+  </view>
+  <view class='tips-add' bindtap='addContainer'>
+    +新增集装箱
+  </view>
+</view>
+<view class='items'>
+  <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+    <view class='check-item'>
+      <image src="{{item}}" bindtap='showImg' data-url='{{item}}' class="upload"></image>
+      <image src="/content/images/themes/A/close.png" bindtap='clearImg' data-index="{{index}}" class="img-delete"></image>
+    </view>
+  </view>
+  <view class="educt_upload_add" bindtap="joinPicture" data-index="{{0}}">
+    <image src="/content/images/themes/A/ccbaupload.png" class="upload"></image>
+  </view>
+</view>
+<view wx:if='{{obj.role!="货主"&&isOperation=="true"}}' class='buttons'>
+  <button class='button' disabled='{{disabled}}' bindtap='confirm'>完成任务</button>
+</view>

@@ -1,0 +1,46 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <template is="search_template" data="{{winHeight,theme,titles}}" />
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='show' id='{{item.ID}}' data-cop_g_no='{{item.COP_G_NO}}'>
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.COP_G_NO == "" ? "_" : item.COP_G_NO}}</label>
+        <label class='list-item-info1' wx:if='{{item.G_MARK == 3}}'>料件</label>
+        <label class='list-item-info1' wx:if='{{item.G_MARK == 4}}'>成品</label>
+        <label class='list-item-info1' wx:if='{{item.G_MARK == 5}}'>设备</label>
+        <label class='list-item-info1' wx:if='{{item.G_MARK == 7}}'>备件</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1'>品名：{{item.G_NAME == "" ? "_" : item.G_NAME}}</label>
+      </view>
+      <view class='list-item-bottom'>
+        <label class='list-item-info1'>
+          商品编码：{{item.CODE_T_S == "" ? "_" : item.CODE_T_S}}
+        </label>
+        <label class='list-item-info1' style='font-size:14px'>
+          •••
+        </label>
+      </view>
+      <!-- <view>
+        <label class='list-item-title'>{{item.COP_G_NO == "" ? "_" : item.COP_G_NO}}</label>
+        <label class='list-item-info'>{{item.G_NAME == "" ? "_" : item.G_NAME}}</label>
+        <label class='list-item-info'>{{item.CODE_T_S == "" ? "_" : item.CODE_T_S}}</label>
+      </view>
+      <view>
+        <label class='list-item-info' wx:if='{{item.G_MARK == 3}}'>料件</label>
+        <label class='list-item-info' wx:if='{{item.G_MARK == 4}}'>成品</label>
+        <label class='list-item-info' wx:if='{{item.G_MARK == 5}}'>设备</label>
+        <label class='list-item-info' wx:if='{{item.G_MARK == 7}}'>备件</label>
+      </view> -->
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />

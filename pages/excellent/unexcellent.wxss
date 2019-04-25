@@ -1,0 +1,21 @@
+.title {
+  font: 16px microsoft yahei;
+  text-align: center;
+}
+
+.btns {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  font: 16px microsoft yahei;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
+  width: 60%;
+  background-color: #1296db;
+}

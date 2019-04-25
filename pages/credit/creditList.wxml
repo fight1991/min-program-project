@@ -1,0 +1,293 @@
+
+
+<view class="myContainer myMargin" style='position: absolute;'>
+   <image class='credit-level' src='https://51baoguan.cn/content/images/themes/A/credit_level_{{level}}.png'></image>
+  <!-- 第一部分：注册信息 -->
+  <view class="zhuCeXinXi containerCommonPaddingTitle">注册信息</view>
+  <view class="divider" > 
+  </view> 
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">统一社会信用代码</view>
+        <view class="myRightCommen">{{item.TRADE_SCC}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第二行 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">海关注册编码</view>
+        <view class="myRightCommen">{{item.TRADE_CODE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第三行 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">注册日期</view>
+        <view class="myRightCommen">{{item.REGISTER_DATE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第四行 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">注册海关</view>
+        <view class="myRightCommen">{{item.REGISTER_CUSTOMS}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第五行：企业中文名称 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">企业中文名称</view>
+        <view class="myRightCommen">{{item.TRADE_NAME}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第六行：工商注册地址 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">工商注册地址</view>
+        <view class="myRightCommen">{{item.REGISTER_ADDRESS}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第七行：行政区划 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">行政区划</view>
+        <view class="myRightCommen">{{item.DISTRICT_NAME}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第八行：经济区划 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">经济区划</view>
+        <view class="myRightCommen">{{item.ECONOMIC_ZONE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第九行：经营类别 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">经营类别</view>
+        <view class="myRightCommen">{{item.OPERATOR_TYPE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十行：特殊贸易区域 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">特殊贸易区域</view>
+        <view class="myRightCommen">{{item.TRADE_ZONE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十一行：行业种类 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">行业种类</view>
+        <view class="myRightCommen">{{item.INDUSTRY_CODE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十二行：报关有效期 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">报关有效期</view>
+        <view class="myRightCommen">{{item.END_DATE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十三行：跨境贸易电子商务类型 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">信用等级</view>
+        <view class="myRightCommen">{{item.COMMERCIAL_TYPE}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十四行：海关注销标志 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">海关注销标志</view>
+        <view class="myRightCommen">{{item.LOGOUT_FLAG}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十五行：年报情况 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">年报情况</view>
+        <view class="myRightCommen">{{item.ANNUAL_REPORT}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+  </view>
+  <!-- 第十六行：信用信息异常情况 -->
+  <view class="everyContainer">
+    <view class="TextContainer myMargin commenPaddingContainer">
+      <view class="childContainer childContainerCommen">
+        <view class="myLeftCommen">信用信息异常情况</view>
+        <view class="myRightCommen">{{item.ABNORMAL_REMARK}}</view>
+      </view>
+    </view>
+    <view class="dividerParentPaddingLeft">
+      <view class="divider"></view>
+    </view>
+
+    <!-- 第一部分末尾粗的分割线 -->
+    <view class="dividerThick"></view>
+    <!-- 第二部分：信用等级 -->
+    <view class="zhuCeXinXi containerCommonPaddingTitle">信用等级</view>
+    <view class="divider"></view>
+    <!-- 第一行：当前信用等级 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">当前信用等级</view>
+          <view class="myRightCommen">{{item.COMMERCIAL_TYPE}}</view>
+        </view>
+      </view>
+      <view class="dividerParentPaddingLeft">
+        <view class="divider"></view>
+      </view>
+    </view>
+    <!-- 第二行：认定时间 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">认定时间</view>
+          <view class="myRightCommen">无</view>
+        </view>
+      </view>
+      <view class="dividerParentPaddingLeft">
+        <view class="divider"></view>
+      </view>
+    </view>
+    <!-- 第三行：认证书编码 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">认证书编码</view>
+          <view class="myRightCommen">无</view>
+        </view>
+      </view>
+      <view class="dividerParentPaddingLeft">
+        <view class="divider"></view>
+      </view>
+    </view>
+    <!-- 第一行：信用等级 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">信用等级</view>
+          <view class="myRightCommen">{{item.COMMERCIAL_TYPE}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="dividerThick"></view>
+    <!-- 第三部分：行政处罚信息 -->
+    <view class="zhuCeXinXi containerCommonPaddingTitle">行政处罚信息</view>
+    <view class="divider"></view>
+    <!-- 第一行：当事人 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">当事人</view>
+          <view class="myRightCommen">无</view>
+        </view>
+      </view>
+      <view class="dividerParentPaddingLeft">
+        <view class="divider"></view>
+      </view>
+    </view>
+    <!-- 第二行：案件性质 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">案件性质</view>
+          <view class="myRightCommen">无</view>
+        </view>
+      </view>
+      <view class="dividerParentPaddingLeft">
+        <view class="divider"></view>
+      </view>
+    </view>
+    <!-- 第三行：处罚日期 -->
+    <view class="everyContainer">
+      <view class="TextContainer myMargin commenPaddingContainer">
+        <view class="childContainer childContainerCommen">
+          <view class="myLeftCommen">行政处罚决定书编号</view>
+          <view class="myRightCommen">无</view>
+        </view>
+      </view>
+
+    </view>
+    <!-- 细的分割线 -->
+    <view>
+      <view class="divider"></view>
+    </view>
+  </view>
+</view>

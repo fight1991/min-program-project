@@ -1,0 +1,106 @@
+ <import src="../../content/template/search_template.wxml" /> 
+<import src="../../content/template/backToTop.wxml" />
+ <import src="../../content/template/searchEnd.wxml" /> 
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" class='scrolls' style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view style='height:{{winHeight}}px;'>
+    <view style="height:{{winHeight*0.07}}px;width:100%;background-color: #1296db;display:flex;align-items:center;flex-wrap:wrap;">
+      <view class='search-item' style='height:{{winHeight*0.05}}px;'>
+        <view style='display: flex;align-items:center;width: 80%' >
+          <image src='{{theme}}ccbasearch2.png' style='height:{{winHeight*0.04*0.5}}px;width:{{winHeight*0.045*0.5}}px;padding-left:5px'></image>
+          <input class='search-input' style='line-height:{{winHeight*0.06}}px' placeholder='请输入商品编码或名称' placeholder-class='placeholder' id="condition" value='{{searchModel.condition}}' bindinput='bindData' bindconfirm='search'>
+          </input>
+        </view>
+        <label bindtap='search' class='search-btn'>搜索</label>
+      </view>
+    </view>
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='showDetails' id='{{item.CODE_TS}}' data-statu="open">
+      <view class='list-item-left' style='background-image:url({{theme}}index/ccbacodeTs-list.png);background-size:auto 55%;background-repeat:no-repeat;'>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-title'>{{item.CODE_TS == "" ? "_" : item.CODE_TS}}</label>
+        <label class='list-item-info'>{{titless["名称"]}}：{{item.G_NAME == "" ? "_" : item.G_NAME}}</label>
+      </view>
+      <view class='list-item-right'>
+        <label style='height:50%;background-color:#fff'></label>
+        <label class='list-item-info1' style='display: flex;justify-content:flex-end'>【{{item.CONTROL_MA == "" ? "_" : item.CONTROL_MA}}】</label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag,titles}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />
+<view class="drawer-screen" bindtap="showDetails" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer-box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer-title">{{obj.CODE_TS}}</view>
+  <view class="drawer-content">
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["名称"]}}:</label>
+      <label class="input-base col-1">{{obj.G_NAME}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["申报要素"]}}:</label>
+      <label class="input-base col-1 word-break">{{obj.G_MODEL}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["法定单位"]}}:</label>
+      <label class="input-base col-1">{{obj.UNIT_1}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["第二单位"]}}:</label>
+      <label class="input-base col-1">{{obj.UNIT_2}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["最惠国进口税率"]}}:</label>
+      <label class="input-base col-1">{{obj.LOW_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["普通进口税率"]}}:</label>
+      <label class="input-base col-1">{{obj.HIGH_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["暂定进口税率"]}}:</label>
+      <label class="input-base col-1">{{obj.TEMP_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["消费税率"]}}:</label>
+      <label class="input-base col-1">{{obj.COMM_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["出口税率"]}}:</label>
+      <label class="input-base col-1">{{obj.OUT_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["出口退税率"]}}:</label>
+      <label class="input-base col-1">{{obj.OTHER_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["协定税率"]}}:</label>
+      <label class="input-base col-1">{{obj.AGREED_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["增值税率"]}}:</label>
+      <label class="input-base col-1">{{obj.TAX_RATE}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["监管条件"]}}:</label>
+      <label class="input-base col-1">{{obj.CONTROL_MA}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["检验检疫类别"]}}:</label>
+      <label class="input-base col-1">{{obj.CIQ_MA}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">{{titless["备注"]}}:</label>
+      <label class="input-base col-1">{{obj.NOTE_S}}</label>
+    </view>
+  </view>
+  <view class="btn-ok" bindtap="showDetails" data-statu="close">{{titless["关闭"]}}</view>
+</view>

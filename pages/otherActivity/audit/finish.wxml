@@ -1,0 +1,11 @@
+<view>
+  <view class='icon-tip'>
+    <image src='/content/images/themes/A/logistics_finish.png' bindtap='hide' class='img-finish'></image>
+  </view>
+  <view class='content-tip'>
+    <label class='item-tip'>报名完成</label>
+  </view>
+  <view class='search-btns'>
+    <button class="search-btn" bindtap='finish'>完成</button>
+  </view>
+</view>

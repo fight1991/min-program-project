@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "物流详情",
+  "usingComponents": {
+    "logistics-dialog": "/components/logistics-dialog/logistics-dialog"
+  }
+}

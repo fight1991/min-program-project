@@ -1,0 +1,37 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset" class='search'>
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:10px'>
+        <label class='search-item-lb'>客户</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入客户' placeholder-class='placeholder' id="company" value='{{searchModel.company}}' bindinput='bindData'></input>
+          <label class='search-item-img'></label>
+        </view>
+      </view>
+      <picker mode="date" value="{{index}}" id='picker' start="1980-01-01" end="2050-12-31" fields="year" bindchange="bindDateChange" style='margin-bottom:15px'>
+        <view class="picker search-item1" style='margin-bottom:10px'>
+          <label class='search-item-lb'>年份</label>
+          <view class="search-item">
+            <input class='search-item-input' disabled="false" placeholder='请选择年份' placeholder-class='placeholder' value='{{date}}'></input>
+            <label class='search-item-img'></label>
+          </view>
+        </view>
+      </picker>
+      <picker mode="selector" value="{{selectItemFlag}}" range='{{arrayFlag}}' bindchange="bindChangeFlag" style='margin-bottom:15px'>
+        <view class="picker search-item1">
+          <label class='search-item-lb'>进出口标志</label>
+          <view class="search-item">
+            <input class='search-item-input' disabled="false" placeholder='请选择进出口标志' placeholder-class='placeholder' value='{{i_e_flag}}'></input>
+            <image src='/content/images/themes/A/select.png'style="height:10px;width:15px"></image>
+          </view>
+        </view>
+      </picker>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style,titles}}" wx:if='{{showBackTo}}' />

@@ -1,0 +1,9 @@
+<view class="title">
+  <label style='font-weight: 800;'>{{obj.TITLE}}</label>
+</view>
+<view class="content">
+  <lable class="content-info">{{obj.DESCRIPTION}}</lable>
+  <view wx:for="{{files}}" wx:key="">
+  <image bindload="imageLoad" data-index="{{ index }}" style="width:{{ images[index].width }}px; height:{{ images[index].height }}px;" src="{{obj.TYPE==1?null:item.FULL_NAME}}" model='aspectFit'></image>
+  </view>
+</view>

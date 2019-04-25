@@ -1,0 +1,11 @@
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+  <view class='wx-mask' catchtouchmove='true'></view>
+  <view class='wx-dialog'>
+    <view class='wx-dialog-title'>{{title}}</view>
+    <view class='wx-dialog-content'>{{content}}</view>
+    <view class='dialog-button-view'>
+      <view class='dialog-button' bindtap='_confirmEvent' style='border-right:1px solid #eee'>{{confirmText}}</view>
+      <view class='dialog-button' bindtap='_cancelEvent'>{{cancelText}}</view>
+    </view>
+  </view>
+</view>

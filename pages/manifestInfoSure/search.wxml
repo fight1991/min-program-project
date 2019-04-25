@@ -1,0 +1,26 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset">
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:15px'>
+        <label class='search-item-lb'>运输批次号</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入运输批次号' placeholder-class='placeholder' id="batch_number" value='{{searchModel.batch_number}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='batch_number' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class="search-item1" style='margin-bottom:15px'>
+        <label class='search-item-lb'>运输工具号</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入运输工具号' placeholder-class='placeholder' id="conveyance_no" value='{{searchModel.conveyance_no}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='conveyance_no' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" disabled='{{disabled}}' formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style,titles}}" wx:if='{{showBackTo}}' />

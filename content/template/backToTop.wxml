@@ -1,0 +1,6 @@
+<template name="backToTop">
+  <image src='{{theme}}back.png' style="position:absolute;bottom:120rpx;right:60rpx;height:100rpx;width:100rpx;" wx:if="{{scrollTop.goTop_show}}" catchtap="goTop"></image>
+</template>
+<template name="backToTop1">
+  <image src='{{theme}}back.png' style="position:absolute;bottom:120rpx;right:60rpx;height:100rpx;width:100rpx;" wx:if="{{scrollTop1.goTop_show}}" catchtap="goTop1"></image>
+</template>

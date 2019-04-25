@@ -1,0 +1,100 @@
+<view style='width: 100%;height:100%;background: -webkit-linear-gradient(#0c62a3, #1291c1);'>
+  <view class='titile-tip'>
+    你收到一份物流委托邀请
+  </view>
+  <view style='display:flex;align-items:center;justify-content:center' wx:if='{{status=="8"}}' class='drawer_screen'>
+    <image class='img-invalid' src="https://51baoguan.cn/content/images/themes/A/invalid.png"></image>
+  </view>
+  <view class='content-details'>
+    <view style='display:flex'>
+      <image class='img-tip' src='/content/images/themes/A/tip.png'></image>
+      <view style='padding-left:20px;padding-top:10px'>
+        <view>
+          <label style='font: 22px microsoft yahei;'>{{obj.userName}}</label>
+          <label style='font: 14px microsoft yahei;padding-left:15px'>{{obj.companyName==null?'':obj.companyName}}</label>
+        </view>
+        <view style='padding-top:15px;padding-bottom:15px'>
+          <label style='font: 16px microsoft yahei'>{{obj.mobileNo}}</label>
+          <image wx:if='{{logged}}' class='img-tel' src='/content/images/themes/A/tel.png' bindtap='callPhone'></image>
+        </view>
+        <view>
+        </view>
+      </view>
+    </view>
+    <view class=' tip' style='padding-bottom:10px'>
+      <label style='font: 14px microsoft yahei;'>委托编号：{{obj.trackingNo}}</label>
+      <label style='font: 13px microsoft yahei;color:#9b9b9b'>{{obj.trackingTime}}</label>
+    </view>
+  </view>
+  <view class='content-details'>
+    <view class='content-item'>
+      <label class='content-titile'>角色：</label>
+      <label class='content'>{{obj.roleStr}}</label>
+    </view>
+    <view class='content-item'>
+      <label class='content-titile'>物流方式：</label>
+      <label class='content'>{{obj.trafType}}</label>
+    </view>
+    <view class='content-item'>
+      <label class='content-titile'>境外提货人：</label>
+      <label class='content'>{{obj.T}}</label>
+    </view>
+    <view class='content-item'>
+      <label class='content-titile'>境内收货人：</label>
+      <label class='content'>{{obj.S}}</label>
+    </view>
+    <view class='content-item'>
+      <label class='content-titile'>货物信息：</label>
+      <label class='content'>{{obj.goodsInfo==null?'':obj.goodsInfo}}</label>
+    </view>
+    <view class='content-item'>
+      <label class='content-titile'>负责节点：</label>
+      <view class='nodeList' style='width: 60%;'>
+        <label wx:for="{{nodeList}}" wx:key="" data-index='{{index}}' style='width: 100%;' class='content'>{{item}}</label>
+      </view>
+    </view>
+    <view class='content-item'>
+      <label class='content-titile'>备注：</label>
+      <label class='content'>{{obj.notes}}</label>
+    </view>
+  </view>
+  <view class='content-details' wx:if='{{logged}}'>
+    <view class='pictures-title'>
+      <view>
+        <label style='font:14px microsoft yahei;'>委托文件({{obj.urls.length}})</label>
+      </view>
+      <view wx:if='{{obj.urls.length>8&&isShowCount!=15}}' class='pull-down' bindtap='showMore'>
+        <label style='font:14px microsoft yahei;color:#999'>展开</label>
+        <image class='img-pull-down' src='/content/images/themes/A/pull-down.png'></image>
+      </view>
+      <view wx:if='{{isShowCount==15}}' class='pull-down' bindtap='pickUp'>
+        <label style='font:14px microsoft yahei;color:#999'>收起</label>
+        <image class='img-pull-down' src='/content/images/themes/A/pickup.png'></image>
+      </view>
+    </view>
+    <view class='upload' wx:if='{{obj.urls.length>0}}'>
+      <view class="check-item" wx:if='{{index<isShowCount}}' wx:for="{{obj.urls}}" wx:key="" data-index='{{index}}'>
+        <image bindtap='showImg' data-url='{{item}}' src="{{item}}" animation="{{animationMenu}}" class="image-menu" id='imgUrl'></image>
+      </view>
+    </view>
+  </view>
+  <view class='content-details' wx:if='{{!logged}}'>
+    <view class='content-item'>
+      <label class='content-titile'>委托文件：</label>
+      <label class='content'>{{obj.urls.length}}份</label>
+    </view>
+  </view>
+  <view style='height:90px'>
+  </view>
+  <view class='button'>
+    <view class='search-btns' style='padding-top:10px;background-color:#fff'>
+      <button wx:if='{{!logged}}' class="search-btn2" bindtap='autoLogin'>接受</button>
+      <button wx:if='{{logged&&sence=="notice"}}' class="search-btn2" bindtap='join'>接受</button>
+      <button wx:if='{{logged&&sence=="logged"}}' class="search-btn2" bindtap='join'>下一步</button>
+    </view>
+    <view class='search-btns' style='backgroundq-color:#fff'>
+      <view wx:if='{{!logged}}' class="search-btn1" bindtap='unlogged'>谢谢，暂不加入</view>
+      <view wx:if='{{logged}}' class="search-btn1" bindtap='reject'>谢谢，暂不加入</view>
+    </view>
+  </view>
+</view>

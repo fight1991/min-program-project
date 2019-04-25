@@ -1,0 +1,73 @@
+<view class='_container'>
+  <impower id='dialog' title='授权说明' content='请点击确认来进行授权' wx:if="{{isShow}}">
+  </impower>
+  <view class='err-tips' style="width:{{winWidth}}px;" wx:if="{{error.isError}}">{{error.msg}}</view>
+  <view wx:if="{{!isLoading}}" style='height:100%'>
+    <image class='logo-img' src='https://51baoguan.cn/content/images/themes/A/logoss.png'></image>
+    <view class='form-class'>
+      <form wx:if="{{ischange}}" bindsubmit="bindInfo">
+        <view class='input-style'>
+          <view class="info-item">
+            <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbauser1.png'></image>
+            <input class="info-item-input" id="userName" value='{{currentUser.userName}}' bindinput='bindData' placeholder='手机号码' placeholder-class='placeholder'></input>
+          </view>
+          <view class="info-item">
+            <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbapassword1.png'></image>
+            <input class="info-item-input" type='password' id="password" value='{{currentUser.password}}' bindinput='bindData' placeholder='密码' placeholder-class='placeholder'></input>
+          </view>
+        </view>
+        <view class='url-classs'>
+          <label bindtap='changelogin'>手机登录</label>
+          <label bindtap='resetpw' style='color:#999fa8'>忘记密码</label>
+        </view>
+        <view>
+          <button class='btn-save' type='head' formType="submit">登录</button>
+        </view>
+      </form>
+    </view>
+    <view class='form-class'>
+      <form wx:if="{{!ischange}}" bindsubmit="bindInfo">
+        <view class='input-style'>
+          <view class="info-item">
+            <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbatel1.png'></image>
+            <input class="info-item-input1" id="mobile" name='mobile' value='{{currentUser.mobile}}' bindinput='bindData' placeholder='手机号码' placeholder-class='placeholder'></input>
+          </view>
+          <view class="info-item1">
+            <view class="info-item-content">
+              <image class='info-item-icon1' src='https://51baoguan.cn/content/images/themes/A/ccbapassword1.png'></image>
+              <input class="info-item-input2" id="verificationcode" name='verificationcode' value='{{currentUser.verificationcode}}' bindinput='bindData' placeholder='验证码' placeholder-class='placeholder'></input>
+            </view>
+            <view class="info-item-content">
+              <button class='button-type' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">
+                {{time}}
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class='url-classs'>
+          <label bindtap='changelogin'>密码登录</label>
+          <label bindtap='resetpw' style='color:#999fa8'>忘记密码</label>
+        </view>
+        <view>
+          <button class='btn-save' type='head' formType="submit">登录</button>
+        </view>
+      </form>
+    </view>
+    <view class='register'>
+      <label bindtap='step1' style='font-weight:bold'>立即注册 </label>
+    </view>
+    <view class='footer'>
+      <checkbox-group bindchange="openChange" class="chk">
+        <checkbox value="0" checked='checked ' />
+        <label style='color:#999fa8'> 我已仔细阅读并同意以上</label>
+        <label style='color:#0e97de' bindtap='showActivity' data-url='https://51baoguan.cn/content/html/service-agreement.html'>《服务协议》</label>
+      </checkbox-group>
+    </view>
+  </view>
+  <view wx:if="{{isLoading}}" class='load'>
+    <view>
+      <image src='https://51baoguan.cn/content/images/themes/A/loading1.gif' class='load-image'></image>
+      <text class='load-text'>{{titless["正在加载中，请稍等"]}}</text>
+    </view>
+  </view>
+</view>

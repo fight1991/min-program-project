@@ -1,0 +1,42 @@
+<import src="../../content/template/pull_refresh.wxml" />
+<view style='height:{{winHeight}}px;margin-top:{{margin_top}}px'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <view class="section" wx:if='{{show}}'>
+      <picker mode="date" value="{{date}}" start="2010" end="2050" fields="year" bindchange="bindDateChange">
+        <view class="picker">
+          {{date==null?year:date}}年
+        </view>
+      </picker>
+      <view class="triangle-down">
+      </view>
+    </view>
+    <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas" wx:if='{{show}}'></canvas>
+    <view style='  background-color: #fff;'>
+      <view class="table" wx:if='{{show}}'>
+        <view class="tr">
+          <view class="th">
+            <view>{{titless["月份"]}}</view>
+          </view>
+          <view class="th">
+            <view>{{titless["数量(票)"]}}</view>
+          </view>
+          <view class="th">
+            <view>{{titless["金额"]}}(USD)</view>
+          </view>
+        </view>
+        <view class="tr" wx:for="{{datas}}" wx:key="">
+          <view class="td">
+            <view>{{item.DEC_MONTH}}</view>
+          </view>
+          <view class="td">
+            <view>{{item.QTY}}</view>
+          </view>
+          <view class="td">
+            <view>{{item.DECL_TOTAL != "" ? item.DECL_TOTAL : "0"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

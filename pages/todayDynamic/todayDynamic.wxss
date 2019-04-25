@@ -1,0 +1,185 @@
+/* 最外层样式 */
+page{
+  background-color:#F5F5F5;
+}
+.myContainer{
+  padding:20rpx 20rpx 0 20rpx;
+}
+/* 公用分割线:细的-虚线 */
+.dividerDashed{
+  width:100%;
+  margin:0 auto;
+  border-bottom:4rpx dashed #fff;
+}
+/* 公用分割线:粗的-虚线 */
+.dividerDashedCu{
+  width:100%;
+  margin:0 auto;
+  border-bottom:20rpx solid #F5F5F5;
+}
+/* 公共样式-子列表项-上下内边距 */
+.commonPaddingList{
+  padding:8rpx 0rpx;
+}
+/* 灰色小字 */
+.grayText{
+  font-size:11px;
+  color:#999;
+  padding:5rpx 0;
+}
+
+/******** 第一行：内层-上部-父样式 ***********/
+.myTopContainer{
+  background-color:#fff;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  padding:15rpx 38rpx 15rpx 20rpx;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  
+}
+/* 红色的飞机 */
+.myTopContainer image{
+  width:35rpx;
+  height:35rpx;
+}
+/* 红飞机右边的字体 */
+.myTopContainer .codeText{
+  font-size:16px;
+  color:#333;
+  padding-left:20rpx;
+}
+/* 内层-中部-父样式 */
+.myMiddleContainer{
+  background-color:#fff;
+  padding:9rpx 38rpx;
+  
+}
+/* ***********第二行************* */
+.myMiddleContainer .myCity{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.leftFont,.rightFont{
+  font-size:16px;
+  color:#333;
+}
+.middleFont{
+  font-size:13px;
+  color:#1195DD;
+  text-align: center;
+
+}
+/* *************第三行 ***************/
+.myTimer{
+  display:flex;
+  justify-content:space-between;
+}
+.myTimer .inlineBlock{
+  display:inline-block;
+}
+
+/* 蓝色的飞机 */
+.myMiddleContainer .myTimer image{
+  width:35rpx;
+  height:35rpx;
+}
+/* 飞机 旁边的 ··· */
+.myMiddleContainer .myTimer .dotCommon{
+  color:#1195DD;
+  position:relative;
+  bottom:6rpx;
+}
+/* 左边的点 */
+.dotLeft{
+  padding-right:6rpx;
+}
+/* 右边的点 */
+.dotRight{
+  padding-left:6rpx;
+}
+/* *********第四行************ */
+.myMiddleContainer .record{
+  color:#9A9A9A;
+  font-size:11px;
+  display:flex;
+  justify-content: space-between;
+}
+/* 第五行 */
+.myMiddleContainer .reasonDelay{
+  color:#9A9A9A;
+  font-size:11px;
+}
+/* 第六行 */
+.myBottomContainer .borderCommon{
+  border:1px solid #1195DD;
+  padding:5rpx 18rpx;
+  border-radius:10rpx;
+  font-size:11px;
+  margin-right:15rpx;
+}
+.dangerDelay{
+  color:#f61100;
+  border:1px solid #f61100 !important;
+}
+
+
+
+/*用内容生成的方式解决浮动对父元素带来的影响：*/
+.myClear:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+/* 解决子元素上外边距溢出问题——给子元素设置高度的时候，他作用在父元素上了： */
+.myMargin:before{
+  content:"";
+  display:table;  
+}
+  
+/* 内层-下部-父样式 */
+.myBottomContainer{
+  background-color:#fff;
+  border-bottom-left-radius:10rpx;
+  border-bottom-right-radius:10rpx;
+  padding:15rpx 38rpx;
+}
+/* 设置 的按钮 */
+.btnSetting{
+  background-color:#1195DD;
+  border-radius:0px;
+  color:#fff;
+}
+/* none */
+.none{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:#9A9A9A;
+  font-size:15px;
+}
+
+
+.img-logistics-add {
+  z-index: 9999;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.dataIsNull{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.content-supplement{
+  font-size:11px;
+  background-color: #fff;
+  color:#9A9A9A;
+  display: flex;
+  justify-content: space-between;
+  padding:20rpx 38rpx 5rpx 38rpx;
+}

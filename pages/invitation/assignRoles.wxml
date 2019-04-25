@@ -1,0 +1,61 @@
+<view>
+  <view wx:for="{{roles}}" wx:key="index" wx:for-item="role" wx:for-index="j">
+    <view class='forward'>
+      —
+      <label class='title'> {{role.roleTypeStr}} </label>—
+    </view>
+    <view class='details-forward {{i>0?"magrgin-to-10":""}}' wx:for="{{role.roleContactVOList}}" wx:key="i" wx:for-index="i" wx:for-item="roleContact">
+      <view data-roleUserId='{{roleContact.roleUserId}}' data-roletypestr='{{role.roleTypeStr}}' data-type='{{role.roleType}}' data-trackingNo='{{role.trackingNo}}' data-i='{{i}}' bindtap='showDetail'>
+        <view class='title-top'>
+          <view wx:if="{{i==0&&j==0||(i==0&&j!=0&&role.roleTypeStr=='报关作业')}}">
+            <image class='img-leader' src='/content/images/themes/A/leader.png'></image>
+          </view>
+          <view wx:if="{{i==0&&j==0||(i==0&&j!=0&&role.roleTypeStr=='报关作业')}}" style='padding-left:5px'>
+            <image class='img-leader1' src='/content/images/themes/A/leader1.png'></image>
+          </view>
+          <view wx:if="{{i!=0||j!=0&&role.roleTypeStr!='报关作业'}}">
+            <image wx:if="{{roleContact.deleteFlag=='1'&&roleContact.roleStatus!='4'}}" class='img-leader1' src='/content/images/themes/A/logistics_clear.png' data-isDel='true' catchtap='del' data-roleType='{{role.roleType}}' data-roleUserId='{{roleContact.roleUserId}}'></image>
+            <image wx:if="{{roleContact.roleStatus=='4'}}" class='img-leader1' src='/content/images/themes/A/check2.png'></image>
+          </view>
+          <view wx:if="{{i!=0||j!=0&&role.roleTypeStr!='报关作业'}}" style='height:35px;display:flex;align-items:center;padding-left:5px;'>
+            <image class='operator' src='/content/images/themes/A/operator.png'></image>
+          </view>
+          <view style='padding-left:5px' class='details-content' bindtap=''>
+            <label class='details-name {{i==0&&j==0||(i==0&&j!=0&&role.roleTypeStr=="报关作业")?"leader":""}}'>{{roleContact.roleContact}}</label>
+            <label class='details-type'>{{roleContact.companyName}}</label>
+          </view>
+          <image class='arrows' src='/content/images/themes/A/arrows_right.png'></image>
+        </view>
+        <scroll-view scroll-y style='background-color:#fff;'>
+          <view class='content-node'>
+            <view wx:if="{{roleContact.trackNodeInfo.length==0}}" class='noneData'>
+              暂无分配任务
+            </view>
+            <view class='details-node' wx:for="{{roleContact.trackNodeInfo}}" wx:for-item="node">
+              <view class='item-node'>
+                {{node}} 
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view wx:if="{{i==0&&j==0}}" class='add-role' data-isadd='true' data-roletypestr='{{role.roleTypeStr}}' data-type='{{role.roleType}}' data-trackingNo='{{role.trackingNo}}' bindtap='addforward'>
+        <image class='img-add-role' src='/content/images/themes/A/add_role.png'></image>
+        <label>添加操作员</label>
+      </view>
+      <view wx:if="{{i==0&&j!=0&&role.roleTypeStr=='报关作业'}}" class='add-role' data-isadd='true' data-roletypestr='{{role.roleTypeStr}}' data-type='{{role.roleType}}' data-trackingNo='{{role.trackingNo}}' bindtap='addforward'>
+        <image class='img-add-role' src='/content/images/themes/A/add_role.png'></image>
+        <label>添加操作员</label>
+      </view>
+    </view>
+  </view>
+
+  <view style='text-align:center;padding-top:20px;padding-bottom:5px;'>
+    <label class='nodes'>任务分配情况({{unboundNodeRate}})</label>
+  </view>
+  <view class='search-btns'>
+    <button class="search-btn" bindtap='confirm'>完成</button>
+  </view>
+</view>
+<logistics-dialog id='myDialog' title='提示' content='是否删除此操作人' bindcancelEvent='cancelEvent' bindconfirmEvent='confirmEvent'>
+</logistics-dialog>

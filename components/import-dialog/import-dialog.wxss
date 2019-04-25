@@ -1,0 +1,68 @@
+.wx-mask {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.wx-dialog {
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 600rpx;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.wx-dialog-title {
+  font-size: 18px;
+  padding: 15px 15px 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.wx-dialog-content {
+  padding:20px 15px; 
+}
+
+
+
+.wx-dialog-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items:  center;
+  font-size: 14px;
+}
+.wx-dialog-item-lb{
+  padding: 0 10px;
+}
+.wx-dialog-item-inp{
+  flex-grow: 2;
+  text-align: left;
+}
+
+
+.dialog-button {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  display: flex;
+  justify-content:  space-around;
+}
+
+.btn-left {
+   border-right: 1px solid #eee;
+   flex-grow: 1;
+}
+
+.btn-right {
+     flex-grow: 1;
+} 

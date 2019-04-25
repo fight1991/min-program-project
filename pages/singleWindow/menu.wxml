@@ -1,0 +1,4 @@
+<view style='height: 100%;'>
+  <image bindtap='tocustoms' class='info-item' src='https://51baoguan.cn/content/images/themes/A/home/emssearch.png'></image>
+  <image bindtap='toems' class='info-item' src='https://51baoguan.cn/content/images/themes/A/home/customsearch.png'></image>
+</view>

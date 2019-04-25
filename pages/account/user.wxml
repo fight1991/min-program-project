@@ -1,0 +1,36 @@
+<view class='user-info margin-top-10'>
+  <image class="user-img" src="https://51baoguan.cn/content/images/themes/A/contact-big.png"></image>
+  <view class="user-name">{{user.userName}}</view>
+</view>
+
+<view class='user-info margin-top-10'>
+  <label class='user-info-lb'>手机</label>
+  <view class='user-info-val'>{{user.mobile}}</view>
+</view>
+<view class='user-info border-top-1'>
+  <label class='user-info-lb'>邮箱</label>
+  <view class='user-info-val'>{{user.emailAddress==null?'':user.emailAddress}}</view>
+</view>
+
+<view class='user-info margin-top-10' style='justify-content:space-between;' wx:for-item="corp" wx:for="{{user.corps}}" data-corpid='{{corp.corpId}}' bindtap='addressMgr'>
+  <view class='user-info-company'>
+    <view class='user-info-company-n'>
+      <view class='user-info-company-name'>{{corp.corpName}}</view>
+      <image class='img-float'  src='https://51baoguan.cn/content/images/themes/A/default_bg.jpg' wx:if='{{defCorp.corpId==corp.corpId}}'></image>
+    </view>
+    <view class='color-gray font-size'>{{corp.contactWay.length>0?corp.contactWay[0].addressTel:""}}</view>
+    <view class='color-gray font-size'>{{corp.contactWay.length>0?corp.contactWay[0].address:""}}</view>
+  </view>
+  <view>
+    <image class="toward-img" src="https://51baoguan.cn/content/images/themes/A/toward.png"></image>
+  </view>
+</view>
+
+<view class="footer">
+  <view class="footer-left" bindtap='addressMgr' data-corpid='{{user.corps.length==0?"-1":user.corps[0].corpId}}'>
+    管理发货地址
+  </view>
+  <view class="footer-right" bindtap='edit'>
+    编辑个人信息
+  </view>
+</view>

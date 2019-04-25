@@ -1,0 +1,42 @@
+page {
+  height: 100%;
+}
+
+.input-style {
+  height: 40px;
+  border: 1px solid #c1c1c1;
+  font-size: 16px;
+  color: #000;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.lable-style {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img-icon {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 5px;
+}
+
+.img-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  font-size: 14px;
+}

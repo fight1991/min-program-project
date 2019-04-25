@@ -1,0 +1,67 @@
+.placeholder {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.input-item {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: 1px solid #f4f4f4
+}
+.input-item1 {
+  height: 100px;
+  line-height: 40px;
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: 1px solid #f4f4f4
+}
+.input-items{
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+}
+.upload-images{
+  z-index:2;
+  height: 80px;
+  width: 80px;
+}
+.switch-type{
+  height: 20px;
+}
+.title {
+  width:40%;
+  color: #4b4b4b;
+  font-size: 14px;
+}
+.image{
+  width: 60%;
+}
+.input-item-content {
+  font-size: 14px;
+  padding-left: 10px;
+  height: 40px;
+  line-height: 40px;
+}
+.btn-save {
+  margin-top: 30px;
+  width: 84%;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: #1296db;
+}
+.require-icon{
+  color: red;
+  width: 10px;
+}

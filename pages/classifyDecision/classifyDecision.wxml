@@ -1,0 +1,37 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" lower-threshold="5" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight-10}}px;'>
+    <template is="search_template" data="{{winHeight,theme,titles}}" />
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='showDetails' id='{{item.PID}}' data-index='{{index}}'>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:25%'>决定编号：</label>
+        <label class='list-item-info' style='width:35%'>{{item.DECISION_NO == "" ? "_" : item.DECISION_NO}}</label>
+        <view style='width:40%;display:flex;flex-direction:row-reverse; justify-content: flex-start'>
+          <label class='list-item-info' style='text-align:right;color:#1296db'>{{item.STATUS == "" ? "_" : item.STATUS}}</label>
+          <label class='list-item-info1' style='width:50%;text-align:right'>状态：</label>
+        </view>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:25%'>中文名称：</label>
+        <label class='list-item-info' style='width:75%'>{{item.G_NAME == "" ? "_" : item.G_NAME}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:25%'>税则号：</label>
+        <label class='list-item-info' style='width:75%'>{{item.CODE_TS == "" ? "_" : item.CODE_TS}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:25%'>商品描述：</label>
+        <label class='list-item-info' style='width:75%'>{{item.G_DESCRIPTION == "" ? "_" : item.G_DESCRIPTION}}</label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />

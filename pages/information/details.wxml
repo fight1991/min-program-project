@@ -1,0 +1,20 @@
+<import src="../../content/libs/wxParse/wxParse.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<view style='height:{{winHeight}}px;'>
+  <template is="refresh" data="{{showTitle}}" />
+  <view style='height:{{winHeight}}px;'>
+    <view class='info' wx:if='{{show}}'>
+      <view class='info-header'>
+        <view class='info-header-title'>
+          <label>{{obj.Title}}</label>
+        </view>
+        <view class='info-info'>
+          <label style='font-size:12px;color:grey;'>发布时间：{{obj.EditTime}}</label>
+        </view>
+      </view>
+      <view class='wxParse info-body'>
+        <template is="wxParse" data="{{wxParseData:article_content.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>

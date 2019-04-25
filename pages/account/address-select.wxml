@@ -1,0 +1,25 @@
+<import src="../../content/template/searchEnd.wxml" />
+<view wx:if='{{userModel.corps.length>0}}'>
+  <view class='user-info'>
+    <image class="user-img" src="https://51baoguan.cn/content/images/themes/A/contact.png"></image>
+    <view class="user-name">{{userModel.userName}}</view>
+  </view>
+  <radio-group bindchange="radioChange">
+    <view class='margin-top-10' style='background-color: #fff;'>
+      <view class='comapny-contaner' wx:for="{{userModel.corps}}" wx:key="" data-index='{{index}}'>
+        <view class='comapny-name'>{{item.corpName}}</view>
+        <view class='comapny-address-ls'>
+          <view class='comapny-address-item border-top-1' wx:for="{{item.contactWay}}" wx:key="" wx:for-item="obj" data-i='{{index}}'>
+            <radio value="{{obj.address}}" color='#1195DD' checked="{{obj.checked}}" />{{obj.address}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </radio-group>
+  <view style='margin:20px 10px'>
+    <button style='color:#fff;background-color:#1195DD;' bindtap='comfirm'>确定</button>
+  </view>
+</view>
+<view wx:if='{{userModel.corps.length==0}}'>
+  <template is="searchNullPrompt" data="{{theme}}" />
+</view>

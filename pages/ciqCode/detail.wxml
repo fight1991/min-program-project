@@ -1,0 +1,26 @@
+<view class='list'>
+  <view class="list-item" style='margin-bottom: 1px;'>
+    <label class="list-item-label">HS商品编码:</label>
+    <label class="list-item-info">{{datas[0].CODE_TS}}</label>
+  </view>
+  <view class="list-item" style='margin-bottom: 1px;'>
+    <label class="list-item-label">HS商品名称:</label>
+    <label class="list-item-info">{{datas[0].HS_G_NAME}}</label>
+  </view>
+  <view class="table">
+    <view class="tr bg-w">
+      <view class="th">CIQ附加码</view>
+      <view class="th">CIQ名称</view>
+    </view>
+    <block wx:for="{{datas}}" wx:key="{{CIQ_CO}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td">{{item.CIQ_CO}}</view>
+        <view class="td">{{item.G_NAME_NOTE}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td">{{item.CIQ_CO}}</view>
+        <view class="td">{{item.G_NAME_NOTE}}</view>
+      </view>
+    </block>
+  </view>
+</view>

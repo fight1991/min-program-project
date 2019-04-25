@@ -1,0 +1,34 @@
+<view class='contents'>
+  <view class='items'>
+    <label class='items-title' style='width:25%'>申报地海关</label>
+    <input class='items-input' style='width:74%' placeholder='请输入4位关区代码' type='number' maxlength='4' placeholder-class='remind' id='linkCustomMaster' name='linkCustomMaster' value='{{reqData.linkCustomMaster}}' bindinput='bindData1'></input>
+  </view>
+  <view class='items'>
+    <label class='items-title' style='width:25%'>提运单号</label>
+    <input class='items-input' style='width:74%' id='linkHawbNo' name='linkHawbNo' value='{{reqData.linkHawbNo}}' bindinput='bindData1'></input>
+  </view>
+  <view class='items'>
+    <label class='items-title' style='width:25%'>总提运单号</label>
+    <input class='items-input' style='width:74%' id='linkMawbNo' name='linkMawbNo' value='{{reqData.linkMawbNo}}' bindinput='bindData1'></input>
+  </view>
+  <view wx:if='{{type=="21"}}'>
+    <view wx:for="{{datas}}" wx:key="" data-index='{{index}}'>
+      <view class='titles'>
+        集装箱{{index+1}}
+      </view>
+      <view style='display:flex;align-items:center;justify-content: space-between;'>
+        <view class='inputs {{index=="0"?"first":"other"}}'>
+          <input style='height:70rpx;line-height:70rpx;width:90%;color:#666' data-index='{{index}}' bindinput='bindData' value='{{item}}'></input>
+          <image bindtap='identify' data-no='{{item}}' data-index='{{index}}' class='camera' src='https://51baoguan.cn/content/images/themes/A/camera.png'></image>
+        </view>
+        <image bindtap='delContainer' data-index='{{index}}' wx:if='{{index>0}}' class='close' src='/content/images/themes/A/close.png'></image>
+      </view>
+    </view>
+    <view class='tips-add' bindtap='addContainer'>
+      +新增集装箱
+    </view>
+  </view>
+</view>
+<view wx:if='{{obj.role!="货主"&&isOperation=="true"}}' class='buttons'>
+  <button class='button' disabled='{{disabled}}' bindtap='confirm'>完成任务</button>
+</view>

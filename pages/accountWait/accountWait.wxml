@@ -1,0 +1,22 @@
+<view class="container">
+  <image mode='aspectFit' class='header' src='{{theme}}audit-wait.png'></image>
+  <view class="info">
+    <view class='info-title'>
+      <image mode='aspectFit' src='{{theme}}prompt.png' class='info-title-image'></image>
+      <lable>{{titless["您的资料正在审核中"]}}</lable>
+    </view>
+    <view class="info-details">
+      <view class='info-details-lb'>
+        <lable>1.{{titless["只有通过审核的账户才可以访问该小程序"]}}</lable>
+      </view>
+      <view class='info-details-lb'>
+        <lable>2.{{titless["如需帮助请联系相关工作人员"]}}</lable>
+      </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <label bindtap='contactUs'>{{titless["联系客服"]}}</label>
+    <label class='footer-split'>|</label>
+    <label bindtap='aboutUs'>{{titless["关于我们"]}}</label>
+  </view>
+</view>

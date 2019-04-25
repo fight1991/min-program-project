@@ -1,0 +1,18 @@
+<view class='title-info  margin-top-10'>
+  <label class='info-lb' style='color:#000;font-weight:bold;'>{{corp.corpName}}</label> 
+</view>
+
+<view class='audit-info  border-top-1'>
+  <label class='info-lb'>审核状态</label>
+  <label>{{auditStatus}}</label>
+</view>
+<view class='audit-info margin-top-10'>
+  <label class='info-lb'>设为默认公司</label>
+  <switch checked="{{corp.defaultCorp=='1'}}" disabled="{{corp.defaultCorp=='1'}}" bindchange="setUserDefaultCorp" />
+</view>
+
+<view class='bnt margin-top-10' bindtap='deleteCorp'> 
+  <label>解绑公司</label>
+</view>
+
+ 

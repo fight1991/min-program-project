@@ -1,0 +1,14 @@
+<view>
+  <view wx:for="{{datas}}" wx:key="" data-index='{{index}}'>
+    <view class='content'>
+      <view class='titles'>
+        {{item.title}}
+      </view>
+      <view>
+        <image bindtap='showDetails' data-index='{{index}}' class='img' src='{{item.imgUrl}}' style='height:{{heightWidth}}px'></image>
+      </view>
+    </view>
+    <view style='height:10px;background-color:#f5f5f5'>
+    </view>
+  </view>
+</view>

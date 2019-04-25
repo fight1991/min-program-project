@@ -1,0 +1,114 @@
+@import "../../content/wxss/common.wxss";
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+.head {
+  height: 20rpx;
+}
+.swiper-tab {
+  padding-left: 20%;
+  background-color: #fff;
+  text-align: center;
+}
+
+.swiper-tab-list {
+  font: 12px microsoft yahei;
+  display: table-cell;
+  width: 20%;
+  height: 50rpx;
+  vertical-align: middle;
+  border: 1px solid #1296db;
+}
+
+.on {
+  color: #fff;
+  background-color: #1296db;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scrolls {
+  height: 100%;
+  width: 100%;
+}
+
+.swiper-box view {
+  text-align: center;
+}
+.list-item {
+  border-bottom: 1px solid #dcdcdc;
+  display: flex;
+  background-color: #fefefe;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+
+.list-item-label {
+  width: 40%;
+  color: #8b8682;
+  font: 14px microsoft yahei;
+  text-align: left;
+  line-height: 35px;
+}
+
+.list-item-info {
+  width: 60%;
+  color: #8b8682;
+  font: 14px microsoft yahei;
+  display: inline-block;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-align: left;
+  line-height: 35px;
+}
+
+.files-item {
+  height: 50px;
+  border: 1px solid #2093e6;
+}
+
+.image-menu {
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  bottom: 50rpx;
+  right: 50rpx;
+  z-index: 100;
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  widows: 98%;
+  margin: 2px;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.td {
+  width: 30%;
+  background-color: #f4f4f4;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  font-size: 12px;
+  overflow: hidden;
+}

@@ -1,0 +1,24 @@
+
+<import src="../../content/template/backToTop.wxml" />
+<scroll-view scroll-y="{{scroll}}" class='scrolls' style="height:{{winHeight}}px;margin-top:{{margin_top}}px"  scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" >
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'> 
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='showDetails'data-index='{{index}}' id="{{item.ID}}" data-customer_id="{{item.CUSTOMER_ID}}">
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.BATCH_NUMBER == "" ? "_" : item.BATCH_NUMBER}}</label>
+        <label class='list-item-info'> {{item.BILL_NO == "" ? "_" : item.BILL_NO}} </label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1'> 进出境日期：{{item.I_E_DATE == "" ? "_" : item.I_E_DATE}}</label>
+      </view>
+      <view class='list-item-bottom'>
+        <label class='list-item-info1'>
+          进出境标志：{{item.I_E_FLAG == "" ? "_" : item.I_E_FLAG}}
+        </label>
+        <label class='list-item-info1' style='font-size:14px'>
+          •••
+        </label>
+      </view>
+    </view>  
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" /> 

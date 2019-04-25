@@ -1,0 +1,161 @@
+page {
+  background-color: #fff;
+  height: 100%;
+}
+
+.classify {
+  height: 100%;
+}
+
+.view-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12%;
+}
+
+.img-top {
+  width: 25%;
+}
+
+.img-search {
+  height: 15px;
+  width: 20px;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.input-class {
+  font-size: 16px;
+  height: 35px;
+  width: 90%;
+  padding-left: 5px;
+}
+
+.section {
+  padding-left: 10px;
+  height: 25px;
+  line-height: 25px;
+  margin-top: 5px;
+  width: 60px;
+  border-right: 1px solid #d8d8d8;
+}
+
+.picker {
+  color: #789;
+  font-size: 13px;
+}
+
+.view-input {
+  background-color: #fff;
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.placeholder-class {
+  color: #d8d8d8;
+  font-size: 15px;
+  padding-left: 5px;
+  width: 100%;
+}
+
+.btn-save {
+  width: 90%;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: #1296db;
+  font-size: 16px;
+}
+
+.category-item {
+  padding: 5px 0;
+  height: 30px;
+  line-height: 30px;
+  font: 12px microsoft yahei;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-all {
+  font-weight: bolder;
+  height: 40px;
+  font: 15px microsoft yahei;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+}
+
+.result-container {
+  display: flex;
+}
+
+.container-left {
+  width: 80px;
+  border-right: 1px solid #eee;
+}
+
+.content {
+  background-color: #fff;
+}
+
+.on {
+  background-color: #d8d8d8;
+}
+
+.contents {
+  background-color: #fff;
+}
+
+.content-view {
+  display: flex;
+}
+
+.title {
+  height: 30px;
+  line-height: 30px;
+  width: 35%;
+  font-size: 13px;
+  color: #808080;
+  padding-left: 10px;
+}
+
+.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 60%;
+  line-height: 30px;
+  font-size: 13px;
+  color: #000;
+  padding-right: 10px;
+}
+
+.foot {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+  height: 20px;
+  font-size: 12px;
+}
+
+.foot-font {
+  color: #a5aab1;
+}
+
+.foot-line {
+  color: #d8d8d8;
+}

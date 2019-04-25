@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "智慧通关服务平台",
+  "usingComponents": {
+    "impower": "/components/impower/impower"
+  }
+}

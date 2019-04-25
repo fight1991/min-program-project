@@ -1,0 +1,5 @@
+<import src="../../content/template/approve_template.wxml" />
+<view class='list'>
+  <template is="material_template" data="{{obj,titless}}" />
+
+</view>

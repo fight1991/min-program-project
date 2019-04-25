@@ -1,0 +1,79 @@
+<view wx:if="{{!isLoading}}">
+  <view class='question'>
+    <view class='question-intro'>
+      <view>
+        <image class="userinfo-avatar" src="{{questionData.USER_IMG}}" background-size="cover"></image>
+      </view>
+      <view style='height: 100rpx;line-height:50rpx'>
+        <view class='question-intro-1'>
+          {{tempName}}
+        </view>
+        <view class='question-intro-3'>
+          {{questionData.QUESTION_TIME}}
+        </view>
+      </view>
+    </view>
+    <view class='question_note' bindlongtap='copy' data-content='{{questionData.QUESTION_NOTE}} '>
+      {{questionData.QUESTION_NOTE}}
+    </view>
+    <view>
+      <view class="table">
+        <view class="tr" wx:for="{{files}}" wx:for-item="tr" wx:for-index="i" wx:key="">
+          <view class="td" wx:for="{{tr}}" wx:for-index="j" data-td="{{j}}" wx:key="">
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}">
+              <image style="width: 60px; height: 60px;" src="{{item.FULL_NAME}}" model='aspectFit'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!isShow}}" class='warn'>
+    暂无人解答！
+  </view>
+  <view style='margin-bottom:60px;'>
+    <view wx:if="{{isShow}}" class='answer' wx:for="{{answerData}}" wx:key="" data-index='{{index}}'>
+      <image wx:if="{{currentUser.userName==item.ANSWER_USER&&item.ANSWER_STATUS!='3'}}" class='alter-img' src='/content/images/themes/A/alter.png' bindtap='alterAnswer' data-question_id='{{questionData.QUESTION_ID}}' data-answer_id='{{item.ANSWER_ID}}'></image>
+      <view class='answer-intro'>
+        <view>
+          <image class="userinfo-avatar" src="{{item.USER_IMG}}" background-size="cover"></image>
+        </view>
+        <view style='height: 100rpx;line-height:50rpx'>
+          <view class='answer-intro-1'>
+            {{item.NIKE_NAME}}
+          </view>
+          <view class='answer-intro-3'>
+            {{item.ANSWER_TIME}}
+          </view>
+        </view>
+      </view>
+      <view class='question_note' bindlongtap='copy' data-content='{{item.ANSWER_NOTE}}'>
+        {{item.ANSWER_NOTE}}
+      </view>
+      <view class='confirm-container' wx:if="{{item.ANSWER_STATUS!='2'&&item.ANSWER_STATUS!='3'&&currentUser.userName==questionData.QUESTION_USER}}">
+        <button class='confirm-btn' bindtap='unsolved' data-id='{{item.ANSWER_ID}}' style='margin-right:10px'>未解决</button>
+        <button class='confirm-btn' bindtap='solved' data-id='{{item.ANSWER_ID}}' style='margin-left:10px'>已解决</button>
+      </view>
+      <image class='img-solve' wx:if="{{item.ANSWER_STATUS=='3'}}" src='https://51baoguan.cn/content/images/themes/A/others/solve.png'></image>
+      <image class='img-solve' wx:if="{{item.ANSWER_STATUS=='2'}}" src='https://51baoguan.cn/content/images/themes/A/others/unsolve.png'></image>
+    </view>
+  </view>
+  <view class='search-btns' style='width:100%' wx:if="{{iSpecialist&&currentUser.userName!=questionData.QUESTION_USER}}">
+    <button class="search-btn" wx:if="{{questionData.QUESTION_TYPE==''}}" style='margin-left:5%;background-color:#1195DD;color:#fff;width:90%' bindtap='answer' data-question_type='{{questionData.QUESTION_TYPE}}'>我要解答</button>
+    <button class="search-btn" wx:if="{{questionData.QUESTION_TYPE!=''}}" style='margin-left:5%;background-color:#1195DD;color:#fff;width:90%' bindtap='answer' data-question_type='{{questionData.QUESTION_TYPE}}'>我要追答</button>
+  </view>
+  <view class='search-btns' wx:if="{{questionData.QUESTION_STATUS=='0'&&currentUser.userName==questionData.QUESTION_USER&&iSpecialist}}">
+    <button class="search-btn" style='background-color:red;color:#fff;' bindtap='del'>删除</button>
+    <button class="search-btn" style='background-color:#1195DD;color:#fff;' bindtap='alter'>修改</button>
+  </view>
+  <view class='search-btns' wx:if="{{questionData.QUESTION_STATUS=='0'&&currentUser.userName==questionData.QUESTION_USER&&!iSpecialist}}">
+    <button class="search-btn" style='margin-left:5%;background-color:red;color:#fff;width:90%' bindtap='del'>删除</button>
+    <button class="search-btn" style='background-color:#1195DD;color:#fff;' bindtap='alter'>修改</button>
+  </view>
+</view>
+<view wx:if="{{isLoading}}" class='load'>
+  <view>
+    <image src='https://51baoguan.cn/content/images/themes/A/loading1.gif' class='load-image'></image>
+    <text class='load-text'>{{titless["正在加载中，请稍等"]}}</text>
+  </view>
+</view>

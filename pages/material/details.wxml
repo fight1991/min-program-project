@@ -1,0 +1,187 @@
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px">
+  <view class="head"></view>
+  <view class="swiper-tab-list {{currentTab==0?'on':''}}" data-current="0" bindtap="swichNav" style='border-radius: 8px 0px 0px 8px;'>{{titless["物料详情"]}} </view>
+  <view class="swiper-tab-list {{currentTab==1?'on':''}}" data-current="1" bindtap="swichNav" style='border-radius: 0px 8px 8px 0px;'>{{titless["附件"]}} </view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.128}}px" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y="ture" class='scrolls'>
+      <view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["货号"]}} :</label>
+          <label class='list-item-info'>{{obj.COP_G_NO}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["货品类型"]}} :</label>
+          <label class='list-item-info' wx:if='{{obj.G_MARK == 3}}'>料件({{obj.G_MARK}})</label>
+          <label class='list-item-info' wx:if='{{obj.G_MARK == 4}}'>成品({{obj.G_MARK}})</label>
+          <label class='list-item-info' wx:if='{{obj.G_MARK == 5}}'>设备({{obj.G_MARK}})</label>
+          <label class='list-item-info' wx:if='{{obj.G_MARK == 7}}'>备件({{obj.G_MARK}})</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["品名"]}} :</label>
+          <label class='list-item-info'>{{obj.G_NAME}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["商品编码"]}} :</label>
+          <label class='list-item-info'>{{obj.CODE_T_S}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["锁定标识"]}} :</label>
+          <label class='list-item-info'>{{obj.LOCK_FLAG}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["HS检测"]}} :</label>
+          <label class='list-item-info'>{{obj.HS_CHECK}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["申报要素"]}} :</label>
+          <label class='list-item-info'>{{obj.G_MODEL}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["英文品名"]}} :</label>
+          <label class='list-item-info'>{{obj.G_ENG_NAME}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["企业单位"]}} :</label>
+          <label class='list-item-info'>{{obj.ENT_UNIT}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["申报单位"]}} :</label>
+          <label class='list-item-info'>{{obj.UNIT}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["法定单位"]}} :</label>
+          <label class='list-item-info'>{{obj.UNIT_1}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["第二单位"]}} :</label>
+          <label class='list-item-info'>{{obj.UNIT_2}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["申报比例"]}} :</label>
+          <label class='list-item-info'>{{obj.FACTOR_0}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["法定比例"]}} :</label>
+          <label class='list-item-info'>{{obj.FACTOR_1}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["第二比例"]}} :</label>
+          <label class='list-item-info'>{{obj.FACTOR_2}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["保税标识"]}} :</label>
+          <label class='list-item-info'>{{obj.DUTY_MODE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["监管条件"]}} :</label>
+          <label class='list-item-info'>{{obj.CONTROL_MA}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["3C标识"]}} :</label>
+          <label class='list-item-info'>{{obj.CIQ_FLAG}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["商检标识"]}} :</label>
+          <label class='list-item-info'>{{obj.SJ_FLAG}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["归并标识"]}} :</label>
+          <label class='list-item-info'>{{obj.MERGE_FLAG}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["币制"]}} :</label>
+          <label class='list-item-info'>{{obj.CURR}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["原产国"]}} :</label>
+          <label class='list-item-info'>{{obj.COUNTRY_CODE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["净重"]}} :</label>
+          <label class='list-item-info'>{{obj.NET_WT}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["单价"]}} :</label>
+          <label class='list-item-info'>{{obj.DEC_PRICE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["关税税率"]}} :</label>
+          <label class='list-item-info'>{{obj.DUTY_RATE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["最惠国税率"]}} :</label>
+          <label class='list-item-info'>{{obj.LOW_RATE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["暂定税率"]}} :</label>
+          <label class='list-item-info'>{{obj.TEMP_RATE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["业务单元"]}} :</label>
+          <label class='list-item-info'>{{obj.BU}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["项目名称"]}} :</label>
+          <label class='list-item-info'>{{obj.PROJECT_NAME}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["CCC证书号"]}} :</label>
+          <label class='list-item-info'>{{obj.CCC_NO}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["CCC界定"]}} :</label>
+          <label class='list-item-info'>{{obj.CCC_TECH}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["品牌"]}} :</label>
+          <label class='list-item-info'>{{obj.FLD_4}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["备注"]}} :</label>
+          <label class='list-item-info'>{{obj.NOTE}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["申请人"]}} :</label>
+          <label class='list-item-info'>{{obj.UPDATE_USER}}</label>
+        </view>
+        <view class='list-item'>
+          <label class='list-item-label'>{{titless["申请时间"]}} :</label>
+          <label class='list-item-info'>{{obj.UPDATE_TIME}}</label>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="ture" class='scrolls'>
+      <view class="table">
+        <view class="tr" wx:for="{{files}}" wx:for-item="tr" wx:for-index="i" wx:key="">
+          <view class="td" wx:for="{{tr}}" wx:for-index="j" data-td="{{j}}" wx:key="">
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:if="{{item.FILE_TYPE=='.jpg'||item.FILE_TYPE=='.png'||item.FILE_TYPE=='.bmp'||item.FILE_TYPE=='image/png'||item.FILE_TYPE=='image/jpeg'||item.FILE_TYPE=='image/bmp'}}">
+              <image style="width: 85px; height: 85px;" src="{{item.FULL_NAME}}" model='aspectFit'></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.ms-excel'||item.FILE_TYPE=='.xls'||item.FILE_TYPE=='.xlsx'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}excel.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/pdf'||item.FILE_TYPE=='.pdf'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}pdf.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'||item.FILE_TYPE=='.docx'||item.FILE_TYPE=='.doc'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}word.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='text/plain'||item.FILE_TYPE=='.txt'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}text-plain.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='.zip'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}zip.png"></image>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <image src="https://51baoguan.cn/content/images/themes/A/others/add.png" animation="{{animationMenu}}" class="image-menu" bindtap="upload"></image>
+  </swiper-item>
+</swiper>

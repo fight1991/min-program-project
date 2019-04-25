@@ -1,0 +1,58 @@
+<view class="flex box box-lr">
+  <scroll-view class="flex groups box box-tb" scroll-y="true" scroll-into-view="{{scrollIntoView}}">
+    <view style='background-color:#fff;padding-top:10px;'>
+      <view class='search'>
+        <image class="search-img-search" src="https://51baoguan.cn/content/images/themes/A/search.png"></image>
+        <input class='search-input' placeholder='搜索' placeholder-class='search-placeholder' bindinput='search' bindconfirm='search'></input>
+        <image class="search-img-mrc" src="https://51baoguan.cn/content/images/themes/A/microphone.png"></image>
+      </view>
+      <view wx:if='{{isChoose}}' style='height:2px;background-color:#fff'></view>
+      <view class="flex group-users border-top">
+        <view wx:if='{{!isChoose}}' class="user box box-lr" style='border-top:0;' bindtap='showMyCard'>
+          <view class="user-avatar box box-lr box-pack-center box-align-center">
+            <image class="user-avatar-img" src="https://51baoguan.cn/content/images/themes/A/shared-code.png"></image>
+          </view>
+          <view class="flex user-name">我的二维码</view>
+        </view>
+        <view wx:if='{{!isChoose}}' class="user box box-lr" bindtap='showNewContact'>
+          <view class="user-avatar box box-lr box-pack-center box-align-center">
+            <image class="user-avatar-img" src="https://51baoguan.cn/content/images/themes/A/contact-add.png"></image>
+          </view>
+          <view class="flex user-name remind" >新的联系人
+            <view wx:if="{{unReadCount>0}}" class='float_div'>{{unReadCount}}</view>
+          </view>
+
+        </view>
+        <button wx:if='{{i>0}}' class="user box box-lr share-btn" data-sence="01" open-type='share' style='padding:0;' data-id='wechat'>
+          <view class="user-avatar box box-lr box-pack-center box-align-center">
+            <image class="user-avatar-img" src="https://51baoguan.cn/content/images/themes/A/wechat-share.png"></image>
+          </view>
+          <view class="flex user-name" style='flex-grow:0;'>微信邀请</view>
+        </button>
+      </view>
+    </view>
+
+    <block wx:for="{{groups}}" wx:key="" wx:for-item="group">
+      <view class="flex" id="{{group.groupName}}" style=" margin-top:10px;">
+        <view class="group-name">{{group.groupName}}</view>
+        <view class="flex group-users">
+          <view bindtap='showContactInfo' data-id='{{user.userId}}' wx:for="{{group.users}}" wx:key="" wx:for-item="user" wx:for-index="idx" class="user box box-lr">
+            <view class="user-avatar box box-lr box-pack-center box-align-center">
+              <image class="user-avatar-img" src="https://51baoguan.cn/content/images/themes/A/contact.png"></image>
+            </view>
+            <view class="flex user-name">{{user.userName}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <view class="nav box box-tb" bindtouchmove="touchmove" bindtouchcancel="touchcancel" bindtouchend="touchend">
+    <view bindtap="tabLetter" data-index="{{item}}" wx:for="{{letters}}" wx:key="" class=" box box-align-center box-pack-center letter">
+      <text class="letter-text {{selected == item ? 'letter-actived' : ''}}">{{item}}</text>
+    </view>
+  </view>
+</view>
+
+<card id='myCard' userName='{{user.name}}' companyName='{{user.company}}' binddownload="download" bindshared="shared">
+</card>

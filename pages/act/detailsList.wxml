@@ -1,0 +1,78 @@
+<view class="list">
+  <view class='list-item'>
+    <label class='list-item-label'>商品序号：</label>
+    <label class='list-item-info'>{{obj.G_NO==null?'':obj.G_NO}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>备案序号：</label>
+    <label class='list-item-info'>{{obj.CONTR_ITEM==null?'':obj.CONTR_ITEM}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>商品编码：</label>
+    <label class='list-item-info'>{{obj.CODE_T==null?'':obj.CODE_T}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>商品名称：</label>
+    <label class='list-item-info'>{{obj.G_NAME==null?'':obj.G_NAME}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>规格型号：</label>
+    <label class='list-item-info'>{{obj.G_MODEL==null?'':obj.G_MODEL}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>成交数量：</label>
+    <label class='list-item-info'>{{obj.QTY_1==null?'':obj.QTY_1}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>成交单位：</label>
+    <label class='list-item-info'>{{obj.UNIT_1==null?'':obj.UNIT_1}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>成交单价：</label>
+    <label class='list-item-info'>{{obj.DECL_PRICE==null?'':obj.DECL_PRICE}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>成交总价：</label>
+    <label class='list-item-info'>{{obj.DECL_TOTAL==null?'':obj.DECL_TOTAL}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>币制：</label>
+    <label class='list-item-info'>{{obj.TRADE_CURR==null?'':obj.TRADE_CURR}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>法定数量：</label>
+    <label class='list-item-info'>{{obj.G_QTY==null?'':obj.G_QTY}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>法定单位：</label>
+    <label class='list-item-info'>{{obj.G_UNIT==null?'':obj.G_UNIT}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>版本号：</label>
+    <label class='list-item-info'>{{obj.EXG_VERSION==null?'':obj.EXG_VERSION}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>货号：</label>
+    <label class='list-item-info'>{{obj.EXG_NO==null?'':obj.EXG_NO}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>原产国(地区)：</label>
+    <label class='list-item-info'>{{obj.ORIGIN_COUNTRY==null?'':obj.ORIGIN_COUNTRY}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>第二数量：</label>
+    <label class='list-item-info'>{{obj.QTY_2==null?'':obj.QTY_2}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>第二单位：</label>
+    <label class='list-item-info'>{{obj.UNIT_2==null?'':obj.UNIT_2}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>最终目的国(地区)：</label>
+    <label class='list-item-info'>{{obj.DESTINATION_COUNTRY==null?'':obj.DESTINATION_COUNTRY}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>征免方式：</label>
+    <label class='list-item-info'>{{obj.DUTY_MODE==null?'':obj.DUTY_MODE}}</label>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<view class='img'>
+  <view class='img-content'>
+    <image class='img-icon' src='https://51baoguan.cn/content/images/themes/A/others/signin.png' bindtap='signIn'></image>
+    <label class='title'>签到</label>
+  </view>
+  <view class='img-content'>
+    <image class='img-icon' src='https://51baoguan.cn/content/images/themes/A/others/signup.png' bindtap='signUp'></image>
+    <label class='title'>现场报名</label>
+  </view>
+</view>
+<modal hidden="{{hiddenmodalput}}" title="输入手机号码" data-id="" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+  <input class='input-style' bindinput='bindData'></input>
+</modal>
+ <signInSuccess id='dialog' title='提示' content='签到成功' wx:if="{{!hiddenmodalput1}}">
+</signInSuccess> 
+<signInError id='dialog' title='提示' content='你还没有报名' wx:if="{{!hiddenmodalput2}}">
+</signInError>

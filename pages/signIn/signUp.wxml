@@ -1,0 +1,38 @@
+<view wx:if="{{isShow}}">
+  <form bindsubmit="signUp">
+    <view class='input-item' style=' margin-top: 20px;'>
+      <label class='require-icon'>*</label>
+      <label class='title'>姓名</label>
+      <input class='input-item-content' id='USER_NAME' name='USER_NAME' value='{{currentUser.USER_NAME}}' placeholder='请输入姓名' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='require-icon'>*</label>
+      <label class='title'>手机号</label>
+      <input class='input-item-content' id='USER_MOBILE' name='USER_MOBILE' value='{{currentUser.USER_MOBILE}}' placeholder='请输入手机号' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='require-icon'>*</label>
+      <label class='title'>邮箱</label>
+      <input class='input-item-content' id='EMAIL_ADDRESS' name='EMAIL_ADDRESS' value='{{currentUser.EMAIL_ADDRESS}}' placeholder='请输入邮箱' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='require-icon'>*</label>
+      <label class='title'>公司全称</label>
+      <input class='input-item-content' id='COMPANY_NAME' name='COMPANY_NAME' value='{{currentUser.COMPANY_NAME}}' placeholder='请输入公司全称' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view>
+      <button class='btn-save' type='head' formType="submit">提交</button>
+    </view>
+  </form>
+</view>
+<view wx:if="{{!isShow}}" class='success'>
+  <view style='display: flex; justify-content: center;margin-bottom:20px'>
+    <image class='success-icon' src='https://51baoguan.cn/content/images/themes/A/others/success.png'></image>
+  </view>
+  <view style='display: flex; justify-content: center;'>
+    <label class='success-title'>报名成功</label>
+  </view>
+  <view>
+    <button class='btn-save' type='head' bindtap='complete'>完成</button>
+  </view>
+</view>

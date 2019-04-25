@@ -1,0 +1,22 @@
+<view>
+  <view>
+    <view class='items'>
+      <view style='width:85%;display: flex;'>
+        <label class='items-title' style='width:30%'>预计查验时间</label>
+        <picker mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+          {{date}}
+        </picker>
+        <picker style='padding-left:10px' mode="time" value="{{time}}" bindchange="bindTimeChange">
+          {{time}}
+        </picker>
+      </view>
+    </view>
+    <view class='items' style='height:70px;padding-top:5px'>
+      <label class='items-title' style='white-space:nowrap;'>查验地点</label>
+      <textarea class='items-input' id='note1' name='note1' value='{{reqData.note1}}' bindinput='bindData' style='height:70px'></textarea>
+    </view>
+    <view wx:if='{{obj.role!="货主"&&isOperation=="true"}}' class='buttons'>
+      <button class='button' disabled='{{disabled}}'  bindtap='confirm'>提交</button>
+    </view>
+  </view>
+</view>

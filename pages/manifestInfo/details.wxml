@@ -1,0 +1,47 @@
+<view class='list' style='background-image:url({{theme}}details.png);background-size:100% 100%;'>
+  <view class='title'>
+    <label class='line'></label>
+    <label>{{obj.BATCH_NUMBER}}</label>
+    <label class='line'></label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">提运单号:</label>
+    <label class="list-item-info">{{obj.BILL_NO}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">进出境标志:</label>
+    <label class="list-item-info">{{obj.I_E_FLAG}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">关区代码:</label>
+    <label class="list-item-info">{{obj.CUSTOM_MASTER}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">确报状态:</label>
+    <label class="list-item-info">{{obj.SURE_STATUS}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">进出境日期:</label>
+    <label class="list-item-info">{{obj.I_E_DATE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">核销状态:</label>
+    <label class="list-item-info">{{obj.DCR_STATUS}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">理货状态:</label>
+    <label class="list-item-info">{{obj.STATUS}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">运抵状态:</label>
+    <label class="list-item-info">{{obj.SHIPTO_STATUS}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">放行状态:</label>
+    <label class="list-item-info">{{obj.PASS_STATUS}}</label>
+  </view>
+  <view class="list-item" style='padding-bottom:20%'>
+    <label class="list-item-label">结关状态:</label>
+    <label class="list-item-info">{{obj.CUSTOMS_STATUS}}</label>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<view class='items'>
+  <view class="educt_hasupload_pic" wx:for="{{urls}}" wx:key="index">
+    <view class='check-item'>
+      <image src="{{item}}" class="upload" bindtap='showImg' data-url='{{item}}'></image>
+    </view>
+  </view>
+</view>
+<view wx:if='{{obj.role!="货主"&&isOperation=="true"}}' class='buttons'>
+  <button class='button' disabled='{{disabled}}' bindtap='confirm'>确认</button>
+</view>

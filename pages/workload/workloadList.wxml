@@ -1,0 +1,34 @@
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px;">
+  <view class="head"></view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='border-radius: 8px 0px 0px 8px'>录入差错分析</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='border-radius: 0px 8px 8px 0px'>审核差错分析</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.128}}px;background-color:#fff" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y="ture"style="height:100%">
+      <view class='list-item-list' wx:for="{{datas4tab3}}" wx:key="" data-index='{{index}}' data-statu="open" id='{{item.USER_ID}}' data-statu="open">
+        <view class='list-item-top'>
+          <label class='list-item-info1'>错误内容：{{item.COLUMN_NAME == "" ? "_" : item.COLUMN_NAME}}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>数量：{{item.ERROR_QTY == "" ? "0" : item.ERROR_QTY}}</label>
+          <label class='list-item-info1'>是否造成删改单：{{item.CHECK_DELETE_YN == "" ? "0" : item.CHECK_DELETE_YN}}</label>
+        </view>
+        <view style="background-color:#f4f4f4;height:2px;"></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="ture"style="height:100%">
+      <view class='list-item-list' wx:for="{{datas4tab4}}" wx:key="" data-index='{{index}}' data-statu="open" id='{{item.SEQ_NO}}'   data-statu="open">
+        <view class='list-item-top'>
+          <label class='list-item-info1'>错误内容{{item.COLUMN_NAME == "" ? "_" : item.COLUMN_NAME}}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>数量：{{item.ERROR_QTY == "" ? "0" : item.ERROR_QTY}}</label>
+        </view>
+        <view style="background-color:#f4f4f4;height:2px;"></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

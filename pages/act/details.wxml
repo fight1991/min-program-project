@@ -1,0 +1,360 @@
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px;">
+  <view class="head"></view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='border-radius: 8px 0px 0px 8px;;'>表头</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='border-radius: 0px 8px 8px 0px;'>表体</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.128}}px;background-color:#fff" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y style="height:{{winHeight - winHeight*0.08}}px">
+      <view class='list-item'>
+        <label class='list-item-lb-title'>接单编号：</label>
+        <view class='list-item-lb-value'>{{obj.INNER_NO==null?'':obj.INNER_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>状态：</label>
+        <view class='list-item-lb-value'>{{array[obj.STATUS]}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>接单日期：</label>
+        <view class='list-item-lb-value'>{{obj.RCV_DATE==null?'':obj.RCV_DATE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>委托客户：</label>
+        <view class='list-item-lb-value'>{{obj.COMPANY==null?'':obj.COMPANY}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>结费周期：</label>
+        <view class='list-item-lb-value'>{{obj.BILLING_CYCLE==null?'':obj.BILLING_CYCLE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>提货单位：</label>
+        <view class='list-item-lb-value'>{{obj.DELIVERY_NAME_S==null?'':obj.DELIVERY_NAME_S}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>送货单位：</label>
+        <view class='list-item-lb-value'>{{obj.DELIVERY_NAME_R==null?'':obj.DELIVERY_NAME_R}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>要求报关时间：</label>
+        <view class='list-item-lb-value'>{{obj.DEMAND_DATE==null?'':obj.DEMAND_DATE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>{{i_e_flag=="I"?"进口口岸":"出口口岸"}}：</label>
+        <view class='list-item-lb-value'>{{obj.I_E_PORT==null?'':obj.I_E_PORT}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>申报地海关：</label>
+        <view class='list-item-lb-value'>{{obj.CUSTOM_MASTER==null?'':obj.CUSTOM_MASTER}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>备案号：</label>
+        <view class='list-item-lb-value'>{{obj.MANUAL_NO==null?'':obj.MANUAL_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>合同协议号：</label>
+        <view class='list-item-lb-value'>{{obj.CONTR_NO==null?'':obj.CONTR_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>{{i_e_flag=="I"?"进口日期":"出口日期"}}：</label>
+        <view class='list-item-lb-value'>{{obj.I_E_DATE==null?'':obj.I_E_DATE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>申报日期：</label>
+        <view class='list-item-lb-value'>{{obj.D_DATE==null?'':obj.D_DATE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>收发货人：</label>
+        <view class='list-item-lb-value'>{{obj.TRADE_CODE==null?'':obj.TRADE_CODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>消费使用单位：</label>
+        <view class='list-item-lb-value'>{{obj.OWNER_CODE==null?'':obj.OWNER_CODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>申报单位：</label>
+        <view class='list-item-lb-value'>{{obj.AGENT_CODE==null?'':obj.AGENT_CODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>运输方式：</label>
+        <view class='list-item-lb-value'>{{obj.TRAF_MODE==null?'':obj.TRAF_MODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>运输工具名称：</label>
+        <view class='list-item-lb-value'>{{obj.TRAF_NAME==null?'':obj.TRAF_NAME}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>航次号：</label>
+        <view class='list-item-lb-value'>{{obj.VOYAGE_NO==null?'':obj.VOYAGE_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>提运单号：</label>
+        <view class='list-item-lb-value'>{{obj.BILL_NO==null?'':obj.BILL_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>监管方式：</label>
+        <view class='list-item-lb-value'>{{obj.TRADE_MODE==null?'':obj.TRADE_MODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>征免性质：</label>
+        <view class='list-item-lb-value'>{{obj.CUT_MODE==null?'':obj.CUT_MODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>纳税单位：</label>
+        <view class='list-item-lb-value'>{{obj.PAYMENT_MARK==null?'':obj.PAYMENT_MARK}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>许可证号：</label>
+        <view class='list-item-lb-value'>{{obj.LICENSE_NO==null?'':obj.LICENSE_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>{{i_e_flag=="I"?"启运国(地区)":"抵运国(地区)"}}：</label>
+        <view class='list-item-lb-value'>{{obj.TRADE_COUNTRY==null?'':obj.TRADE_COUNTRY}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>{{i_e_flag=="I"?"装货港":"指运港"}}：</label>
+        <view class='list-item-lb-value'>{{obj.DISTINATE_PORT==null?'':obj.DISTINATE_PORT}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>{{i_e_flag=="I"?"境内目的地":"境内货源地"}}：</label>
+        <view class='list-item-lb-value'>{{obj.DISTRICT_CODE==null?'':obj.DISTRICT_CODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>{{i_e_flag=="I"?"启运国(地区)":"抵运国(地区)"}}：</label>
+        <view class='list-item-lb-value'>{{obj.DISTRICT_CODE==null?'':obj.DISTRICT_CODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>成交方式：</label>
+        <view class='list-item-lb-value'>{{obj.TRANS_MODE==null?'':obj.TRANS_MODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>运费：</label>
+        <view class='list-item-lb-value'>{{obj.FEE_MARK==null?'':obj.FEE_MARK}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>保费：</label>
+        <view class='list-item-lb-value'>{{obj.INSUR_MARK==null?'':obj.INSUR_MARK}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>杂费：</label>
+        <view class='list-item-lb-value'>{{obj.OTHER_MARK==null?'':obj.OTHER_MARK}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>件数：</label>
+        <view class='list-item-lb-value'>{{obj.PACK_NO==null?'':obj.PACK_NO}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>包装类型：</label>
+        <view class='list-item-lb-value'>{{obj.WRAP_TYPE==null?'':obj.WRAP_TYPE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>毛重：</label>
+        <view class='list-item-lb-value'>{{obj.GROSS_WT==null?'':obj.GROSS_WT}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>净重：</label>
+        <view class='list-item-lb-value'>{{obj.NET_WT==null?'':obj.NET_WT}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>贸易国(地区)：</label>
+        <view class='list-item-lb-value'>{{obj.TRADE_AREA_CODE==null?'':obj.TRADE_AREA_CODE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>报关单类型：</label>
+        <view class='list-item-lb-value'>{{obj.ENTRY_TYPE==null?'':obj.ENTRY_TYPE}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>集装箱数：</label>
+        <view class='list-item-lb-value'>{{obj.CONTAINERS==null?'':obj.CONTAINERS}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>随附单证：</label>
+        <view class='list-item-lb-value'>{{obj.CERT_MARK==null?'':obj.CERT_MARK}}</view>
+      </view>
+      <view class='list-item'>
+        <label class='list-item-lb-title'>备注：</label>
+        <view class='list-item-lb-value'>{{obj.NOTE==null?'':obj.NOTE}}</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="ture" style="height:{{winHeight - winHeight*0.08}}px;padding:0px;">
+      <view class='list-item-list' wx:for="{{datas}}" wx:key="" data-index='{{index}}' data-statu="open" id='{{item.SEQ_NO}}' bindtap="show_details" data-cop_g_no='{{item.COP_G_NO}}' data-statu="open">
+        <view class='list-item-top'>
+          <label class='list-item-info1'>商品编码：{{item.CODE_T == "" ? "_" : item.CODE_T}}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>商品名称：{{item.G_NAME == "" ? "_" : item.G_NAME}}</label>
+          <label class='list-item-info1' style='font-size:14px;width:15%;text-align:right'>
+            •••
+          </label>
+        </view>
+        <view style="background-color:#f4f4f4;height:2px;"></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style="height:{{winHeight - winHeight*0.08}}px">
+      <view class="table">
+        <view class="tr" wx:for="{{files}}" wx:for-item="tr" wx:for-index="i" wx:key="">
+          <view class="td" wx:for="{{tr}}" wx:for-index="j" data-td="{{j}}" wx:key="">
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:if="{{item.FILE_TYPE=='.jpg'||item.FILE_TYPE=='.png'||item.FILE_TYPE=='.bmp'||item.FILE_TYPE=='image/png'||item.FILE_TYPE=='image/jpeg'||item.FILE_TYPE=='image/bmp'}}">
+              <image style="width: 85px; height: 85px;" src="{{item.FULL_NAME}}" model='aspectFit'></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.ms-excel'||item.FILE_TYPE=='.xls'||item.FILE_TYPE=='.xlsx'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}excel.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/pdf'||item.FILE_TYPE=='.pdf'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}pdf.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'||item.FILE_TYPE=='.docx'||item.FILE_TYPE=='.doc'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}word.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='text/plain'||item.FILE_TYPE=='.txt'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}text-plain.png"></image>
+            </view>
+            <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='.zip'}}">
+              <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}zip.png"></image>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <image src="https://51baoguan.cn/content/images/themes/A/others/add.png" animation="{{animationMenu}}" class="image-menu" bindtap="upload"></image>
+  </swiper-item>
+</swiper>
+<view class="drawer-screen" bindtap="hide" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer-box" wx:if="{{showModalStatus}}">
+  <view class="drawer-title">{{obj2.COP_G_NO}}</view>
+  <view class="drawer-content">
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["序号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.LIST_G_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["DN号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.REF_5}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["多项号标识"]}}：</label>
+      <label class='input-base col-1'>{{obj2.MULTINOMIAL_FLAG}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["商品货号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.COP_G_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["品名"]}}：</label>
+      <label class='input-base col-1'>{{obj2.G_NAME}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["规格型号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.G_MODEL}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["英文品名"]}}：</label>
+      <label class='input-base col-1'>{{obj2.G_ENG_NAME}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["备案号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.MANUAL_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["备案项号"]}}：</label>
+      <label class='input-base col-1' wx:if='{{obj2.G_NO == null ? "" : ""}}'>{{obj2.G_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["商品编码"]}}：</label>
+      <label class='input-base col-1'>{{obj2.CODE_TS}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["发票号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.INVOICE_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["订单号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.PO_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["申报数量"]}}：</label>
+      <label class='input-base col-1'>{{obj2.QTY}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["法定数量"]}}：</label>
+      <label class='input-base col-1'>{{obj2.FACTOR_1}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["第二数量"]}}：</label>
+      <label class='input-base col-1'>{{obj2.FACTOR_2}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["申报单位"]}}：</label>
+      <label class='input-base col-1'>{{obj2.UNIT}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["法定单位"]}}：</label>
+      <label class='input-base col-1'>{{obj2.UNIT_1}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["第二单位"]}}：</label>
+      <label class='input-base col-1'>{{obj2.UNIT_2}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["申报单价"]}}：</label>
+      <label class='input-base col-1'>{{obj2.DEC_PRICE}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["申报总价"]}}：</label>
+      <label class='input-base col-1'>{{obj2.DEC_TOTAL}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["币制"]}}：</label>
+      <label class='input-base col-1'>{{obj2.CURR}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["毛重"]}}：</label>
+      <label class='input-base col-1'>{{obj2.GROSS_WT}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["净重"]}}：</label>
+      <label class='input-base col-1'>{{obj2.NET_WT}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["涉证类型"]}}：</label>
+      <label class='input-base col-1'>{{obj2.CONTROL_MA}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["征免"]}}：</label>
+      <label class='input-base col-1'>{{obj2.DUTY_MODE}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["BOM版本号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.BOM_VERSION}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["成品版本号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.EXG_VERSION}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["企业单位"]}}：</label>
+      <label class='input-base col-1'>{{obj2.ENT_UNIT}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["备注"]}}：</label>
+      <label class='input-base col-1'>{{obj2.NOTE}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["报关单统一编号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.ENT_SEQ_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["报关单序号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.ENT_NO}}</label>
+    </view>
+    <view class='drawer-content-view'>
+      <label class='title col-0'>{{titless["原报关单号"]}}：</label>
+      <label class='input-base col-1'>{{obj2.ORIGINAL_ENTRY_ID}}</label>
+    </view>
+  </view>
+  <view class="btn-ok" bindtap="hide" data-statu="close">{{titless["关闭"]}}</view>
+</view>

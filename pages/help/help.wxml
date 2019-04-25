@@ -1,0 +1,112 @@
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.11}}px" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y="ture" class='scrolls' bindscrolltolower="loadMore">
+      <view class='top'>
+        <form bindsubmit="search" bindreset="formReset" style="background-color:#f5f4f9;">
+          <view class="search">
+            <input type='text' class='search-button' name='title' value='{{searchModel.title}}' placeholder='{{titless["搜索"]}}' placeholder-style='font-size:14px;color:greyy;text-align:center;'></input>
+            <button plain='true' style='border:0;' form-type='submit' hover-class='none'>
+              <icon class="search-box" size='18' type="search"></icon>
+            </button>
+          </view>
+        </form>
+      </view>
+      <view class="content">
+        <view class='content-title'>
+          <label>{{titless["所有问题"]}}</label>
+        </view>
+        <view class='col' wx:for="{{datas}}" wx:key="" bindtap='details' id='{{index}}'>
+          <label class="col-title">{{item.TITLE}}</label>
+          <image style="width:15px;height:15px;" src='{{theme}}toward.png'></image>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view scroll-y="ture" class='scrolls'>
+      <view class="content-title">
+        <label>{{titless["推荐文章"]}}</label>
+      </view>
+      <view class="col" style='justify-content: flex-start;' bindtap='details' id='{{index}}' wx:for='{{datas}}' wx:key="">
+        <image model="aspectFit" class="col-img" src="{{theme+files[index]}}"></image>
+        <view class="col-title">
+          <lable>{{item.TITLE}}</lable>
+          <lable class="col-title-sub">{{item.TITLE}}</lable>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view scroll-y="ture" class='scrolls'>
+      <form bindsubmit="helpSubmit">
+        <view class="check-title">
+          <label>{{titless["请选择问题类型"]}}</label>
+        </view>
+        <radio-group name='check'>
+          <view class="check-item-radio" bindtap='checkboxChange' id='{{index}}' wx:for="{{checks}}" wx:key="">
+            <view style='padding-left:10px;'>{{item.name}}</view>
+            <view>
+              <radio value="{{item.value}}" checked='{{item.checked}}' />
+            </view>
+          </view>
+        </radio-group>
+        <view class="check-title">
+          <label>{{titless["请描述具体问题信息"]}}</label>
+        </view>
+        <view class="check-item">
+          <input name='time' disabled="true" value='{{date}}'>{{titless["时间"]}}：{{date}}</input>
+        </view>
+        <view class="check-item" bindtap="question" data-statu="open">
+          <label style="">{{titless["补充内容"]}}：
+            <input style="padding:0;margin:0;font-size:14px;color:grey;" disabled="true" name="content" value="{{note==''?titless['未填写']:note}}"></input>
+          </label>
+        </view>
+        <view class="check-item" style='justify-content: flex-start;'>
+          <image src="{{theme}}upload2.png" animation="{{animationMenu}}" class="image-menu" bindtap="upload"></image>
+          <image style='width:60px;height:60px;margin-left:15px;' model='aspectFit' src="{{imgUrl}}"></image>
+          <input name="seq_no" hidden='hidden'></input>
+          <input name="ref_1" hidden='hidden' value='0'></input>
+        </view>
+        <view class="check-title">
+          <label>{{titless["联系方式"]}}：</label>
+        </view>
+        <view class="check-item">
+          <label>{{titless["电话"]}}：</label>
+          <input style='width:80%;text-align:left;' name="phone" placeholder='{{titless["选填，方便我们与您联系"]}}' placeholder-style='font-size:14px;color:greyy;text-align:left;'></input>
+        </view>
+        <input hidden='hidden' value='{{currentUser.userName}}' name="user"></input>
+        <view class='check-bottom'>
+          <button class='submit' formType="submit">{{titless["提交"]}}</button>
+        </view>
+      </form>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px">
+  <view class="swiper-tab-list {{currentTab==0?'on':''}}" data-current="0" bindtap="swichNav">{{titless["全部问题"]}}</view>
+  <view class="swiper-tab-list {{currentTab==1?'on':''}}" data-current="1" bindtap="swichNav">{{titless["快捷帮助"]}}</view>
+  <view class="swiper-tab-list {{currentTab==2?'on':''}}" data-current="2" bindtap="swichNav">{{titless["意见反馈"]}}</view>
+</view>
+
+<view class="drawer_screen" bindtap="question" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<form bindsubmit="questionOk" bindreset="formReset" style="background-color:#f5f4f9;">
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_title">{{titless["补充内容"]}}</view>
+    <view class="drawer_content">
+      <view class="top grid">
+        <textarea name='note' class="input_base" value='{{note}}'></textarea>
+      </view>
+    </view>
+    <view class="btn">
+      <button style='border:0;font: 16px "microsoft yahei";width:50%;height:40px;line-height:40px;background-color:#1296DB;color:#fff;border-radius:0px; ' plain='true' data-statu="close" form-type='submit' hover-class='none'>
+        {{titless["确认"]}}</button>
+      <button style='border:0;font: 16px "microsoft yahei";width:50%;height:40px;line-height:40px;background-color:#e3e3e3;border-radius:0px; ' plain='true' bindtap="question" data-statu="close" hover-class='none'>
+        {{titless["取消"]}}</button>
+    </view>
+  </view>
+</form>

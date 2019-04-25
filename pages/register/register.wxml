@@ -1,0 +1,27 @@
+<view class='_container'>
+  <image class='logo-img' src='https://51baoguan.cn/content/images/themes/A/logoss.png'></image>
+  <view class='form-class'>
+    <form bindsubmit="nextstep">
+      <view class='input-style'>
+        <view class="info-item">
+          <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbauser.png'></image>
+          <input class="info-item-input" id="mobile" name="mobile" value='{{currentUser.mobile}}' bindinput='bindData' placeholder='请输入手机号码' placeholder-class='placeholder'></input>
+        </view>
+        <view class="info-item1">
+          <view class="info-item-content">
+            <image class='info-item-icon1' src='https://51baoguan.cn/content/images/themes/A/ccbapassword.png'></image>
+            <input class="info-item-input2" id="verificationcode" name="verificationcode" value='{{currentUser.verificationcode}}' bindinput='bindData' placeholder='请输入验证码' placeholder-class='placeholder'></input>
+          </view>
+          <view class="info-item-content">
+            <button class='button-type' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">
+              {{time}}
+            </button>
+          </view>
+        </view>
+      </view>
+      <view>
+        <button class='btn-save' type='head' formType="submit">下一步</button>
+      </view>
+    </form>
+  </view>
+</view>

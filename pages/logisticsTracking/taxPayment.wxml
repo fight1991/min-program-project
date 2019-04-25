@@ -1,0 +1,38 @@
+<view>
+  <form bindsubmit="confirm">
+    <view class='items' wx:for="{{article}}" wx:key="index">
+      <label class='items-title' style='width:30%'>{{item.feeName}}</label>
+      <input class='items-input' type='digit' step="0.001" style='width:60%' id='{{index}}' name='truckNo' value='{{item.feeValue}}' bindinput='bindData'></input>
+      <view style='display: flex;align-items: center;'>
+        <image bindtap='deleteArticle' wx:if='{{index>1}}' data-index='{{index}}' class='img-close' src='/content/images/themes/A/close-gray.png'></image>
+        <image wx:else class='img-close'></image>
+      </view>
+    </view>
+    <view class='items' style='border:0px;padding-left:0px'>
+      <view style='color:#1296db'  wx:if='{{obj.role!="货主"||(obj.role=="货主"&&isDetails=="true")||isOperation}}' bindtap='addArticle'>
+        +新增税费名目
+      </view>
+      <view>
+        总额{{totalAmount}}
+      </view>
+    </view>
+    <view class='itemss'>
+      <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+        <view class='check-item'>
+          <image src="{{item}}" bindtap='showImg' data-url='{{item}}' class="upload"></image>
+          <image src="/content/images/themes/A/close.png" bindtap='clearImg' data-index="{{index}}" class="img-delete"></image>
+        </view>
+      </view>
+      <view class="educt_upload_add" bindtap="joinPicture" data-index="{{0}}">
+        <image src="/content/images/themes/A/ccbaupload.png" class="upload"></image>
+      </view>
+    </view>
+    <view class='buttons' wx:if='{{isOperation=="true"}}'>
+      <button class='button' disabled='{{disabled}}' formType="submit">提交</button>
+    </view>
+  </form>
+</view>
+
+<modal hidden="{{hiddenmodalput}}" title="新增税费名目" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirms">
+  <input bindinput='bindData4Name' class='input' placeholder="请输入内容" auto-focus/>
+</modal>

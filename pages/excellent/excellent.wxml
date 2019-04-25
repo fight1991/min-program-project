@@ -1,0 +1,87 @@
+<view wx:if='{{isShowContent}}' style='padding-bottom:100rpx;background-image: url("https://51baoguan.cn/content/images/themes/A/excellent_bk.png");background-size: 100% 100%;'>
+  <view class='top'>
+    <image class='img-top' src='https://51baoguan.cn/content/images/themes/A/excellent_top.png'></image>
+  </view>
+  <view class='title'>
+    <view style='position: relative'>
+      <label class='border-1'>
+        <label class='border-2'>
+          第五届全国优秀报关员
+        </label>
+      </label>
+    </view>
+    <view style='position:absolute;left:550rpx'>
+      <image class='tip' src='https://51baoguan.cn/content/images/themes/A/excellent_tip.png'> </image>
+    </view>
+  </view>
+  <view class='item-content'>
+    <view style='display: flex;align-items: center;position: relative;'>
+      <image wx:if='{{headPhoto==""||headPhoto==null}}' bindtap="uploadImg" class='img-upload-top' src='https://51baoguan.cn/content/images/themes/A/excellent_upload.png'></image>
+      <image wx:else class='img-upload-top' bindtap='showImg' data-url='{{headPhoto}}' src='{{headPhoto}}'></image>
+      <image wx:if='{{headPhoto!=""}}' src="/content/images/themes/A/close.png" bindtap='colseImg' class="img-delete"></image>
+    </view>
+    <view style='padding-top:20rpx;z-index:0'>
+      <view style='display: flex;align-items: center;'>
+        <label class='name'>
+          {{userName}}
+        </label>
+        <image class='gender' wx:if='{{gender=="0"}}' src='https://51baoguan.cn/content/images/themes/A/female.png'></image>
+        <image class='gender' wx:if='{{gender=="1"}}' src='https://51baoguan.cn/content/images/themes/A/male.png'></image>
+      </view>
+      <textarea placeholder='请输入您的个性签名' id='signContent' name='signContent' value='{{reqData.signContent}}' bindinput='bindData' placeholder-class='placeholder' class='area selected' maxlength="20">
+        <text class='tips'>{{len}}/20</text>
+      </textarea>
+    </view>
+  </view>
+  <view class='introduction'>
+    • 个人简介 •
+  </view>
+  <view class='item-content' style='z-index:0'>
+    <textarea placeholder='请输入您的个人简介' id='introduction' name='introduction' value='{{reqData.introduction}}' bindinput='bindData' placeholder-class='placeholder' class='areas' maxlength="50">
+      <text class='tips'>{{len1}}/50</text>
+    </textarea>
+  </view>
+  <view class='introduction'>
+    • 我的故事 •
+  </view>
+  <view class='item-content1s'>
+    <view class='item-content1' wx:for="{{stories}}" wx:key="" data-index='{{index}}'>
+      <view style='display: flex;align-items: center;position: relative;'>
+        <image wx:if='{{item.picUrl==""}}' bindtap="uploadImg4Stories" data-indexs='{{index}}' class='img-upload' src='/content/images/themes/A/ccbaupload.png'></image>
+        <image wx:else class='img-upload' bindtap='showImg' data-url='{{item.picUrl}}' src='{{item.picUrl}}'></image>
+        <image wx:if='{{item.picUrl!=""}}' src="/content/images/themes/A/close.png" bindtap='colseImg4Stories' data-indexs='{{index}}' class="img-delete"></image>
+      </view>
+      <view style='padding-top:20rpx;z-index:0'>
+        <textarea placeholder='请输入您的故事' id='picDescription' name='picDescription' value='{{item.picDescription}}' bindinput='bindData4Stories' data-indexs='{{index}}' placeholder-class='placeholder' class='area1' maxlength="30">
+          <text class='tips'>{{item.len}}/30</text>
+        </textarea>
+      </view>
+    </view>
+    <view style='font: 14px microsoft yahei;color:#1195dd;padding-left:20rpx;padding-bottom:20rpx'>
+      至少上传三张以上照片，最多十张
+    </view>
+  </view>
+  <view class='btns'>
+    <view style='width:40%;display:flex;justify-content: flex-end' bindtap='preview'>
+      <image class='img-btn' src='https://51baoguan.cn/content/images/themes/A/excellent_preview.png'></image>
+    </view>
+    <view style='width:40%;display:flex;justify-content: flex-start' bindtap='confirm'>
+      <image class='img-btn' src='https://51baoguan.cn/content/images/themes/A/excellent_submit.png'></image>
+    </view>
+  </view>
+</view>
+
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+  <view class='wx-mask' bindtap='hide'></view>
+  <view class='wx-dialog'>
+
+    <image src="{{url}}" class="shared-img">
+    </image>
+  </view>
+  <view class='dialog-button'>
+    <view style='display: flex;flex-direction: column;align-items: center;'>
+      <image src="https://51baoguan.cn/content/images/themes/A/btn-down1.png" class="btn-right" bindtap='download'> </image>
+      <label style='  font: 12px microsoft yahei;color:#808080;padding-top:3px'>下载</label>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,79 @@
+<form bindsubmit="confirm">
+  <view style='background-color: #fff'>
+    <view>
+      <image style='height: 350rpx;width:100%;' src="{{activityInfo.pictureUrl.length==0?'https://51baoguan.cn/content/images/themes/A/apply.jpg' :activityInfo.pictureUrl}}"></image>
+    </view>
+    <view class='content'>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>姓名</label>
+      </view> 
+      <view class='input-trade'>
+        <input style='height:40px' id='name' name='name' value='{{obj.name}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>手机</label>
+      </view>
+      <view class='input-trade'>
+        <input style='height:40px' type='number' id='mobile' name='mobile' value='{{obj.mobile}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>验证码</label>
+      </view>
+      <view class='input-trade' style='display:flex;justify-content: space-between;padding-right:5px'>
+        <input style='height:40px;width:70%' id='code' name='code' value='{{obj.code}}' bindinput='bindData'>
+        </input>
+        <label style='color: #1195dd;line-height: 40px;border-left: 1px solid #ccc;padding-left: 8px;width:75px;text-align:center;' bindtap='getCode'>{{code_tips}}</label>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>企业名称</label>
+      </view>
+      <view class='input-trade'>
+        <input style='height:40px' id='companyName' name='companyName' value='{{obj.companyName}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>职位</label>
+      </view>
+      <view class='input-trade'>
+        <input style='height:40px' id='position' name='position' value='{{obj.position}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>地址</label>
+      </view>
+      <view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class='section'>
+            <view class="picker">
+              {{multiArray[0][multiIndex[0]]}}
+              <image src='/content/images/themes/A/select.png' style="height:10px;width:15px"></image>
+            </view>
+            <view class="picker">
+              {{multiArray[1][multiIndex[1]]}}
+              <image src='/content/images/themes/A/select.png' style="height:10px;width:15px"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='input-trade'>
+        <input style='height:40px' placeholder='详细地址' placeholder-class='placeholder-class' id='address' name='address' value='{{obj.address}}' bindinput='bindData'>
+        </input>
+      </view>
+
+      <view class='item-title' wx:if="{{activityInfo.remark!=null&&activityInfo.remark&&activityInfo.remark.length>0}}">备注：<label class='item-note'>{{activityInfo.remark}}</label></view>
+
+    </view>
+  </view>
+  <view class='buttons'>
+    <button class='button' formType="submit">提交</button>
+  </view>
+
+</form>

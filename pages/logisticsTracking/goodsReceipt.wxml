@@ -1,0 +1,30 @@
+<view>
+  <view>
+    <view class='items'>
+      <view style='width:85%;display: flex;'>
+        <label class='items-title' style='width:25%'>签收时间</label>
+        <picker mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+          {{date}}
+        </picker>
+        <picker style='padding-left:10px' mode="time" value="{{time}}" bindchange="bindTimeChange">
+          {{time}}
+        </picker>
+      </view>
+    </view>
+    <view class='itemss'>
+      <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+        <view class='check-item'>
+          <image src="{{item}}" class="upload"></image>
+          <image src="/content/images/themes/A/close.png" bindtap='clearImg' data-index="{{index}}" class="img-delete"></image>
+        </view>
+      </view>
+      <view class="educt_upload_add" bindtap="joinPicture" data-index="{{0}}">
+        <image src="/content/images/themes/A/ccbaupload.png" class="upload"></image>
+      </view>
+    </view>
+    <view class='buttons' wx:if='{{!isCheck&&obj.role!="货主"&&isOperation=="true"}}'>
+      <button class='button' bindtap='confirm'>提交</button>
+    </view>
+  </view>
+
+</view>

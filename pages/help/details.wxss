@@ -1,0 +1,30 @@
+page {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+
+.title {
+  font: 15px "microsoft yahei";
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  width: 90%;
+}
+
+.content {
+  width: 90%;
+  border-top: 1px solid #d4d4d4;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.content-info {
+  font: 14px "microsoft yahei";
+  display:block;
+  letter-spacing: 1px;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,168 @@
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.img-top {
+  height: 130rpx;
+}
+
+.img-step1 {
+  height: 170rpx;
+  width: 100%;
+}
+
+.introduction {
+  font: 16px microsoft yahei;
+  text-align: center;
+  padding-top: 20rpx;
+  margin-bottom: -20rpx;
+}
+
+.img-upload-top {
+  width: 150rpx;
+  height: 150rpx;
+  padding: 20rpx;
+}
+
+.item-content {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 40rpx;
+  background-color: #fff;
+}
+
+.item-contents {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 40rpx;
+  padding-top: 20rpx;
+  background-color: #fff;
+  padding-bottom: 20rpx;
+}
+
+.area {
+  height: 150rpx;
+  width: 460rpx;
+  border: 1px solid #d8d8d8;
+  color: #000;
+  border-radius: 3rpx;
+  font: 14px microsoft yahei;
+}
+
+.areas {
+  width: 100%;
+  font: 14px microsoft yahei;
+  margin: 0rpx 20rpx 20rpx 20rpx;
+  padding: 10rpx;
+  height: 200rpx;
+  border: 1px solid #d8d8d8;
+  color: #000;
+}
+
+.img-upload {
+  width: 150rpx;
+  height: 150rpx;
+  padding: 20rpx;
+}
+
+.img-delete {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.tips {
+  position: absolute;
+  text-align: right;
+  bottom: 0px;
+  right: 5rpx;
+  width: 150rpx;
+  height: 40rpx;
+  color: #ccc;
+}
+
+.placeholder {
+  color: #ccc;
+}
+
+.title-add {
+  text-align: center;
+  font: 14px microsoft yahei;
+  width: 80%;
+  height: 30px;
+  line-height: 30px;
+  color: #1296db;
+  border: 1px solid #1296db;
+  border-radius: 50px;
+  margin: 0 auto;
+}
+
+.btns {
+  font: 14px microsoft yahei;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #1296db;
+  color: #fff;
+  margin-top: 30px;
+}
+
+.search-item-input1 {
+  text-align: left;
+}
+
+.search-item2 {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.date {
+  margin-left: 20rpx;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  border: 1px solid #d8d8d8;
+}
+
+.img-date {
+  padding-left: 10rpx;
+  height: 20px;
+  width: 20px;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  font: 14px microsoft yahei;
+  color: #e20025;
+  padding-right: 20rpx;
+}
+.item-content1s {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 40rpx;
+  background-color: #fff;
+}
+
+.item-content1 {
+  display: flex;
+  background-color: #fff;
+}
+.area1 {
+  height: 125rpx;
+  width: 440rpx;
+  border: 1px solid #d8d8d8;
+  color: #000;
+  border-radius: 3rpx;
+  padding: 10rpx;
+  font: 12px microsoft yahei;
+}

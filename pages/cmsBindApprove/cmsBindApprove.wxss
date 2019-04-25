@@ -1,0 +1,80 @@
+@import "../../content/wxss/list.wxss";
+ page{
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+.head {
+  height: 20rpx;
+}
+.swiper-tab {
+  text-align: center;
+}
+
+.swiper-tab-list {
+  height: 50rpx;
+  font: 12px microsoft yahei;
+  display: inline-block;
+  line-height: 50rpx;
+  width: 25%;
+  border: 1px solid #1296db;
+}
+
+.on {
+  color: #fff;
+  background-color: #1296db;
+}
+
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.list-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fefefe;
+  flex-direction: column;
+  height: 12%;
+  margin-bottom: 5px;
+}
+
+.list-item-top {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+  /* padding-left: 15px; */
+}
+
+.list-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+}
+
+.list-item-middle {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+}
+
+.list-item-title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2093e6;
+  font: 12px microsoft yahei;
+}
+
+.list-item-info1 {
+  color: #8b8682;
+  font: 12px microsoft yahei;
+}

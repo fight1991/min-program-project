@@ -1,0 +1,31 @@
+<view class='user-info margin-top-10'>
+  <image class="user-img" src="https://51baoguan.cn/content/images/themes/A/contact-big.png"></image>
+  <view class="user-name">{{user.userName}}</view>
+</view>
+
+<view class='user-info margin-top-10'>
+  <label class='user-info-lb'>手机</label>
+  <view class='user-info-val'>{{user.mobile}}</view>
+</view>
+<view class='user-info border-top-1'>
+  <label class='user-info-lb'>邮箱</label>
+  <view class='user-info-val'>{{user.emailAddress==null?'':user.emailAddress}}</view>
+</view>
+
+<view class='user-info margin-top-10' style='justify-content:space-between;' bindtap='showAddress' data-userId='{{user.userId}}' data-corpId='{{corp.corpId}}'  data-corpname='{{corp.corpName}}' wx:for="{{user.corps}}" wx:for-item="corp">
+  <view class='user-info-company'>
+    <view class='user-info-company-name'>{{corp.corpName}}</view>
+    <view class='color-gray font-size'>{{corp.contactWay.length>0?corp.contactWay[0].addressTel:''}}</view>
+    <view class='color-gray font-size'>{{corp.contactWay.length>0?corp.contactWay[0].address:''}}</view>
+  </view>
+  <view>
+    <image class="toward-img" src="https://51baoguan.cn/content/images/themes/A/toward.png"></image>
+  </view>
+</view>
+ 
+<view class='margin-top-40 del' bindtap='deleteContact'>
+  删除联系人
+</view>
+
+<logistics-dialog wx:if='{{isShow}}' bindcancelEvent='cancelEvent' bindconfirmEvent='confirmEvent'>
+</logistics-dialog>

@@ -1,0 +1,38 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<form bindsubmit="search" bindreset="reset">
+  <view style='padding-top:5%'>
+    <view class="search-item1" style='margin-bottom:20px'>
+      <label class='search-item-lb'>报关单号</label>
+      <view class="search-item">
+        <input class='search-item-input' type='number' placeholder='请输入报关单号' placeholder-class='placeholder' id="entry_id" value='{{searchModel.entry_id}}' bindinput='bindData'></input>
+        <image src='/content/images/themes/A/ccbascanCode.png' data-scan='entry_id' class="search-item-img" bindtap='scanCode'></image>
+      </view>
+    </view>
+    <view class='search-btns'>
+      <button class="search-btn" disabled='{{disabled}}' formType="submit">查询</button>
+    </view>
+  </view>
+</form>
+<view wx:if="{{isShow}}" style='padding-top:40px' class='list-item' data-statu="open">
+  <view class='list-item-top'>
+    <label class='list-item-title'>报关单号：{{obj.ENTRY_ID == "" ? "_" : obj.ENTRY_ID}}</label>
+  </view>
+  <view class='list-item-bottom'>
+    <label class='list-item-info1'>
+      报关状态：{{obj.ENTRY_STATE == "" ? "_" : obj.ENTRY_STATE}}
+    </label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 附加信息：{{obj.ENTRY_REMARK == "" ? "_" : obj.ENTRY_REMARK}}</label>
+  </view>
+</view>
+<template is="search_back" data="{{style,titles}}" wx:if='{{showBackTo}}' />
+
+
+<view wx:if="{{isSpeaking}}" class="speak-style">
+  <image class="sound-style" src="https://51baoguan.cn/content/images/themes/A/voice1.png"></image>
+  <image wx:if="{{j==2}}" class="sound-style" src="https://51baoguan.cn/content/images/themes/A/voice2.png"></image>
+  <image wx:if="{{j==3}}" class="sound-style" src="https://51baoguan.cn/content/images/themes/A/voice3.png"></image>
+  <image wx:if="{{j==4}}" class="sound-style" src="https://51baoguan.cn/content/images/themes/A/voice4.png"></image>
+</view>

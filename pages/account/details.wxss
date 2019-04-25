@@ -1,0 +1,111 @@
+page {
+  height: 100%;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -40px;
+  height: 100px;
+}
+
+.userinfo-avatar {
+  /*syj  */
+  margin-top: 100rpx;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.info-item {
+  width: 100%;
+  border-bottom: 1px solid #f3f3f3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+}
+
+.info-item-input {
+  line-height: 30px;
+  height: 30px;
+  width: 60%;
+  color: #333;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+}
+
+.info-item-label {
+  line-height: 30px;
+  height: 30px;
+  width: 25%;
+  padding-left: 10px;
+  color: #333;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+}
+
+.btn-back {
+  margin-top: 30px;
+  width: 80%;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 25px;
+  background-color: #3367d6;
+  color: #fff;
+}
+
+.button-hover {
+  background-color: #4face0;
+}
+
+.alter-img {
+  height: 20px;
+  width: 20px;
+  padding-right: 5px;
+}
+
+.input-view {
+  width: 60%;
+}
+
+.info-input {
+  color: #333;
+  line-height: 30px;
+  height: 30px;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+  width: 100%;
+}
+
+.btn-save {
+  margin-top: 30px;
+  width: 40%;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  background-color: #1296db;
+}
+
+.btn-bk {
+  margin-top: 30px;
+  width: 40%;
+  height: 45px;
+  line-height: 45px;
+  color: #000;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.button-content {
+  display: flex;
+}

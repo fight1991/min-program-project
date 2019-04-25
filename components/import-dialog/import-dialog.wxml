@@ -1,0 +1,16 @@
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+  <view class='wx-mask' bindtap='hide'></view>
+  <view class='wx-dialog'>
+    <view class='wx-dialog-title'>{{title}}</view>
+    <view class='wx-dialog-content'>
+      <view class='wx-dialog-item'>
+        <label class='wx-dialog-item-lb'>企业名称</label>
+        <input class='wx-dialog-item-inp' placeholder='请输入企业名称' bindinput='bindData' id="value" value='{{value}}'></input>
+      </view>
+    </view>
+    <view class='dialog-button'>
+       <view class='btn-left' bindtap='cancel'>取消</view>
+       <view class='btn-right' bindtap='ok'>确认</view> 
+    </view>
+  </view>
+</view>

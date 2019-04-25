@@ -1,0 +1,54 @@
+<view style='heigth:100%'>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>接单编号：</label>
+    <view class='list-item-lb-value'>{{obj.INNER_NO}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>报关单号：</label>
+    <view class='list-item-lb-value'>{{obj.ENTRY_ID}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>客户：</label>
+    <view class='list-item-lb-value'>{{obj.COMPANY}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>接单时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_0}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>接单提交时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_1}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>录入时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_2}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>录入提交时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_3}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>退单时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_4}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>已审核时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_5}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>修改退单时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_6}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>单一窗口申报时：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_7}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>过机时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_8}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>结关时间：</label>
+    <view class='list-item-lb-value'>{{obj.TIME_9}}</view>
+  </view>
+</view>

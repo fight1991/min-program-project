@@ -1,0 +1,8 @@
+<template name="search_template">
+  <view style="height:{{winHeight*0.06}}px;width: 100%;background-color: #f1f1f1;display: flex;align-items: center;flex-wrap: wrap;" bindtap='showSearch'>
+    <view style='text-align:center;margin-left:2%;border: 1px solid #eaeef1;height:{{winHeight*0.04}}px;background-color: #fff;width:96%;display: flex;align-items: center;flex-wrap: wrap;justify-content:center'>
+      <image src='{{theme}}ccbasearch.png' style='height:{{winHeight*0.04*0.5}}px;width:{{winHeight*0.04*0.5}}px;padding-left:5px'></image>
+      <label style='height:{{winHeight*0.04}}px;line-height:{{winHeight*0.04}}px;color:grey;font-size:12px;margin-left:6px;'>查询</label>
+    </view>
+  </view>
+</template>

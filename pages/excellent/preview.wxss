@@ -1,0 +1,10 @@
+.btn-submit {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute
+}
+.img-btn {
+  height: 150rpx;
+  width: 150rpx;
+}

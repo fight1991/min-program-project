@@ -1,0 +1,35 @@
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px;">
+  <view class="head"></view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='border-radius: 8px 0px 0px 8px;;'>差错率统计</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='border-radius: 0px 8px 8px 0px;'>差错率分析</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.128}}px;background-color:#fff" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y="ture" style="height:100%">
+      <view class='list-item-list' wx:for="{{datas4tab1}}" wx:key="" data-index='{{index}}' data-statu="open" id='{{item.USER_ID}}' bindtap="show_details1" data-cop_g_no='{{item.COP_G_NO}}' data-statu="open">
+        <view class='list-item-top'>
+          <label class='list-item-info1'>操作员：{{item.USER_ID == "" ? "0" : item.USER_ID}}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>录入差错率：{{item.CHECK_ERROR == "" ? "0" : item.CHECK_ERROR}}</label>
+          <label class='list-item-info1'>审核差错率：{{item.CHECK_ERROR3 == "" ? "0" : item.CHECK_ERROR3}}</label>
+        </view>
+        <view style="background-color:#f4f4f4;height:2px;"></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="ture"style="height:100%">
+      <view class='list-item-list' wx:for="{{datas4tab2}}" wx:key="" data-index='{{index}}' data-statu="open" id='{{item.USER_ID}}' bindtap="show_details2" data-cop_g_no='{{item.COP_G_NO}}' data-statu="open">
+        <view class='list-item-top'>
+          <label class='list-item-info1'>操作员{{item.USER_ID == "" ? "0" : item.USER_ID}}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>录入差错率：{{item.CHECK_ERROR == "" ? "0" : item.CHECK_ERROR}}</label>
+          <label class='list-item-info1'>审核差错率：{{item.CHECK_ERROR3 == "" ? "0" : item.CHECK_ERROR3}}</label>
+        </view>
+        <view style="background-color:#f4f4f4;height:2px;"></view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,23 @@
+<view class='list' style='background-image:url({{theme}}details.png);background-size:100% 100%;background-repeat:no-repeat'>
+  <view class='title'>
+    <label class='line'></label>
+    <label>{{obj.DELIVERY_NAME}}</label>
+    <label class='line'></label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">类型:</label>
+    <label class="list-item-info">{{obj.FLAG}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">提送货地址:</label>
+    <label class="list-item-info">{{obj.DELIVERY_ADDR}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">提送货联系方式:</label>
+    <label class="list-item-info">{{obj.DELIVERY_CONT}}</label>
+  </view>
+  <view class="list-item" style='padding-bottom:70%'>
+    <label class="list-item-label">备注:</label>
+    <label class="list-item-info">{{obj.NOTE}}</label>
+  </view>
+</view>

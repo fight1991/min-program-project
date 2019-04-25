@@ -1,0 +1,61 @@
+.placeholder {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.input-item {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  width: 100%;
+  margin-left: 5%;
+  border-bottom: 1px solid #f4f4f4
+}
+.input-items{
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+}
+.switch-type{
+  height: 20px;
+}
+.title {
+  color: #4b4b4b;
+  font-size: 14px;
+}
+
+.input-item-content {
+  font-size: 14px;
+  padding-left: 10px;
+  height: 40px;
+  line-height: 40px;
+}
+.btn-save {
+  margin-top: 30px;
+  width: 84%;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: #1296db;
+}
+.require-icon{
+  color: red;
+  width: 10px;
+  
+}
+.button-type{
+  position: absolute;
+  right: 6%;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+}

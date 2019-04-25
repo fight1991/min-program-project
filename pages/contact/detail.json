@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "联系人详情",
+  "usingComponents": {
+    "logistics-dialog": "/components/logistics-dialog/logistics-dialog"
+  }
+}

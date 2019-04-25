@@ -1,0 +1,19 @@
+.content-video {
+  background-color: #fff;
+}
+.content-video video {
+  width: 100%;
+}
+.text {
+  padding: 15px;
+}
+.text1 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  padding-bottom: 15px;
+}
+.text2 {
+  font-size: 14px;
+  color: #333;
+}

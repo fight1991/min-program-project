@@ -1,0 +1,13 @@
+<template name="refresh">
+  <view wx:if='{{showTitle == "1"}}' style='text-align:center;color:grey;font-size:12px;'>释放立即刷新</view>
+  <view wx:if='{{showTitle == "2"}}' style='text-align:center;color:grey;font-size:12px;justify-content:center;display:flex;align-items:center;'>
+    <image src='{{theme}}load-more.gif' style='width:50px;height:25px;'></image>
+    <!-- <view>正在加载...</view>  -->
+     正在加载... 
+  </view>
+  <view wx:if='{{showTitle == "3"}}' style='text-align:center;color:grey;font-size:12px;justify-content:center;display:flex;align-items:center;'>
+    <image src='{{theme}}success.png' style='width:25px;height:25px;'></image> 
+    <!-- <view>加载成功...</view> -->
+     <text style='color:#F1F1F1;opacity:0;'>1234</text>加载成功... 
+  </view>
+</template>

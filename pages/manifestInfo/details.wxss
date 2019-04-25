@@ -1,0 +1,46 @@
+.list {
+  height: 100%;
+  width: 100%;
+}
+
+.list-item {
+  display: flex;
+}
+
+.list-item-label {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 5%;
+  width: 30%;
+  color: #8b8682;
+  font: 12px microsoft yahei;
+  line-height: 30px;
+  padding-right: 10px;
+}
+
+.list-item-info {
+  padding-left: 10px;
+  color: #8b8682;
+  font: 12px microsoft yahei;
+  line-height: 30px;
+  display: inline-block;
+  width: 50%;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 30px;
+  color: #2093e6;
+  font: bold 16px microsoft yahei;
+  padding-bottom: 5%;
+  padding-top: 10%;
+}
+
+.line {
+  width: 10%;
+  height: 2px;
+  margin: 5px;
+  background-color: #2093e6;
+}

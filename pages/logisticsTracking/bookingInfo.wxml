@@ -1,0 +1,45 @@
+<view>
+  <view>
+    <view class='items' wx:if='{{isShow.isShowPackNo}}'>
+      <label class='items-title'>件数</label>
+      <input type='number' class='items-input' id='packNo' name='packNo' value='{{reqData.packNo}}' bindinput='bindData'></input>
+    </view>
+    <view class='items' wx:if='{{isShow.isShowGrossWt}}'>
+      <label class='items-title'>毛重(KG)</label>
+      <input type='number' class='items-input' id='grossWt' name='grossWt' value='{{reqData.grossWt}}' bindinput='bindData'></input>
+    </view>
+    <view class='items' wx:if='{{isShow.isShowVolume}}'>
+      <label class='items-title'>体积(CBM)</label>
+      <input type='number' class='items-input' id='volume' name='volume' value='{{reqData.volume}}' bindinput='bindData'></input>
+    </view>
+    <view class='items' style='height:70px;padding-top:5px' wx:if='{{isShow.isShowGName}}'>
+      <label class='items-title' style='white-space:nowrap;'>品名</label>
+      <textarea class='items-input' id='gName' name='gName' value='{{reqData.gName}}' bindinput='bindData' style='height:70px'></textarea>
+    </view>
+    <view class='items' wx:if='{{isShow.isShowDate}}'>
+      <view style='width:85%;display: flex;'>
+        <label class='items-title' style='width:30%' wx:if='{{isShow.title1}}'>需求航班日</label>
+        <label class='items-title' style='width:30%' wx:if='{{isShow.title2}}'>需求船期</label>
+        <label class='items-title' style='width:30%' wx:if='{{isShow.title3}}'>需求提货日期</label>
+        <picker mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+          {{date}}
+        </picker>
+        <picker style='padding-left:10px' mode="time" value="{{time}}" bindchange="bindTimeChange">
+          {{time}}
+        </picker>
+      </view>
+    </view>
+    <view class='items' style='height:70px;padding-top:5px' wx:if='{{isShow.isShowNote}}'>
+      <label class='items-title' style='white-space:nowrap;'>备注</label>
+      <textarea class='items-input' id='note1' name='note1' value='{{reqData.note1}}' bindinput='bindData' style='height:70px'></textarea>
+    </view>
+    <view class='items' style='height:70px;padding-top:5px' wx:if='{{isShow.isShowContainerInfo}}'>
+      <label class='items-title' style='white-space:nowrap;'>集装箱信息</label>
+      <textarea class='items-input' placeholder='型号及数量' placeholder-class='placeholder' id='containerInfo' name='containerInfo' value='{{reqData.containerInfo}}' bindinput='bindData' style='height:70px'></textarea>
+    </view>
+    <view wx:if='{{obj.role!="货主"&&isOperation=="true"}}' class='buttons'>
+      <button class='button' disabled='{{disabled}}' bindtap='confirm'>提交</button>
+    </view>
+  </view>
+
+</view>

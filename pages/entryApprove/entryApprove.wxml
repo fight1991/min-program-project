@@ -1,0 +1,26 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" >
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='show' data-index='{{index}}'>
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.INNER_NO == "" ? "_" : item.INNER_NO}}</label>
+        <label class='list-item-info1' style='color:#1296db'>{{array[item.STATUS]}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:70%'>接单日期：{{item.RCV_DATE == "" ? "_" : item.RCV_DATE}}</label>
+        <label class='list-item-info1' style='width:30%;text-align: right;'>监管方式：{{item.TRADE_MODE == "" ? "_" : item.TRADE_MODE}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:70%'>提运单号：{{item.BILL_NO == "" ? "_" : item.BILL_NO}}</label>
+        <label class='list-item-info1' style='font-size:14px;width:15%;text-align:right'>•••</label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>

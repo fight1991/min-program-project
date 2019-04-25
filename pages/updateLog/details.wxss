@@ -1,0 +1,12 @@
+@import "../../content/libs/wxParse/wxParse.wxss";
+.info {
+  width: 94%;
+  margin-left: 3%;
+}
+
+.info-body {
+  width: 94%;
+  margin-left: 3%;
+  text-align: justify;
+  font-size:16px;
+}

@@ -1,0 +1,49 @@
+<form bindsubmit="confirm">
+  <view style='background-color: #fff'>
+    <view>
+      <image class='img' src="https://51baoguan.cn/content/images/themes/A/rating.png"></image>
+    </view>
+    <view class='content'>
+      <view class='content-tip'>
+        <label>为保证评分的公平公正，每个用户仅可对同一企业评价一次，请验证您的身份信息，我们会对您提交的个人信息保密，请放心填写。
+        </label>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>姓名</label>
+      </view>
+      <view class='input-trade'>
+        <input style='height:40px' id='name' name='name' value='{{obj.name}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>手机号</label>
+      </view>
+      <view class='input-trade'>
+        <input style='height:40px' type='number' id='mobile' name='mobile' value='{{obj.mobile}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>验证码</label>
+      </view>
+      <view class='input-trade' style='display:flex;justify-content: space-between;padding-right:5px'>
+        <input style='height:40px;width:70%' id='code' name='code' value='{{obj.code}}' bindinput='bindData'>
+        </input>
+        <label style='color: #1195dd;line-height: 40px;border-left: 1px solid #ccc;padding-left: 8px;width:75px;text-align:center;' bindtap='getCode'>{{code_tips}}</label>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>企业名称</label>
+      </view>
+      <view class='input-trade'> 
+        <input style='height:40px'  id='companyName' name='companyName' value='{{obj.companyName}}' bindinput='bindData'>
+        </input>
+      </view>
+    </view>
+  </view>
+  <view class='buttons'>
+    <button class='button' formType="submit">提交</button>
+  </view>
+</form>

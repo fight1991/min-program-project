@@ -1,0 +1,12 @@
+<view class='address-header'>
+  <view>
+    {{corpName}}
+  </view>
+</view>
+
+<view class='address-content'>
+  <view class='address-content-item {{index>0?"border-top-1":""}}' wx:for="{{corp.contactWay}}">
+    <view class='address-name'>{{item.address}}</view>
+    <view class='address-phone'>{{item.addressTel}}</view>
+  </view>
+</view>

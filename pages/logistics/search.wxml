@@ -1,0 +1,62 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset" class='search'>
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>接单编号</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入接单编号' placeholder-class='placeholder' id="inner_no" value='{{searchModel.inner_no}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='inner_no' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>报关单号</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入报关单号' placeholder-class='placeholder' id="entry_id" value='{{searchModel.entry_id}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='entry_id' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>主提单号</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入主提单号' placeholder-class='placeholder' id="bill_no" value='{{searchModel.bill_no}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='bill_no' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <picker mode="selector" value="{{selectItem}}" range='{{array}}' bindchange="bindChange">
+        <view class="picker search-item1">
+          <label class='search-item-lb'>报关状态</label>
+          <view class="search-item">
+            <input class='search-item-input' disabled="false" placeholder='请选择报关状态' placeholder-class='placeholder' value='{{type}}'></input>
+            <image src='/content/images/themes/A/select.png'style="height:10px;width:15px"></image>
+          </view>
+        </view>
+      </picker>
+      <view class='picker-date'>
+        <picker mode="date" value="{{index}}" id='picker1' start="1980-01-01" end="2050-12-31" fields="day" bindchange="bindDateChange1" style='margin-bottom:5px'>
+          <view class="picker search-item1" style='margin-top: 10px;margin-bottom: 1px;'>
+            <label class='search-item-lb1'>申报开始日期</label>
+            <view class="search-item2">
+              <input class='search-item-input1' disabled="false" placeholder='请选择申报开始日期' placeholder-class='placeholder' value='{{date1}}'></input>
+              <label class='search-item-img'></label>
+            </view>
+          </view>
+        </picker>
+        <picker mode="date" value="{{index}}" id='picker2' start="1980-01-01" end="2050-12-31" fields="day" bindchange="bindDateChange2">
+          <view class="picker search-item1" style='margin-top: 10px;margin-bottom: 1px;border-left: 1px solid #d8d8d8'>
+            <label class='search-item-lb1'>申报结束日期</label>
+            <view class="search-item2">
+              <input class='search-item-input1' disabled="false" placeholder='请选择申报结束日期' placeholder-class='placeholder' value='{{date2}}'></input>
+              <label class='search-item-img'></label>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style,titles}}" wx:if='{{showBackTo}}' />

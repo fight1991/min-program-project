@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "联系人",
+  "usingComponents": {
+    "card": "/components/my-card/my-card"
+  }
+}

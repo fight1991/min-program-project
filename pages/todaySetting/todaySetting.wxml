@@ -1,0 +1,99 @@
+<!-- 最外层容器 -->
+<view class="myContainer">
+  <!-- 内层容器 -->
+  <view class="myChildContainer myMargin" style='height:{{winHeight-50}}px'>
+    <!-- 1.0上 -->
+    <view class="myBgColor">
+      <!-- 1.1第一行 -->
+      <view class="commonList firstLine">
+        <text class="firstLineText">航班动态更新推送</text>
+        <view class="body-view" style="display:inline-block;">
+          <switch checked="{{config.FLIGHT_DYNAMIC}}" bindchange="switch1Change" />
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class="divider divederPadding"></view>
+      <!-- 1.2第二行 -->
+      <view class="commonList secondLine">
+        <text>动态刷新时间（分钟）</text>
+        <!-- 点击+-按钮数量变化 -->
+        <view class="secondLineBtn">
+          <view bindtap="nextNum" class="secondLineBtnLeft secondLineBtnCommon">-</view>
+          <input type="number" value="{{config.REFRESH_DATE}}" class="secondLineIpt" bindinput='bindData'></input>
+          <view bindtap="prevNum" class="secondLineBtnRight secondLineBtnCommon">+</view>
+        </view>
+      </view>
+    </view>
+    <!-- 粗的分割线 -->
+    <view class="dividerThick"></view>
+    <!-- 2.0中 -->
+    <view class="myBgColor">
+      <!-- 2.1第一行 -->
+      <view class="commonList middleFirstLine">
+        <view class="middleFirstLeft myClear">
+          <text>已关注航班（硕放）</text>
+          <view class="myAdd" bindtap="myAddClick">
+            <image src="/content/images/themes/A/myAdd.png" lazy-load></image>
+            <text>新增</text>
+          </view>
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class="divider"></view>
+      <!-- 2.2第二行 -->
+      <view wx:for="{{config.list}}" wx:key="{{item.PID}}" data-index='{{index}}'>
+        <view class="commonList secondLine">
+          <view class="middleFrstLeft">
+            <view>{{item.FLIGHT_ID}}</view>
+            <view class="grayText">
+              <text>{{item.FLIGHT}}</text>
+            </view>
+          </view>
+          <!-- 红色的 删除的图标 -->
+          <view class="delete" bindtap="deleteaddress" data-index='{{index}}' data-id="{{item.PID}}">
+            <image src="/content/images/themes/A/myClose.png" class="myCloseImage"></image>
+          </view>
+        </view>
+        <!-- 分割线 -->
+        <view class="divider"></view>
+      </view>
+    </view>
+    <!-- 粗的分割线 -->
+    <view class="dividerThick"></view>
+    <!-- 3.0下 -->
+
+    <view class="myBgColor">
+      <!-- 2.1第一行 -->
+      <view class="commonList middleFirstLine bottomLast">
+        <view class="middleFirstLeft myClear">
+          <view style='display:flex;align-items:center;justify-content:space-between'>
+            <text>未关注航班（硕放）</text>
+            <input class='input' placeholder='请输入查询航班' placeholder-class='placeholder' id='str' name='search' maxlength='10' bindinput='bindData4Str' value='{{str}}'></input>
+          </view>
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class="divider"></view>
+      <!-- 2.2第二行 -->
+      <view wx:for="{{listNoFocus}}" wx:key="{{item.PID}}" data-index='{{index}}'>
+        <view class="commonList secondLine">
+          <view class="middleFrstLeft">
+            <view>{{item.FLIGHT_ID}}</view>
+            <view class="grayText">
+              <text>{{item.FLIGHT}}</text>
+            </view>
+          </view>
+          <!-- 绿色的+图标 -->
+          <view class="add" bindtap="addAddress" data-index='{{index}}' data-id="{{item.PID}}">
+            <image src="/content/images/themes/A/myAddLarge.png" class="myCloseImage"></image>
+          </view>
+        </view>
+        <!-- 分割线 -->
+        <view class="divider"></view>
+      </view>
+    </view>
+  </view>
+  <view class="complete-btn btn">
+    <button bindtap="commit">保存</button>
+  </view>
+</view>

@@ -1,0 +1,180 @@
+<view wx:if='{{line=="001"}}'>
+  <view class='content-classify'>
+    <view class='content-view'>
+      <label class='title'>商品名称:</label>
+      <label class='content gname'>{{objs.G_NAME}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>货物税号:</label>
+      <label class='content'>{{objs.CODE_T_S}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>材质(成分):</label>
+      <label class='content'>{{objs.G_MATERICL}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>其它说明:</label>
+      <label class='content'>{{objs.OTHER_NOTE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>相关产品:</label>
+      <label class='content'>{{data1}}</label>
+    </view>
+  </view>
+  <view class='content-tariff kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>关税信息</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>最惠国进口税率:</label>
+      <label class='content '>{{obj.LOW_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>普通进口税率:</label>
+      <label class='content'>{{obj.HIGH_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>暂定进口税率:</label>
+      <label class='content'>{{obj.TEMP_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>消费税率:</label>
+      <label class='content'>{{obj.COMM_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>增值税率:</label>
+      <label class='content'>{{obj.VAT_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>出口关税率:</label>
+      <label class='content'>{{obj.OUT_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>出口退税率:</label>
+      <label class='content'>{{obj.OTHER_RATE}}</label>
+    </view>
+  </view>
+  <view class='content-classify kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>申报要素</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>商品名称:</label>
+      <label class='content '>{{obj.G_NAME}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>申报要素:</label>
+      <label class='content'>{{obj.G_MODEL}}</label>
+    </view>
+  </view>
+  <view class='content-classify kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>监管条件</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>海关监管条件:</label>
+      <label class='content '>{{obj.CONTROL_MA}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>检验检疫类别:</label>
+      <label class='content'>{{obj.CIQ_MA}}</label>
+    </view>
+  </view>
+  <view class='content-classify kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>法定单位</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>法定第一单位:</label>
+      <label class='content '>{{obj.UNIT_1}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>法定第二单位:</label>
+      <label class='content'>{{obj.UNIT_2}}</label>
+    </view>
+  </view>
+</view>
+<view wx:if='{{line=="002"}}'>
+  <view class='content-classify'>
+    <view class='content-view'>
+      <label class='title'>商品名称:</label>
+      <label class='content gname'>{{objs.G_NAME}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>商品编码:</label>
+      <label class='content'>{{objs.CODE_TS}}</label>
+    </view>
+  </view>
+  <view class='content-tariff kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>关税信息</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>最惠国进口税率:</label>
+      <label class='content '>{{objs.LOW_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>普通进口税率:</label>
+      <label class='content'>{{objs.HIGH_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>暂定进口税率:</label>
+      <label class='content'>{{objs.TEMP_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>消费税率:</label>
+      <label class='content'>{{objs.COMM_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>增值税率:</label>
+      <label class='content'>{{objs.VAT_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>出口关税率:</label>
+      <label class='content'>{{objs.OUT_RATE}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>出口退税率:</label>
+      <label class='content'>{{objs.OTHER_RATE}}</label>
+    </view>
+  </view>
+  <view class='content-classify kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>申报要素</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>商品名称:</label>
+      <label class='content '>{{objs.G_NAME}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>申报要素:</label>
+      <label class='content'>{{objs.G_MODEL}}</label>
+    </view>
+  </view>
+  <view class='content-classify kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>监管条件</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>海关监管条件:</label>
+      <label class='content '>{{objs.CONTROL_MA}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>检验检疫类别:</label>
+      <label class='content'>{{objs.CIQ_MA}}</label>
+    </view>
+  </view>
+  <view class='content-classify kk'>
+    <view class='content-view'>
+      <label class='title' style='color:#000;font-weight: bold'>法定单位</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>法定第一单位:</label>
+      <label class='content '>{{objs.UNIT_1}}</label>
+    </view>
+    <view class='content-view'>
+      <label class='title'>法定第二单位:</label>
+      <label class='content'>{{objs.UNIT_2}}</label>
+    </view>
+  </view>
+</view>

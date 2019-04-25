@@ -1,0 +1,24 @@
+<view style='height:100%;'>
+  <view class='contents'>
+    <view class='item'>
+      <label class='title'>集装箱号</label>
+    </view>
+    <view>
+      <input class='input' bindinput='bindData' value='{{no}}'></input>
+    </view>
+    <view class='tips'>
+      <image class='img-tip' src='https://51baoguan.cn/content/images/themes/A/identify-tip.png'></image>
+      <label class='tip'>点击集装箱号可手动修改</label>
+    </view>
+  </view>
+  <view class='btns'>
+    <view class='btn left' bindtap='identify'>
+      重新识别
+    </view>
+    <view class='mid'>
+    </view>
+    <view class='btn right'bindtap='confirm'>
+      完成
+    </view>
+  </view>
+</view>

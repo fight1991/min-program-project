@@ -1,0 +1,26 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset" class='search'>
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:20px'>
+        <label class="search-item-lb">经营企业编码:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入经营企业编码' placeholder-class='placeholder' id="trade_code" value='{{searchModel.trade_code}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' class="search-item-img" data-scan='trade_code' bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class="search-item1">
+
+        <label class="search-item-lb">账册编号:</label>
+        <view class="search-item">
+          <input class='search-item-input' type='number' placeholder='请输入账册编号' placeholder-class='placeholder' id="ems_no" value='{{searchModel.ems_no}}' bindinput='bindData'></input>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style,titles}}" />

@@ -1,0 +1,42 @@
+<form bindsubmit="confirm">
+  <view style='background-color:#fff'>
+    <view class='title-content' style='padding-top:10px'>
+      <label class='title-icon'>*</label>
+      <label class='title'>姓名</label>
+    </view>
+    <view class='input-view'>
+      <input wx:if="{{isFromParties}}" disabled='disabled' class='input-type' id='name' name='name' value='{{contactModel.name}}' bindinput='bindData'>
+      </input>
+      <input wx:if="{{!isFromParties}}" class='input-type' id='name' name='name' value='{{contactModel.name}}' bindinput='bindData'>
+      </input>
+      <image src='/content/images/themes/A/logistics_name.png' bindtap='showContactList' class='img-name'></image>
+    </view>
+    <view class='title-content'>
+      <label class='title-icon'>*</label>
+      <label class='title'>联系方式</label>
+    </view>
+    <view style='padding-bottom:10px'>
+      <input wx:if="{{isFromParties}}" disabled='disabled' class='input-view' id='mobile' name='mobile' value='{{contactModel.mobile}}' bindinput='bindData'></input>
+      <input wx:if="{{!isFromParties}}" class='input-view' id='mobile' name='mobile' value='{{contactModel.mobile}}' bindinput='bindData'></input>
+    </view>
+  </view>
+  <view>
+    <view class='title-content log' style='padding-top:10px'>
+      <label class='title-log'>历史记录</label>
+      <image src='https://51baoguan.cn/content/images/themes/A/others/logistics_delete.png' class='img-log' bindtap='empty'></image>
+    </view>
+    <view wx:if='{{!isFromParties}}' class='content-log'>
+      <view class='item-log' bindtap='selected' wx:for="{{logData4Contacts}}" wx:key="" data-index='{{index}}' wx:for-item="i">
+        {{logData4Contacts[index]}}
+      </view>
+    </view>
+    <view wx:if='{{isFromParties}}' class='content-log'>
+      <view class='item-log' bindtap='selected' wx:for="{{logDataFromContacts}}" wx:key="" data-index='{{index}}' wx:for-item="i">
+        {{logDataFromContacts[index]}}
+      </view>
+    </view>
+  </view>
+  <view class='search-btns'>
+    <button class="search-btn" formType="submit">确定</button>
+  </view>
+</form>

@@ -1,0 +1,64 @@
+.placeholder {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.input-item {
+  line-height: 40px;
+  width: 100%;
+  margin-left: 5%;
+}
+
+.input-items {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.switch-type {
+  height: 20px;
+}
+
+.title {
+  color: #9b9b9b;
+  font-size: 14px;
+}
+
+.input-item-content {
+  border: 1px solid #d8d8d8;
+  padding-left: 5px;
+  width: 90%;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.btn-save {
+  margin-top: 30px;
+  width: 84%;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: #1296db;
+}
+
+.require-icon {
+  color: red;
+  width: 10px;
+}
+
+.success {
+  padding-top: 20%;
+}
+
+.success-icon {
+  height: 70px;
+  width: 70px;
+}

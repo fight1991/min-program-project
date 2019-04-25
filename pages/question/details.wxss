@@ -1,0 +1,159 @@
+page {
+  background-color: #eee;
+  height: 100%;
+  width: 100%;
+}
+
+.question {
+  background-color: #fff;
+}
+
+.answer {
+  margin-top: 10px;
+  background-color: #fff;
+  position: relative;
+}
+
+.question-intro {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font: 14px microsoft yahei;
+  color: #aaa;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.question-intro-1 {
+  color: #000;
+}
+
+.answer-intro-1 {
+  color: #000;
+}
+
+.answer-intro {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font: 14px microsoft yahei;
+  color: #aaa;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.question_note {
+  padding: 5%;
+  font: 14px microsoft yahei;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.img {
+  padding: 5%;
+  width: 60px;
+  height: 60px;
+}
+
+.warn {
+  padding-top: 50px;
+  text-align: center;
+  font: 16px microsoft yahei;
+  color: #9b9b9b;
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  widows: 98%;
+  margin: 5rpx;
+}
+
+.tr {
+  padding-left: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 25rpx;
+}
+
+.td {
+  height: 60px;
+  width: 60px;
+  margin-left: 3%;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.userinfo-avatar {
+  /*syj  */
+  margin-right: 10rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.search-btns {
+  width: 100%;
+  color: green;
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+}
+
+.search-btn {
+  width: 45%;
+}
+
+.img-solve {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.load {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.load-image {
+  width: 180px;
+  height: 180px;
+  display: block;
+}
+
+.load-text {
+  color: #fff;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.alter-img {
+  height: 25px;
+  width: 25px;
+  float: right;
+}
+
+
+.confirm-container{
+  display: flex;
+  align-content: center;
+   padding-bottom:8px;
+}
+
+.confirm-btn{
+  font-size:12px;
+   background-color: #eee;
+     color: #a5aab1;
+     padding: 0 8px;
+     border-radius: 0;
+     line-height: 24px;
+     height: 24px;
+}

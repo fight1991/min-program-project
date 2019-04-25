@@ -1,0 +1,21 @@
+<view class='content'>
+  <view class='item'>
+    <view style='display:flex;align-items:center;width:30%'>
+      <label class='title'>企业名称：</label>
+    </view>
+    <view class='input-container'>
+      <view style='position:relative;width:100%'>
+        <input class='input' value='{{corpName}}' placeholder='请输入企业名称' bindinput='bindData' data-key='corpName' bindblur='closeSelect'>
+        </input>
+        <scroll-view scroll-y="true" class="scrollview" data-index='{{index}}' wx:if="{{bindSource.length>0}}">
+          <view wx:for="{{bindSource}}">
+            <view id="{{item.corpId}}" bindtap="itemtap" data-corpName='{{item.corpName}}' data-indexs='{{index}}' class="itemview">{{item.corpName}}</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='buttons'>
+  <button class='button' bindtap='add'>提交</button>
+</view>

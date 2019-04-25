@@ -1,0 +1,7 @@
+@import "../../content/wxss/search.wxss"; 
+.search-item-lb {
+  width: 140px;
+  letter-spacing: 5px;
+  font-family: "微软雅黑";
+  flex-grow: 1;
+}

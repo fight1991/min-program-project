@@ -1,0 +1,34 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view style='height:{{winHeight}}px;'>
+    <view style="height:{{winHeight*0.07}}px;width:100%;background-color: #1296db;display:flex;align-items:center;flex-wrap:wrap;">
+      <view class='search-item' style='height:{{winHeight*0.05}}px;'>
+        <view style='display: flex;align-items:center;width: 80%' >
+          <image src='{{theme}}ccbasearch2.png' style='height:{{winHeight*0.04*0.5}}px;width:{{winHeight*0.045*0.5}}px;padding-left:5px'></image>
+          <input class='search-input' style='line-height:{{winHeight*0.06}}px' placeholder='请输入代码或者名称' placeholder-class='placeholder' id="condition" value='{{searchModel.condition}}' bindinput='bindData' bindconfirm='search'>
+          </input>
+        </view>
+        <label bindtap='search' class='search-btn'>搜索</label>
+      </view>
+    </view>
+    <view class='list-item1' wx:for="{{datas}}" wx:key="" data-index='{{index}}' data-statu="open">
+      <view class='list-item-left' style='background-image:url({{theme}}index/licensedocu-list.png);background-size:auto 55%;background-repeat:no-repeat;'>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-title'>{{item.DOCU_NAME == "" ? "_" : item.DOCU_NAME}}</label>
+      </view>
+      <view class='list-item-right'>
+        <label class='list-item-info'>{{item.DOCU_CODE == "" ? "_" : item.DOCU_CODE}}</label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />

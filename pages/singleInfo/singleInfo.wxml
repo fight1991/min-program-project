@@ -1,0 +1,42 @@
+<view wx:if='{{searchNone==false}}'>
+  <view style='margin-top: 30%;'>
+    <view class='s-item'>
+      <label class='s-title'>账号:</label>
+      <label class='s-content'>{{obj.SW_ID}}</label>
+    </view>
+    <view class='s-item'>
+      <label class='s-title'>密码:</label>
+      <label class='s-content'>{{obj.SW_PASSWORD}}</label>
+    </view>
+  </view>
+  <view class='s-search-btns'>
+    <button class="s-search-btn" bindtap='unbind'>解绑</button>
+  </view>
+</view>
+ <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+    <view class='_container' style='background-image:url(https://51baoguan.cn/content/images/themes/A/home/singellogin.png);background-size:100% auto;'>
+  <view class='form-class' wx:if="{{!isLoading}}" >
+    <form bindsubmit="login">
+      <view class='input-style'>
+        <view class="info-item" style='margin-top:20px'>
+          <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbauser1.png'></image>
+          <input class="info-item-input" name="sw_id" id="sw_id" value='{{singleAccount.sw_id}}' bindinput='bindData' placeholder='单一窗口账号' placeholder-class='placeholder'></input>
+        </view>
+        <view class="info-item">
+          <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbapassword1.png'></image>
+          <input class="info-item-input" name="sw_password" type='password' id="sw_password" value='{{singleAccount.sw_password}}' bindinput='bindData' placeholder='单一窗口密码' placeholder-class='placeholder'></input>
+        </view> 
+      </view> 
+      <view>
+        <button class='btn-save' type='head' formType="submit">绑定</button>
+      </view>
+    </form>
+  </view>
+  <view wx:if="{{isLoading}}" class='load'>
+    <view>
+      <image src='https://51baoguan.cn/content/images/themes/A/loading1.gif' class='load-image'></image>
+      <text class='load-text'>{{titless["正在加载中，请稍等"]}}</text>
+    </view>
+  </view>
+</view>
+</view>

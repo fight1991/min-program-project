@@ -1,0 +1,104 @@
+<view>
+  <view style='background-color: #fff'>
+    <view>
+      <image class='img' src="https://51baoguan.cn/content/images/themes/A/rating.png"></image>
+    </view>
+    <view class='content'>
+      <view class='content-tip'>
+        <label>调查结果将做为该企业在全国优秀报关企业评比中的加分项，请您如实填写。
+        </label>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>关区选择</label>
+      </view>
+      <view class='input-trade'>
+        <picker bindchange="bindPickerChange" value="index" range="{{customList}}" range-key='name' disabled="{{fromShared}}">
+          <view class="picker selected}}">
+            {{customList[index]["name"]}} {{fromShared?info.name:""}}
+          </view>
+        </picker>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>报关企业选择</label>
+      </view>
+      <view class='input-trade'>
+        <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{businessList}}" range-key='corpName' disabled="{{fromShared}}">
+          <view class="picker selected}}">
+            {{businessList[index1]["corpName"]}} {{fromShared?info.corpName:""}}
+          </view>
+        </picker>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>您的评价</label>
+      </view>
+      <view>
+        <textarea class='area selected' maxlength="100" bindinput="inputs">
+          <text class='tip'>{{len}}/100</text>
+        </textarea>
+      </view>
+    </view>
+    <view style='height:10px;background-color:#f5f5f5'>
+    </view>
+    <view class='content'>
+      <view class='item'>
+        <view>
+          <label class='item-tip'>*</label>
+          <label class='item-title'>专业水平</label>
+        </view>
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="starsM  {{flag1>=1? '': 'hideStar'}}" bindtap="changeColor11"></view>
+          <view class="starsM  {{flag1>=2? '': 'hideStar'}}" bindtap="changeColor12"></view>
+          <view class="starsM  {{flag1>=3? '': 'hideStar'}}" bindtap="changeColor13"></view>
+          <view class="starsM  {{flag1>=4? '': 'hideStar'}}" bindtap="changeColor14"></view>
+          <view class="starsM  {{flag1>=5? '': 'hideStar'}}" bindtap="changeColor15"></view>
+        </view>
+      </view>
+      <view class='item'>
+        <view>
+          <label class='item-tip'>*</label>
+          <label class='item-title'>工作效率</label>
+        </view>
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="starsM  {{flag2>=1? '': 'hideStar'}}" bindtap="changeColor21"></view>
+          <view class="starsM  {{flag2>=2? '': 'hideStar'}}" bindtap="changeColor22"></view>
+          <view class="starsM  {{flag2>=3? '': 'hideStar'}}" bindtap="changeColor23"></view>
+          <view class="starsM  {{flag2>=4? '': 'hideStar'}}" bindtap="changeColor24"></view>
+          <view class="starsM  {{flag2>=5? '': 'hideStar'}}" bindtap="changeColor25"></view>
+        </view>
+      </view>
+      <view class='item'>
+        <view>
+          <label class='item-tip'>*</label>
+          <label class='item-title'>廉洁自律</label>
+        </view>
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="starsM  {{flag3>=1? '': 'hideStar'}}" bindtap="changeColor31"></view>
+          <view class="starsM  {{flag3>=2? '': 'hideStar'}}" bindtap="changeColor32"></view>
+          <view class="starsM  {{flag3>=3? '': 'hideStar'}}" bindtap="changeColor33"></view>
+          <view class="starsM  {{flag3>=4? '': 'hideStar'}}" bindtap="changeColor34"></view>
+          <view class="starsM  {{flag3>=5? '': 'hideStar'}}" bindtap="changeColor35"></view>
+        </view>
+      </view>
+      <view class='item'>
+        <view>
+          <label class='item-tip'>*</label>
+          <label class='item-title'>服务态度</label>
+        </view>
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="starsM  {{flag4>=1? '': 'hideStar'}}" bindtap="changeColor41"></view>
+          <view class="starsM  {{flag4>=2? '': 'hideStar'}}" bindtap="changeColor42"></view>
+          <view class="starsM  {{flag4>=3? '': 'hideStar'}}" bindtap="changeColor43"></view>
+          <view class="starsM  {{flag4>=4? '': 'hideStar'}}" bindtap="changeColor44"></view>
+          <view class="starsM  {{flag4>=5? '': 'hideStar'}}" bindtap="changeColor45"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='buttons'>
+    <button class='button' bindtap='nextStep'>下一步</button>
+  </view>
+</view>

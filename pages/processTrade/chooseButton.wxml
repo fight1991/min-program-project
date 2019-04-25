@@ -1,0 +1,2 @@
+<import src="../../content/template/chooseButton.wxml" />
+<template is="buttonE" data="{{showTitle,theme,titless}}" />

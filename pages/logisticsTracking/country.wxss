@@ -1,0 +1,16 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 16px microsoft yahei;
+  color: #666;
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.img{
+  height: 16px;
+  width: 10px;
+  padding-right: 10px;
+}

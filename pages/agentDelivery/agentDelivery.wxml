@@ -1,0 +1,55 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <template is="search_template" data="{{winHeight,theme,titles}}" />
+    <view class='list-item' wx:for="{{datas}}" wx:key="" id="{{item.SEQ_NO}}" bindtap="showDetails" data-agent_code='{{item.AGENT_CODE}}' data-statu="open">
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.DELIVERY_NAME == "" ? "_" : item.DELIVERY_NAME}}</label>
+        <label class='list-item-info'> {{item.FLAG == "" ? "_" : item.FLAG}} </label>
+      </view>
+      <view class='list-item-bottom'>
+        <label class='list-item-info2'>
+          {{item.DELIVERY_ADDR == "" ? "_" : item.DELIVERY_ADDR}}
+        </label>
+        <label class='list-item-info1' style='font-size:14px'>
+          •••
+        </label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />
+<view class="drawer-screen" bindtap="showDetails" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer-box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer-title">{{obj.DELIVERY_NAME}}</view>
+  <view class="drawer-content">
+    <view class="drawer-content-view">
+      <label class="title col-0">类型:</label>
+      <label class="input-base col-1">{{obj.FLAG}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">提送货地址:</label>
+      <label class="input-base col-1">{{obj.DELIVERY_ADDR}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">提送货联系方式:</label>
+      <label class="input-base col-1">{{obj.DELIVERY_CONT}}</label>
+    </view>
+    <view class="drawer-content-view">
+      <label class="title col-0">备注:</label>
+      <label class="input-base col-1">{{obj.NOTE}}</label>
+    </view>
+  </view>
+  <view class="btn-ok" bindtap="showDetails" data-statu="close">关闭</view>
+</view>

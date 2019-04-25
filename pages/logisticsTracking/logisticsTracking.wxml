@@ -1,0 +1,237 @@
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+
+<view class='view-search'>
+  <view class='view-input' style="background-color: #fff;">
+    <image src='{{theme}}ccbasearch1.png' class='img-search' bindtap='searchData'></image>
+    <view style='width: 80%;'>
+      <input class='input-class' confirm-type="search" placeholder='搜索' placeholder-class='placeholder-class' id="inputString" value='{{searchModel.inputString}}' bindinput='bindData' bindconfirm='confirmTap'> </input>
+    </view>
+    <image catchtap='clear' wx:if='{{searchModel.inputString.length>0}}' src='https://51baoguan.cn/content/images/themes/A/clear.png' class='img-clear'></image>
+    <image wx:else src='/content/images/themes/A/logistics_voice.png' class='img-voice'></image>
+  </view>
+  <image src='/content/images/themes/A/filter.png' bindtap='showSearchContent' class='img-add'></image>
+</view>
+<view class='inform' wx:if='{{isShow4inform&&!isCloseinform}}'>
+  <view style='display: flex;padding-left:10px;align-items: center;' bindtap='check'>
+    <image src='/content/images/themes/A/inform.png' class='img-inform'></image>
+    <label style='padding-left:10px'>您有{{logisticsAdviceCount}}条新委托邀请，点击查看。</label>
+  </view>
+</view>
+<view>
+  <image class='img-logistics-add' bindtap='add' src='/content/images/themes/A/logistics_add1.png'></image>
+</view>
+
+<view>
+
+  <view wx:if="{{filter_show}}">
+    <view class='search-container' style="height:{{winHeight-45}}px;width:100%">
+    </view>
+    <scroll-view scroll-y class='search-content' style="height:{{winHeight}}px;width:{{winWidth*0.8}}px;right:{{right}}px">
+      <view class='search-group'>
+        <label class='search-group-title'>进出口</label>
+        <view class="check-container">
+          <view class="check-item check-item-first {{searchData.i_e_flag=='I'?'checked':''}}" bindtap='setSearchData' data-filed='i_e_flag' data-value='I'>进口
+          </view>
+          <view class="check-item {{searchData.i_e_flag=='E'?'checked':''}}" bindtap='setSearchData' data-filed='i_e_flag' data-value='E'>出口</view>
+        </view>
+      </view>
+
+      <view class='search-group'>
+        <label class='search-group-title'>运输方式</label>
+        <view class="check-container">
+          <view class="check-item check-item-first {{searchData.trafMode=='2'?'checked':''}}" bindtap='setSearchData' data-filed='trafMode' data-value='2'>海运</view>
+          <view class="check-item {{searchData.trafMode=='5'?'checked':''}}" bindtap='setSearchData' data-filed='trafMode' data-value='5'>空运</view>
+          <view class="check-item {{searchData.trafMode=='4'?'checked':''}}" bindtap='setSearchData' data-filed='trafMode' data-value='4'>陆运</view>
+        </view>
+      </view>
+
+      <view class='search-group'>
+        <label class='search-group-title'>贸易条款</label>
+        <view class="check-container">
+          <view class="check-item check-item-first {{searchData.transMode=='EXW'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='EXW'>EXW</view>
+          <view class="check-item  {{searchData.transMode=='FCA'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='FCA'>FCA</view>
+          <view class="check-item {{searchData.transMode=='FOB'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='FOB'>FOB</view>
+        </view>
+        <view class="check-container" style='margin-top:0;'>
+          <view class="check-item check-item-first {{searchData.transMode=='FAS'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='FAS'>FAS</view>
+          <view class="check-item {{searchData.transMode=='CIF'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='CIF'>CIF</view>
+          <view class="check-item {{searchData.transMode=='C&F'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='C&F'>C&F</view>
+        </view>
+        <view class="check-container" style='margin-top:0;'>
+          <view class="check-item check-item-first {{searchData.transMode=='CPT'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='CPT'>CPT</view>
+          <view class="check-item {{searchData.transMode=='CIP'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='CIP'>CIP</view>
+          <view class="check-item {{searchData.transMode=='DAT'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='DAT'>DAT</view>
+        </view>
+        <view class="check-container" style='margin-top:0;'>
+          <view class="check-item check-item-first {{searchData.transMode=='DDP'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='DDP'>DDP</view>
+          <view class="check-item {{searchData.transMode=='DAP'?'checked':''}}" bindtap='setSearchData' data-filed='transMode' data-value='DAP'>DAP</view>
+        </view>
+      </view>
+
+      <view class='search-group'>
+        <label class='search-group-title'>时间范围</label>
+        <view class='search-group-time'>
+          <picker mode="date" start="2018-01-01" end="{{nowDate_0}}" bindchange="bindDateChange" id='begin_date'>
+            <view class='search-group-time-item'>{{searchData.begin_date.length>0?searchData.begin_date:"开始时间"}}</view>
+          </picker>
+          <label style='width:10px;background-color:#999;height:1px;margin:0 5px;'></label>
+          <picker mode="date" start="2018-01-01" end="{{nowDate_0}}" bindchange="bindDateChange" id='end_date'>
+            <view class='search-group-time-item'>{{searchData.end_date.length>0?searchData.end_date:"结束时间"}}</view>
+          </picker>
+        </view>
+        <view class="check-container" style='margin-top:3px;'>
+          <view class="check-item check-item-first {{searchData.begin_date==nowDate_7&&searchData.end_date==nowDate_0 ?'checked':''}}" bindtap='setDateTime' data-filed='7'>近7天</view>
+          <view class="check-item {{searchData.begin_date==nowDate_15&&searchData.end_date==nowDate_0?'checked':''}}" bindtap='setDateTime' data-filed='15'>近15天</view>
+          <view class="check-item {{searchData.begin_date==nowDate_30&&searchData.end_date==nowDate_0?'checked':''}}" bindtap='setDateTime' data-filed='30'>近30天</view>
+        </view>
+      </view>
+      <view class='search-group' style='border-bottom:0;'>
+        <view class='search-btn-group'>
+          <view class='btn-reset' bindtap='searchReset'>重置</view>
+          <view class='btn-confrim' data-issearch='true' bindtap='filterSearch'>确定</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="swiper-tab" style="height:{{winHeight*0.06}}px">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='line-height: {{winHeight*0.06}}px;'>{{title1}}</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='line-height: {{winHeight*0.06}}px;'>{{title2}}</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav" style='line-height: {{winHeight*0.06}}px;'>{{title3}}</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.06}}px" bindchange="bindChange">
+    <swiper-item>
+      <scroll-view scroll-y style="height:{{winHeight- winHeight*0.06}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadAllMore">
+        <template is="refresh" data="{{showTitle,theme}}" />
+        <view data-pullType='1' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+          <view class='content' wx:for="{{allData}}" wx:key="" data-roles='{{item.role}}' data-index='{{index}}' bindtap='showDetails' id="{{item.logPid}}">
+            <view class='content-top'>
+              <view class='content-title'>
+                <image class='img-trafMode' src="/content/images/themes/A/air.png" wx:if="{{item.trafMode=='空运'||item.trafMode=='5'}}"></image>
+                <image class='img-trafMode' src="/content/images/themes/A/sea.png" wx:if="{{item.trafMode=='海运'||item.trafMode=='2'}}"></image>
+                <image class='img-trafMode' src="/content/images/themes/A/land.png" wx:if="{{item.trafMode=='陆运'||item.trafMode=='4'}}"></image>
+                {{item.iEFlagAndTrafMode}}
+              </view>
+              <view class='content-status'>
+                <view wx:if="{{item.status=='等待接单'}}" class='float_div'></view>
+                {{item.status}}
+              </view>
+            </view>
+            <view style='display:flex;justify-content: space-between;position:relative;'>
+              <view>
+                <view class='content-item' style='padding-top:5px'>
+                  {{item.trackingTime}}
+                </view>
+                <view class='content-item'>
+                  {{item.overseasAddr}}
+                </view>
+                <view class='content-item'>
+                  {{item.domesticAddr}}
+                </view>
+                <view class='content-item' style='padding-bottom:10px'>
+                  {{item.goodsInfo}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if='{{searchNone}}' style='height:{{winHeight*0.92-30}}px;'>
+          <template is='searchNullPrompt4logistics' data='{{theme}}' />
+        </view>
+        <view wx:if="{{showflag1 == 1}}" class='foot'>
+          <view class='foot-line'>————————</view>
+          <view class='foot-font'>我也是有底线的</view>
+          <view class='foot-line'>————————</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="ture" style="height:{{winHeight- winHeight*0.06}}px;padding:0px;margin-top:{{margin_top}}px" bindscrolltolower="loadOnorderMore">
+        <template is="refresh" data="{{showTitle,theme}}" />
+        <view data-pullType='2' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+          <view class='content' wx:for="{{allOnorderData}}" wx:key="" data-roles='{{item.role}}' data-index='{{index}}' bindtap='showDetails' id="{{item.logPid}}">
+            <view class='content-top'>
+              <view class='content-title'>
+                <image class='img-trafMode' src="/content/images/themes/A/air.png" wx:if="{{item.trafMode=='空运'||item.trafMode=='5'}}"></image>
+                <image class='img-trafMode' src="/content/images/themes/A/sea.png" wx:if="{{item.trafMode=='海运'||item.trafMode=='2'}}"></image>
+                <image class='img-trafMode' src="/content/images/themes/A/land.png" wx:if="{{item.trafMode=='陆运'||item.trafMode=='4'}}"></image>
+                {{item.iEFlagAndTrafMode}}
+              </view>
+              <view class='content-status'>
+                <view wx:if="{{item.status=='等待接单'}}" class='float_div'></view>
+                {{item.status}}
+              </view>
+            </view>
+            <view style='display: flex;justify-content: space-between;position:relative;'>
+              <view>
+                <view class='content-item' style='padding-top:10px'>
+                  {{item.trackingTime}}
+                </view>
+                <view class='content-item'>
+                  {{item.overseasAddr}}
+                </view>
+                <view class='content-item'>
+                  {{item.domesticAddr}}
+                </view>
+                <view class='content-item' style='padding-bottom:10px'>
+                  {{item.goodsInfo}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{showflag2 == 1}}" class='foot'>
+          <view class='foot-line'>————————</view>
+          <view class='foot-font'>我也是有底线的</view>
+          <view class='foot-line'>————————</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y="ture" style="height:{{winHeight- winHeight*0.06}}px;padding:0px;margin-top:{{margin_top}}px" bindscrolltolower="loadPendingMore">
+        <template is="refresh" data="{{showTitle,theme}}" />
+        <view data-pullType='3' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+          <view class='content' wx:for="{{allPendingData}}" wx:key="" data-roles='{{item.role}}' data-index='{{index}}' bindtap='showDetails' id="{{item.logPid}}">
+            <view class='content-top'>
+              <view class='content-title'>
+                <image class='img-trafMode' src="/content/images/themes/A/air.png" wx:if="{{item.trafMode=='空运'||item.trafMode=='5'}}"></image>
+                <image class='img-trafMode' src="/content/images/themes/A/sea.png" wx:if="{{item.trafMode=='海运'||item.trafMode=='2'}}"></image>
+                <image class='img-trafMode' src="/content/images/themes/A/land.png" wx:if="{{item.trafMode=='陆运'||item.trafMode=='4'}}"></image>
+                {{item.iEFlagAndTrafMode}}
+                <!-- {{item.trackingNo}} -->
+              </view>
+              <view class='content-status'>
+                <view wx:if="{{item.status=='等待接单'}}" class='float_div'></view>
+                {{item.status}}
+              </view>
+            </view>
+            <view style='display: flex;justify-content: space-between;position:relative;'>
+              <view>
+                <view class='content-item' style='padding-top:10px'>
+                  {{item.trackingTime}}
+                </view>
+                <view class='content-item'>
+                  {{item.overseasAddr}}
+                </view>
+                <view class='content-item'>
+                  {{item.domesticAddr}}
+                </view>
+                <view class='content-item' style='padding-bottom:10px'>
+                  {{item.goodsInfo}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{showflag3 == 1}}" class='foot'>
+          <view class='foot-line'>————————</view>
+          <view class='foot-font'>我也是有底线的</view>
+          <view class='foot-line'>————————</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+
+</view>

@@ -1,0 +1,25 @@
+<view style='background-color: #fff;'>
+  <view class='user-info'>
+    <view class='user-info-item'>
+      <label class='user-info-lb'>地址</label>
+      <view class='user-info-val'>
+        <input placeholder='请输入地址' disabled='disabled' placeholder-style='color:#D8D8D8' bindtap='choseAddress' value='{{address}}' bindinput='bindData' id="address"></input>
+      </view>
+    </view>
+    <view class='user-info-item border-top-1'>
+      <label class='user-info-lb'>电话</label>
+      <view class='user-info-val'>
+        <input placeholder='请输入电话' placeholder-style='color:#D8D8D8' value='{{addressTel}}' bindinput='bindData' id="addressTel"></input>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='margin-top-20 del' bindtap='deleteAddress' wx:if="{{op=='1'}}">
+  删除地址
+</view>
+
+<view style='margin:20px 10px' bindtap='editAddress'>
+  <button class='buttons' disabled='{{disabled}}' hover-class="button-hover">确定</button>
+</view>
+<logistics-dialog id='myDialog' title='提示' confirmText='是' cancelText='否' content='是否删除此地址' bindcancelEvent='cancelEvent' bindconfirmEvent='confirmEvent'>
+</logistics-dialog>

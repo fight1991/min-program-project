@@ -1,0 +1,58 @@
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<view class="swiper-tab" style="height:{{winHeight*0.08}}px">
+  <view class="head"></view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='border-radius: 8px 0px 0px 8px;'>{{titless["待审批"]}}</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='border-radius: 0px 8px 8px 0px;'>{{titless["已审批"]}}</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.08}}px" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y="ture" style="height:{{winHeight - winHeight*0.08}}px;padding:0px;" id='not' bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop">
+      <view class='list-item' id="{{item.OPEN_ID}}" bindtap='show' wx:for="{{datas}}" wx:key="">
+        <view class='list-item-top'>
+          <label class='list-item-title'>公众号</label>
+          <label class='list-item-title' style='text-align: right'>{{item.STATUS == '' ? '_' :item.v }}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>用户ID：{{item.USER_ID}}</label>
+        </view>
+        <view class='list-item-bottom'>
+          <label class='list-item-info1' style='width:50%'>三方昵称：{{item.NICK_NAME == "" ? "_" : item.NICK_NAME}}</label>
+          <label class='list-item-info1' style='font-size:14px;width:15%;text-align:right'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.92-30}}px;'>
+        <template is='searchNullPrompt' data='{{theme}}' />
+      </view>
+      <template is="searchEnd" data="{{showflag}}" />
+    </scroll-view>
+    <template is="backToTop" data="{{scrollTop,theme}}" />
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view scroll-y="true" id='yes' style="height:{{winHeight - winHeight*0.08}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop1.scroll_top}}" bindscroll="scrollTop1">
+      <view class='list-item' id="{{item.OPEN_ID}}" bindtap='show' wx:for="{{datas_ed}}" wx:key="">
+        <view class='list-item-top'>
+          <label class='list-item-title'>公众号</label>
+          <label class='list-item-title' style='text-align: right'>{{item.STATUS == '' ? '_' :item.v }}</label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>用户ID：{{item.USER_ID}}</label>
+        </view>
+        <view class='list-item-bottom'>
+          <label class='list-item-info1' style='width:50%'>三方昵称：{{item.NICK_NAME == "" ? "_" : item.NICK_NAME}}</label>
+          <label class='list-item-info1' style='font-size:14px;width:15%;text-align:right'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if='{{searchNone1==true}}' style='height:{{winHeight*0.92-30}}px;'>
+        <template is='searchNullPrompt' data='{{theme}}' />
+      </view>
+      <template is="searchEnd1" data="{{showflag1}}" />
+    </scroll-view>
+    <template is="backToTop1" data="{{scrollTop1,theme}}" />
+  </swiper-item>
+</swiper>

@@ -1,0 +1,51 @@
+.list-item-l {
+  width: 90%;
+  margin-top: 5px;
+  margin-left: 5%;
+}
+.list-item-button {
+  width: 40%;
+  display: inline-block;
+}
+
+.list {
+  height: 100%;
+  width: 100%;
+}
+
+.list-item {
+  border-bottom: 1px solid #dcdcdc;
+  display: flex;
+  background-color: #fefefe;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.list-item-label {
+  width: 35%;
+  font: 14px microsoft yahei;
+  text-align: left;
+  line-height: 35px;
+}
+
+.list-item-info {
+  width: 65%;
+  color: #8b8682;
+  font: 14px microsoft yahei;
+  display: inline-block;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 35px;
+}
+
+.list-item-info1 {
+  color: #000;
+  font: 14px microsoft yahei;
+  line-height: 35px;
+  display: inline-block;
+  padding-left: 24%;
+}

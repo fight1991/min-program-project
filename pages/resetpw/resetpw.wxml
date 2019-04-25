@@ -1,0 +1,26 @@
+<view>
+  <form bindsubmit="reset">
+    <view class='input-item'>
+      <label class='title' style='padding-left:10px;'>手机号</label>
+      <input  class='input-item-content' id='mobile' name='mobile' value='{{currentUser.mobile}}' placeholder='请输入注册手机号' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='title' style='padding-left:10px'>验证码</label>
+      <input class="input-item-content" id="verificationcode" name='verificationcode' value='{{currentUser.verificationcode}}' bindinput='bindData' placeholder='请输入验证码' placeholder-class='placeholder'></input>
+      <button class='button-type' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">
+        {{time}}
+      </button>
+    </view>
+    <view class='input-item'>
+      <label class='title' style='padding-left:10px;'>设置新密码</label>
+      <input class='input-item-content' id='password' name='password' value='{{currentUser.password}}' placeholder='请输入新密码' placeholder-class='placeholder' type='password' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='title' style='padding-left:10px;'>确认新密码</label>
+      <input class='input-item-content' type='password' id='passworded' name='passworded' placeholder='请重新输入密码' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view>
+      <button class='btn-save' type='head' formType="submit">重置密码</button>
+    </view>
+  </form>
+</view>

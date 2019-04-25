@@ -1,0 +1,26 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset" class='search'>
+    <view style='padding-top:5%'>
+      <view class="search-item1" style='margin-bottom:20px'>
+        <label class='search-item-lb'>代码</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入代码' placeholder-class='placeholder' id="customer_id" value='{{searchModel.customer_id}}' bindinput='bindData'></input>
+          <label class='search-item-img'></label>
+        </view>
+      </view>
+      <view class="search-item1">
+        <label class='search-item-lb'>名称</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入名称' placeholder-class='placeholder' id="customer_name" value='{{searchModel.customer_name}}' bindinput='bindData'></input>
+          <label class='search-item-img'></label>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style,titles}}" />

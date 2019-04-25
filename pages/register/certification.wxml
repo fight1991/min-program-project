@@ -1,0 +1,47 @@
+<view>
+  <form bindsubmit="nextstep">
+    <view class='input-item'>
+      <label class='title'>公司全称</label>
+      <input class='input-item-content' id='user_id' name='user_id' value='{{currentUser.user_id}}' placeholder='请输入公司全称' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='title'>社会信用代码</label>
+      <input class='input-item-content' id='user_name' name='user_name' value='{{currentUser.user_name}}' placeholder='请输入社会信用代码' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='title'>海关注册编码</label>
+      <input class='input-item-content' id='note' name='note' value='{{currentUser.note}}' placeholder='请输入海关注册编码' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view class='input-item'>
+      <label class='title'>公司SITE</label>
+      <input class='input-item-content' id='email_address' name='email_address' value='{{currentUser.email_address}}' placeholder='请输入公司SITE' placeholder-class='placeholder' bindinput='bindData'></input>
+    </view>
+    <view style='height:10px;background:#f1f1f1'>
+    </view>
+    <view class='input-item1'>
+      <label class='title'>企业营业执照</label>
+      <view  style='height:80px;width:80px;z-index:1;margin-top:10px;background-image:url(/content/images/themes/A/ccbaupload.png);background-size:80px 80px'>
+        <image src="{{tempFilePaths[0]}}" class='upload-images' bindtap='uploadlicense' style='margin-right:5px;'></image>
+      </view>
+
+    </view>
+    <view style='height:10px;background:#f1f1f1'>
+    </view>
+    <view class='input-item1'>
+      <label class='title'>个人身份确认书</label>
+      <image class='upload-images' src='/content/images/themes/A/ccbauploading.png'> </image>
+    </view>
+    <view style='height:10px;background:#f1f1f1'>
+    </view>
+    <view class='input-item1'>
+      <label class='title'>个人身份证</label>
+      <image class='upload-images' src='/content/images/themes/A/ccbauploading.png' style='margin-right:5px'> </image>
+      <image class='upload-images' src='/content/images/themes/A/ccbauploading.png'> </image>
+    </view>
+    <view style='height:10px;background:#f1f1f1'>
+    </view>
+    <view>
+      <button class='btn-save' type='head' formType="submit">提交认证</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,11 @@
+<view class="wrap" style="width:{{i*r*2}}px; height:{{i*r*2}}px;">
+  <canvas class="cir" style="width:{{i*r*2}}px; height:{{i*r*2}}px;" canvas-id="{{canvasId}}" data-test='{{canvasId}}'>
+  </canvas>  
+</view>
+
+<view class="wrap" style="width:{{r*2}}px; height:{{r*2}}px;"> 
+  <image src="{{result_src}}" style="width:{{r*2}}px; height:{{r*2}}px;">
+  </image>
+</view>
+ 
+

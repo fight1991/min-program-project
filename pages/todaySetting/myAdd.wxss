@@ -1,0 +1,39 @@
+
+.myContainer{
+  padding:13px;
+}
+.myChildContainer{
+  padding-top:3px;
+}
+/* 第一行 */
+.myChildContainer .firstLine input{
+  border:3rpx solid #F2F2F2;
+  border-radius:3px;
+  height:38px;
+  line-height:32px;
+  font-size:14px;
+  padding-left:10px;
+}
+/* 第二行 */
+.myChildContainer .secondLine{
+  height:32px;
+  display:flex;
+  align-items:center;
+}
+.myChildContainer .secondLine image{
+  width:12px;
+  height:12px;
+}
+.secondLine text{
+  font-size:11px;
+  padding-left:6px;
+}
+/* 第三行 */
+.thirdLine{
+  padding-top:30px;
+}
+.thirdLine button{
+  background-color:#1195DD;
+  color:#fff;
+  font-size:16px;
+}

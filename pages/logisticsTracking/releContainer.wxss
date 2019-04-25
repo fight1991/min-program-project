@@ -1,0 +1,89 @@
+page {
+  width: 100%;
+}
+
+.contents {
+  padding-left: 5%;
+  background-color: #fff;
+  padding-right: 5%;
+}
+
+.titles {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  font: 15px microsoft yahei;
+  color: #9b9b9b;
+}
+
+.first {
+  width: 100%;
+}
+
+.other {
+  width: 90%;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10rpx;
+  font: 16px microsoft yahei;
+  color: #333;
+  border: 1px solid #d8d8d8;
+  border-radius: 5rpx;
+}
+
+.tips-add {
+  padding: 20rpx 0 20rpx 0;
+  text-align: center;
+  font: 14px microsoft yahei;
+  color: #1296db;
+}
+
+.camera {
+  padding-right: 10rpx;
+  height: 30rpx;
+  width: 35rpx;
+}
+
+.close {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 10px;
+}
+
+.button {
+  width: 90%;
+  background-color: #1296db;
+  color: #fff;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  font: 14px microsoft yahei;
+  border: 1px solid #d8d8d8;
+  color: #666;
+  align-items: center;
+  margin-top: 10px;
+  padding-left: 2%;
+  height: 35px;
+}
+
+.items-title {
+  width: 15%;
+  padding-right: 10px;
+}
+
+.items-input {
+  width: 100%;
+}

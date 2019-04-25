@@ -1,0 +1,22 @@
+<import src="../../content/template/backToTop.wxml" />
+<scroll-view scroll-y="{{scroll}}" class='scrolls' style="height:{{winHeight}}px;margin-top:{{margin_top}}px"  scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop">
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='showDetails'data-index='{{index}}' id="{{item.ID}}" data-customer_id="{{item.CUSTOMER_ID}}" data-statu="open">
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.BATCH_NUMBER == "" ? "_" : item.BATCH_NUMBER}}</label>
+        <label class='list-item-info'>{{item.CUSTOM_MASTER == "" ? "_" : item.CUSTOM_MASTER}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1'> 运输工具编号：{{item.CONVEYANCE_NO == "" ? "_" : item.CONVEYANCE_NO}}</label>
+      </view>
+      <view class='list-item-bottom'>
+        <label class='list-item-info1'>
+          确报类型：{{item.SURE_FLAG == "" ? "_" : item.SURE_FLAG}}
+        </label>
+        <label class='list-item-info1'>
+          {{item.DCR_STATUS == "" ? "_" : item.DCR_STATUS}}
+        </label>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,15 @@
+<view>
+  <view>
+    <view>
+      <image class='img' src="https://51baoguan.cn/content/images/themes/A/rating.png"></image>
+    </view>
+    <view class='content'>
+      <image src='/content/images/themes/A/logistics_finish.png' class='img-finish'></image>
+      <label style='padding-left:10px'>评价成功</label>
+    </view>
+  </view>
+
+  <view class='buttons'>
+    <button class='button' bindtap='confirm'>确定</button>
+  </view>
+</view>

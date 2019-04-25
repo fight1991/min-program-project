@@ -1,0 +1,89 @@
+@import "../../content/wxss/search.wxss";
+page {
+  background-color: #f5f5f5;
+}
+
+.title-content {
+  margin-left: 5%;
+  width: 90%;
+}
+
+.title-icon {
+  font: 16px microsoft yahei;
+  color: red;
+  height: 20px;
+}
+
+.title {
+  height: 20px;
+  line-height: 20px;
+  font: 16px microsoft yahei;
+  color: #9b9b9b;
+}
+
+.input-view {
+  display: flex;
+  width: 89%;
+  margin-left: 5%;
+  border: 1px solid #d8d8d8;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 1%;
+  font: 16px microsoft yahei;
+}
+
+.input-type {
+  width: 90%;
+  height: 40px;
+  font: 16px microsoft yahei;
+}
+
+.img-name {
+  text-align: right;
+  padding-top: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.title-log {
+  font: 16px microsoft yahei;
+}
+
+.log {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img-log {
+  height: 20px;
+  width: 20px;
+}
+
+.content-log {
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+.item-log{
+  width:45%;
+  text-align: center;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #cddce4;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-left: 3.3%;
+  border-radius: 20px;
+}
+.search-btn{
+  border-radius: 4px;
+  letter-spacing: 2px;
+  padding-left:0px;
+  margin-bottom: 10px;
+}
+.search-btns{
+  display: flex;
+  align-items: center
+}

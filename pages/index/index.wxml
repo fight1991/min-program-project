@@ -1,0 +1,95 @@
+<view style='height:100%;'>
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:100%;'>
+    <view class="body-container" style='height:100%;'>
+      <view style='height:auto;'>
+        <swiper style='height:{{winHeight*0.3}}px;' autoplay='true' indicator-dots="true" indicator-color="#fff" indicator-active-color="#c1c1c1">
+          <swiper-item style="width:100%" wx:if="{{activitys.length>0}}" wx:for="{{activitys}}" wx:key="" wx:for-index="i">
+            <view class="movies">
+              <view bindtap='details' data-title='{{item.TITLE_NAME}}' data-activity='{{item.DESTINATION_URL}}' data-type='{{item.TYPES}}' data-url='{{item.CONTENT_URL}}'>
+                <image style='height:{{winHeight*0.3}}px;' class='movies-image' src="{{item.IMG_URL}}"></image>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item style="width:100%">
+            <view class="movies">
+              <view bindtap='details' data-activity='../abountUs/abountUs' data-type='2'>
+                <image style='height:{{winHeight*0.3}}px;' src="https://51baoguan.cn/content/images/themes/A/ccba_index.png" class='movies-image' />
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view style='height:1%;'></view>
+      <view class='body-container-icon'>
+        <view class="table">
+          <view class='tr {{i==0?"tr-top":""}}' wx:for="{{table}}" wx:key="" wx:for-item="tr" wx:for-index="i">
+            <view class='td' wx:for="{{tr}}" wx:key="" wx:for-index="j" bindtap='enterItem' data-title='{{item.name}}' data-url='{{item.url}}' data-tr="{{i}}" data-td="{{j}}" bind:touchstart="touchBegin" bind:touchend="touchOver">
+              <image class='table-image' wx:if="{{item.normal.length>0}}" src="{{item.state==true?'https://51baoguan.cn/content/images/themes/A/'+item.normal:'https://51baoguan.cn/content/images/themes/A/'+item.pressed}}"></image>
+              <view class='table-view'>{{item.name.length>4?item.name1:item.name}}</view>
+              <view style='margin-top: 0;' class='table-view' wx:if="{{item.name.length>4}}">{{item.name2}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style='height:1%;'></view>
+      <view class='info' wx:if="{{status}}">
+        <view class="th">
+          <view class='th-view'></view>
+          <view class='titles-type'>
+            <view style='display: flex;justify-content: flex-start;height:20px;line-height:20px;padding-left:5px'>通知公告
+              <view style='padding-left:5px;color:#C7C7C7;font-size:10px;line-height:25px;'>Notices And Announcements</view>
+            </view>
+            <image class='details-img' bindtap='enterItem' data-url='/pages/information/information?category=Information' data-title='通知公告' src='/content/images/themes/A/details.png'></image>
+          </view>
+        </view>
+        <view wx:for="{{datas1}}" wx:key="" bindtap='enterItem' class='info-item' data-url='/pages/information/details?category=Information&id={{item.ID}}' data-title='通知公告'>
+          <view class='info-item-right'>
+            <view class='info-item-left-title'>·</view>
+            <view class='info-item-right-title'>{{item.Title}}</view>
+            <view class='info-item-time'>{{item.EditTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view style='height:1%;'></view>
+      <view class='info' wx:if="{{status}}">
+        <view class="th">
+          <view class='th-view'></view>
+          <view class='titles-type'>
+            <view style='display: flex;justify-content: flex-start;height:20px;line-height:20px;padding-left:5px'>政策法规
+              <view style='padding-left:5px;color:#C7C7C7;font-size:10px;line-height:25px;'>Laws And Regulations</view>
+            </view>
+            <image class='details-img' bindtap='enterItem' data-url='/pages/information/information?category=PolicyLaw' data-title='政策法规' src='/content/images/themes/A/details.png'></image>
+          </view>
+        </view>
+        <view wx:for="{{datas2}}" wx:key="" bindtap='enterItem' class='info-item' data-url='/pages/information/details?category=PolicyLaw&id={{item.ID}}' data-title='政策法规'>
+          <view class='info-item-right'>
+            <view class='info-item-left-title'>·</view>
+            <view class='info-item-right-title'>{{item.Title}}</view>
+            <view class='info-item-time'>{{item.EditTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view style='height:1%;'></view>
+      <view class='info' wx:if="{{status}}">
+        <view class="th">
+          <view class='th-view'></view>
+          <view class='titles-type'>
+            <view view style='display: flex;justify-content: flex-start;height:20px;line-height:20px;padding-left:5px'>动态信息
+              <view style='padding-left:5px;color:#C7C7C7;font-size:10px;line-height:25px;'>Dynamic Information</view>
+            </view>
+            <image class='details-img' bindtap='enterItem' data-url='/pages/information/information?category=IndustryNews' data-title='动态信息' src='/content/images/themes/A/details.png'></image>
+          </view>
+        </view>
+        <view wx:for="{{datas3}}" wx:key="" bindtap='enterItem' class='info-item' data-url='/pages/information/details?category=IndustryNews&id={{item.ID}}' data-title='动态信息'>
+          <view class='info-item-right'>
+            <view class='info-item-left-title'>·</view>
+            <view class='info-item-right-title'>{{item.Title}}</view>
+            <view class='info-item-time'>{{item.EditTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view style='height:1%;'></view>
+    </view>
+  </view>
+  <dialog title="添加好友申请" id='myDialog' bindcancelEvent="addNewContactCheck" content="{{newContactName}}" cancelText="是" confirmText="否" bindconfirmEvent="cancleAddContact"></dialog>
+</view>

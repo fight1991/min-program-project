@@ -1,0 +1,56 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<view class='all-formview'>
+  <form bindsubmit="search" bindreset="reset">
+    <view>
+      <view class="search-item1" style='margin-bottom:5px;padding-top:10px'>
+        <label class='search-item-lb'>关区代码</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入关区代码' placeholder-class='placeholder' id="custom_master" value='{{searchModel.custom_master}}' bindinput='bindData'></input>
+          <label class='search-item-img'></label>
+        </view>
+      </view>
+      <picker mode="selector" value="{{selectItemFlag}}" range='{{arrayFlag}}' bindchange="bindChangeFlag" style='margin-bottom:15px'>
+        <view class="picker search-item1">
+          <label class='search-item-lb'>进出境标志</label>
+          <view class="search-item">
+            <input class='search-item-input' disabled="false" placeholder='请选择进出境标志' placeholder-class='placeholder' value='{{i_e_flag}}'></input>
+            <image src='/content/images/themes/A/select.png' style="height:10px;width:15px"></image>
+          </view>
+        </view>
+      </picker>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>运输工具</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入运输工具' placeholder-class='placeholder' id="conveyance_no" value='{{searchModel.conveyance_no}}' bindinput='bindData'></input>
+          <label class='search-item-img'></label>
+        </view>
+      </view>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>航班/航次</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入航班/航次' placeholder-class='placeholder' id="traf_mode" value='{{searchModel.traf_mode}}' bindinput='bindData'></input>
+          <label class='search-item-img'></label>
+        </view>
+      </view>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>总提运单号</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入总提运单号' placeholder-class='placeholder' id="bill_nos" value='{{searchModel.bill_nos}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='bill_nos' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class="search-item1" style='margin-bottom:5px'>
+        <label class='search-item-lb'>提运单号</label>
+        <view class="search-item">
+          <input class='search-item-input' placeholder='请输入提运单号' placeholder-class='placeholder' id="bill_no" value='{{searchModel.bill_no}}' bindinput='bindData'></input>
+          <image src='/content/images/themes/A/ccbascanCode.png' data-scan='bill_no' class="search-item-img" bindtap='scanCode'></image>
+        </view>
+      </view>
+      <view class='search-btns'>
+        <button class="search-btn" disabled='{{disabled}}' formType="submit">查询</button>
+      </view>
+    </view>
+  </form>
+</view>
+<template is="search_back" data="{{style,titles}}" wx:if='{{showBackTo}}' />

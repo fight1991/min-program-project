@@ -1,0 +1,48 @@
+<view class="myContainer" id="myContainer">
+  <view class="myTop" id="myTop">
+    <view class="">
+      <image class='img-top' src='https://51baoguan.cn/content/images/themes/A/credit-info.png'></image>
+    </view>
+    <view class="myInputParent">
+      <view style='display:flex;align-items:center;padding-left:20rpx;'>
+        <image style='width:30rpx;height:30rpx;' src='https://51baoguan.cn/content/images/themes/A/credit-search.png'></image>
+      </view>
+      <input placeholder='输入搜索关键字' id='name' name='name' value='{{searchModel.name}}' bindinput='bindData' placeholder-style="color:#dfdfdf;"></input>
+    </view>
+    <view class="myInputParent yanZhengMa">
+      <view style='display:flex;align-items:center;padding-left:20rpx;'>
+        <image style='width:30rpx;height:30rpx;' src='https://51baoguan.cn/content/images/themes/A/credit-code.png'></image>
+      </view>
+      <input id='code' name='code' value='{{searchModel.code}}' maxlength='6' bindinput='bindData' placeholder='输入右侧验证码' placeholder-style="color:#dfdfdf;"></input>
+      <image src="{{imgUrl}}" bindtap='getCodeImg'></image>
+    </view>
+    <view class="mySearchParent">
+      <button bindtap='search'>查 询</button>
+    </view>
+  </view>
+</view>
+<view style="height:{{windowHeight-250}}px;overflow:auto;background-color: #fff;">
+  <view class="myBottom" id="myBottom">
+    <view class="myContainerBottom" wx:for="{{list}}" wx:key="item.id">
+      <view bindtap='showDetails' data-seqno='{{item.SeqNo}}' data-saicsysno='{{item.SaicSysNo}}' data-corpname='{{item.CorpName}}' hover-class="navigator-hover">
+        <view class="list-container">
+          <view class="left-container">
+            <view class="list-title">{{item.CorpName}}</view>
+            <view class="list-container-child">
+              <view class="list-left">
+                <view class="xinYongDaiMa">
+                  <text class="listTopLeft commonColorTitle">信用代码</text>
+                  <text class="commonColorChild">{{item.CorpScc}}</text>
+                </view>
+                <view class="haiGauanDaiMa">
+                  <text class="commonColorTitle">海关代码</text>
+                  <text class="commonColorChild">{{item.CorpCustomsCode}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

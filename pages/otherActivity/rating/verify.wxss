@@ -1,0 +1,123 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.img {
+  height: 350rpx;
+  width: 100%;
+}
+
+.content {
+  width: 94%;
+  margin-left: 3%;
+  padding-bottom: 10px;
+}
+
+.item-tip {
+  font: 14px microsoft yahei;
+  color: #f00;
+}
+
+.item-title {
+  font: 14px microsoft yahei;
+  color: #9b9b9b;
+}
+
+.input-trade {
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font: 14px microsoft yahei;
+   color: #000;
+  padding-left: 10px;
+}
+
+.picker {
+  line-height: 40px;
+  height: 40px;
+  padding-left: 5px;
+}
+
+.area {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #d8d8d8;
+  color: #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  padding-top: 5px;
+  font: 14px microsoft yahei;
+}
+
+.tip {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.star-pos {
+  position: absolute;
+  right: 0px;
+  margin-right: 40rpx;
+}
+
+.starsM {
+  z-index: 1;
+  width: 83rpx;
+  height: 43rpx;
+  background-image: url("https://51baoguan.cn/content/images/themes/A/star1.png");
+  background-size: 43rpx 43rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hideStar {
+  z-index: 2;
+  background-image: url("https://51baoguan.cn/content/images/themes/A/star2.png");
+  width: 83rpx;
+  height: 43rpx;
+  background-size: 43rpx 43rpx;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* position: fixed;
+  bottom: 10px; */
+}
+
+.button {
+  height: 40px;
+  line-height: 40px;
+  width: 94%;
+  background-color: #1296db;
+  color: #fff;
+}
+
+.content-tip {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  font: 12px microsoft yahei;
+  border-radius: 3px;
+  padding-left: 5px;
+  background-color: #ffe9c7;
+  border: 1px solid #ffc56b;
+}
+

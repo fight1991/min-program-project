@@ -1,0 +1,8 @@
+<import src="../../content/template/approve_template.wxml" />
+
+<view class='list'>
+
+  <!-- 模板 -->
+  <template is="oa_template" data="{{obj,titless}}" />
+
+</view>

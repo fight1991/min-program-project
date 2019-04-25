@@ -1,0 +1,22 @@
+<import src="../../content/template/accountDetails.wxml" />
+<view class='list' wx:if="{{src=='CusHead'}}">
+  <template is="CusHead" data="{{obj,titless,theme}}" />
+</view>
+ <view wx:if="{{src=='CusImg'}}">
+  <template is="CusImg" data="{{obj}}" />
+</view>
+<view wx:if="{{src=='CusExg'}}">
+  <template is="CusExg" data="{{obj}}" />
+</view> 
+<view wx:if="{{src=='CusConsume'}}">
+  <template is="CusConsume" data="{{obj}}" />
+</view>
+<view wx:if="{{src=='OrgImg'}}">
+  <template is="OrgImg" data="{{obj}}" />
+</view>
+<view wx:if="{{src=='OrgExg'}}">
+  <template is="OrgExg" data="{{obj}}" />
+</view>
+<view wx:if="{{src=='OrgBom'}}">
+  <template is="OrgBom" data="{{obj}}" />
+</view> 

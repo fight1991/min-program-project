@@ -1,0 +1,18 @@
+<import src="../../content/template/pull_refresh.wxml" />
+<view style='height:{{winHeight}}px;margin-top:{{margin_top}}px'>
+  <template is="refresh" data="{{showTitle}}" />
+  <view style='height:{{winHeight}}px;'>
+    <view class="table" wx:for="{{table}}" wx:key="" wx:for-item="tr" wx:for-index="i">
+      <view class="th">
+        <view style='width:10rpx;height:30rpx;background-color:#1296DB;margin-right:5px;'></view>{{types[i]}}</view>
+      <view class="tr">
+        <view class="td" wx:for="{{tr}}" wx:for-index="j" wx:key="">
+          <view bindtap='enterItem' data-url='{{item.url}}' data-audit='{{item.audit}}' data-title='{{item.name}}' data-tr="{{i}}" data-td="{{j}}" bind:touchstart="touchBegin" bind:touchend="touchOver" class='item'>
+            <image class='table-image' src="{{item.state==true?theme+item.normal:theme+item.pressed}}"></image>
+            <view class='table-view'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

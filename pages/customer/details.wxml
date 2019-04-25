@@ -1,0 +1,60 @@
+<view class='list' style='background-image:url({{theme}}details.png);background-size:100% 100%;'>
+  <view class='title'>
+    <label class='line'></label>
+    <label>{{obj.CUSTOMER_NAME}}</label>
+    <label class='line'></label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">客户代码:</label>
+    <label class="list-item-info">{{obj.CUSTOMER_ID}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">简称:</label>
+    <label class="list-item-info">{{obj.SHORT_NAME}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">纳税人识别号:</label>
+    <label class="list-item-info">{{obj.REF_9}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">联系人:</label>
+    <label class="list-item-info">{{obj.CONTACT}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">电话号码:</label>
+    <label class="list-item-info">{{obj.PHONE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">E-Mail:</label>
+    <label class="list-item-info">{{obj.EMAIL}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">所属国:</label>
+    <label class="list-item-info">{{obj.COUNTRY_CODE}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">地区:</label>
+    <label class="list-item-info">{{obj.REGION}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">传真:</label>
+    <label class="list-item-info">{{obj.FAX}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">公司地址:</label>
+    <label class="list-item-info">{{obj.ADDRESS}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">邮政编码:</label>
+    <label class="list-item-info">{{obj.POSTAL_CODE}}</label>
+  </view>
+
+  <view class="list-item">
+    <label class="list-item-label">付款方式:</label>
+    <label class="list-item-info">{{obj.REF_2}}</label>
+  </view>
+  <view class="list-item" style='padding-bottom:20%'>
+    <label class="list-item-label">备注:</label>
+    <label class="list-item-info">{{obj.REMARKS}}</label>
+  </view>
+</view>

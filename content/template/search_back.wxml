@@ -1,0 +1,3 @@
+<template name="search_back">
+  <!-- <view class="{{style}}" bindtap='backTo'>关闭</view> -->
+</template>

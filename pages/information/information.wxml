@@ -1,0 +1,21 @@
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <view class='info'>
+      <view wx:for="{{datas}}" wx:key="" bindtap='showDetails' id='{{item.ID}}' class='info-item'>
+        <view class='info-item-left'>
+          <image src='{{theme}}{{item.Category}}.png' class='info-item-left-image'></image>
+        </view>
+        <view class='info-item-right'>
+          <view class='info-item-right-title'>{{item.Title}}</view>
+          <view class='info-item-time'>发布时间:{{item.EditTime}}</view>
+        </view>
+      </view>
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" wx:if='{{showList}}' />

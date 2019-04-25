@@ -1,0 +1,26 @@
+<import src="../../content/template/searchEnd.wxml" />
+<view wx:if='{{searchNone!=true}}' class='page_row top'>  
+  <image class='files' src='/content/images/themes/A/files.png'></image>  
+  <view class='page_clu logistics'>  
+      <label style='display:block'>报关单号:{{obj.ENTRYID}}</label>
+      <label style='display:block'>申报地海关:{{obj.CUSTOMMASTER}}</label>
+      <label style='display:block'>进出口日期:{{obj.IEDATE}}</label>
+      <label style='display:block'>申报日期:{{obj.DDATE}}</label>
+  </view>  
+</view> 
+<view class='br'></view>
+<view >
+  <view wx:for="{{datas}}" wx:key="index" class='order'>
+    <view class='icon {{0==index?"in":"no_in"}}'></view>
+    <view class='logistics_centent page_clu'>
+      <label style='display:block'>{{item.NOTICEDATE}}</label>
+
+      <label style='display:block'>回执说明:{{item.NOTE}}</label>
+    </view>
+    <view class='on'></view>
+  </view>
+</view>
+<view wx:if='{{searchNone!=true}}' class='icon no_in'></view>
+<view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+  <template is='searchNullPrompt' data='{{theme}}' />
+</view>

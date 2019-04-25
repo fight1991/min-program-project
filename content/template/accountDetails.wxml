@@ -1,0 +1,757 @@
+<template name="CusHead">
+  <view class='list'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>表头</label>
+      <label class='line'></label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>预录入统一编号：</label>
+      <label class='list-item-info'>{{obj.SEQ_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>账册编号：</label>
+      <label class='list-item-info'>{{obj.EMS_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>变更次数：</label>
+      <label class='list-item-info'>{{obj.CHG_TMS_CNT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>企业内部编号：</label>
+      <label class='list-item-info'>{{obj.ETPS_PREENT_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>经营企业社会信用代码：</label>
+      <label class='list-item-info'>{{obj.BIZOP_ETPS_SCCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>经营企业编号：</label>
+      <label class='list-item-info'>{{obj.BIZOP_ETPSNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>经营企业名称：</label>
+      <label class='list-item-info'>{{obj.BIZOP_ETPS_NM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>加工企业社会信用代码：</label>
+      <label class='list-item-info'>{{obj.RVSNGD_ETPS_SCCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>加工企业编号：</label>
+      <label class='list-item-info'>{{obj.RCVGD_ETPSNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>加工企业名称：</label>
+      <label class='list-item-info'>{{obj.RCVGD_ETPS_NM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报企业社会信用代码：</label>
+      <label class='list-item-info'>{{obj.DCL_ETPS_SCCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报企业编号：</label>
+      <label class='list-item-info'>{{obj.DCL_ETPSNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报企业名称：</label>
+      <label class='list-item-info'>{{obj.DCL_ETPS_NM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报企业类型代码：</label>
+      <label class='list-item-info'>{{obj.DCL_ETPS_TYPECD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>录入单位代码：</label>
+      <label class='list-item-info'>{{obj.INPUT_ETPS_TYPECD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>录入单位社会信用代码：</label>
+      <label class='list-item-info'>{{obj.INPUT_ETPS_SCCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>录入单位名称：</label>
+      <label class='list-item-info'>{{obj.INPUT_ETPS_NM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>账册类型代码：</label>
+      <label class='list-item-info'>{{obj.EMS_TYPECD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报类型代码：</label>
+      <label class='list-item-info'>{{obj.DCL_TYPECD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>结束有效日期：</label>
+      <label class='list-item-info'>{{obj.FINISH_VALID_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>实际进口总金额：</label>
+      <label class='list-item-info'>{{obj.ACTL_IMP_TOTAL_AMT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>实际出口总金额：</label>
+      <label class='list-item-info'>{{obj.ACTL_EXP_TOTAL_AMT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>批准证编号：</label>
+      <label class='list-item-info'>{{obj.APCRET_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>联网企业档案库编号：</label>
+      <label class='list-item-info'>{{obj.NETWK_ETPS_ARCRP_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>最大周转金额：</label>
+      <label class='list-item-info'>{{obj.MAX_TOVR_AMT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报时间：</label>
+      <label class='list-item-info'>{{obj.DCL_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>录入日期：</label>
+      <label class='list-item-info'>{{obj.INPUT_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗申报环节代码：</label>
+      <label class='list-item-info'>{{obj.UCNS_DCL_SEGCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>申报标记代码：</label>
+      <label class='list-item-info'>{{obj.DCL_MARKCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>暂停进出口标记代码：</label>
+      <label class='list-item-info'>{{obj.PAUSE_IMPEXP_MARKCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>暂停变更标记代码：</label>
+      <label class='list-item-info'>{{obj.PAUSE_CHG_MARKCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>备案批准时间：</label>
+      <label class='list-item-info'>{{obj.PUTREC_APPR_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>变更批准时间：</label>
+      <label class='list-item-info'>{{obj.CHG_APPR_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>最近核销时间：</label>
+      <label class='list-item-info'>{{obj.RCNT_VCLR_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>核销申请时间：</label>
+      <label class='list-item-info'>{{obj.VCLR_APPLY_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>核销周期值：</label>
+      <label class='list-item-info'>{{obj.VCLR_PRID_VAL}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>主管海关：</label>
+      <label class='list-item-info'>{{obj.MASTER_CUSCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>核算标记代码：</label>
+      <label class='list-item-info'>{{obj.ADJACC_MARKCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗版本号控制标志：</label>
+      <label class='list-item-info'>{{obj.UCNS_VERNO_CNTR_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>涉案标记代码：</label>
+      <label class='list-item-info'>{{obj.RCASE_MARKCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>企业具备自核资格标志：</label>
+      <label class='list-item-info'>{{obj.ETPS_POSES_SADJA_QUA_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>料件项数：</label>
+      <label class='list-item-info'>{{obj.MTPCK_ITEM_CNT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>成品项数：</label>
+      <label class='list-item-info'>{{obj.ENDPRD_ITEM_CNT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>备注：</label>
+      <label class='list-item-info'>{{obj.RMK}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>入库时间：</label>
+      <label class='list-item-info'>{{obj.ADD_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>数据状态：</label>
+      <label class='list-item-info'>{{obj.STATUS}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗质疑磋商状态：</label>
+      <label class='list-item-info'>{{obj.UCNS_STATUS_NAME}}</label>
+    </view>
+  </view>
+</template>
+<template name="CusImg">
+  <!-- <view class="drawer-title">{{obj.EMS_NO}}</view> -->
+  <view class='list'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>料件表</label>
+      <label class='line'></label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">预录入统一编号：</label>
+      <label class="list-item-info">{{obj.SEQ_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品序号：</label>
+      <label class="list-item-info">{{obj.GDS_SEQNO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品编码：</label>
+      <label class="list-item-info">{{obj.GDECD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品料号：</label>
+      <label class="list-item-info">{{obj.GDS_MTNO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品名称：</label>
+      <label class="list-item-info">{{obj.GDS_NM}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">成品商品规格型号描述：</label>
+      <label class="list-item-info">{{obj.ENDPRD_GDS_SPCF_MODEL_DESC}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报计量单位代码：</label>
+      <label class="list-item-info">{{obj.DCL_UNITCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">法定计量单位代码：</label>
+      <label class="list-item-info">{{obj.LAWF_UNITCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">第二法定计量单位代码：</label>
+      <label class="list-item-info">{{obj.SECD_LAWF_UNITCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报单价金额：</label>
+      <label class="list-item-info">{{obj.DCL_UPRC_AMT}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报币制代码：</label>
+      <label class="list-item-info">{{obj.DCL_CURRCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报数量：</label>
+      <label class="list-item-info">{{obj.DCL_QTY}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">征减免方式代码：</label>
+      <label class="list-item-info">{{obj.LVYRLF_MODECD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">数量控制标记代码：</label>
+      <label class="list-item-info">{{obj.QTY_CNTR_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">辅料标记代码：</label>
+      <label class="list-item-info">{{obj.ADJMTR_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">修改标记代码：</label>
+      <label class="list-item-info">{{obj.MODF_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">企业执行标记代码：</label>
+      <label class="list-item-info">{{obj.ETPS_EXE_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">海关执行标记代码：</label>
+      <label class="list-item-info">{{obj.CUSM_EXE_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">批准最大余数量：</label>
+      <label class="list-item-info">{{obj.APPR_MAX_SURP_QTY}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">核销周期初始数量：</label>
+      <label class="list-item-info">{{obj.VCLR_PRID_INIT_QTY}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">单耗质疑标志：</label>
+      <label class="list-item-info">{{obj.UCNS_TQSN_FLAG}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">磋商标志：</label>
+      <label class="list-item-info">{{obj.CSTTN_FLAG}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">备注：</label>
+      <label class="list-item-info">{{obj.RMK}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">入库时间：</label>
+      <label class="list-item-info">{{obj.INDB_TIME}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">记账清单编号：</label>
+      <label class="list-item-info">{{obj.INVT_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">记账清单商品序号：</label>
+      <label class="list-item-info">{{obj.INVT_G_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">企业内部编号：</label>
+      <label class="list-item-info">{{obj.ETPS_PREENT_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">账册编号：</label>
+      <label class="list-item-info">{{obj.EMS_NO}}</label>
+    </view>
+  </view>
+</template>
+
+<template name="CusExg">
+  <!-- <view class="drawer-title">{{obj.EMS_NO}}</view> -->
+  <view class='list'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>成品表</label>
+      <label class='line'></label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">预录入统一编号：</label>
+      <label class="list-item-info">{{obj.SEQ_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品序号：</label>
+      <label class="list-item-info">{{obj.GDS_SEQNO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品编码：</label>
+      <label class="list-item-info">{{obj.GDECD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品料号：</label>
+      <label class="list-item-info">{{obj.GDS_MTNO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">商品名称：</label>
+      <label class="list-item-info">{{obj.GDS_NM}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">成品商品规格型号描述：</label>
+      <label class="list-item-info">{{obj.ENDPRD_GDS_SPCF_MODEL_DESC}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报计量单位代码：</label>
+      <label class="list-item-info">{{obj.DCL_UNITCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">法定计量单位代码：</label>
+      <label class="list-item-info">{{obj.LAWF_UNITCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">第二法定计量单位代码：</label>
+      <label class="list-item-info">{{obj.SECD_LAWF_UNITCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报单价金额：</label>
+      <label class="list-item-info">{{obj.DCL_UPRC_AMT}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报币制代码：</label>
+      <label class="list-item-info">{{obj.DCL_CURRCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">申报数量：</label>
+      <label class="list-item-info">{{obj.DCL_QTY}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">征减免方式代码：</label>
+      <label class="list-item-info">{{obj.LVYRLF_MODECD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">数量控制标记代码：</label>
+      <label class="list-item-info">{{obj.QTY_CNTR_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">辅料标记代码：</label>
+      <label class="list-item-info">{{obj.ADJMTR_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">修改标记代码：</label>
+      <label class="list-item-info">{{obj.MODF_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">企业执行标记代码：</label>
+      <label class="list-item-info">{{obj.ETPS_EXE_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">海关执行标记代码：</label>
+      <label class="list-item-info">{{obj.CUSM_EXE_MARKCD}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">批准最大余数量：</label>
+      <label class="list-item-info">{{obj.APPR_MAX_SURP_QTY}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">核销周期初始数量：</label>
+      <label class="list-item-info">{{obj.VCLR_PRID_INIT_QTY}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">单耗质疑标志：</label>
+      <label class="list-item-info">{{obj.UCNS_TQSN_FLAG}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">磋商标志：</label>
+      <label class="list-item-info">{{obj.CSTTN_FLAG}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">备注：</label>
+      <label class="list-item-info">{{obj.RMK}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">入库时间：</label>
+      <label class="list-item-info">{{obj.INDB_TIME}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">记账清单编号：</label>
+      <label class="list-item-info">{{obj.INVT_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">记账清单商品序号：</label>
+      <label class="list-item-info">{{obj.INVT_G_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">企业内部编号：</label>
+      <label class="list-item-info">{{obj.ETPS_PREENT_NO}}</label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">账册编号：</label>
+      <label class="list-item-info">{{obj.EMS_NO}}</label>
+    </view>
+  </view>
+</template>
+
+<template name="CusConsume">
+  <!-- <view class="drawer-title">{{obj.EMS_NO}}</view> -->
+  <view class='list'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>单损耗</label>
+      <label class='line'></label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">预录入统一编号：</label>
+      <label class="list-item-info">{{obj.SEQ_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>序号：</label>
+      <label class='list-item-info'>{{obj.G_SEQNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>成品序号：</label>
+      <label class='list-item-info'>{{obj.ENDPRD_SEQNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>成品料号：</label>
+      <label class='list-item-info'>{{obj.ENDPRD_GDS_MTNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>成品商品编码：</label>
+      <label class='list-item-info'>{{obj.ENDPRD_GDECD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>成品商品名称：</label>
+      <label class='list-item-info'>{{obj.ENDPRD_GDS_NM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>料件序号：</label>
+      <label class='list-item-info'>{{obj.MTPCK_SEQNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>料件料号：</label>
+      <label class='list-item-info'>{{obj.MTPCK_GDS_MTNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>料件商品编码：</label>
+      <label class='list-item-info'>{{obj.MTPCK_GDECD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>料件商品名称：</label>
+      <label class='list-item-info'>{{obj.MTPCK_GDS_NM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗版本号：</label>
+      <label class='list-item-info'>{{obj.UCNS_VERNO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>变更次数：</label>
+      <label class='list-item-info'>{{obj.CHG_TMS_CNT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗数量：</label>
+      <label class='list-item-info'>{{obj.UCNS_QTY}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>净耗数量：</label>
+      <label class='list-item-info'>{{obj.NET_USEUP_QTY}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>有形损耗率：</label>
+      <label class='list-item-info'>{{obj.TGBL_LOSS_RATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>无形损耗率：</label>
+      <label class='list-item-info'>{{obj.INTGB_LOSS_RATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗申报状态代码：</label>
+      <label class='list-item-info'>{{obj.UCNS_DCL_STUCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>修改标记代码：</label>
+      <label class='list-item-info'>{{obj.MODF_MARKCD}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>保税料件比例：</label>
+      <label class='list-item-info'>{{obj.BOND_MTPCK_PRPR}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>备注：</label>
+      <label class='list-item-info'>{{obj.RMK}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>入库时间：</label>
+      <label class='list-item-info'>{{obj.INDB_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>单耗有效期：</label>
+      <label class='list-item-info'>{{obj.VALID_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>企业内部编号：</label>
+      <label class='list-item-info'>{{obj.ETPS_PREENT_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>账册编号：</label>
+      <label class='list-item-info'>{{obj.EMS_NO}}</label>
+    </view>
+  </view>
+</template>
+
+<template name="OrgImg">
+  <!-- <view class="drawer-title">{{obj.EMS_NO}}</view> -->
+  <view class='list' style='background-image:url({{theme}}details.png);background-size:100% auto;background-repeat:no-repeat;'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>料件归并关系</label>
+      <label class='line'></label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">{{titless["账册编号"]}}：</label>
+      <label class="list-item-info">{{obj.EMS_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["序号"]}}：</label>
+      <label class='list-item-info'>{{obj.G_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品货号"]}}：</label>
+      <label class='list-item-info'>{{obj.COP_G_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["英文品名"]}}：</label>
+      <label class='list-item-info'>{{obj.G_ENG_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品编码"]}}：</label>
+      <label class='list-item-info'>{{obj.CODE_T_S}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品名称"]}}：</label>
+      <label class='list-item-info'>{{obj.G_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["规格型号"]}}：</label>
+      <label class='list-item-info'>{{obj.G_MODEL}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["计量单位"]}}：</label>
+      <label class='list-item-info'>{{obj.UNIT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["法定单位"]}}：</label>
+      <label class='list-item-info'>{{obj.UNIT_1}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["第二单位"]}}：</label>
+      <label class='list-item-info'>{{obj.UNIT_2}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["币制"]}}：</label>
+      <label class='list-item-info'>{{obj.CURR}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["原产国"]}}：</label>
+      <label class='list-item-info'>{{obj.COUNTRY_CODE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["处理标志"]}}：</label>
+      <label class='list-item-info'>{{obj.MODIFY_MARK}}</label>
+    </view>
+    <view class='list-item' style='padding-bottom:20%'>
+      <label class='list-item-label'>{{titless["备注"]}}：</label>
+      <label class='list-item-info'>{{obj.NOTE}}</label>
+    </view>
+  </view>
+</template>
+
+<template name="OrgExg">
+  <!-- <view class="drawer-title">{{obj.EMS_NO}}</view> -->
+  <view class='list' style='background-image:url({{theme}}details.png);background-size:100% auto;background-repeat:no-repeat;'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>成品归并关系</label>
+      <label class='line'></label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">{{titless["账册编号"]}}：</label>
+      <label class="list-item-info">{{obj.EMS_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["序号"]}}：</label>
+      <label class='list-item-info'>{{obj.G_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品货号"]}}：</label>
+      <label class='list-item-info'>{{obj.COP_G_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品编码"]}}：</label>
+      <label class='list-item-info'>{{obj.CODE_T_S}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品名称"]}}：</label>
+      <label class='list-item-info'>{{obj.G_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["规格型号"]}}：</label>
+      <label class='list-item-info'>{{obj.G_MODEL}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["计量单位"]}}：</label>
+      <label class='list-item-info'>{{obj.UNIT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["法定单位"]}}：</label>
+      <label class='list-item-info'>{{obj.UNIT_1}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["第二单位"]}}：</label>
+      <label class='list-item-info'>{{obj.UNIT_2}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["币制"]}}：</label>
+      <label class='list-item-info'>{{obj.CURR}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["原产国"]}}：</label>
+      <label class='list-item-info'>{{obj.COUNTRY_CODE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["处理标志"]}}：</label>
+      <label class='list-item-info'>{{obj.MODIFY_MARK}}</label>
+    </view>
+    <view class='list-item' style='padding-bottom:30%'>
+      <label class='list-item-label'>{{titless["备注"]}}：</label>
+      <label class='list-item-info'>{{obj.NOTE}}</label>
+    </view>
+  </view>
+</template>
+
+<template name="OrgBom">
+  <!-- <view class="drawer-title">{{EMS_NO}}</view> -->
+  <view class='list' style='background-image:url({{theme}}details.png);background-size:100% auto;background-repeat:no-repeat;'>
+    <view class='title'>
+      <label class='line'></label>
+      <label>BOM表</label>
+      <label class='line'></label>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label">{{titless["账册编号"]}}：</label>
+      <label class="list-item-info">{{EMS_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["成品货号"]}}：</label>
+      <label class='list-item-info'>{{obj.COP_EXG_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["BOM版本号"]}}：</label>
+      <label class='list-item-info'>{{obj.BEGIN_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["料件货号"]}}：</label>
+      <label class='list-item-info'>{{obj.COP_IMG_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["净耗"]}}：</label>
+      <label class='list-item-info'>{{obj.DEC_CM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["损耗率"]}}(%)：</label>
+      <label class='list-item-info'>{{obj.DEC_DM}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["处理标志"]}}：</label>
+      <label class='list-item-info'>{{obj.MODIFY_MARK}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["开始日期"]}}：</label>
+      <label class='list-item-info'>{{obj.START_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["结束日期"]}}：</label>
+      <label class='list-item-info'>{{obj.END_DATE}}</label>
+    </view>
+    <view class='list-item' style='padding-bottom:60%'>
+      <label class='list-item-label'>{{titless["备注"]}}：</label>
+      <label class='list-item-info'>{{obj.NOTE}}</label>
+    </view>
+  </view>
+</template>
+
+<template name="SysDoc">
+  <view class="table">
+    <view class="tr" wx:for="{{files}}" wx:for-item="tr" wx:for-index="i" wx:key="">
+      <view class="td" wx:for="{{tr}}" wx:for-index="j" data-td="{{j}}" wx:key="">
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:if="{{item.FILE_TYPE=='.jpg'||item.FILE_TYPE=='.png'||item.FILE_TYPE=='.bmp'||item.FILE_TYPE=='image/png'||item.FILE_TYPE=='image/jpeg'||item.FILE_TYPE=='image/bmp'}}">
+          <image style="width: 85px; height: 85px;" src="{{item.FULL_NAME}}" model='aspectFit'></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.ms-excel'||item.FILE_TYPE=='.xls'||item.FILE_TYPE=='.xlsx'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}excel.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/pdf'||item.FILE_TYPE=='.pdf'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}pdf.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'||item.FILE_TYPE=='.docx'||item.FILE_TYPE=='.doc'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}word.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='text/plain'||item.FILE_TYPE=='.txt'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}text-plain.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='.zip'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}zip.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

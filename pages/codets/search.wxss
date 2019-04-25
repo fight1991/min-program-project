@@ -1,0 +1,32 @@
+@import "../../content/wxss/search.wxss";
+
+page {
+  background-color: #f5f5f5;
+}
+
+.search-item-lb {
+  width: 15%;
+}
+
+.search-item-img {
+  width: 26px;
+  height: 25px;
+}
+
+.search-item-lb {
+  padding-left: 30px;
+  font-size: 14px;
+  color: #9b9b9b;
+  padding-bottom: 4px;
+}
+
+.search-item {
+  border: 1px solid #eee;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.search-btn {
+  height: 45px;
+  border-radius: 5px;
+}

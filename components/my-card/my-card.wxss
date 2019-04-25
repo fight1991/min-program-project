@@ -1,0 +1,94 @@
+.wx-mask {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(7, 52, 75, 1);
+}
+
+.wx-dialog {
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 600rpx;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.wx-dialog-title {
+  font-size: 14px;
+  padding: 15px 15px 15px;
+  color: #808080;
+}
+
+.wx-dialog-content {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.dialog-button {
+  position: fixed;
+  display: flex;
+  height: 80px;
+  bottom: 0px;
+  z-index: 5000;
+  width: 100%;
+  background-color: #e7ebed;
+  overflow: hidden;
+}
+
+.btn-left {
+  height: 40px;
+  width: 40px;
+  padding: 10px 10px 0px 10px;
+}
+
+.btn-right {
+  height: 40px;
+  width: 40px;
+  padding: 10px 10px 0px 10px;
+}
+
+.shared-img {
+  height: 240px;
+  width: 240px;
+  border: 1px solid #eeeeee
+}
+
+.btn-shared {
+  padding: 0;
+  margin: 0;
+  background: none;
+  display: flex;
+}
+
+button::after {
+  border: none;
+}
+.user{
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.user-avatar-img{
+  height: 50px;
+  width: 50px;
+}
+.userInfo{
+  padding-left:10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+

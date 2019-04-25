@@ -1,0 +1,14 @@
+<view class="myContainer">
+  <view class="myChildContainer">
+    <view class="firstLine">
+      <input bindinput="bindKeyInput" type="text" placeholder='输入航班号' placeholder-style="color:#CECECE;"></input>
+    </view>
+    <view class="secondLine">
+      <image src="/content/images/themes/A/myYellow.png" mode="aspectFill" lazy-load></image>
+      <text>支持添加非当日航班</text>
+    </view>
+  </view>
+  <view class="thirdLine">
+    <button data-myIptVal="{{iptVal}}" bindtap="btnClick"  type="default">确定</button>
+  </view>
+</view>

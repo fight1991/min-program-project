@@ -1,0 +1,67 @@
+<import src="../../content/template/pull_refresh.wxml" />
+<template is="refresh" data="{{showTitle}}" />
+<view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:100%;'>
+  <view wx:if="{{isDayTime}}" class="userinfo" style='background-image:url(https://51baoguan.cn/content/images/themes/A/daytime.png);background-size:100% auto;height:25%'>
+    <view style='height:25%'></view>
+    <view class='userinfo-avatar'>
+      <image class="userinfo-avatar-image" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="userinfo-userName">  
+      <text>{{currentUser.email}}</text>
+    </view>
+  </view>
+  <view wx:if="{{!isDayTime}}" class="userinfo" style='background-image:url(https://51baoguan.cn/content/images/themes/A/nighttime.png);background-size:100% auto;height:30%'>
+    <view style='height:25%'></view>
+    <view class='userinfo-avatar'>
+      <image class="userinfo-avatar-image" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="userinfo-userName">
+      <text>{{currentUser.email}}</text>
+    </view>
+  </view>
+  <view>
+    <view class="info-item info-style" data-url='../account/user' bindtap='enterItem'>
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccba_myinfo.png'></image>
+      <span class="info-item-span1">我的信息</span>
+    </view>
+    <view class="info-item" data-url='../contact/contact' bindtap='enterItem'>
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/contact.png'></image>
+      <span class="info-item-span1">联系人</span>
+    </view>
+    <view class="info-item" data-url='../myApprove/myApprove' bindtap='enterItem'>
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccba_approve.png'></image>
+      <span class="info-item-span1">我的审批</span>
+    </view>
+    <view class="info-item info-style" bindtap='shared'>
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccba_share.png'></image>
+      <span class="info-item-span1">分享</span>
+    </view>
+    <view class="info-item info-style" bindtap='showActivity' data-url='https://51baoguan.cn/content/html/service-agreement.html' data-title="">
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/service-agreement.png'></image>
+      <span class="info-item-span1">服务协议</span>
+    </view>
+    <view class="info-item" bindtap="showActivity" data-url='https://51baoguan.cn/content/html/privacy-statement.html' data-title="">
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/privacy-statement.png'></image>
+      <span class="info-item-span1" style="display:flex;justify-content: flex-start;">隐私条款
+      </span>
+    </view>
+    <view class="info-item info-style" bindtap="unBind">
+      <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccba_logout.png'></image>
+      <span class="info-item-span1">退出</span>
+    </view>
+  </view>
+</view>
+<view class="drawer_screen" bindtap="closeBox" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <view style='height:25px;opacity:0;' bindtap="closeBox" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <view class='drawer-body'>
+    <view class="drawer-title">
+      <image bindtap="closeBox" data-statu="close" src='https://51baoguan.cn/content/images/themes/A/close.png' class='drawer-title-image'></image>
+    </view>
+    <view class="list-item">
+      <label class="list-item-label" style='background:{{site==item?"#2cacf5":"#FAFAFA"}};' wx:for="{{currentUser.sites}}" wx:key="" bindtap='chooseSite' id='{{item}}'>
+        {{item}}
+      </label>
+    </view>
+  </view>
+</view>

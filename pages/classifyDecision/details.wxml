@@ -1,0 +1,46 @@
+<view class="list">
+  <view class='list-item'>
+    <label class='list-item-label'>决定编号：</label>
+    <label class='list-item-info'>{{obj.DECISION_NO==null?'':obj.DECISION_NO}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>状态：</label>
+    <label class='list-item-info'>{{obj.STATUS==null?'':obj.STATUS}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>税则号：</label>
+    <label class='list-item-info'>{{obj.CODE_TS==null?'':obj.CODE_TS}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>中文名称：</label>
+    <label class='list-item-info'>{{obj.G_NAME==null?'':obj.G_NAME}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>英文名称：</label>
+    <label class='list-item-info'>{{obj.G_EN_NAME==null?'':obj.G_EN_NAME}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>其他名称：</label>
+    <label class='list-item-info'>{{obj.OTHER_NAME==null?'':obj.OTHER_NAME}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>海关公告：</label>
+    <label class='list-item-info'>{{obj.CUSTOMS_NOTICE==null?'':obj.CUSTOMS_NOTICE}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>生效日期：</label>
+    <label class='list-item-info'>{{obj.BEGIN_DATE==null?'':obj.BEGIN_DATE}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>发布日期：</label>
+    <label class='list-item-info'>{{obj.RELEASE_DATE==null?'':obj.RELEASE_DATE}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>商品描述：</label>
+    <label class='list-item-info'>{{obj.G_DESCRIPTION==null?'':obj.G_DESCRIPTION}}</label>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-label'>归类决定：</label>
+    <label class='list-item-info'>{{obj.DECISION_NOTE==null?'':obj.DECISION_NOTE}}</label>
+  </view>
+</view>

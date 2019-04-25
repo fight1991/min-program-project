@@ -1,0 +1,5 @@
+<template name="search_topImage">
+  <view style='text-align: center;'>
+    <image src='{{theme}}query.png' style='width:150px;height:100px;'></image>
+  </view>
+</template>

@@ -1,0 +1,73 @@
+page {
+  background-color: #f5f5f5;
+  font-family: Microsoft Yahei;
+  font-size: 14px;
+}
+
+.user-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 0 10px 15px;
+}
+
+.user-img {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.user-name {
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.comapny-contaner {
+  margin-left: 25px;
+}
+
+.comapny-name {
+  height: 20px;
+  line-height: 20px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #999;
+}
+
+.comapny-address-ls {
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #333;
+}
+
+.comapny-address-item { 
+  padding: 10px 10px 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #999;
+}
+
+.border-top-1 {
+  border-top: 1px solid #eee;
+}
+
+radio {
+  border: none;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;
+   width: 20rpx; 
+   height: 20rpx; 
+   text-align: center;
+   font-size:0rpx; 
+   background-color: #fff; 
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+} 

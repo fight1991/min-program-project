@@ -1,0 +1,10 @@
+<view>
+  <view class='item' wx:for="{{countrys}}" wx:key="" data-namefield='{{item.nameField}}' data-codefield='{{item.codeField}}' data-index='{{index}}' bindtap='showProvince'>
+    <view>
+      {{item.nameField}}
+    </view>
+    <view>
+    <image class='img' src='/content/images/themes/A/arrows_right.png'></image>
+    </view>
+  </view>
+</view>

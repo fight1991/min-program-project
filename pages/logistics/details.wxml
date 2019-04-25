@@ -1,0 +1,122 @@
+<view style='heigth:100%'>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>接单编号：</label>
+    <view class='list-item-lb-value'>{{obj.BOSS_ID==null?'':obj.BOSS_ID}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>状态：</label>
+    <view class='list-item-lb-value'>{{array[obj.STATUS]}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>报关单号：</label>
+    <view class='list-item-lb-value'>{{obj.ENTRY_ID==null?'':obj.ENTRY_ID}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>运输工具名称：</label>
+    <view class='list-item-lb-value'>{{obj.TRAF_NAME==null?'':obj.TRAF_NAME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>航次号：</label>
+    <view class='list-item-lb-value'>{{obj.VOYAGE_NO==null?'':obj.VOYAGE_NO}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>主提单号：</label>
+    <view class='list-item-lb-value'>{{obj.BILL_NO==null?'':obj.BILL_NO}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>装货港：</label>
+    <view class='list-item-lb-value'>{{obj.DISTINATE_PORT==null?'':obj.DISTINATE_PORT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>实际到港日期：</label>
+    <view class='list-item-lb-value'>{{obj.ATD==null?'':obj.ATD}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>{{i_e_flag=="I"?"进口口岸":"出口口岸"}}：</label>
+    <view class='list-item-lb-value'>{{obj.I_E_PORT==null?'':obj.I_E_PORT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>换单日期：</label>
+    <view class='list-item-lb-value'>{{obj.CHANGE_BILL_DATE==null?'':obj.CHANGE_BILL_DATE}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>送货日期：</label>
+    <view class='list-item-lb-value'>{{obj.DELIVERY_DATE==null?'':obj.DELIVERY_DATE}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>提货日期：</label>
+    <view class='list-item-lb-value'>{{obj.PICK_UP_DATE==null?'':obj.PICK_UP_DATE}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>商检查验：</label>
+    <view class='list-item-lb-value'>{{obj.COMMODITY_INSPECTION==null?'':obj.COMMODITY_INSPECTION}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>海关查验：</label>
+    <view class='list-item-lb-value'>{{obj.CUSTOMS_INSPECTION==null?'':obj.CUSTOMS_INSPECTION}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>接单日期：</label>
+    <view class='list-item-lb-value'>{{obj.RCV_DATE==null?'':obj.RCV_DATE}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>提交日期：</label>
+    <view class='list-item-lb-value'>{{obj.SUBMIT_TIME==null?'':obj.SUBMIT_TIME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>审核日期：</label>
+    <view class='list-item-lb-value'>{{obj.AUDIT_TIME==null?'':obj.AUDIT_TIME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>申报日期：</label>
+    <view class='list-item-lb-value'>{{obj.D_DATE==null?'':obj.D_DATE}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>结案日期：</label>
+    <view class='list-item-lb-value'>{{obj.CLOSURE_TIME==null?'':obj.CLOSURE_TIME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>毛重：</label>
+    <view class='list-item-lb-value'>{{obj.GROSS_WT==null?'':obj.GROSS_WT}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>件数：</label>
+    <view class='list-item-lb-value'>{{obj.PACK_NO==null?'':obj.PACK_NO}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>责任人：</label>
+    <view class='list-item-lb-value'>{{obj.REF_2==null?'':obj.REF_2}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>制单/审核：</label>
+    <view class='list-item-lb-value'>{{obj.REF_3==null?'':obj.REF_3}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>是否我司送货：</label>
+    <view class='list-item-lb-value'>{{obj.REF_4==null?'':obj.REF_4}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>税单报关行签收时间：</label>
+    <view class='list-item-lb-value'>{{obj.BROKER_SIGNFOR_TIME==null?'':obj.BROKER_SIGNFOR_TIME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>税单客户签收时间：</label>
+    <view class='list-item-lb-value'>{{obj.CUSTOMER_SIGNFOR_TIME==null?'':obj.CUSTOMER_SIGNFOR_TIME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>是否产生保证金：</label>
+    <view class='list-item-lb-value'>{{obj.CASH_DEPOSIT_FLAG==null?'':obj.CASH_DEPOSIT_FLAG}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>保证金时间：</label>
+    <view class='list-item-lb-value'>{{obj.CASH_DEPOSIT_TIME==null?'':obj.CASH_DEPOSIT_TIME}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>删改单原因：</label>
+    <view class='list-item-lb-value'>{{obj.REF_6==null?'':obj.REF_6}}</view>
+  </view>
+  <view class='list-item'>
+    <label class='list-item-lb-title'>删改单：</label>
+    <view class='list-item-lb-value'>{{obj.REF_1==null?'':obj.REF_1}}</view>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+<view style='background-image: url("https://51baoguan.cn/content/images/themes/A/excellent4business_bk.png");background-size: 100% 100%;'>
+  <view style='display:flex;justify-content:center;padding-top:20px'>
+    <image class='img-top' src='https://51baoguan.cn/content/images/themes/A/excellent4business_bk_top{{outStanding}}.png'></image>
+  </view>
+  <view style='display:flex;justify-content:center;padding-top:20px'>
+    <image class='img-step1' src='https://51baoguan.cn/content/images/themes/A/excellent4business_bk_step1.png'></image>
+  </view>
+  <view class='introduction'>
+    • 企业信息 •
+  </view>
+  <view class='item-content'>
+    <view style='display: flex;align-items: center;position: relative;'>
+      <image wx:if='{{corpLogo==""||corpLogo==null}}' bindtap="uploadImg" class='img-upload-top' src='https://51baoguan.cn/content/images/themes/A/excellent4business_log.png'></image>
+      <image wx:else class='img-upload-top' bindtap='showImg' data-url='{{corpLogo}}' src='{{corpLogo}}'></image>
+      <image wx:if='{{corpLogo!=""}}' src="/content/images/themes/A/close.png" bindtap='colseImg' class="img-delete"></image>
+    </view>
+    <view style='padding-top:20rpx;z-index:0'>
+      <textarea placeholder='请输入企业名称' id='corpName' name='corpName' value='{{reqData.corpName}}' bindinput='bindData' placeholder-class='placeholder' class='area selected' maxlength='27'>
+        <text class='tips'>{{len}}/27</text>
+      </textarea>
+    </view>
+  </view>
+  <view class='introduction'>
+    • 企业简介 •
+  </view>
+  <view class='item-content' style='z-index:0;'>
+    <textarea placeholder='请输入您的企业简介' style='margin-top:20rpx' id='corpDesc' name='corpDesc' value='{{reqData.corpDesc}}' bindinput='bindData' placeholder-class='placeholder' class='areas' maxlength="200">
+      <text class='tips'>{{len1}}/200</text>
+    </textarea>
+  </view>
+  <view class='introduction'>
+    • 发展历程 •
+  </view>
+  <view class='item-contents' style='z-index:0'>
+    <view wx:for="{{stories}}" wx:key="" data-index='{{index}}'>
+      <view style='margin-bottom:20rpx;display:flex;justify-content:space-between'>
+        <view class='date'>
+          <image class='img-date' src='https://51baoguan.cn/content/images/themes/A/excellent4business_date.png'></image>
+          <picker mode="date" value="{{item.happpenDate}}" data-index='{{index}}' id='picker1' start="1980-01-01" end="2050-12-31" fields="month" bindchange="bindDateChange" style='width:70%;'>
+            <view class="picker search-item1" style='10px;margin-bottom: 1px;'>
+              <view class="search-item2">
+                <input class='search-item-input1' disabled="false" placeholder='请选择' placeholder-class='placeholder' value='{{item.happpenDate}}'></input>
+                <label class='search-item-img'></label>
+              </view>
+            </view>
+          </picker>
+        </view>
+        <view class='delete' bindtap='delStories' data-index='{{index}}'>
+          <image class='img-date' src='https://51baoguan.cn/content/images/themes/A/excellent4business_delete.png'></image>
+          <label>删除</label>
+        </view>
+      </view>
+      <view style='display:flex;width:100%'>
+        <textarea placeholder='请输入您的发展历程' id='description' name='description' value='{{item.description}}' bindinput='bindData4Stories' data-indexs='{{index}}' placeholder-class='placeholder' class='areas' maxlength="200">
+          <text class='tips'>{{item.len}}/200</text>
+        </textarea>
+      </view>
+    </view>
+    <view>
+      <view class='title-add' bindtap='addStories'>
+        +添加
+      </view>
+    </view>
+  </view>
+  <view class='btns' bindtap='nextstep'>
+    下一步
+  </view>
+</view>

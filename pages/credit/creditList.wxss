@@ -1,0 +1,96 @@
+/* 最外层父元素 */
+
+.credit-level{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  top:2px;
+}
+
+.myContainer {
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  padding-bottom: 30rpx;
+}
+
+/* 公用分割线:细的 */
+
+.divider {
+  width: 100%;
+  margin: 10rpx auto;
+  height: 2rpx;
+  background: #ececec;
+  box-shadow: 0 5rpx 5rpx rgba(0, 0, 0, 0.1) inset;
+  
+}
+
+/* 公用分割线：粗的 */
+
+.dividerThick {
+  width: 100%;
+  margin: 10rpx auto;
+  height: 24rpx;
+  background: #ececec;
+}
+
+/* 注册信息文字 */
+
+.zhuCeXinXi {
+  display: flex;
+  justify-content: start;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 10rpx !important;
+  padding-bottom: 10rpx !important;
+}
+
+.containerCommonPaddingTitle {
+  padding: 45rpx;
+}
+
+.commenPaddingContainer {
+  padding: 5rpx 45rpx;
+  box-sizing: border-box;
+}
+
+.TextContainer {
+  width: 100%;
+}
+
+.myMargin:before {
+  content: "";
+  display: table;
+}
+
+.childContainerCommen {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* list左边共同样式 */
+
+.myLeftCommen {
+  color: #979797;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 40%;
+}
+
+/* list右边共同样式 */
+
+.myRightCommen {
+  width: 60%;
+  color: #545454;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.dividerParentPaddingLeft {
+  padding-left: 45rpx;
+  box-sizing: border-box;
+}

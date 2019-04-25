@@ -1,0 +1,122 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.img {
+  height: 350rpx;
+  width: 100%;
+}
+
+.content {
+  background-color: #fff;
+  width: 100%;
+}
+
+.buttons {
+  padding-top: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* position: fixed;
+  bottom: 10px; */
+}
+
+.button {
+  height: 40px;
+  line-height: 40px;
+  width: 40%;
+  background-color: #ffaf31;
+  color: #fff;
+}
+
+.title {
+  font: 16px microsoft yahei;
+  color: #999;
+  padding: 2px;
+  margin-left: 10px; 
+  flex-grow: 1;
+  text-align: center;
+}
+
+.input {
+  font: 14px microsoft yahei;
+  flex-grow: 2;
+  padding-right: 8px;
+  width: 150px;
+}
+
+.btn-select {
+  font: 12px microsoft yahei;
+  color: #999;
+  flex-grow: 1; 
+  padding: 4px;
+  width: 50px; 
+  text-align: center;
+  border-left: 1px solid #eee;
+}
+
+.item { 
+  display: flex; 
+  height: 50px;
+  align-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.item1 { 
+  display: flex; 
+  height: 50px;
+  align-content:flex-start ;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.input-container{
+  display: flex;
+  justify-content: center;
+  flex-grow: 2;
+}
+
+.picker{
+  font: 14px microsoft yahei; 
+}
+.textview {
+  margin: 5rpx 20rpx 100rpx 20rpx;
+}
+
+.scrollview {
+
+  z-index: 9999;
+  height: 200px;
+  overflow-y: scroll;
+  opacity: 1;
+  position: absolute;
+  width:100%;
+  margin-top: 13px;
+}
+
+.text {
+  font-size: 45rpx;
+  
+}
+
+.textinput {
+  margin: 5rpx 20rpx 5rpx 20rpx;
+  border-bottom: 1rpx solid #09bb07;
+  font-size: 40rpx;
+}
+
+.itemview {
+  font: 14px microsoft yahei;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #d8d8d8;
+  border-left: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+  color: #000;
+}

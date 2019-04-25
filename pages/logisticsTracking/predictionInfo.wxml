@@ -1,0 +1,75 @@
+<view>
+  <view>
+    <view class='items'>
+      <label class='items-title' style='width:25%'>申报地海关</label>
+      <input class='items-input' style='width:74%' placeholder='请输入4位关区代码' type='number' maxlength='4' placeholder-class='remind' id='customMaster' name='customMaster' value='{{reqData.customMaster}}' bindinput='bindData'></input>
+    </view>
+    <view class='items'>
+      <view style='width:85%;display: flex;'>
+        <label class='items-title' style='width:29%'>ETD</label>
+        <picker mode="date" value="{{date1}}" start="2015-09-01" bindchange="bindDateChange1">
+          {{date1}}
+        </picker>
+        <picker style='padding-left:10px' mode="time" value="{{time1}}" bindchange="bindTimeChange1">
+          {{time1}}
+        </picker>
+      </view>
+    </view>
+    <view class='items'>
+      <view style='width:85%;display: flex;'>
+        <label class='items-title' style='width:29%'>ETA</label>
+        <picker mode="date" value="{{date2}}" start="2015-09-01" bindchange="bindDateChange2">
+          {{date2}}
+        </picker>
+        <picker style='padding-left:10px' mode="time" value="{{time2}}" bindchange="bindTimeChange2">
+          {{time2}}
+        </picker>
+      </view>
+    </view>
+    <view class='items' wx:if='{{isShow.isShowBillNo}}'>
+      <label class='items-title' style='width:25%'>提运单号</label>
+      <input class='items-input' style='width:74%' id='billNo' name='billNo' value='{{reqData.billNo}}' bindinput='bindData'></input>
+    </view>
+    <view class='items' wx:if='{{isShow.isShowMawbNo}}'>
+      <label class='items-title' style='width:25%'>总提运单号</label>
+      <input class='items-input' style='width:74%' id='mawbNo' name='mawbNo' value='{{reqData.mawbNo}}' bindinput='bindData'></input>
+    </view>
+    <view class='items' wx:if='{{isShow.isShowVoyFlightNo}}'>
+      <label class='items-title' wx:if='{{isShow.title1}}' style='width:25%'>航班号</label>
+      <label class='items-title' wx:if='{{isShow.title2}}' style='width:25%'>船次</label>
+      <label class='items-title' wx:if='{{isShow.title3}}' style='width:25%'>车牌号</label>
+      <input class='items-input' style='width:74%' id='voyFlightNo' name='voyFlightNo' value='{{reqData.voyFlightNo}}' bindinput='bindData'></input>
+    </view>
+    <view class='contents' wx:if='{{isShow.isContainerNo}}'>
+      <view wx:for="{{datas}}" wx:key="" data-index='{{index}}'>
+        <view class='titles'>
+          集装箱{{index+1}}
+        </view>
+        <view style='display:flex;align-items:center;justify-content: space-between;'>
+          <view class='inputs {{index=="0"?"first":"other"}}'>
+            <input style='height:70rpx;line-height:70rpx;' data-index='{{index}}' bindinput='bindData4Container' value='{{item}}'></input>
+            <image bindtap='identify' data-no='{{item}}' data-index='{{index}}' class='camera' src='https://51baoguan.cn/content/images/themes/A/camera.png'></image>
+          </view>
+          <image bindtap='delContainer' data-index='{{index}}' wx:if='{{index>0}}' class='close' src='/content/images/themes/A/close.png'></image>
+        </view>
+      </view>
+      <view class='tips-add' bindtap='addContainer'>
+        +新增集装箱
+      </view>
+    </view>
+    <view class='itemss'>
+      <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+        <view class='check-item'>
+          <image src="{{item}}" bindtap='showImg' data-url='{{item}}' class="upload"></image>
+          <image src="/content/images/themes/A/close.png" bindtap='clearImg' data-index="{{index}}" class="img-delete"></image>
+        </view>
+      </view>
+      <view class="educt_upload_add" bindtap="joinPicture" data-index="{{0}}">
+        <image src="/content/images/themes/A/ccbaupload.png" class="upload"></image>
+      </view>
+    </view>
+    <view wx:if='{{obj.role!="货主"&&isOperation=="true"}}' class='buttons'>
+      <button class='button' disabled='{{disabled}}' bindtap='confirm'>提交</button>
+    </view>
+  </view>
+</view>

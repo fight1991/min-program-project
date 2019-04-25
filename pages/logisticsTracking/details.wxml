@@ -1,0 +1,431 @@
+<import src="../../content/template/searchEnd.wxml" />
+<view class="swiper-tab" style="height:{{winHeight*0.06}}px">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='line-height: {{winHeight*0.06}}px;'>物流节点</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" style='line-height: {{winHeight*0.06}}px;'>委托详情</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav" style='line-height: {{winHeight*0.06}}px;'>单证</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - winHeight*0.06}}px" bindchange="bindChange">
+  <swiper-item>
+    <scroll-view scroll-y style="height:{{winHeight- winHeight*0.06}}px;padding-top:20px">
+      <block wx:if='{{nodeLength>0}}' wx:for="{{nodeList}}" wx:key="" data-index='{{index}}' wx:for-index="i">
+        <view style='display:flex'>
+          <view class='dates {{i==nodeLength-1?"chageDate":""}}'>
+            <view class="item-title2">{{item.date}}</view>
+            <view style='height:20px;line-height:15px;font-size:13px' class="item-title2">{{item.time}}</view>
+          </view>
+          <view class='weui-cell-list'>
+            <view class='weui-cell-line' style='height:10px' wx:if="{{i!=0}}"></view>
+            <view wx:if='{{item.status=="2"}}' class="weui-cell-circle highLight"></view>
+            <view wx:if='{{item.higeLight&&item.status=="1"}}' class="weui-cell-circle highCurr"></view>
+            <view wx:if='{{item.status=="3"}}' class="weui-cell-circle highError"></view>
+            <view wx:if='{{item.status!="2"&&!(item.higeLight&&item.status=="1")&&item.status!="3"}}' class="weui-cell-circle"></view>
+            <view class='weui-cell-line' wx:if="{{i!=nodeLength-1}}">
+            </view>
+          </view>
+          <view class="{{i==0?'':'margin-top-10'}}">
+            <view wx:if='{{item.status=="2"}}' class="item-title1 light">{{item.nodeName}}</view>
+            <view wx:if='{{item.higeLight&&item.status=="1"}}' class="item-title1 curr">{{item.nodeName}}</view>
+            <view wx:if='{{item.status=="3"}}' class="item-title1 error">{{item.nodeName}}</view>
+            <view wx:if='{{item.status!="2"&&!(item.higeLight&&item.status=="1")&&item.status!="3"}}' class="item-title1">{{item.nodeName}}</view>
+            <view class="item-title3" wx:if='{{item.nodeName=="报关单申报"&&obj.logisticsNodeInfoVO.entryId!=null}}'>海关编号：{{obj.logisticsNodeInfoVO.entryId}}</view>
+            <view class="item-title3" wx:if='{{item.nodeName=="实际货物到达时间（ATA）"&&item.createTime!=null}}'>ATA：{{item.createTime}}</view>
+            <view class="item-title3" wx:if='{{item.nodeName=="实际货物出发时间（ATD）"&&item.createTime!=null}}'>ATD：{{item.createTime}}</view>
+            <view class="item-title3" wx:if='{{item.nodeName=="通关放行"&&item.createTime!=null}}'>放行时间：{{item.createTime}}</view>
+            <view class="item-title3" wx:if='{{(item.nodeName=="进口预告发送"||item.nodeName=="出口预告发送")&&(obj.logisticsNodeInfoVO.billNo!=null&&obj.logisticsNodeInfoVO.billNo!="")}}'>
+              提运单号：{{obj.logisticsNodeInfoVO.billNo}}
+            </view>
+            <view class="item-title3" wx:if='{{(item.nodeName=="进口预告发送"||item.nodeName=="出口预告发送")&&(obj.logisticsNodeInfoVO.billNo==null||obj.logisticsNodeInfoVO.billNo=="")&&(obj.logisticsNodeInfoVO.mawbNo!=null&&obj.logisticsNodeInfoVO.mawbNo!="")}}'>
+              总提运单号：{{obj.logisticsNodeInfoVO.mawbNo}}
+            </view>
+            <view class="item-title3" wx:if='{{item.nodeName=="补充资料"&&(obj.logisticsNodeInfoVO.linkHawbNo!=null&&obj.logisticsNodeInfoVO.linkHawbNo!="")}}'>
+              提运单号：{{obj.logisticsNodeInfoVO.linkHawbNo}}
+            </view>
+            <view class="item-title3" wx:if='{{item.nodeName=="补充资料"&&(obj.logisticsNodeInfoVO.linkHawbNo==null||obj.logisticsNodeInfoVO.linkHawbNo=="")&&(obj.logisticsNodeInfoVO.linkMawbNo!=null&&obj.logisticsNodeInfoVO.linkMawbNo!="")}}'>
+              总提运单号：{{obj.logisticsNodeInfoVO.linkMawbNo}}
+            </view>
+            <view class="item-title3" wx:if='{{item.nodeName=="补充资料-进口空运"&&(obj.logisticsNodeInfoVO.iairHawbNo!=null&&obj.logisticsNodeInfoVO.iairHawbNo!="")}}'>
+              提运单号：{{obj.logisticsNodeInfoVO.iairHawbNo}}
+            </view>
+            <view class="item-title3" wx:if='{{item.nodeName=="补充资料-进口空运"&&(obj.logisticsNodeInfoVO.iairHawbNo==null||obj.logisticsNodeInfoVO.iairHawbNo=="")&&(obj.logisticsNodeInfoVO.iairMawbNo!=null&&obj.logisticsNodeInfoVO.iairMawbNo!="")}}'>
+              总提运单号：{{obj.logisticsNodeInfoVO.iairMawbNo}}
+            </view>
+            <view style='display:flex;'>
+              <view wx:for="{{item.logisticsNodeBtnVO}}" wx:key="" wx:if="{{(obj.btnType=='7'&&obj.detailType!='1'&&obj.detailType!=null)||obj.btnType!='7'}}" wx:key="" wx:for-index="j" wx:for-item="obj" style='margin-right:10px;' data-type='{{obj.btnType}}' data-btnName='{{obj.btnName}}'
+                data-nodeNo='{{item.nodeNo}}' data-nodeName='{{item.nodeName}}' data-indexs='{{i}}' data-indexss='{{j}}' data-id='{{obj.pid}}' data-detailType='{{obj.detailType}}' data-trackingNodePid='{{item.trackingNodePid}}' bindtap='click'>
+                <!-- {{obj.btnName}} -->
+                <image src='https://51baoguan.cn/content/images/themes/A/others/node_click.png' class='img-btn' wx:if='{{obj.btnType==1}}'></image>
+                <image src='/content/images/themes/A/node_edit.png' class='img-btn' wx:if='{{obj.btnType==0||obj.btnType==2||obj.btnType==3||obj.btnType==4||obj.btnType==5}}'></image>
+                <image src='/content/images/themes/A/node_errors.png' class='img-btn' wx:if='{{obj.btnType==6}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==7}}'></image>
+                <image src='/content/images/themes/A/node_entry_status.png' class='img-btn' wx:if='{{obj.btnType==10}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==13||obj.btnType==14}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==15}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==16}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==17}}'></image>
+                <image src='https://51baoguan.cn/content/images/themes/A/others/node_click.png' class='img-btn' wx:if='{{obj.btnType==18}}'></image>
+                <image src='/content/images/themes/A/node_assign.png' class='img-btn' wx:if='{{obj.btnType==19}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==20}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==21}}'></image>
+                <image src='/content/images/themes/A/node_entry_status.png' class='img-btn' wx:if='{{obj.btnType==22}}'></image>
+                <image src='/content/images/themes/A/node_details.png' class='img-btn' wx:if='{{obj.btnType==26}}'></image>
+                <image src='https://51baoguan.cn/content/images/themes/A/node_pdf.png' class='img-btn' wx:if='{{obj.btnType==23}}'></image>
+                <image src='/content/images/themes/A/node_entry_status.png' class='img-btn' wx:if='{{obj.btnType==24}}'></image>
+                <image src='/content/images/themes/A/node_user.png' class='img-btn' wx:if='{{obj.btnType==25}}'></image>
+                <image src='/content/images/themes/A/node_log.png' class='img-btn' style='position: absolute;right:10px;padding-bottom:10px;padding-left:10px;' wx:if='{{obj.btnType==8}}'></image>
+
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="ture" style="height:{{winHeight- winHeight*0.06}}px;padding:0px;">
+      <view class='content'>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            委托人:
+          </view>
+          <view class='content-item'>
+            {{obj.userName==null?'':obj.userName}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            联系方式:
+          </view>
+          <view class='content-itemss'>
+            {{obj.mobileNo==null?'':obj.mobileNo}}
+          </view>
+          <view>
+            <image class='img-tel' src='/content/images/themes/A/tel.png' bindtap='callPhone'></image>
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            委托时间:
+          </view>
+          <view class='content-item'>
+            {{obj.trackingTime}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            委托编号:
+          </view>
+          <view class='content-item'>
+            {{obj.trackingNo}}
+          </view>
+        </view>
+      </view>
+      <view class='content'>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            角色:
+          </view>
+          <view class='content-item'>
+            {{obj.role}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            物流方式:
+          </view>
+          <view class='content-item'>
+            {{obj.iEFlag=='I'?'进口':'出口'}}/{{obj.transMode}}/
+            <label wx:if="{{obj.trafMode=='2'}}">
+              海运
+            </label>
+            <label wx:if="{{obj.trafMode=='4'}}">
+              陆运
+            </label>
+            <label wx:if="{{obj.trafMode=='5'}}">
+              空运
+            </label>
+            <label wx:if="{{obj.trafMode!='5'&&obj.trafMode!='4'&&obj.trafMode!='2'}}">
+              {{obj.trafMode}}
+            </label>
+            /{{obj.goodsType}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            境外发货人:
+          </view>
+          <view class='content-item'>
+            {{obj.overseasContact}}{{obj.overseasMobile==null||obj.overseasMobile==''?'':'/'+obj.overseasMobile}}{{obj.overseasAddr==null||obj.overseasAddr==''?'':'/'+obj.overseasAddr}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            境内收货人:
+          </view>
+          <view class='content-item'>
+            {{obj.domesticContact}}{{obj.domesticMobile==null||obj.domesticMobile==''?'':'/'+obj.domesticMobile}}{{obj.domesticAddr==null||obj.domesticAddr==''?'':'/'+obj.domesticAddr}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            货物信息:
+          </view>
+          <view class='content-item'>
+            {{obj.goodsInfo}}
+          </view>
+        </view>
+        <view class='content-itmes'>
+          <view class='content-title'>
+            备注:
+          </view>
+          <view class='content-item'>
+            {{obj.notes}}
+          </view>
+        </view>
+      </view>
+      <view wx:if='{{fparticipants.participantVO!=null}}' class='content' style='padding-bottom:15px'>
+        <view>
+          <view style='display:flex;justify-content:center;align-items:center;color:#1296db;font:14px microsoft yahei;'>
+            <view>参与方</view>
+          </view>
+          <view wx:for="{{fparticipants.participantVO}}" wx:key="" data-index='{{index}}'>
+            <view class='content-title'>
+              {{item.roleTypeStr}}
+            </view>
+            <view wx:for="{{item.participantVOList}}" wx:key="" wx:for-item="list" wx:for-index="i">
+              <view bindtap='selectContact' data-status="{{list.status}}" data-otherPid='{{list.otherPid}}' data-roleType='{{list.roleType}}' data-roleUserId='{{list.roleUserId}}' class='content-input' wx:if='{{list.status==0||list.status==1||list.status==2||list.status==3}}'>
+                <view>
+                  {{list.roleContact}}
+                </view>
+                <view>
+                  <button class='share'>
+                    <image src='/content/images/themes/A/wait.png' class='img-status'></image>
+                  </button>
+                </view>
+              </view>
+              <view bindtap='selectContact' data-status="{{list.status}}" data-otherPid='{{list.otherPid}}' data-roleType='{{list.roleType}}' data-roleUserId='{{list.roleUserId}}' class='content-input ash' wx:if='{{list.status==4||list.status==6}}'>
+                <view>
+                  {{list.roleContact}}
+                </view>
+                <view open-type='share'>
+                  <image src='/content/images/themes/A/accept.png' class='img-status'></image>
+                </view>
+              </view>
+              <view bindtap='selectContact' data-otherPid='{{list.otherPid}}' data-roleType='{{list.roleType}}' data-roleUserId='{{list.roleUserId}}' class='content-input' wx:if='{{list.status==5}}'>
+                <view>
+                  {{list.roleContact}}
+                </view>
+                <view>
+                  <image src='/content/images/themes/A/reject.png' class='img-status'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view>
+        </view>
+      </view>
+      <view style='height:5px;background-color: #f5f5f5;'>
+      </view>
+      <view class='contents'>
+        <view>
+          <view wx:for="{{participants.participantVO}}" wx:key="" data-index='{{index}}'>
+            <view style='height:5px;background-color: #f5f5f5;'>
+            </view>
+            <view class='content-titles'>
+              <view>
+                {{item.roleTypeStr}}
+              </view>
+              <view wx:if="{{participants.btnStatus=='1'&&index=='0'}}" style='display: flex;align-items: center;' bindtap='editNode'>
+                <image style='height:15px;width:15px' src='/content/images/themes/A/editRole.png'></image>
+                <label style='padding-left:5px;font-size:14px;color:#808080'>继续分配任务</label>
+              </view>
+            </view>
+            <view wx:for="{{item.participantVOList}}" wx:key="" wx:for-item="list" wx:for-index="i">
+              <view data-status="{{list.status}}" data-otherPid='{{list.otherPid}}' data-roleType='{{list.roleType}}' data-roleUserId='{{list.roleUserId}}' class='content-inputs' wx:if='{{list.status==0||list.status==1||list.status==2||list.status==3}}'>
+                <view style='display:flex;align-items:center;width: 80%;'>
+                  <view style='width:50px;' class='{{i==0?"leader":""}}'>
+                    {{list.roleContact}}
+                  </view>
+                  <image class='img-tip' wx:if="{{i=='0'}}" src='/content/images/themes/A/Leaders.png'></image>
+                  <image class='img-tip' wx:else src='/content/images/themes/A/operators.png'></image>
+                  <view class='corpname'>
+                    {{list.corpName==null?'':list.corpName}}
+                  </view>
+                </view>
+                <view>
+                  <view class='share' style='display:flex;align-items:center;justify-content:flex-end'>
+                    <image src='/content/images/themes/A/wait.png' class='img-status'></image>
+                  </view>
+                </view>
+              </view>
+              <view data-status="{{list.status}}" data-otherPid='{{list.otherPid}}' data-roleType='{{list.roleType}}' data-roleUserId='{{list.roleUserId}}' class='content-inputs' wx:if='{{list.status==4||list.status==6}}'>
+                <view style='display:flex;align-items:center;width: 80%;'>
+                  <view style='width:50px;' class='{{i==0?"leader":""}}'>
+                    {{list.roleContact}}
+                  </view>
+                  <image class='img-tip' wx:if="{{i=='0'}}" src='/content/images/themes/A/Leaders.png'></image>
+                  <image class='img-tip' wx:else src='/content/images/themes/A/operators.png'></image>
+                  <view class='corpname'>
+                    {{list.corpName==null?'':list.corpName}}
+                  </view>
+                </view>
+                <view open-type='share' style='display:flex;align-items:center;justify-content:flex-end'>
+                  <image src='/content/images/themes/A/accept.png' class='img-status'></image>
+                </view>
+              </view>
+              <view data-otherPid='{{list.otherPid}}' data-roleType='{{list.roleType}}' data-roleUserId='{{list.roleUserId}}' class='content-inputs' wx:if='{{list.status==5}}'>
+                <view style='display:flex;align-items:center;width: 80%;'>
+                  <view style='width:50px;' class='{{i==0?"leader":""}}'>
+                    {{list.roleContact}}
+                  </view>
+                  <image class='img-tip' wx:if="{{i=='0'}}" src='/content/images/themes/A/Leaders.png'></image>
+                  <image class='img-tip' wx:else src='/content/images/themes/A/operators.png'></image>
+                  <view class='corpname'>
+                    {{list.corpName==null?'':list.corpName}}
+                  </view>
+                </view>
+                <view style='display:flex;align-items:center;justify-content:flex-end'>
+                  <image src='/content/images/themes/A/reject.png' class='img-status'></image>
+                </view>
+              </view>
+              <view class='content-node'>
+                <view class='details-node' wx:for="{{list.trackNodeInfo}}" wx:key="" wx:for-item="node">
+                  <view class='item-node'>
+                    {{node}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="ture" style="height:{{winHeight - winHeight*0.06}}px;padding:0px;">
+      <view class="img-container">
+        <view class='image-items' wx:for="{{logisticsDocVO.docUrls}}" wx:key="" data-index='{{index}}'>
+          <image wx:if='{{index<isShowCount}}' src="{{item}}" data-src="{{item}}" animation="{{animationMenu}}" class="image-item" bindtap='showImg'></image>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+<view class="drawer_screen" bindtap="chooseDateTime" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<form bindsubmit="comfirm" bindreset="formReset" style="background-color:#f5f4f9;">
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_title">时间选择</view>
+    <view class="drawer_content">
+      <view class='drawer_date'>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange" class='search-item-input'>
+          {{date}}
+        </picker>
+      </view>
+      <view class='drawer_time'>
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class='search-item-input'>
+          {{time}}
+        </picker>
+      </view>
+    </view>
+    <view wx:if='{{obj.role!="货主"&&isOperation}}' class="btns">
+      <button style='border:0;font: 16px"microsoft yahei";width:50%;height:40px;line-height:40px;background-color:#e3e3e3;border-radius:0px;' plain='true' bindtap="chooseDateTime" data-statu="close" hover-class='none'>
+        取消</button>
+      <button style='border:0;font: 16px"microsoft yahei";width:50%;height:40px;line-height:40px;background-color:#1296DB;color:#fff;border-radius:0px;' plain='true' data-statu="close" form-type='submit' hover-class='none'>
+        确认</button>
+    </view>
+  </view>
+</form>
+
+<view class="drawer_screen" bindtap="chooseLog" data-statu="close4Log" wx:if="{{showModalStatus4Log}}"></view>
+<form bindsubmit="comfirm" bindreset="formReset" style="background-color:#f5f4f9;">
+  <view animation="{{animationData}}" class="drawer_boxs" wx:if="{{showModalStatus4Log}}">
+    <!--drawer content-->
+    <view class="drawer_title">操作日志
+      <image class='img-close' src='/content/images/themes/A/close1.png' bindtap='closeLog'></image>
+    </view>
+    <view class="log_content">
+      <view wx:for="{{logData}}" wx:key="" data-index='{{index}}' style='display:flex;'>
+        <view>
+          <image src='https://51baoguan.cn/content/images/themes/A/others/arrow.png' class='img-log'></image>
+        </view>
+        <view>
+          <view class='item-log'>
+            {{item.date}}
+          </view>
+          <view class='item-log'>
+            {{item.msg}}
+          </view>
+          <view class='item-log'>
+            <label style='color:#1296db;border-bottom:1px solid #1296db;' data-ids='{{item.btn.ids}}' bindtap='checkAccessory'> {{item.btn.btnName}}</label>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</form>
+
+<view>
+  <modal title="{{btnName}}" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+  </modal>
+</view>
+
+<logistics-dialog id='myDialog' title='提示' content='当前物流委托存在待分配任务，是否进行分配' confirmText='稍后再说' cancelText='继续分配' bindcancelEvent='cancelEvent' bindconfirmEvent='confirmEvent'>
+</logistics-dialog>
+
+<logistics-dialog id='myDialog4Check' title='查验' content='货物是否被布控查验？' confirmText='未被查验' cancelText='布控查验' bindcancelEvent='cancelEvent4Check' bindconfirmEvent='confirmEvent4Check'>
+</logistics-dialog>
+
+<view class='wx_dialog_container' wx:if="{{isShow4Status}}">
+  <view class='wx-mask'></view>
+  <view class='wx-dialog'>
+    <view class='wx-dialog-title'>报关单状态查询</view>
+    <view class='wx-dialog-content'>{{obj.logisticsNodeInfoVO.entryId}}</view>
+    <view class='wx-dialog-content'>{{entryStatus}}</view>
+    <view class='dialog-button-view'>
+      <button class='dialog-button' bindtap='closeStatusModel'>确认</button>
+    </view>
+  </view>
+</view>
+
+<view class='wx_dialog_container' wx:if="{{isShow4UserInfo}}">
+  <view class='wx-mask'></view>
+  <view class='wx-dialog'>
+    <view class='wx-dialog-title'>任务操作人员</view>
+    <view class='wx-dialog-content'>{{user}}</view>
+    <view class='wx-dialog-content'>
+      <label style='font: 16px microsoft yahei'>{{tel}}</label>
+      <image class='img-tel' src='/content/images/themes/A/tel.png' data-usertel='{{tel}}' bindtap='callPhone4User'></image>
+    </view>
+    <view class='dialog-button-view'>
+      <button class='dialog-button' bindtap='closeUserInfo'>关闭</button>
+    </view>
+  </view>
+</view>
+
+<view class="zan-dialog {{isshowDialog?'zan-dialog--show':''}}">
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view>
+    {{btnName}}
+  </view>
+  <view class="zan-dialog__container">
+    <view class='titles-radio'>
+      选择税费支付对象
+    </view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="radio">
+        <view style='width:40%;text-align:left;'>
+          <view class='items-radio'>
+            <radio value="2" checked="" />货代
+          </view>
+          <view class='items-radio'>
+            <radio value="1" checked="" />报关行
+          </view>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>

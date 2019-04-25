@@ -1,0 +1,34 @@
+<view>
+  <view class='content-view' style='height:65%;'>
+    <view class="table" wx:for="{{tables}}" wx:key="" wx:for-item="table" wx:for-index="n">
+      <view class="th" wx:if="{{n>0}}">
+        <view class='th-view'></view>
+        {{table.name}}
+      </view>
+      <view class='tr {{i==0?"tr-top":""}}' wx:if="{{n==0}}" wx:for-index="i" wx:key wx:for="{{table.rows}}" wx:for-item="row">
+        <view class='td' wx:for="{{row}}" wx:for-index="j" bindtap='enterItem' data-url='{{item.url}}' data-tr="{{i}}" data-td="{{j}}" bind:touchstart="touchBegin" bind:touchend="touchOver">
+          <view class='td-content'>
+            <image wx:if="{{item.state}}"  src='/content/images/themes/A/remove.png' class='td-image' data-index="{{n}}" data-tr="{{i}}" data-td="{{j}}" bindtap='remove'></image>
+            <image class='table-image' wx:if="{{!item.isShow}}" src="{{item.state==true?'https://51baoguan.cn/content/images/themes/A/'+item.normal:'https://51baoguan.cn/content/images/themes/A/'+item.pressed}}"></image>
+          </view>
+          <view class='table-view'>{{item.name}}</view>
+        </view>
+      </view>
+      <view class='tr {{i==0?"tr-top":""}}' wx:if="{{n>0}}" wx:for-index="i" wx:key wx:for="{{table.rows}}" wx:for-item="row">
+        <view class='td' wx:for="{{row}}" wx:for-index="j" bindtap='enterItem' data-url='{{item.url}}' data-index="{{n}}" data-tr="{{i}}" data-td="{{j}}" bind:touchstart="touchBegin" bind:touchend="touchOver">
+           <view class='td-content'>
+            <image wx:if="{{item.state}}" bindtap='add'  src='/content/images/themes/A/plus.png' class='td-image' data-index="{{n}}" data-tr="{{i}}" data-td="{{j}}"></image>
+            <image class='table-image' wx:if="{{!item.isShow}}" src="{{item.state==true?'https://51baoguan.cn/content/images/themes/A/'+item.normal:'https://51baoguan.cn/content/images/themes/A/'+item.pressed}}"></image>
+          </view>
+          <view class='table-view'>{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<view class='btn-contaner' >
+ <button type="primary" class='btn' bindtap='edit'>确认修改</button>
+ <button type="primary" class='btn' bindtap='reset'>一键重置</button>
+</view>
+ 
+</view>

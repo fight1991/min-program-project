@@ -1,0 +1,89 @@
+.placeholder {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.input-item {
+  height: 40px;
+  line-height: 40px;
+  display: flex; 
+  border-bottom: 1px solid #f4f4f4;
+  margin:10px;
+
+}
+
+.input-items {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.switch-type {
+  height: 20px;
+}
+
+.title {
+  width: 20%;
+  color: #4b4b4b;
+  font-size: 14px; 
+}
+
+.input-item-content {
+  width: 80%;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.input-item-content-name { 
+  font-size:14px;
+  height:40px;
+  line-height:40px;
+}
+
+
+.btn-save {
+  margin-top: 30px;
+  width: 84%;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: #1296db;
+}
+
+.require-icon {
+  color: red;
+  width: 10px;
+}
+
+
+.scrollview {
+
+  z-index: 9999;
+  height: 200px;
+  overflow-y: scroll;
+  opacity: 1;
+  position: absolute;
+  width:100%;
+  margin-top: 13px;
+} 
+
+.itemview {
+  font: 14px microsoft yahei;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #d8d8d8;
+  border-left: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+  color: #000;
+}

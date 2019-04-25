@@ -1,0 +1,50 @@
+<view>
+  <view>
+    <view>
+      <image class='img' src="https://51baoguan.cn/content/images/themes/A/rating.png"></image>
+    </view>
+    <view class='content'>
+      <view class='item'>
+        <view>
+          <label class='title'>企业名称：</label>
+        </view>
+
+        <view class='input-container'>
+          <view style=' position: relative;'>
+            <input class='input' value='{{corp.corpName}}' placeholder='请输入企业名称' bindinput='bindData' data-key='corpName' bindblur='closeSelect'>
+            </input>
+            <scroll-view scroll-y="true" class="scrollview" data-index='{{index}}' wx:if="{{bindSource.length>0}}">
+              <view wx:for="{{bindSource}}">
+                <view id="{{item.corpId}}" bindtap="itemtap" data-corpName='{{item.corpName}}' data-indexs='{{index}}' class="itemview">{{item.corpName}}</view>
+              </view>
+            </scroll-view>
+          </view>
+          <label class='btn-select'>
+            <picker bindchange="corpsChange" value="index" range="{{corps}}" range-key='corpName'>
+              <view>
+                下拉选择
+              </view>
+            </picker>
+          </label>
+
+        </view>
+
+      </view>
+      <view class='item1'>
+        <view>
+          <label class='title'>所在关区：</label>
+        </view>
+        <view style=' flex-grow: 2;'>
+          <picker bindchange="bindPickerChange" value="index" range="{{customList}}" range-key='name'>
+            <view class="picker">
+              {{customList[customList_index]["name"]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='buttons' >
+    <button class='button'  disabled='{{corp.corpName.length>0&&corp.customsCode.length>0?"":"disabled"}}' open-type='share'>分享拉票</button>
+  </view>
+</view>

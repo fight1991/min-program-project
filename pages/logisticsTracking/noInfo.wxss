@@ -1,0 +1,43 @@
+.items {
+  display: flex;
+  font: 14px microsoft yahei;
+  border: 1px solid #666;
+  color: #666;
+  align-items: center;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 10px;
+  padding-left: 2%;
+  height: 35px;
+  width: 90%;
+}
+
+.items-title {
+  width: 20%;
+  padding-right: 10px;
+}
+
+.items-input {
+  width: 75%;
+}
+
+.search-item-img {
+  width: 26px;
+  height: 25px;
+  padding-right: 5px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 10px;
+}
+
+.button {
+  width: 90%;
+  background-color: #1296db;
+  color: #fff;
+}

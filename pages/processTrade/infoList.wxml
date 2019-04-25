@@ -1,0 +1,119 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<import src="../../content/template/accountDetails.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <template is="search_template" data="{{winHeight,theme,titles}}" />
+    <view class='list-item' wx:for="{{datas}}" wx:key="" id='{{item.EMS_NO}}' data-g_no='{{item.G_NO}}' data-trade_code='{{item.TRADE_CODE}}' data-cop_ems_no='{{item.COP_EMS_NO}}' data-exg_no='{{item.EXG_NO}}' data-exg_version='{{item.EXG_VERSION}}' data-img_no='{{item.IMG_NO}}'
+      data-cop_g_no='{{item.COP_G_NO}}' data-cop_exg_no='{{item.COP_EXG_NO}}' data-cop_img_no='{{item.COP_IMG_NO}}' data-pk_no='{{item.PK_NO}}' data-statu="open" bindtap='showDetails'>
+      <view wx:if="{{src=='CusImg'}}">
+        <view class='list-item-top'>
+          <label class='list-item-title'>{{item.GDS_NM == "" ? "_" : item.GDS_NM}}</label>
+          <label class='list-item-info1'> {{item.GDS_SEQNO == "" ? "_" : item.GDS_SEQNO}} </label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>商品编码：{{item.GDECD == "" ? "_" : item.GDECD}}</label>
+        </view>
+        <view class='list-item-bottom'>
+          <label class='list-item-info1'>
+            计量单位：{{item.DCL_UNITCD == "" ? "_" : item.DCL_UNITCD}}
+          </label>
+          <label class='list-item-info1'>
+            法定单位：{{item.LAWF_UNITCD == "" ? "_" : item.LAWF_UNITCD}}
+          </label>
+          <label class='list-item-info1' style='font-size:14px'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if="{{src=='CusExg'}}">
+        <view class='list-item-top'>
+          <label class='list-item-title'>{{item.GDS_NM == "" ? "_" : item.GDS_NM}}</label>
+          <label class='list-item-info1'> {{item.GDS_SEQNO == "" ? "_" : item.GDS_SEQNO}} </label>
+        </view>
+        <view class='list-item-middle'>
+          <label class='list-item-info1'>商品编码：{{item.GDECD == "" ? "_" : item.GDECD}}</label>
+        </view>
+        <view class='list-item-bottom'>
+          <label class='list-item-info1'>
+            计量单位：{{item.DCL_UNITCD == "" ? "_" : item.DCL_UNITCD}}
+          </label>
+          <label class='list-item-info1'>
+            法定单位：{{item.LAWF_UNITCD == "" ? "_" : item.LAWF_UNITCD}}
+          </label>
+          <label class='list-item-info1' style='font-size:14px'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if="{{src=='CusConsume'}}">
+        <view class='list-item-top' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>成品序号:{{item.ENDPRD_SEQNO == "" ? "_" : item.ENDPRD_SEQNO}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>料件序号：{{item.MTPCK_SEQNO == "" ? "_" : item.MTPCK_SEQNO}} </label>
+        </view>
+        <view class='list-item-middle' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>损耗率(%)：{{item.TGBL_LOSS_RATE == "" ? "_" : item.TGBL_LOSS_RATE}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>单耗版本号：{{item.UCNS_VERNO == "" ? "_" : item.UCNS_VERNO}}</label>
+          <label class='list-item-info1' style='font-size:14px;height: 35px;line-height: 35px;'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if="{{src=='OrgImg'}}">
+        <view class='list-item-top' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>商品货号:{{item.COP_G_NO == "" ? "_" : item.COP_G_NO}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>序号：{{item.G_NO == "" ? "_" : item.G_NO}} </label>
+        </view>
+        <view class='list-item-middle' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>法定单位：{{item.UNIT_1 == "" ? "_" : item.UNIT_1}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>计量单位：{{item.UNIT == "" ? "_" : item.UNIT}}</label>
+          <label class='list-item-info1' style='font-size:14px;height: 35px;line-height: 35px;'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if="{{src=='OrgExg'}}">
+        <view class='list-item-top' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>商品货号:{{item.COP_G_NO == "" ? "_" : item.COP_G_NO}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>序号：{{item.G_NO == "" ? "_" : item.G_NO}} </label>
+        </view>
+        <view class='list-item-middle' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>法定单位：{{item.UNIT == "" ? "_" : item.UNIT}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>计量单位：{{item.UNIT_1 == "" ? "_" : item.UNIT_1}}</label>
+          <label class='list-item-info1' style='font-size:14px;height: 35px;line-height: 35px;'>
+            •••
+          </label>
+        </view>
+      </view>
+      <view wx:if="{{src=='OrgBom'}}">
+        <view class='list-item-top' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>成品货号:{{item.COP_EXG_NO == "" ? "_" : item.COP_EXG_NO}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;color:#1296db'>料件货号：{{item.COP_IMG_NO == "" ? "_" : item.COP_IMG_NO}} </label>
+        </view>
+        <view class='list-item-middle' style='height: 35px;'>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>净耗:{{item.DEC_CM == "" ? "_" : item.DEC_CM}}</label>
+          <label class='list-item-info1' style='height: 35px;line-height: 35px;'>开始日期：{{item.BEGIN_DATE == "" ? "_" : item.BEGIN_DATE}}</label>
+          <label class='list-item-info1' style='font-size:14px;height: 35px;line-height: 35px;'>
+            •••
+          </label>
+        </view>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />
+<view class="drawer-screen" bindtap="showDetails" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer-box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <template is="{{src}}" data="{{obj,EMS_NO,titless}}" />
+  <view class="btn-ok" bindtap="showDetails" data-statu="close">{{titless["关闭"]}}</view>
+</view>

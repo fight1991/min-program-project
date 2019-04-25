@@ -1,0 +1,30 @@
+<form bindsubmit="confirm">
+  <view style='background-color:#fff'>
+    <view class='title-content' style='padding-top:10px'>
+      <label class='title-icon'>*</label>
+      <label class='title'>城市</label>
+    </view>
+    <view class='input-view' bindtap='showAddress'>
+      <input class='input-type' disabled='disabled' id='city' name='city' value='{{addressModel.city}}' bindinput='bindData'>
+      </input>
+
+    </view>
+    <view class='title-content' style='display: flex;justify-content: space-between'>
+      <view>
+        <label class='title-icon'>*</label>
+        <label class='title'>详细地址</label>
+      </view>
+      <view>
+        <image src='https://51baoguan.cn/content/images/themes/A/others/logistics_location.png' bindtap='showAddressList' class='img-name'></image>
+      </view>
+    </view>
+    <view style='padding-bottom:10px'>
+      <textarea type='number' style='height:80px' class='input-view' id='address' name='address' value='{{addressModel.address}}' bindinput='bindData'>
+
+      </textarea>
+    </view>
+  </view>
+  <view class='search-btns'>
+    <button class="search-btn" formType="submit">确定</button>
+  </view>
+</form>

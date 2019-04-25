@@ -1,0 +1,74 @@
+@import "../../content/wxss/common.wxss";
+
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+.scrolls {
+  height: 100%;
+  width: 100%;
+}
+
+.word-break {
+  width: 70%;
+}
+
+.list-item {
+  padding:0px 10px 70px 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fefefe;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.list-item-top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #c1c1c1;
+  height: 35%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.list-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+}
+
+.list-item-middle {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  height: 30%;
+  border-bottom: 1px solid #c1c1c1
+}
+
+.list-item-title {
+  width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2093e6;
+  font: 14px microsoft yahei;
+}
+
+.list-item-info {
+  color: #2093e6;
+  font: 13px microsoft yahei;
+}
+
+.list-item-info1 {
+  color: #8b8682;
+  font: 12px microsoft yahei;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 30px;
+}

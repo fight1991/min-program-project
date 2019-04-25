@@ -1,0 +1,9 @@
+<view>
+  <view class='item' wx:for="{{citys}}" wx:key="" data-namefield='{{item.nameField}}' data-codefield='{{item.codeField}}' data-index='{{index}}' bindtap='showCity'>
+    <view>
+      {{item.nameField}}
+    </view>
+    <view>
+    </view>
+  </view>
+</view>

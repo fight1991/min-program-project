@@ -1,0 +1,32 @@
+.list {
+  height: 100%;
+  width: 100%;
+}
+
+.list-item {
+  border-bottom: 1px solid #dcdcdc;
+  display: flex;
+  background-color: #fefefe;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.list-item-label {
+  width: 40%;
+  color: #8b8682;
+  font: 14px microsoft yahei;
+  text-align: left;
+  line-height: 35px;
+}
+
+.list-item-info {
+  width: 60%;
+  color: #8b8682;  
+  font: 14px microsoft yahei;
+  display: inline-block;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 35px;
+}

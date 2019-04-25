@@ -1,0 +1,47 @@
+<import src="../../content/template/pull_refresh.wxml" />
+<view style='height:100%;'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:100%;'>
+    <view style='height:50%;' wx:if='{{show}}'>
+      <view class='info-header'>
+        <view class='info-header-right'>
+          <picker value="{{index}}" range="{{months}}" bindchange="bindPickerChange">
+            <view class="picker">
+              {{titless["月份选择"]}}：{{months[index]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='info-body' style='background-image:url({{theme}}home/month.png);background-size:100% auto;background-repeat:no-repeat;height:100%'>
+        <view class='title'>
+          <label class='line'></label>
+          <label>{{indexs}}月数据</label>
+          <label class='line'></label>
+        </view>
+        <view class='content'>
+          <view class='content-list one'>
+            <label>{{titless["进出口总金额"]}}</label>
+            <label>{{DECL_TOTAL}}</label>
+          </view>
+          <view class='content-list two'>
+            <label>{{titless["进口总金额"]}}</label>
+            <label>{{data.I_DECL_TOTAL !=null ? data.I_DECL_TOTAL : "0"}}</label>
+          </view>
+          <view class='content-list three'>
+            <label>{{titless["进口总数量"]}}</label>
+            <label>{{data.I_QTY !=null ? data.I_QTY : "0"}}</label>
+          </view>
+          <view class='content-list four'>
+            <label>{{titless["出口总金额"]}}</label>
+            <label>{{data.E_DECL_TOTAL !=null ? data.E_DECL_TOTAL : "0"}}</label>
+          </view>
+          <view class='content-list five'>
+            <label>{{titless["出口总数量"]}}</label>
+            <label>{{data.E_QTY !=null ? data.E_QTY : "0"}}</label>
+          </view>
+        </view>
+      </view>
+    </view>
+    <canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas" wx:if='{{show}}'></canvas>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<form bindsubmit="nextstep">
+  <view class='input-item'>
+    <label class='title' style='padding-left:10px;'>登录ID</label>
+    <input class='input-item-content' id='userId' name='userId' value='{{currentUser.userId}}' placeholder='请输入登录ID' placeholder-class='placeholder' bindinput='bindData'></input>
+  </view>
+  <view>
+    <button class='btn-save' type='head' formType="submit">下一步</button>
+  </view>
+</form>

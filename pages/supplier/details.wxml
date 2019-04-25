@@ -1,0 +1,67 @@
+<view class='list' style='background-image:url({{theme}}details.png);background-size:100% 100%;'>
+  <view class='title'>
+    <label class='line'></label>
+    <label>{{obj.CUSTOMER_NAME}}</label>
+    <label class='line'></label>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["供应商代码"]}}:</view>
+    <view class="list-item-info">{{obj.CUSTOMER_ID}}</view>
+  </view>
+  <!-- <view class="list-item">
+    <view class="list-item-label">{{titless["供应商名称"]}}:</view>
+    <view class="list-item-info">{{obj.CUSTOMER_NAME}}</view>
+  </view> -->
+  <view class="list-item">
+    <view class="list-item-label">{{titless["简称"]}}:</view>
+    <view class="list-item-info">{{obj.SHORT_NAME}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">纳税人识别号:</view>
+    <view class="list-item-info">{{obj.REF_9}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["联系人"]}}:</view>
+    <view class="list-item-info">{{obj.CONTACT}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["电话号码"]}}:</view>
+    <view class="list-item-info">{{obj.PHONE}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">E-Mail:</view>
+    <view class="list-item-info">{{obj.EMAIL}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["所属国"]}}:</view>
+    <view class="list-item-info">{{obj.COUNTRY_CODE}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["地区"]}}:</view>
+    <view class="list-item-info">{{obj.REGION}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["传真"]}}:</view>
+    <view class="list-item-info">{{obj.FAX}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["公司地址"]}}:</view>
+    <view class="list-item-info">{{obj.ADDRESS}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">{{titless["邮政编码"]}}:</view>
+    <view class="list-item-info">{{obj.POSTAL_CODE}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">涉及业务种类:</view>
+    <view class="list-item-info">{{obj.REF_5}}</view>
+  </view>
+  <view class="list-item">
+    <view class="list-item-label">结费周期:</view>
+    <view class="list-item-info">{{obj.REF_2}}</view>
+  </view>
+  <view class="list-item" style='padding-bottom:20%'>
+    <view class="list-item-label">{{titless["备注"]}}:</view>
+    <view class="list-item-info">{{obj.REMARKS}}</view>
+  </view>
+</view>

@@ -1,0 +1,160 @@
+page {
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+.canvas {
+  width: 100%;
+  height: 60%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.picker {
+  text-align: center;
+  height: 60rpx;
+  width: 200rpx;
+  background-color: #1296db;
+  font: 15px "microsoft yahei";
+  margin-top: 10px;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  color: #fff;
+}
+
+.info-header-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.info-header {
+  width: 94%;
+  margin-left: 3%;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+}
+
+.info-body {
+  width: 94%;
+  margin-left: 3%;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 100%;
+}
+
+.info-item {
+  width: 50%;
+}
+
+.info-item-label {
+  font-size: 14px;
+  color: #b8b8b8;
+  margin-left: 5px;
+}
+
+.info-item-text {
+  font-size: 16px;
+  color: #555;
+  font-weight: bolder;
+  margin-left: 5px;
+}
+
+.amount-in {
+  border: 1px solid #c4c4c4;
+}
+
+.dollor-in {
+  border-top: 1px solid #c4c4c4;
+  border-right: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.amount-out {
+  border-left: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
+  border-right: 1px solid #c4c4c4;
+}
+
+.dollor-out {
+  border-right: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2093e6;
+  font: bold 14px microsoft yahei;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+.line {
+  width: 10%;
+  height: 2px;
+  margin: 5px;
+  background-color: #2093e6;
+}
+
+.content-list {
+  font: 14px microsoft yahei;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.one {
+  font-size: 16px;
+  color: #f7a35c;
+  border-bottom: 1px solid #f4f4f4;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  padding-bottom: 20rpx;
+}
+
+.two {
+  font-size: 13px;
+  color: #8b8682;
+  border-bottom: 1px solid #f4f4f4;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.three {
+  font-size: 13px;
+  color: #8b8682;
+  border-bottom: 1px solid #f4f4f4;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.four {
+  font-size: 13px;
+  color: #8b8682;
+  border-bottom: 1px solid #f4f4f4;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.five {
+  font-size: 13px;
+  color: #8b8682;
+  border-bottom: 1px solid #f4f4f4;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}

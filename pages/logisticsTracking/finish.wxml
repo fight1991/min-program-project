@@ -1,0 +1,20 @@
+<view>
+  <view class='icon-tip'>
+    <image src='/content/images/themes/A/logistics_finish.png' bindtap='hide' class='img-finish'></image>
+  </view>
+  <view class='content-tip'>
+    <label class='item-tip'>恭喜！新委托已生成</label>
+  </view>
+  <view class='content-tips'>
+    <view>
+      <label class='item-tips'>已微信通知参与人员，请耐心等待响应。</label>
+    </view>
+    <view>
+      <label class='item-tips'>待参与方全部响应后，物流业务正式开始。您可以在物流单的委托详情中查看进度。
+      </label>
+    </view>
+  </view>
+  <view class='search-btns'>
+    <button class="search-btn" bindtap='finish'>完成</button>
+  </view>
+</view>

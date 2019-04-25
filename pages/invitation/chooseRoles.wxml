@@ -1,0 +1,26 @@
+<radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{roles}}" wx:key="" data-index='{{index}}'>
+    <radio value="{{item.roleTypeStr+'~'+item.roleType}}"  checked="{{item.checked}}" />{{item.roleTypeStr}}
+  </label>
+</radio-group>
+
+<view class='bind-add' bindtap='addRole'>
+  添加自定义角色
+</view>
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view style='display: flex;justify-content: flex-end;padding-top:5px;padding-right:5px;'>
+    <image src='/content/images/themes/A/logistics_cancel.png' bindtap='hideModal' class='img-model'></image>
+  </view>
+  <view class="modal-title">添加自定义角色</view>
+  <view class="modal-content">
+    <view class="modal-input" style='height:40px;line-height:40px;text-align: center;'>
+      <input placeholder-class="input-holder" id='name' value='{{partiesModel.name}}' bindinput="inputChange" class="input" placeholder="输入新角色名"></input>
+    </view>
+    <view style='display:flex;justify-content:center;margin-top:10px'>
+      <view class='addRole' style='height:40px;line-height:40px;font-size:16px' bindtap='addNewRole'>
+        确认
+      </view>
+    </view>
+  </view>
+</view>

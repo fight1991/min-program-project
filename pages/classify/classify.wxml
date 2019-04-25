@@ -1,0 +1,93 @@
+<view class='classify'>
+  <view class='view-top' style='background:#f5f5f5;height: 80px'>
+    <image src='{{theme}}classify-top.png' class='img-top' mode="widthFix"></image>
+  </view>
+  <view style='background:#f5f5f5;height: 40px'>
+    <view class='view-input'>
+      <view class="section">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayName}}">
+          <view class="picker">
+            {{arrayName[index]}}
+          </view>
+        </picker>
+      </view>
+      <input class='input-class' placeholder='商品名称' placeholder-class='placeholder-class' id="condition" value='{{searchModel.condition}}' bindinput='bindData'> </input>
+      <image src='{{theme}}ccbasearch1.png' class='img-search'></image>
+    </view>
+  </view>
+  <view style='background:#f5f5f5;height: 40px;padding-top: 15px;padding-bottom: 20px;'>
+    <button class='btn-save' type='head' data-isall='true' bindtap='classify'>开始归类</button>
+  </view>
+  <view style='height:{{winHeight-195}}px;' class='result-container' wx:if='{{isShow&&line=="001"}}'>
+    <view class='container-left'>
+      <view class="category-all  {{currTab==0 ? 'on' : ''}}" data-currTab='0' bindtap='chageTab'>全部</view>
+      <scroll-view scroll-y style="height:{{winHeight-195-41}}px;background-color: #fff;">
+        <view class='scrolls'>
+          <view class="category-item  {{currTab==index+1 ? 'on' : ''}}" data-currTab='{{index+1}}' bindtap='chageTab' wx:for="{{section}}" wx:key="" data-index='{{index}}' wx:for-item="i">
+            {{section[index]}}章
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view style='width:{{winWidth-81}}px;'>
+      <scroll-view scroll-y='true' style='height: {{winHeight-195}}px;' bindscrolltolower="loadMore">
+        <view class='contents' data-CODE_TS='{{item.CODE_T_S}}' bindtap='showDetails' wx:for="{{datas}}" wx:key="" data-index='{{index}}'>
+          <view class='content-view' style='padding-top:10px'>
+            <label class='title'>商品名称:</label>
+            <label class='content'>
+              {{item.DATA1}}
+              <label style='color:red'>{{item.DATA2}}</label>
+              {{item.DATA3}}
+            </label>
+          </view>
+          <view class='content-view'>
+            <label class='title'>货物税号:</label>
+            <label class='content'>{{item.CODE_T_S}}</label>
+          </view>
+          <view class='content-view'>
+            <label class='title'>材质(成分):</label>
+            <label class='content'>{{item.G_MATERICL}}</label>
+          </view>
+          <view class='content-view' style='padding-bottom:10px'>
+            <label class='title'>其它说明:</label>
+            <label class='content'>{{item.OTHER_NOTE}}</label>
+          </view>
+          <view style='height:8px;background-color:#f5f5f5'>
+          </view>
+        </view>
+        <view wx:if="{{showflag == 1}}" class='foot'>
+          <view class='foot-line'>————————</view>
+          <view class='foot-font'>我也是有底线的</view>
+          <view class='foot-line'>————————</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view style='height:{{winHeight-195}}px;' class='result-container' wx:if='{{line=="002"}}'>
+    <view style='width:{{winWidth}}px;'>
+      <scroll-view scroll-y='true' style='height: {{winHeight}}px;'>
+        <view class='contents' data-CODE_TS='{{item.CODE_TS}}' bindtap='showDetails' wx:for="{{datas}}" wx:key="" data-index='{{index}}'>
+          <view class='content-view' style='padding-top:10px'>
+            <label class='title'>商品名称:</label>
+            <label class='content'>
+              {{item.DATA1}}
+              <label style='color:red'>{{item.DATA2}}</label>
+              {{item.DATA3}}
+            </label>
+          </view>
+          <view class='content-view'>
+            <label class='title'>商品编码:</label>
+            <label class='content'>{{item.CODE_TS}}</label>
+          </view>
+          <view style='height:8px;background-color:#f5f5f5'>
+          </view>
+        </view>
+        <view wx:if="{{showflag == 1}}" class='foot'>
+          <view class='foot-line'>————————</view>
+          <view class='foot-font'>我也是有底线的</view>
+          <view class='foot-line'>————————</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view>
+  <form bindsubmit="confirm">
+    <view class='items'>
+      <label class='items-title' style='width:25%'>车牌</label>
+      <input class='items-input' style='width:74%' id='truckNo' name='truckNo' value='{{reqData.truckNo}}' bindinput='bindData'></input>
+    </view>
+    <view class='items'>
+      <label class='items-title' style='width:25%'>司机</label>
+      <input class='items-input' style='width:74%' id='driverName' name='driverName' value='{{reqData.driverName}}' bindinput='bindData'></input>
+    </view>
+    <view class='items'>
+      <label class='items-title' style='width:25%'>联系方式</label>
+      <input class='items-input' style='width:74%' id='contactInfo' name='contactInfo' value='{{reqData.contactInfo}}' bindinput='bindData'></input>
+    </view>
+    <view class='itemss'>
+      <view class="educt_hasupload_pic" wx:for="{{evalList[0].tempFilePaths}}" wx:key="index">
+        <view class='check-item'>
+          <image src="{{item}}" class="upload"></image>
+          <image src="/content/images/themes/A/close.png" bindtap='clearImg' data-index="{{index}}" class="img-delete"></image>
+        </view>
+      </view>
+      <view class="educt_upload_add" bindtap="joinPicture" data-index="{{0}}">
+        <image src="/content/images/themes/A/ccbaupload.png" class="upload"></image>
+      </view>
+    </view>
+    <view class='buttons' wx:if='{{obj.role!="货主"&&isOperation=="true"}}'>
+      <button class='button' disabled='{{disabled}}' formType="submit">提交</button>
+    </view>
+  </form>
+</view>

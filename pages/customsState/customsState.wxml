@@ -1,0 +1,18 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<view class='list-item' data-statu="open">
+  <view class='list-item-top'>
+    <label class='list-item-title'>报关单号：{{obj.ENTRY_ID == "" ? "_" : obj.ENTRY_ID}}</label>
+  </view>
+
+  <view class='list-item-bottom'>
+    <label class='list-item-info1'>
+      报关状态：{{obj.ENTRY_STATE == "" ? "_" : obj.ENTRY_STATE}}
+    </label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 附加信息：{{obj.ENTRY_REMARK == "" ? "_" : obj.ENTRY_REMARK}}</label>
+  </view>
+</view>

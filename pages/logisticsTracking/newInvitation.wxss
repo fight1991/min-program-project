@@ -1,0 +1,60 @@
+page {
+  background-color: #f5f5f5;
+}
+.times {
+  font: 15px microsoft yahei;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+  width: 160px;
+  border-radius: 3px;
+  background-color: #ccc;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.contents {
+  height: 80px;
+  width: 90%;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.invitation {
+  height: 60px;
+  width: 60px;
+  padding-left: 10px;
+}
+
+.title1 {
+  font: 15px microsoft yahei;
+  color: #333;
+}
+
+.title2 {
+  display: flex;
+  justify-content: flex-start;
+  font: 12px microsoft yahei;
+  color: #808080;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.img-del {
+  position: absolute;
+  right: 8px;
+  top:10px;
+  height: 12px;
+  width: 12px;
+}

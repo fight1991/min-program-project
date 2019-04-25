@@ -1,0 +1,21 @@
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="true" style="height:{{winHeight}}px;" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{show}}'>
+  <template is="refresh" data="{{showTitle}}" />
+  <view style='height:{{winHeight}}px;'>
+    <view class='info'>
+      <view wx:for="{{datas}}" wx:key="" bindtap='showDetails' id='{{item.SEQ_NO}}' class='info-item'>
+        <view class='info-item-left'>
+          <view class='info-item-left-version'>关务助手{{item.UPDATE_VERSION}}主要更新</view>
+          <view class='info-item-left-updateDate'>{{item.UPDATE_DATE}}</view>
+        </view>
+        <view class='info-item-right'>
+          <image style='height:20px;width:20px;margin-top:10px;' src='{{theme}}toward.png'></image>
+        </view>
+      </view>
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" wx:if='{{show}}' />

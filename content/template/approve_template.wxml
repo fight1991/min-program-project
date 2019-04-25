@@ -1,0 +1,389 @@
+<template name="material_template">
+  <view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["审核类型"]}}：</label>
+      <label class='list-item-info' wx:if='{{obj.MODIFY_MARK == "1"}}'>新增</label>
+      <label class='list-item-info' wx:if='{{obj.MODIFY_MARK == "2"}}'>修改</label>
+      <label class='list-item-info' wx:if='{{obj.MODIFY_MARK == "3"}}'>删除</label>
+    </view>
+    <view class='list-item' wx:if='{{obj.AUDIT_FLAG == "已通过"}}'>
+      <label class='list-item-label'>{{titless["审批人"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_USER}}</label>
+    </view>
+    <view class='list-item' wx:if='{{obj.AUDIT_FLAG == "未通过"}}'>
+      <label class='list-item-label'>{{titless["审批人"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_USER}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["货号"]}}：</label>
+      <label class='list-item-info'>{{obj.COP_G_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["货品类型"]}}:</label>
+      <label class='list-item-info'>{{obj.G_MARK}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["品名"]}}:</label>
+      <label class='list-item-info'>{{obj.G_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商品编码"]}}:</label>
+      <label class='list-item-info'>{{obj.CODE_T_S}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["锁定标识"]}}:</label>
+      <label class='list-item-info'>{{obj.LOCK_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["HS检测"]}}:</label>
+      <label class='list-item-info'>{{obj.HS_CHECK}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申报要素"]}}:</label>
+      <label class='list-item-info'>{{obj.G_MODEL}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["英文品名"]}}:</label>
+      <label class='list-item-info'>{{obj.G_ENG_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["企业单位"]}}:</label>
+      <label class='list-item-info'>{{obj.ENT_UNIT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申报单位"]}}:</label>
+      <label class='list-item-info'>{{obj.UNIT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["法定单位"]}}:</label>
+      <label class='list-item-info'>{{obj.UNIT_1}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["第二单位"]}}:</label>
+      <label class='list-item-info'>{{obj.UNIT_2}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申报比例"]}}:</label>
+      <label class='list-item-info'>{{obj.FACTOR_0}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["法定比例"]}}:</label>
+      <label class='list-item-info'>{{obj.FACTOR_1}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["第二比例"]}}:</label>
+      <label class='list-item-info'>{{obj.FACTOR_2}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["保税标识"]}}:</label>
+      <label class='list-item-info'>{{obj.DUTY_MODE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["监管条件"]}}:</label>
+      <label class='list-item-info'>{{obj.CONTROL_MA}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["3C标识"]}}:</label>
+      <label class='list-item-info'>{{obj.CIQ_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["商检标识"]}}:</label>
+      <label class='list-item-info'>{{obj.SJ_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["归并标识"]}}:</label>
+      <label class='list-item-info'>{{obj.MERGE_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["币制"]}}:</label>
+      <label class='list-item-info'>{{obj.CURR}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["原产国"]}}:</label>
+      <label class='list-item-info'>{{obj.COUNTRY_CODE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["净重"]}}:</label>
+      <label class='list-item-info'>{{obj.NET_WT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["单价"]}}:</label>
+      <label class='list-item-info'>{{obj.DEC_PRICE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["关税税率"]}}:</label>
+      <label class='list-item-info'>{{obj.DUTY_RATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["最惠国税率"]}}:</label>
+      <label class='list-item-info'>{{obj.LOW_RATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["暂定税率"]}}:</label>
+      <label class='list-item-info'>{{obj.TEMP_RATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["业务单元"]}}:</label>
+      <label class='list-item-info'>{{obj.BU}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["项目名称"]}}:</label>
+      <label class='list-item-info'>{{obj.PROJECT_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["CCC证书号"]}}:</label>
+      <label class='list-item-info'>{{obj.CCC_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["CCC界定"]}}:</label>
+      <label class='list-item-info'>{{obj.CCC_TECH}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["品牌"]}}:</label>
+      <label class='list-item-info'>{{obj.FLD_4}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["备注"]}}:</label>
+      <label class='list-item-info'>{{obj.NOTE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申请人"]}}:</label>
+      <label class='list-item-info'>{{obj.UPDATE_USER}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申请时间"]}}:</label>
+      <label class='list-item-info'>{{obj.UPDATE_TIME}}</label>
+    </view>
+    <view class='list-item-l'>
+      <label class='list-item-label'>{{titless["审批说明"]}}:</label>
+      <label class='list-item-info1' wx:if="{{obj.AUDIT_FLAG != ''}}">{{obj.AUDIT_NOTE}}</label>
+      <textarea style='border:1px solid #C2C2C2;height:50px;width:100%;font-size:14px;' wx:if="{{obj.AUDIT_FLAG == ''}}" bindinput='bindData' value='{{obj.AUDIT_NOTE}}'></textarea>
+    </view>
+    <view class='list-item-l' style='position:relative;margin-bottom:10px;'>
+      <button class='list-item-button' style='font-size:30rpx;' bindtap='reviewResult' id="notPass" data-id='{{obj.ID}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.AUDIT_FLAG == ''}}">{{titless["不同意"]}}</button>
+      <button class='list-item-button' style='float:right;margin-right:0px;background-color:#1296DB;color:#fff;font-size:30rpx;' bindtap='reviewResult' id="pass" data-id='{{obj.ID}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.AUDIT_FLAG == ''}}">{{titless["同意"]}}</button>
+    </view>
+  </view>
+</template>
+
+<template name="entry_template">
+  <view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["统一编号"]}}：</label>
+      <label class='list-item-info'>{{obj.SEQ_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["台账编号"]}}：</label>
+      <label class='list-item-info'>{{obj.BOSS_ID}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["海关编号"]}}：</label>
+      <label class='list-item-info'>{{obj.ENTRY_ID}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["审核状态"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_STATUS}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["文档上传标识"]}}：</label>
+      <label class='list-item-info'>{{obj.DOCUMENT_FLAG}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["备案号"]}}：</label>
+      <label class='list-item-info'>{{obj.MANUAL_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["索引号"]}}：</label>
+      <label class='list-item-info'>{{obj.REF_1}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申报地海关"]}}：</label>
+      <label class='list-item-info'>{{obj.CUSTOM_MASTER}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["提运单号"]}}：</label>
+      <label class='list-item-info'>{{obj.BILL_NO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["运输方式"]}}：</label>
+      <label class='list-item-info'>{{obj.TRAF_MODE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["进出口岸"]}}：</label>
+      <label class='list-item-info'>{{obj.I_E_PORT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申报日期"]}}：</label>
+      <label class='list-item-info'>{{obj.D_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["进出日期"]}}：</label>
+      <label class='list-item-info'>{{obj.I_E_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["监管方式"]}}：</label>
+      <label class='list-item-info'>{{obj.TRADE_MODE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["收发货人代码"]}}：</label>
+      <label class='list-item-info'>{{obj.TRADE_CO}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申报单位名称"]}}：</label>
+      <label class='list-item-info'>{{obj.AGENT_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["毛重"]}}：</label>
+      <label class='list-item-info'>{{obj.GROSS_WT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["净重"]}}：</label>
+      <label class='list-item-info'>{{obj.NET_WT}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["备注"]}}：</label>
+      <label class='list-item-info'>{{obj.NOTE_S}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.AUDIT_STATUS == '已审核'}}">
+      <label class='list-item-label'>{{titless["审核人"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_USER}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.AUDIT_STATUS == '审核未通过'}}">
+      <label class='list-item-label'>{{titless["审核人"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_USER}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.AUDIT_STATUS == '已审核'}}">
+      <label class='list-item-label'>{{titless["审核时间"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_TIME}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.AUDIT_STATUS == '审核未通过'}}">
+      <label class='list-item-label'>{{titless["审核时间"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["结案人"]}}：</label>
+      <label class='list-item-info'>{{obj.CLOSURE_USER}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["结案日期"]}}：</label>
+      <label class='list-item-info'>{{obj.CLOSURE_TIME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["删改单状态"]}}：</label>
+      <label class='list-item-info'>{{obj.CHANGE_STATUS}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["删改原因"]}}：</label>
+      <label class='list-item-info'>{{obj.CHANGE_NOTE}}</label>
+    </view>
+    <view class='list-item-l'>
+      <label class='list-item-label'>{{titless["审批说明"]}}:</label>
+      <label class='list-item-info1' wx:if="{{obj.AUDIT_STATUS == '已审核'}}">{{obj.AUDIT_RESON}}</label>
+      <label class='list-item-info1' wx:if="{{obj.AUDIT_STATUS == '审核未通过'}}">{{obj.AUDIT_RESON}}</label>
+      <textarea style='border:1px solid #C2C2C2;height:50px;width:100%;font-size:14px;' wx:if="{{obj.AUDIT_STATUS == '已提交'}}" bindinput='bindData' value='{{obj.AUDIT_RESON}}'></textarea>
+      <textarea style='border:1px solid #C2C2C2;height:50px;width:100%;font-size:14px;' wx:if="{{obj.AUDIT_STATUS == '未审核'}}" bindinput='bindData' value='{{obj.AUDIT_RESON}}'></textarea>
+    </view>
+    <view class='list-item-l' style='position:relative;margin-bottom:10px;'>
+      <button class='list-item-button' style='font-size:30rpx;' bindtap='reviewResult' id="notPass" data-i_e_flag='{{obj.I_E_FLAG}}' data-id='{{obj.SEQ_NO}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.AUDIT_STATUS == '已提交'}}">{{titless["不同意"]}}</button>
+      <button class='list-item-button' style='float:right;margin-right:0px;background-color:#1296DB;color:#fff;font-size:30rpx;' bindtap='reviewResult' id="pass" data-i_e_flag='{{obj.I_E_FLAG}}' data-id='{{obj.SEQ_NO}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.AUDIT_STATUS == '已提交'}}">{{titless["同意"]}}</button>
+
+      <button class='list-item-button' style='font-size:30rpx;' bindtap='reviewResult' id="notPass" data-i_e_flag='{{obj.I_E_FLAG}}' data-id='{{obj.SEQ_NO}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.AUDIT_STATUS == '未审核'}}">{{titless["不同意"]}}</button>
+      <button class='list-item-button' style='float:right;margin-right:0px;background-color:#1296DB;color:#fff;font-size:30rpx;' bindtap='reviewResult' id="pass" data-i_e_flag='{{obj.I_E_FLAG}}' data-id='{{obj.SEQ_NO}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.AUDIT_STATUS == '未审核'}}">{{titless["同意"]}}</button>
+    </view>
+  </view>
+</template>
+
+
+<template name="cms_template">
+  <view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["用户ID"]}}：</label>
+      <label class='list-item-info'>{{obj.USER_ID}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["用户名称"]}}：</label>
+      <label class='list-item-info'>{{obj.USER_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["三方昵称"]}}：</label>
+      <label class='list-item-info'>{{obj.NICK_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["审核状态"]}}：</label>
+      <label class='list-item-info'>{{obj.STATUS}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["类型"]}}：</label>
+      <label class='list-item-info'>{{obj.STYPE_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申请时间"]}}：</label>
+      <label class='list-item-info'>{{obj.CREATE_DATE}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.STATUS == '通过'}}">
+      <label class='list-item-label'>{{titless["审核人"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_USER}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.STATUS == '通过'}}">
+      <label class='list-item-label'>{{titless["审核时间"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_TIME}}</label>
+    </view>
+    <view class='list-item-l' style='position:absolute;bottom:10px;'>
+      <button class='list-item-button' style='font-size:30rpx;' bindtap='reviewResult' id="notPass" data-id='{{obj.SEQ_NO}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.STATUS == '未审核'}}">{{titless["不同意"]}}</button>
+      <button class='list-item-button' style='float:right;background-color:#1296DB;color:#fff;font-size:30rpx;' bindtap='reviewResult' id="pass" data-id='{{obj.SEQ_NO}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.STATUS == '未审核'}}">{{titless["同意"]}}</button>
+    </view>
+  </view>
+</template>
+
+<template name="oa_template">
+  <view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["三方昵称"]}}：</label>
+      <label class='list-item-info'>{{obj.NICK_NAME}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["用户ID"]}}：</label>
+      <label class='list-item-info'>{{obj.USER_ID}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["审核状态"]}}：</label>
+      <label class='list-item-info'>{{obj.STATUS}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["用户工厂"]}}：</label>
+      <label class='list-item-info'>{{obj.USER_SITE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["用户地址"]}}：</label>
+      <label class='list-item-info'>{{obj.USER_HOST}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["用户邮箱"]}}：</label>
+      <label class='list-item-info'>{{obj.USER_EMAIL}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["审核状态"]}}：</label>
+      <label class='list-item-info'>{{obj.STATUS}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["申请时间"]}}：</label>
+      <label class='list-item-info'>{{obj.CREATE_DATE}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.STATUS == 'Y'}}">
+      <label class='list-item-label'>{{titless["审核人"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_USER}}</label>
+    </view>
+    <view class='list-item' wx:if="{{obj.STATUS == 'Y'}}">
+      <label class='list-item-label'>{{titless["审核时间"]}}：</label>
+      <label class='list-item-info'>{{obj.AUDIT_DATE}}</label>
+    </view>
+    <view class='list-item'>
+      <label class='list-item-label'>{{titless["备注"]}}：</label>
+      <label class='list-item-info'>{{obj.NOTE}}</label>
+    </view>
+    <view class='list-item-l' style='position:absolute;bottom:10px;'>
+      <button class='list-item-button' style='font-size:30rpx;' bindtap='reviewResult' id="notPass" data-id='{{obj.OPEN_ID}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.STATUS == 'N'}}">{{titless["不同意"]}}</button>
+      <button class='list-item-button' style='float:right;margin-right:8%;background-color:#1296DB;color:#fff;font-size:30rpx;' bindtap='reviewResult' id="pass" data-id='{{obj.OPEN_ID}}' data-user='{{obj.AUDIT_USER}}' wx:if="{{obj.STATUS == 'N'}}">{{titless["同意"]}}</button>
+    </view>
+  </view>
+</template>

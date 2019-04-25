@@ -1,0 +1,37 @@
+<import src="../../content/template/pull_refresh.wxml" />
+<view style='height:{{winHeight}}px;'>
+  <template is="refresh" data="{{showTitle}}" />
+  <view style='height:{{winHeight}}px;'>
+    <view class="userinfo" style='height:{{winHeight*0.25}}px;'>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="info-item">
+      <image src='{{theme}}account.png' style='height:20px;width:20px;margin-left:20px;'></image>
+      <label class='info-item-label'>账户名称</label>
+      <label class='info-item-input'>{{currentUser.userName}}</label>
+      <image class='alter-img'></image>
+    </view>
+    <view class="info-item">
+      <image src='{{theme}}email.png' style='height:20px;width:20px;margin-left:20px;'></image>
+      <label class='info-item-label'>邮箱地址</label>
+
+      <view class='input-view'>
+        <label wx:if='{{!isAlter}}' class='info-item-input'>{{currentUser.email}}</label>
+        <input wx:if='{{isAlter}}' id="email" name="email" class='info-input' value='{{currentUser.email}}' bindinput='bindData'></input>
+      </view>
+      <image src='/content/images/themes/A/alter1.png' class='alter-img' bindtap='alter'></image>
+    </view>
+    <view class="info-item">
+      <image src='{{theme}}site.png' style='height:20px;width:20px;margin-left:20px;'></image>
+      <label class='info-item-label'>企业信息</label>
+      <label class='info-item-input'>{{currentUser.site== "" ? currentUser.company : currentUser.site}}</label>
+      <image class='alter-img'></image>
+    </view>
+    <view wx:if='{{isAlter}}' class='button-content'>
+      <button  class='btn-save' bindtap='update'>更新</button>
+      <button  class='btn-bk' bindtap='updatebk'>取消</button>
+    </view>
+  </view>
+
+</view>

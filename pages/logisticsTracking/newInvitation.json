@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "接单邀请",
+  "usingComponents": {
+    "logistics-dialog": "/components/logistics-dialog/logistics-dialog"
+  }
+}

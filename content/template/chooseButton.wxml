@@ -1,0 +1,203 @@
+<template name="buttonE">
+  <view class='info-item'>
+    <view class='info-item-row' bindtap='enterItem' id='CusHead'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["表头"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusExg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["成品表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusConsume'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["单损耗"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <!-- <view class='info-item-row' bindtap='enterItem' id='SysDoc' style='margin-bottom:20px;'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["文档资料"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view> -->
+  </view>
+</template>
+
+<template name="buttonH">
+  <view class='info-item'>
+    <view class='info-item-row' bindtap='enterItem' id='CusHead'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["表头"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusExg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["成品表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusConsume'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["单损耗"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='OrgImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件归并关系"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='OrgExg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["成品归并关系"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='SysDoc' style='margin-bottom:20px;'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["文档资料"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+  </view>
+</template>
+
+<template name="buttonD">
+  <view class='info-item'>
+    <view class='info-item-row' bindtap='enterItem' id='CusHead'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["表头"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='OrgImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件归并关系"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='SysDoc' style='margin-bottom:20px;'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["文档资料"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+  </view>
+</template>
+
+<template name="buttonBC">
+  <view class='info-item'>
+    <view class='info-item-row' bindtap='enterItem' id='CusHead'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["表头"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusExg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["成品表"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='CusConsume'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["单损耗"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='OrgImg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["料件归并关系"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='OrgExg'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["成品归并关系"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+    <view class='info-item-row' bindtap='enterItem' id='SysDoc' style='margin-bottom:20px;'>
+      <image src='../../content/images/themes/A/CusHead.png' class='info-item-row-image'></image>
+      <view class='info-item-row-center'>
+        <view class='info-item-row-center-title'>{{titless["文档资料"]}}</view>
+        <view class='info-item-row-center-content'>{{titless["点击查看"]}}</view>
+      </view>
+      <image src='https://51baoguan.cn/content/images/themes/A/toward.png' class='info-item-row-image'></image>
+    </view>
+  </view>
+</template>

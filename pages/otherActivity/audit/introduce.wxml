@@ -1,0 +1,62 @@
+<view>
+  <image class='img' src='{{activityModel.pictureUrl}}'></image>
+</view>
+<view class='contents'>
+  <view>
+    <view class='titles' style='padding-top:20rpx'>
+      <view class='title1'></view>
+      <view class='title2'>
+        地址
+      </view>
+      <view class='title3'></view>
+    </view>
+    <view class='content'>
+      <view class='item'>
+        {{activityModel.address}}
+      </view>
+    </view>
+  </view>
+  <view class='titles'>
+    <view class='title1'></view>
+    <view class='title2'>
+      时间
+    </view>
+    <view class='title3'></view>
+  </view>
+  <view class='content'>
+    <view class='item'>
+      开始：{{activityModel.activityStartTime}}
+    </view>
+    <view class='item'>
+      结束：{{activityModel.activityEndTime}}
+    </view>
+  </view>
+  <view class='titles'>
+    <view class='title1'></view>
+    <view class='title2'>
+      报名费
+    </view>
+    <view class='title3'></view>
+  </view>
+  <view class='content'>
+    <view wx:if="{{activityModel.price>0}}" class='item' style='font: 25px microsoft yahei;font-weight: bold;'>
+      ￥{{activityModel.price}}
+    </view>
+    <view wx:else class='item' style='font: 25px microsoft yahei;font-weight: bold;'>
+      免费
+    </view>
+    <view class='item' style='font: 12px microsoft yahei;color: #9a9a9a;'>
+      {{activityModel.priceRemark==null?'':activityModel.priceRemark}}
+    </view>
+  </view>
+  <view class='item' wx:if="{{activityModel.price>0}}">
+    <view class='btn1' bindtap='refund'>
+      在线退款
+    </view>
+  </view>
+  <view class='item'>
+    <view class='btn2' bindtap='apply'>
+      参与报名
+    </view>
+  </view>
+</view>

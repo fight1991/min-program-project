@@ -1,0 +1,19 @@
+<view style='padding-top:30%'>
+  <view class='title'>
+    您所在的企业在第五届"双优评比"活动中，
+  </view>
+  <view class='title'>
+    未获得"全国优秀报关企业"的称号。
+  </view>
+  <view class='title'>
+    想成为全国优秀报关企业么？
+  </view>
+  <view class='btns'>
+    <view class='btn' bindtap='toExcellent'>
+      想
+    </view>
+    <view class='btn' bindtap='toIgnore'>
+      忽略
+    </view>
+  </view>
+</view>

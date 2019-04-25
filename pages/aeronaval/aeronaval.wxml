@@ -1,0 +1,51 @@
+<import src="../../content/template/backToTop.wxml" />
+<view class='list-item' data-statu="open">
+  <view class='list-item-middle'>
+    <label class='list-item-info1'>关区代码：</label>
+    <label class='list-item-info1'>{{obj.CUSTOM_MASTER == "" ? "_" : obj.CUSTOM_MASTER}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 运输方式：</label>
+    <label class='list-item-info1'> {{obj.TRAF_MODE == "" ? "_" : obj.TRAF_MODE}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 提运单类型：</label>
+    <label class='list-item-info1'> {{obj.I_E_FLAG == "" ? "_" : obj.I_E_FLAG}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 运输工具名称：</label>
+    <label class='list-item-info1'> {{obj.TRAF_NAME == "" ? "_" : obj.TRAF_NAME}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 航班\航次：</label>
+    <label class='list-item-info1'> {{obj.VOYAGE_NO == "" ? "_" : obj.VOYAGE_NO}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 总提运单号：</label>
+    <label class='list-item-info1'> {{obj.BILL_NOS == "" ? "_" : obj.BILL_NOS}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 提运单号：</label>
+    <label class='list-item-info1'> {{obj.BILL_NO == "" ? "_" : obj.BILL_NO}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 件数：</label>
+    <label class='list-item-info1'> {{obj.PACK_NO == "" ? "_" : obj.PACK_NO}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 重量</label>
+    <label class='list-item-info1'> {{obj.WT == "" ? "_" : obj.WT}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 进口抵港确保标志：</label>
+    <label class='list-item-info1'> {{obj.IFLAG == "" ? "_" : obj.IFLAG}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 理货状态：</label>
+    <label class='list-item-info1'> {{obj.STATUS == "" ? "_" : obj.STATUS}}</label>
+  </view>
+  <view class='list-item-middle'>
+    <label class='list-item-info1'> 出口运抵状态：</label>
+    <label class='list-item-info1'> {{obj.EFLAG == "" ? "_" : obj.EFLAG}}</label>
+  </view>
+</view>

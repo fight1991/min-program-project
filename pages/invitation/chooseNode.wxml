@@ -1,0 +1,68 @@
+<view class='content'>
+  <view style='padding-left:5%;padding-right:5%;padding-top:10px'>
+    <view wx:if='{{i==0||roleVo.roleTypeStr=="报关行"}}' class='input-view bg-gray' style='margin-bottom:10px'>
+      <view style='display:flex;align-items:center;'>
+        <label class='title'>角色:</label>
+      </view>
+      <input class='input-type' id='roleTypeStr' disabled='disabled' name='roleTypeStr' value='{{roleVo.roleTypeStr}}'>
+      </input>
+      <input hidden='hidden' class='roleType' id='roleType' name='roleType' value='{{roleVo.roleType}}'>
+      </input>
+    </view>
+    <view wx:else class='input-view' style='margin-bottom:10px'>
+      <view style='display:flex;align-items:center;'>
+        <label class='title'>角色:</label>
+      </view>
+      <input class='input-type' disabled='disabled' bindtap='chooseRoles' id='roleTypeStr' name='roleTypeStr' value='{{roleVo.roleTypeStr}}'>
+      </input>
+      <input hidden='hidden' class='roleType' id='roleType' name='roleType' value='{{roleVo.roleType}}'>
+      </input>
+    </view>
+    <view class='input-view {{modifyFlag=="1"?"bg-gray":""}}'>
+      <view style='display:flex;align-items:center;'>
+        <label class='title'>操作人:</label>
+      </view>
+      <input class='input-type' id='name' name='name' disabled='disabled' bindtap='chooseContact' value='{{contactModel.wechat?"微信已邀请":contactModel.name}}'>
+      </input>
+    </view>
+  </view>
+  <view style='height:10px;background-color:#f5f5f5;margin-top:10px'>
+  </view>
+  <view style=' line-height: 40px ;height: 40px;padding-left:5%;display: flex;' bindtap='selectAll'>
+    <view style='padding-right:10px;display: flex;align-items: center'>
+      <image wx:if='{{!isAllSelected}}' class='img-check' src='/content/images/themes/A/uncheck.png'></image>
+      <image wx:if='{{isAllSelected}}' class='img-check' src='/content/images/themes/A/check2.png'></image>
+    </view>
+    <view>
+      <label style='color:red;font-size:16px'>*</label>
+      <label class='title'>选择任务({{selectTotal}}/{{allTotal}})</label>
+    </view>
+  </view>
+  <view>
+    <view>
+
+    </view>
+    <view wx:for="{{items}}" wx:for-item="item" wx:key="" class="checkbox-group {{item.disabled=='disabled'?'no':''}} {{(item.disabled==''&&item.checked==true)?'checked':''}}" bindtap='listenCheckboxChange' data-index='{{index}}' id="{{item.nodeId}}">
+      <view wx:if="{{item.disabled==''}}" style='line-height:40px;height:40px;padding-left:5%;display:flex;'>
+        <view style='padding-right:10px;display: flex;align-items: center'>
+          <image wx:if="{{!item.checked}}" class='img-check' src='/content/images/themes/A/uncheck.png'></image>
+          <image wx:if="{{item.checked}}" class='img-check' src='/content/images/themes/A/check2.png'></image>
+        </view>
+        <view class="checkbox-item {{(item.disabled==''&&item.checked==true)?'checkbox_checked':'checkbox_unchecked'}}">
+          [{{item.trackingNodePid}}]{{item.nodeName}}
+        </view>
+      </view>
+      <view wx:if="{{item.disabled=='disabled'}}" style='line-height:40px;height:40px;padding-left:5%;display:flex;'>
+        <view style='padding-right:10px;display: flex;align-items: center'>
+          <image class='img-check' src='/content/images/themes/A/check1.png'></image>
+        </view>
+        <view class="checkbox-item disabled4Font">
+          [{{item.trackingNodePid}}]{{item.nodeName}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='search-btns'>
+    <button class="search-btn" bindtap='add'>确定</button>
+  </view>
+</view>

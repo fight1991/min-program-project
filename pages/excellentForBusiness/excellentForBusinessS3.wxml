@@ -1,0 +1,40 @@
+<view wx:if='{{isShowContent}}' style='padding-bottom:50rpx;background-image: url("https://51baoguan.cn/content/images/themes/A/excellent4business_bk.png");background-size: 100% auto;'>
+  <view style='display:flex;justify-content:center;padding-top:20px'>
+    <image class='img-top' src='https://51baoguan.cn/content/images/themes/A/excellent4business_bk_top{{outStanding}}.png'></image>
+  </view>
+  <view style='display:flex;justify-content:center;padding-top:20px'>
+    <image class='img-step1' src='https://51baoguan.cn/content/images/themes/A/excellent4business_bk_step3.png'></image>
+  </view>
+  <view class='item-content'>
+    <label class='title'>联系人</label>
+    <input class='input' id='contact' name='contact' maxlength='10' bindinput='bindData' value='{{reqDatas.contact}}'></input>
+    <label class='title'>联系电话</label>
+    <input class='input' type='number' id='mobile' name='mobile' maxlength='20' bindinput='bindData' value='{{reqDatas.mobile}}'></input>
+    <label class='title'>邮箱</label>
+    <input class='input' id='email' name='email' maxlength='50' bindinput='bindData' value='{{reqDatas.email}}'></input>
+    <label class='title'>地址</label>
+    <textarea class='areas' id='address' name='address' maxlength='100' bindinput='bindData' value='{{reqDatas.address}}'></textarea>
+  </view>
+  <view class='btns'>
+    <view style='width:40%;display:flex;justify-content: flex-end' bindtap='preview'>
+      <image class='img-btn' src='https://51baoguan.cn/content/images/themes/A/excellent_preview.png'></image>
+    </view>
+    <view style='width:40%;display:flex;justify-content: flex-start' bindtap='confirm'>
+      <image class='img-btn' src='https://51baoguan.cn/content/images/themes/A/excellent_submit.png'></image>
+    </view>
+  </view>
+</view>
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+  <view class='wx-mask' bindtap='hide'></view>
+  <view class='wx-dialog'>
+
+    <image src="{{url}}" class="shared-img">
+    </image>
+  </view>
+  <view class='dialog-button'>
+    <view style='display: flex;flex-direction: column;align-items: center;'>
+      <image src="https://51baoguan.cn/content/images/themes/A/btn-down1.png" class="btn-right" bindtap='download'> </image>
+      <label style='  font: 12px microsoft yahei;color:#808080;padding-top:3px'>下载</label>
+    </view>
+  </view>
+</view>

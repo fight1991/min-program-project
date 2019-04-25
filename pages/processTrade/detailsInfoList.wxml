@@ -1,0 +1,48 @@
+<import src="../../content/template/accountDetails.wxml" />
+<view class='list' wx:if="{{src=='CusHead'}}">
+  <template is="CusHead" data="{{obj,titless,theme}}" />
+</view>
+<view class='list' wx:if="{{src=='CusImg'}}">
+  <template is="CusImg" data="{{obj,titless,theme}}" />
+</view>
+<view class='list' wx:if="{{src=='CusExg'}}">
+  <template is="CusExg" data="{{obj,titless,theme}}" />
+</view>
+<view class='list' wx:if="{{src=='CusConsume'}}">
+  <template is="CusConsume" data="{{obj,titless,theme}}" />
+</view>
+<view class='list' wx:if="{{src=='OrgImg'}}">
+  <template is="OrgImg" data="{{obj,titless,theme}}" />
+</view>
+<view class='list' wx:if="{{src=='OrgExg'}}">
+  <template is="OrgExg" data="{{obj,titless,theme}}" />
+</view>
+<view class='list' wx:if="{{src=='OrgBom'}}">
+  <template is="OrgBom" data="{{obj,titless,theme}}" />
+</view>
+<view wx:if="{{src=='SysDoc'}}">
+  <view class="table">
+    <view class="tr" wx:for="{{files}}" wx:for-item="tr" wx:for-index="i" wx:key="">
+      <view class="td" wx:for="{{tr}}" wx:for-index="j" data-td="{{j}}" wx:key="">
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:if="{{item.FILE_TYPE=='.jpg'||item.FILE_TYPE=='.png'||item.FILE_TYPE=='.bmp'||item.FILE_TYPE=='image/png'||item.FILE_TYPE=='image/jpeg'||item.FILE_TYPE=='image/bmp'}}">
+          <image style="width: 85px; height: 85px;" src="{{item.FULL_NAME}}" model='aspectFit'></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.ms-excel'||item.FILE_TYPE=='.xls'||item.FILE_TYPE=='.xlsx'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}excel.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/pdf'||item.FILE_TYPE=='.pdf'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}pdf.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'||item.FILE_TYPE=='.docx'||item.FILE_TYPE=='.doc'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}word.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='text/plain'||item.FILE_TYPE=='.txt'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}text-plain.png"></image>
+        </view>
+        <view bindtap='show' data-tr="{{i}}" data-td="{{j}}" wx:elif="{{item.FILE_TYPE=='.zip'}}">
+          <image title="{{item.FILE_NAME}}" style="font-size:10px;width: 82px; height: 82px;" src="{{theme}}zip.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

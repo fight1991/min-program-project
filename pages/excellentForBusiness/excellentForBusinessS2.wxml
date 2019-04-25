@@ -1,0 +1,101 @@
+<view style='background-image: url("https://51baoguan.cn/content/images/themes/A/excellent4business_bk.png");background-size: 100% 100%;'>
+  <view style='display:flex;justify-content:center;padding-top:20px'>
+    <image class='img-top' src='https://51baoguan.cn/content/images/themes/A/excellent4business_bk_top{{outStanding}}.png'></image>
+  </view>
+  <view style='display:flex;justify-content:center;padding-top:20px'>
+    <image class='img-step1' src='https://51baoguan.cn/content/images/themes/A/excellent4business_bk_step2.png'></image>
+  </view>
+  <view class='introduction'>
+    • 团队介绍 •
+  </view>
+  <view class='item-content1s'>
+    <view wx:for="{{data1}}" wx:key="" data-index='{{index}}'>
+      <view wx:if='{{index!=0}}' style='padding-top:20rpx;display:flex;justify-content:flex-end'>
+        <view class='delete' bindtap='delData1' data-index='{{index}}'>
+          <image class='img-date' src='https://51baoguan.cn/content/images/themes/A/excellent4business_delete.png'></image>
+          <label>删除</label>
+        </view>
+      </view>
+      <view class='item-content1'>
+        <view style='display: flex;align-items: center;position: relative;'>
+          <image wx:if='{{item.picUrl==""}}' bindtap="uploadImg4Data1" data-indexs='{{index}}' class='img-upload' src='/content/images/themes/A/ccbaupload.png'></image>
+          <image wx:else class='img-upload' bindtap='showImg' data-url='{{item.picUrl}}' src='{{item.picUrl}}'></image>
+          <image wx:if='{{item.picUrl!=""}}' src="/content/images/themes/A/close.png" bindtap='colseImg4Data1' data-indexs='{{index}}' class="img-delete"></image>
+        </view>
+        <view style='padding-top:20rpx;z-index:0'>
+          <textarea placeholder='请输入...' id='description' name='description' value='{{item.description}}' bindinput='bindData4Data1' data-indexs='{{index}}' placeholder-class='placeholder' class='area1' maxlength="60">
+            <text class='tips'>{{item.len}}/60</text>
+          </textarea>
+        </view>
+      </view>
+    </view>
+    <view style='padding-bottom:20rpx'>
+      <view class='title-add' bindtap='addData1'>
+        +添加
+      </view>
+    </view>
+  </view>
+  <view class='introduction'>
+    • 公司环境 •
+  </view>
+  <view class='item-content1s'>
+    <view wx:for="{{data2}}" wx:key="" data-index='{{index}}'>
+      <view wx:if='{{index!=0}}' style='padding-top:20rpx;display:flex;justify-content:flex-end'>
+        <view class='delete' bindtap='delData2' data-index='{{index}}'>
+          <image class='img-date' src='https://51baoguan.cn/content/images/themes/A/excellent4business_delete.png'></image>
+          <label>删除</label>
+        </view>
+      </view>
+      <view class='item-content1'>
+        <view style='display: flex;align-items: center;position: relative;'>
+          <image wx:if='{{item.picUrl==""}}' bindtap="uploadImg4Data2" data-indexs='{{index}}' class='img-upload' src='/content/images/themes/A/ccbaupload.png'></image>
+          <image wx:else class='img-upload' bindtap='showImg' data-url='{{item.picUrl}}' src='{{item.picUrl}}'></image>
+          <image wx:if='{{item.picUrl!=""}}' src="/content/images/themes/A/close.png" bindtap='colseImg4Data2' data-indexs='{{index}}' class="img-delete"></image>
+        </view>
+        <view style='padding-top:20rpx;z-index:0'>
+          <textarea placeholder='请输入...' id='description' name='description' value='{{item.description}}' bindinput='bindData4Data2' data-indexs='{{index}}' placeholder-class='placeholder' class='area1' maxlength="60">
+            <text class='tips'>{{item.len}}/60</text>
+          </textarea>
+        </view>
+      </view>
+    </view>
+    <view style='padding-bottom:20rpx'>
+      <view class='title-add' bindtap='addData2'>
+        +添加
+      </view>
+    </view>
+  </view>
+  <view class='introduction'>
+    • 企业荣誉 •
+  </view>
+  <view class='item-content1s'>
+    <view wx:for="{{data3}}" wx:key="" data-index='{{index}}'>
+      <view wx:if='{{index!=0}}' style='padding-top:20rpx;display:flex;justify-content:flex-end'>
+        <view class='delete' bindtap='delData3' data-index='{{index}}'>
+          <image class='img-date' src='https://51baoguan.cn/content/images/themes/A/excellent4business_delete.png'></image>
+          <label>删除</label>
+        </view>
+      </view>
+      <view class='item-content1'>
+        <view style='display: flex;align-items: center;position: relative;'>
+          <image wx:if='{{item.picUrl==""}}' bindtap="uploadImg4Data3" data-indexs='{{index}}' class='img-upload' src='/content/images/themes/A/ccbaupload.png'></image>
+          <image wx:else class='img-upload' bindtap='showImg' data-url='{{item.picUrl}}' src='{{item.picUrl}}'></image>
+          <image wx:if='{{item.picUrl!=""}}' src="/content/images/themes/A/close.png" bindtap='colseImg4Data3' data-indexs='{{index}}' class="img-delete"></image>
+        </view>
+        <view style='padding-top:20rpx;z-index:0'>
+          <textarea placeholder='请输入...' id='description' name='description' value='{{item.description}}' bindinput='bindData4Data3' data-indexs='{{index}}' placeholder-class='placeholder' class='area1' maxlength="60">
+            <text class='tips'>{{item.len}}/60</text>
+          </textarea>
+        </view>
+      </view>
+    </view>
+    <view style='padding-bottom:20rpx'>
+      <view class='title-add' bindtap='addData3'>
+        +添加
+      </view>
+    </view>
+  </view>
+  <view class='btns' bindtap='nextStep'>
+    下一步
+  </view>
+</view>

@@ -1,0 +1,19 @@
+page {
+  width: 100%;
+}
+.titles {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font: 16px microsoft yahei;
+}
+
+.img {
+  width: 100%;
+}
+
+.content {
+  width: 94%;
+  margin-left: 3%;
+  padding-bottom:20rpx;
+
+}

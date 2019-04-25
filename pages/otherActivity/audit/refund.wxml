@@ -1,0 +1,33 @@
+<form bindsubmit="confirm">
+  <view style='background-color: #fff'>
+    <view class='content'>
+      <view class='title' style='font-size:12px;padding-top:20px;padding-bottom:10px'>
+        退款金额
+      </view>
+      <view class='title' style='font-size:25px;font-weight: bold;'>
+        ￥{{activityModel.price}}
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>手机</label>
+      </view>
+      <view class='input-trade'>
+        <input style='height:35px' type='number' id='mobile' name='mobile' value='{{obj.mobile}}' bindinput='bindData'>
+        </input>
+      </view>
+      <view>
+        <label class='item-tip'>*</label>
+        <label class='item-title'>验证码</label>
+      </view>
+      <view class='input-trade' style='display:flex;justify-content: space-between;padding-right:5px'>
+        <input style='height:35px;width:70%' id='code' name='code' value='{{obj.code}}' bindinput='bindData'>
+        </input>
+        <label style='color: #1195dd;line-height: 35px;border-left: 1px solid #ccc;padding-left: 8px;width:75px;text-align:center;' bindtap='getCode'>{{code_tips}}</label>
+      </view>
+    </view>
+  </view>
+  <view class='buttons'>
+    <button class='button' formType="submit">确认退款</button>
+  </view>
+
+</form>

@@ -1,0 +1,70 @@
+.files {
+  padding-top: 10px;
+  margin-left: 20px;
+  height: 150rpx;
+  width: 150rpx;
+}
+
+.logistics {
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  font-size: 28rpx;
+}
+
+.br {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-bottom: 30rpx;
+  background: #d0d0d0;
+  height: 1rpx;
+}
+.order {
+  height: 60px;
+}
+
+/* 下部分 */
+
+.logistics_centent {
+  position: absolute;
+  left: 100rpx;
+  font-size: 28rpx;
+  color: #666, ;
+}
+
+.icon {
+  width: 20rpx;
+  height: 20rpx;
+  background: white;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0rpx 20rpx 0rpx 40rpx;
+}
+
+.in {
+  border: 1rpx solid red;
+  animation: my_animation 2s infinite;
+}
+
+@keyframes my_animation {
+  100% {
+    transform: scale(2);
+    background-color: transparent;
+  }
+}
+
+.no_in {
+  border: 1rpx solid #d0d0d0;
+}
+
+.on {
+  background: #d0d0d0;
+  height: 60%;
+  width: 1px;
+  margin-left: 50rpx;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}

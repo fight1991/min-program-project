@@ -1,0 +1,30 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <template is="search_template" data="{{winHeight,theme,titles}}" />
+    <view class='list-item' wx:for="{{datas}}" wx:key="" bindtap='show' data-index='{{index}}'>
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.INNER_NO == "" ? "_" : item.INNER_NO}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:70%'>报关单号：{{item.ENTRY_ID == "" ? "_" : item.ENTRY_ID}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:70%'>接单时间：{{item.TIME_0 == "" ? "_" : item.TIME_0}}</label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1' style='width:70%'>客户：{{item.COMPANY == "" ? "_" : item.COMPANY}}</label>
+        <label class='list-item-info1' style='font-size:14px;width:15%;text-align:right'>•••</label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />

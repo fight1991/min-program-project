@@ -1,0 +1,52 @@
+<view wx:if='{{LogisticsAdviceList.length==0}}' style='display:flex;align-items:center;justify-content:center;padding-top:100rpx' >
+  <image style='height:400rpx;width:400rpx' src='https://51baoguan.cn/content/images/themes/A/invitation1.png'></image>
+</view>
+<view wx:for="{{LogisticsAdviceList}}" wx:key="" data-index='{{index}}'>
+  <view>
+    <view class='items'>
+      <view class='times'>
+        {{item.createTime}}
+      </view>
+    </view>
+    <view class='items'>
+      <view class='contents'>
+        <image class='img-del' src='/content/images/themes/A/close-gray.png' data-msgpid='{{item.msgPid}}' bindtap='deleteInvitation'></image>
+        <view style='display: flex;justify-content: flex-start;align-items: center;' bindtap='showDetails' data-roles='{{item.role}}' data-status='{{item.status}}' id="{{item.logPid}}">
+          <view>
+            <view style='position: relative;padding:3px'>
+              <image wx:if="{{item.status=='2'||item.status=='3'||item.status=='4'}}" class='invitation' src='https://51baoguan.cn/content/images/themes/A/invitation.png'></image>
+              <image wx:if="{{item.status=='8'}}" class='invitation' src='https://51baoguan.cn/content/images/themes/A/uninvitation.png'></image>
+              <image wx:if="{{item.status=='2'}}" style='height:10px;width:10px;position: absolute;right:0;top:0' src='/content/images/themes/A/red.png'></image>
+            </view>
+          </view>
+          <view style='padding-left: 10px'>
+            <view class='title1'>
+              您收到一份物流委托邀请
+            </view>
+            <view class='title2'>
+              {{item.userName}}({{item.corpName==null?'':item.corpName}})
+            </view>
+            <view class='title2'>
+              【{{item.iEFlag=='I'?'进口':'出口'}}
+              <label wx:if="{{item.trafMode=='2'}}">
+                海运
+              </label>
+              <label wx:if="{{item.trafMode=='4'}}">
+                陆运
+              </label>
+              <label wx:if="{{item.trafMode=='5'}}">
+                空运
+              </label>
+              <label wx:if="{{item.trafMode!='5'&&item.trafMode!='4'&&item.trafMode!='2'}}">
+                {{item.trafMode}}
+              </label>
+              】 {{item.overseasAddr}}-{{item.domesticAddr}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<logistics-dialog id='myDialog' title='提示' content='是否删除此消息' bindcancelEvent='cancelEvent' bindconfirmEvent='confirmEvent'>
+</logistics-dialog>

@@ -1,0 +1,43 @@
+<view class='list' style='background-image:url({{theme}}details.png);background-size:100% 100%;'>
+  <view class='title'>
+    <label class='line'></label>
+    <label>{{obj.BATCH_NUMBER}}</label>
+    <label class='line'></label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">运输工具编号:</label>
+    <label class="list-item-info">{{obj.CONVEYANCE_NO}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">关区代码:</label>
+    <label class="list-item-info">{{obj.CUSTOM_MASTER}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">确报类型:</label>
+    <label class="list-item-info">{{obj.SURE_FLAG}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">传输人代码:</label>
+    <label class="list-item-info">{{obj.TRANSMISSION_NO}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">传输人名称:</label>
+    <label class="list-item-info">{{obj.TRANSMISSION_NAME}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">车辆名称:</label>
+    <label class="list-item-info">{{obj.VEHICLE_NAME}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">驾驶员代码:</label>
+    <label class="list-item-info">{{obj.DRIVER_NO}}</label>
+  </view>
+  <view class="list-item">
+    <label class="list-item-label">驾驶员名称:</label>
+    <label class="list-item-info">{{obj.DRIVER_NAME}}</label>
+  </view>
+  <view class="list-item" style='padding-bottom:20%'>
+    <label class="list-item-label">核销状态:</label>
+    <label class="list-item-info">{{obj.DCR_STATUS}}</label>
+  </view>
+</view>

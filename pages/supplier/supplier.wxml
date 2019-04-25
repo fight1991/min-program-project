@@ -1,0 +1,98 @@
+<import src="../../content/template/search_template.wxml" />
+<import src="../../content/template/backToTop.wxml" />
+<import src="../../content/template/searchEnd.wxml" />
+<import src="../../content/template/pull_refresh.wxml" />
+<scroll-view scroll-y="{{scroll}}" style="height:{{winHeight}}px;margin-top:{{margin_top}}px" bindscrolltolower="loadMore" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTop" wx:if='{{showList}}'>
+  <template is="refresh" data="{{showTitle,theme}}" />
+  <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{winHeight}}px;'>
+    <template is="search_template" data="{{winHeight,theme,titles}}" />
+    <view class='list-item' wx:for="{{datas}}" wx:key="" id="{{item.ID}}" bindtap="showDetails" data-customer_id='{{item.CUSTOMER_ID}}' data-statu="open">
+      <view class='list-item-top'>
+        <label class='list-item-title'>{{item.CUSTOMER_NAME == "" ? "_" : item.CUSTOMER_NAME}}</label>
+        <label class='list-item-info'> {{item.CUSTOMER_ID == "" ? "_" : item.CUSTOMER_ID}} </label>
+      </view>
+      <view class='list-item-middle'>
+        <label class='list-item-info1'> 联系人：{{item.CONTACT == "" ? "_" : item.CONTACT}}</label>
+      </view>
+      <view class='list-item-bottom'>
+        <label class='list-item-info1'>
+          电话号码：{{item.PHONE == "" ? "_" : item.PHONE}}
+        </label>
+        <label class='list-item-info1' style='font-size:14px'>
+          •••
+        </label>
+      </view>
+    </view>
+    <view wx:if='{{searchNone==true}}' style='height:{{winHeight*0.94-30}}px;'>
+      <template is='searchNullPrompt' data='{{theme}}' />
+    </view>
+    <template is="searchEnd" data="{{showflag}}" />
+  </view>
+</scroll-view>
+<template is="backToTop" data="{{scrollTop,theme}}" />
+<view class="drawer-screen" bindtap="showDetails" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer-box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer-title">{{obj.CUSTOMER_ID}}</view>
+  <view class="drawer-content">
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["供应商代码"]}}:</view>
+      <view class="input-base col-1">{{obj.CUSTOMER_ID}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["供应商名称"]}}:</view>
+      <view class="input-base col-1">{{obj.CUSTOMER_NAME}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["简称"]}}:</view>
+      <view class="input-base col-1">{{obj.SHORT_NAME}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["是否关联方"]}}:</view>
+      <view class="input-base col-1">{{obj.RELATED_FLAG}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["联系人"]}}:</view>
+      <view class="input-base col-1">{{obj.CONTACT}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["电话号码"]}}:</view>
+      <view class="input-base col-1">{{obj.PHONE}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">E-Mail:</view>
+      <view class="input-base col-1">{{obj.EMAIL}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["所属国"]}}:</view>
+      <view class="input-base col-1">{{obj.COUNTRY_CODE}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["地区"]}}:</view>
+      <view class="input-base col-1">{{obj.REGION}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["传真"]}}:</view>
+      <view class="input-base col-1">{{obj.FAX}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["公司地址"]}}:</view>
+      <view class="input-base col-1">{{obj.ADDRESS}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["邮政编码"]}}:</view>
+      <view class="input-base col-1">{{obj.POSTAL_CODE}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["备注"]}}:</view>
+      <view class="input-base col-1">{{obj.REMARKS}}</view>
+    </view>
+    <view class="drawer-content-view">
+      <view class="title col-0">{{titless["付款方式"]}}:</view>
+      <view class="input-base col-1">{{obj.REF_2}}</view>
+    </view>
+  </view>
+  <view class="btn-ok" bindtap="showDetails" data-statu="close">{{titless["关闭"]}}</view>
+</view>

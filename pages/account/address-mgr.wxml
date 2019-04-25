@@ -1,0 +1,23 @@
+<view class='address-header'>
+  <view >
+  {{corp.corpName}}
+  </view>
+  <view class='address-header-btn' bindtap='changeSite' wx:if="{{corpNames.length>1}}">
+    切换
+  </view>
+</view>
+
+<view class='address-content'>
+  <view class='address-content-item {{index>0?"border-top-1":""}}' bindtap='showDetail' data-belong='{{item.belong}}' data-address='{{item.address}}' data-addresstel='{{item.addressTel}}'  data-pid='{{item.pid}}' data-corpid='{{corp.corpId}}'
+  wx:for="{{corp.contactWay}}" >
+    <view class='address-content-item-info'>
+      <view class='address-name {{item.belong=="corp"?"corp-color":""}}'>{{item.address}}</view>
+      <view class='address-phone'>{{item.addressTel}}</view>
+    </view>
+    <image class="toward-img" src="https://51baoguan.cn/content/images/themes/A/toward.png" wx:if="{{item.belong=='self'}}"></image>
+  </view>
+</view>
+
+<view class='margin-top-40 add' bindtap='add'>
+  + 新增收发货地址
+</view>
