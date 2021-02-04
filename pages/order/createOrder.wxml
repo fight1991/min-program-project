@@ -1,0 +1,136 @@
+<!--pages/airQuery/airQuery.wxml-->
+<view class="formContainer" style="height:{{winHeight-45}}px;">
+  <view style="height:100%;">
+    <view class="form" hover-class="none" hover-stop-propagation="false">
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="section" wx:if="{{ isContainInvt }}">
+          <view class="section__title"><i style='color:red'>*</i>手(账)册编号</view>
+          <input name="input"  maxlength='12' bindinput="inputThis" id='manualNo' name='manualNo' value='{{subForm.manualNo}}' />
+        </view>
+        <view class="section" wx:if="{{ isContainInvt }}">
+          <view class="section__title"><i style='color:red'>*</i>料件，成品标志</view>
+          <view  class='select_group'>
+          <view bindtap='selectCheck' data-checkdata='subForm.mtpckEndprdTypecd-I' class="{{subForm.mtpckEndprdTypecd=='I'?'selected':''}}"> 料件</view>
+          <view bindtap='selectCheck' data-checkdata='subForm.mtpckEndprdTypecd-E' class="{{subForm.mtpckEndprdTypecd=='E'?'selected':''}}">成品</view>
+          </view>
+        </view>
+        <view class="section" wx:if="{{ isContainInvt }}">
+          <view class="section__title"><i style='color:red'>*</i>清单类型</view>
+          <view class="section">
+          <picker bindchange="bindListChange" value="{{listindex}}" range="{{listTypes[0]}}">
+            <view class="picker">
+            <input name="input"  maxlength='10' readOnly='true' id='billtype' name='billtype' value='{{listTypes[0][listindex]}}'style="pointer-events:none">
+            <view class='airimg'>
+            <image src='/content/images/themes/A/select.png' ></image>
+            </view>
+            </input>
+            </view>
+          </picker>
+        </view>
+        </view>
+        <view class="section" wx:if="{{ isContainInvt }}">
+          <view class="section__title"><i style='color:red'>*</i>报关标志</view>
+          <view  class='select_group'>
+          <view bindtap='selectCheck' data-checkdata='subForm.ediId-1' class="{{subForm.ediId=='1'?'selected':''}}">报关</view>
+          <view bindtap='selectCheck' data-checkdata='subForm.ediId-2' class="{{subForm.ediId=='2'?'selected':''}}">非报关</view>
+          </view>
+        </view>
+        <view class="section" wx:if="{{ isContainDec || isContainInvt }}">
+          <view class="section__title">报关单类型</view>
+          <view  class='section' wx:if="{{isContainDec && !isContainInvt}}">
+            <picker bindchange="bindDecChange2" value="{{decIndex}}" range="{{decType2[0]}}">
+              <view class="picker">
+                <input name="input"  maxlength='20' readOnly='true' id='decType' name='decType' value='{{decType2[0][decIndex]}}' style="pointer-events:none">
+                  <view class='airimg'>
+                    <image src='/content/images/themes/A/select.png' ></image>
+                  </view>
+                </input>
+              </view>
+            </picker>
+          </view>
+          <view  class='section' wx:if="{{isContainInvt || (isContainInvt && isContainDec)}}">
+          <picker bindchange="bindDecChange" value="{{decIndex}}" range="{{decType[0]}}">
+              <view class="picker">
+                <input name="input"  maxlength='20' readOnly='true' id='decType' name='decType' value='{{decType[0][decIndex]}}' style="pointer-events:none">
+                  <view class='airimg'>
+                    <image src='/content/images/themes/A/select.png' ></image>
+                  </view>
+                </input>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="section" wx:if="{{ isContainLog }}">
+          <view class="section__title">贸易条款</view>
+          <view class="section">
+            <picker bindchange="bindTradeChange" value="{{tradeindex}}" range="{{tradeTypes[0]}}">
+              <view class="picker">
+              <input name="input"  maxlength='10' readOnly='true' id='billtype' name='billtype' value='{{tradeTypes[0][tradeindex]}}' style="pointer-events:none">
+              <view class='airimg'>
+              <image src='/content/images/themes/A/select.png' ></image>
+              </view>
+              </input>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="section" wx:if="{{ isContainDec }}">
+          <view class="section__title"><i style='color:red'>*</i>是否拼票</view>
+          <view  class='select_group'>
+          <view bindtap='selectCheck' data-checkdata='subForm.splitFlag-Y' class="{{subForm.splitFlag=='Y'?'selected':''}}"> 是</view>
+          <view bindtap='selectCheck' data-checkdata='subForm.splitFlag-N' class="{{subForm.splitFlag=='N'?'selected':''}}">否</view>
+          </view>
+        </view>
+        <view class="section" wx:if="{{ isContainLog }}">
+          <view class="section__title">货物描述</view>
+          <textarea bindinput="inputThis" id='goodsOutline' maxlength='400' placeholder='描述货物信息'  value='{{subForm.goodsOutline}}' />
+          <!-- <textarea placeholder='描述货物信息' id='goodsOutline' maxlength='400' bindblur='textarea' value='{{subForm.goodsOutline}}'></textarea>  -->
+          <!-- <view class="view-textarea" bindtap='isfoucus' hidden='{{!isfoucus}}'>{{subForm.goodsOutline.length !== 0 ? subForm.goodsOutline: falseInfo}}</view>  -->
+        </view>
+        <view class="section">
+          <view class="section__title">件数</view>
+          <input name="input"  maxlength='9' bindinput="inputThis" id='packNo' value='{{subForm.packNo}}' />
+        </view>
+        <view class="section">
+          <view class="section__title">毛重（KG）</view>
+          <input name="input"  maxlength='20' bindinput="inputThis" id='grossWt' value='{{subForm.grossWt}}' />
+        </view>
+        <view class="section">
+          <view class="section__title">净重（KG）</view>
+          <input name="input"  maxlength='20' bindinput="inputThis" id='netWt' value='{{subForm.netWt}}' />
+        </view>
+        <view class="section">
+          <view class="section__title">包装种类</view>
+          <picker bindchange="bindWrapChange" value="{{warpindex}}" range="{{warpTypes[0]}}">
+            <view class="picker">
+            <input name="input"  maxlength='30' bindinput="inputflightNo" id='wrapType' name='wrapType' value='{{warpTypes[0][warpindex]}}' style="pointer-events:none" >
+            <view class='airimg'>
+            <image src='/content/images/themes/A/select.png' ></image>
+            </view>
+            </input>
+            </view>
+          </picker>
+        </view>
+      </form>
+    </view>
+    <!-- 随附单据 -->
+    <view style='margin:40rpx 0 100rpx;background-color:white;padding:10px' bindtap='gotoLicense'>
+      <view >
+        <view style='width:20%;display:inline-block;'>随附单据</view>
+        <view class='airimg'>
+          <view style='display:inline-block;padding:5px;color:blue;'>{{subForm.sysDocVOs.length}}</view>
+          <image src='/content/images/themes/A/arrows_right.png' ></image>
+        </view>
+      </view>
+    </view>
+    <view style='height:200rpx'></view>
+  </view>
+</view>
+<view class="section-btn">
+  <view class="btn">
+    <view bindtap='saveOrder' wx:if="{{orderFlag === '1'}}" style='background-color:white;color:#1296DB'>暂存</view>
+    <view bindtap='receiveDec' wx:else  style='background-color:white;color:#1296DB'>暂存</view>
+    <view bindtap='goutoStep3' style='background-color:#1296DB;color:white;'>下一步</view>
+  </view>
+</view>
+

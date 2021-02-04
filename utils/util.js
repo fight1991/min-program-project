@@ -188,7 +188,8 @@ function getSystemInfo(that) {
       console.log(res)
       that.setData({
         winWidth: res.windowWidth,
-        winHeight: res.windowHeight
+        winHeight: res.windowHeight,
+        screenHeight: res.screenHeight
       })
     }
   })

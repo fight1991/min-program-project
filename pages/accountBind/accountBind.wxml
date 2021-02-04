@@ -13,7 +13,7 @@
           </view>
           <view class="info-item">
             <image class='info-item-icon' src='https://51baoguan.cn/content/images/themes/A/ccbapassword1.png'></image>
-            <input class="info-item-input" type='password' id="password" value='{{currentUser.password}}' bindinput='bindData' placeholder='密码' placeholder-class='placeholder'></input>
+            <input class="info-item-input" maxlength="8" type='password' id="password" value='{{currentUser.password}}' bindinput='bindData' placeholder='密码' placeholder-class='placeholder'></input>
           </view>
         </view>
         <view class='url-classs'>

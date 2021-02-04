@@ -1,0 +1,95 @@
+/* pages/index/index.wxss */
+.title {
+    width: 100%;
+    line-height: 200rpx;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-indent: 300rpx;
+}
+
+.swiper-tab {
+    width: 100%;
+    line-height: 80rpx;
+    background-color: #eeeeee;
+    /*border-bottom: 1px solid #000;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0;
+}
+
+.btn-area {
+    width: 750rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding: 0 !important;
+    flex-wrap: wrap;
+}
+
+.tab-item {
+    flex: 1;
+    font-size: 30rpx;
+    display: inline-block;
+    color: #777777;
+}
+
+.on {
+    color: #0099aa;
+    border-bottom: 3rpx solid #0099aa;
+}
+
+.swiper {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper view {
+    text-align: left;
+    padding-top: 30rpx;
+    padding-left: 50rpx;
+}
+
+.navigator-hover {
+    color: #0099aa;
+}
+
+.op-button {
+    border-right: 1rpx solid lightgray;
+    border-bottom: 1rpx solid lightgray;
+    width: 374rpx;
+    height: 374rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.op-button-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+
+}
+
+.op-button-img {
+    width: 176rpx;
+    height: 176rpx;
+}
+
+.op-button-title {
+    width: 100%;
+    text-align: center !important;
+    padding: 0 !important;
+}

@@ -1,0 +1,44 @@
+<!--pages/airQuery/airQuery.wxml-->
+<view>
+<view class="form" hover-class="none" hover-stop-propagation="false">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view wx-if="{{type=='inside' || type=='cususe' || type=='manuse' || type=='operate' || type=='process'}}">
+      <view class="section">
+        <view class="section__title">企业信息</view>
+          <input name="input" bindinput='getCorps' readOnly='{{showcorps? true: false}}' id='Name' name='Name' value='{{subForm[colum] || ""}}' >
+          </input>
+          <view class='corplist' wx:if='{{showcorps}}'>
+            <view wx:for="{{corpArr}}"  class='corpcell' bindtap='selectCorp' wx:key="corpName" data-corp='{{item}}'>{{item.corpName}}</view>
+          </view>
+      </view>
+      <view class="section" >
+        <view class="section__title">海关注册编码</view>
+        <input  bindinput="inputNote" hidden='{{showcorps}}' maxlength='10' id='Code' name='Code' style='width:100%' value='{{subForm[code] || ""}}' />
+      </view>
+      <view class="section">
+        <view class="section__title">社会信用代码</view>
+        <input  bindinput="inputNote" hidden='{{showcorps}}' maxlength='18' id='CoScc' name='CoScc' style='width:100%' value='{{subForm[coScc] || ""}}' />
+      </view>
+    </view>
+    <view class="section" wx-if="{{type=='outside'}}">
+      <view class="section__title">企业名称</view>
+      <input  bindinput="inputNote" id='overseasConsignorCname'  maxlength='100' style='width:100%' value='{{subForm.overseasConsignorCname || ""}}' />
+    </view>
+    <view class="section" wx-if="{{type=='outside'}}">
+      <view class="section__title">企业代码</view>
+      <input  bindinput="inputNote" id='overseasConsignorCode' maxlength='50' style='width:100%' value='{{subForm.overseasConsignorCode || ""}}' />
+    </view>
+  </form>
+</view>
+  <view class='histip'>
+    历史记录
+  </view>
+  <view class='histips'>
+    <view wx:for="{{storCorp}}" wx:key="colum" catchtap='backdata' data-item='{{item}}'>{{item[colum]}}</view>
+  </view>
+
+<view style='text-align: center;' bindtap='corpFin'>
+    <view class='lic-fin'>完成</view>
+  </view>
+</view>
+

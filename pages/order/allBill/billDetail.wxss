@@ -1,0 +1,274 @@
+/* pages/order/allBill/billDetail.wxss */
+@import '../../../content/wxss/base';
+page {
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+  color: #222;
+}
+.header {
+  height: 40px;
+  color: #666;
+  width: 750rpx;
+  text-align: center;
+  border: 1px solid #f5f5f5;
+  background-color: #fff;
+  line-height: 40px;
+}
+.footer {
+  height: 60px;
+  /* border: 1px solid #1195DD; */
+  line-height: 60px;
+  font-size: 16px;
+}
+.footer .edit,
+.footer .submit {
+  width: 50%;
+  text-align: center;
+}
+.footer .edit {
+  color: #1195DD;
+  background-color: #fff;
+}
+.footer .submit {
+  color: #fff;
+  background-color: #1195DD;
+}
+.header .label {
+  width: 33.3%;
+  border-bottom: 2px solid transparent;
+}
+/* 委托内容样式 */
+.content .corpList {
+  margin-bottom: 20rpx;
+}
+.content .list-title {
+  padding: 10rpx 20rpx;
+  color: black;
+  font-weight: bold;
+  background-color: #fff;
+  border-bottom: 1px solid #f5f5f5
+}
+.content .firstLine {
+  padding-bottom: 10rpx;
+}
+.content .firstLine .corpName {
+  width: 70%;
+}
+.content .corpList {
+  padding: 0 20rpx;
+  border-bottom: 1px solid #f5f5f5;
+  background-color: #fff;
+}
+.content .corpList .listInfo {
+  border-bottom: 1px solid #f5f5f5;
+  padding: 20rpx 0;
+}
+.content .status {
+  color: #25d147;
+  border: 1px solid #25d147;
+  padding: 0 8rpx;
+  border-radius: 6rpx;
+}
+.content .save {
+  border-color: #999;
+  color: #fff;
+  background-color: #999;
+}
+.content .drop {
+  border-color: red;
+  color: red;
+}
+.content .waitting {
+  color: #fea51e;
+  border-color: #fea51e;
+}
+.content .accept {
+  color: #1195DD;
+  border-color: #1195DD;
+}
+.content .secondLine {
+  background-color: #1195DD;
+  color: #fff;
+  padding: 6rpx 8rpx;
+  border-radius: 4rpx;
+  display: inline-block;
+}
+.content .lastLine {
+  padding:20rpx 0 10rpx;
+}
+.part {
+  margin-bottom: 20rpx;
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+}
+.part .line {
+  padding: 10rpx 0;
+  display: flex;
+  align-items: flex-start;
+}
+.part .line .left {
+  color: #666;
+}
+.part .line .right {
+  color: #222;
+  flex: 1;
+}
+.part.secondPart .line .left,
+.part.thirdPart .line .left,
+.part.forth .line .left,
+.part.fifth .line .left {
+  width: 200rpx;
+}
+.control-btn, .btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btns {
+  width: 100rpx;
+  padding: 20rpx 0 10rpx;
+}
+.control-btn image {
+  width: 24rpx;
+  height: 24rpx;
+}
+.control-btn .isOpen {
+  color: #1195DD;
+  margin-right: 10rpx;
+}
+/* 随附单据区域 */
+.licenseInfo {
+  padding: 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+.licenseInfo .left {
+  width: 100%;
+}
+.licenseInfo .right image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.licenseInfo .right {
+  align-self: flex-start;
+}
+.licenseInfo .mark {
+  padding-right: 20rpx;
+}
+.licenseInfo .mark image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.license .text {
+  flex: 1;
+}
+.license .text-up  {
+  font-size: 32rpx;
+  width: 500rpx;
+  color: #333;
+  padding-bottom: 4rpx;
+}
+.license .text-down {
+  font-size: 24rpx;
+  color: #999;
+  padding-top: 4rpx;
+  margin-left: 15px;
+}
+/* 时间线样式 */
+.statusSource {
+  background-color: #fff;
+}
+.timeLine {
+  color: #999;
+}
+.timeLine .time {
+  padding-right: 30rpx;
+  height: 100%;
+  width: 160rpx;
+  text-align: right;
+  line-height: 24rpx;
+}
+.timeLine .statusDetail,
+.timeLine .statusDetail-single {
+  padding: 0 20rpx 0 40rpx;
+}
+.timeLine .statusDetail:first-child ,
+.timeLine .statusDetail-single:first-child {
+  color: #1EC335;
+}
+.timeLine .statusDetail:first-child .time,
+.timeLine .statusDetail-single:first-child .time {
+  color: #333
+}
+
+
+.timeLine .status {
+  border-left: 1px solid #ccc;
+  padding: 30rpx 20rpx 20rpx 30rpx;
+  position: relative;
+  flex: 1;
+}
+.timeLine .single-dot {
+  padding: 30rpx 20rpx 20rpx 30rpx;
+  position: relative;
+  flex: 1;
+}
+.timeLine .statusDetail:first-child .right,
+.timeLine .statusDetail:last-child .right{
+  border-left-color: transparent;
+}
+.timeLine .statusDetail:first-child .right:before,
+.timeLine .statusDetail:last-child .right:before {
+  content: '';
+  width: 1px;
+  background-color: #ccc;
+  position: absolute;
+  left: -1px;
+  height: 50%;
+  bottom: 0
+}
+.timeLine .statusDetail:last-child .right:before {
+  top: 0
+}
+.dot::after,
+.single-dot::after{
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #999;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 8px #555;
+}
+.timeLine .statusDetail:first-child .dot::after,
+.timeLine .statusDetail-single:first-child .single-dot::after {
+  background-color: #1EC335;
+  box-shadow: 0 0 8px #1EC335;
+}
+
+.content .edit {
+  flex: 1;
+}
+.content .editImg {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 20rpx;
+  align-self: flex-start
+}
+.noData {
+  width: 320rpx;
+  height: 360rpx;
+  padding: 20rpx;
+  /* margin: 50px auto 0; */
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%)
+}
+.noData image {
+  width: 320rpx;
+  height: 360rpx;
+}

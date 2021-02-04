@@ -2,11 +2,11 @@
   <form bindsubmit="nextstep">
     <view class='input-item' style=' margin-top: 20px;'>
       <label class='title'>设置密码</label>
-      <input class='input-item-content' type='password' id='password' name='password' value='{{currentUser.password}}' placeholder='请输入密码' placeholder-class='placeholder' bindinput='bindData'></input>
+      <input class='input-item-content' type='password' id='password' maxlength='8' name='password' value='{{currentUser.password}}' placeholder='请输入密码' placeholder-class='placeholder' bindinput='bindData'></input>
     </view>
     <view class='input-item'>
       <label class='title'>确认密码</label>
-      <input class='input-item-content' type='password' id='oncepassword' name='oncepassword' placeholder='请重新输入密码' placeholder-class='placeholder'></input>
+      <input class='input-item-content' type='password' id='oncepassword'maxlength='8' name='oncepassword' placeholder='请重新输入密码' placeholder-class='placeholder'></input>
     </view>
     <view>
       <button class='btn-save' type='head' formType="submit">下一步</button>

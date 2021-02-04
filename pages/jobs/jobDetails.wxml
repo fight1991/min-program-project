@@ -1,0 +1,99 @@
+<!--pages/jobs/jobDetails.wxml-->
+<view class="main" style="height:{{ winHeight}}px;">
+  <scroll-view  scroll-y="{{ true }}" wx:if="{{jobDetail.jobId}}" style="height:100%">
+    <view id="pageScroll">
+      <view class="area block">
+        <view class="jobName">{{ jobDetail.jobName }}</view>
+        <view class="detail iconItems">
+          <view class="single p-10 vertical-center" wx:if="{{jobDetail.area}}">
+            <image src="https://www.5itrade.cn/files/wechat/address_x.png"/>            
+            <text>{{ jobDetail.area }}</text>
+          </view>
+          <view class="other vertical-center">
+            <view class="require p-10 vertical-center" wx:if="{{jobDetail.sex}}">
+              <image src="https://www.5itrade.cn/files/wechat/Gender_x.png"/>            
+              <text>{{ jobDetail.sex === 'M' ? '男': jobDetail.sex === 'F'? '女' : '不限'}}</text>
+            </view>
+            <view class="require p-10 vertical-center" wx:if="{{jobDetail.education}}">
+              <image src="https://www.5itrade.cn/files/wechat/Education_x.png"/>            
+              <text>{{ jobDetail.education }}</text>
+            </view>
+            <view class="require p-10 vertical-center"  wx:if="{{jobDetail.workYears}}">
+              <image src="https://www.5itrade.cn/files/wechat/Years_x.png"/>            
+              <text>{{ jobDetail.workYears }}</text>
+            </view>
+            <view class="require p-10 vertical-center"  wx:if="{{jobDetail.workNature}}">
+              <image src="https://www.5itrade.cn/files/wechat/position_x.png"/>            
+              <text>{{ jobDetail.workNature  === 'full' ? '全职':'兼职' }}</text>
+            </view>
+             <view class="require p-10 vertical-center"  wx:if="{{jobDetail.salary}}">
+              <image src="https://www.5itrade.cn/files/wechat/salary_x.png"/>            
+              <text>{{ jobDetail.salary }}</text>
+            </view>
+            <view class="require p-10 vertical-center" wx:if="{{jobDetail.count}}">
+              <image src="https://www.5itrade.cn/files/wechat/Number_x.png"/>            
+              <text>{{ jobDetail.count + "人"}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="corpName colorCommon">{{ jobDetail.companyName }}</view>
+      </view> 
+      <view class="link block">
+        <view class="way title">联系方式</view>
+        <view class="tel item" wx:for="{{jobDetail.contact}}" wx:key="*this">{{ item }}</view>
+      </view>
+      <view class="respos block">
+        <view class="title">岗位职责</view>
+        <view class="item" wx:for="{{jobDetail.duty}}" wx:key="*this">{{ item }}</view>
+        <view class="title">任职要求</view>
+        <view class="item" wx:for="{{jobDetail.requirement}}" wx:key="*this">{{ item }}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="{{true}}" wx:else style="height:100%" wx:else>
+    <view class="noData">
+      <image src="https://www.5itrade.cn/files/wechat/no_data.png"></image>
+    </view>
+  </scroll-view>
+  <view class="fixed" wx:if="{{jobDetail.jobId}}">
+    <!-- <button class='button' open-type='share'>分享</button> -->
+    <view class='share' data-share="loginShare" wx:if="{{isLogin || mobile}}" catchtap="showModal">
+      <image class="shareIcon" src="../../content/images/themes/A/invitation.png"></image>
+      <text>分 享</text>
+    </view>
+    <view class="share noLogin" wx:else>
+      <image class="shareIcon" src="../../content/images/themes/A/invitation.png"></image>
+      <button class='button' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">分享</button>
+    </view>
+    <view class="telPhone" catchtap="phoneCall">
+      <image class="tel" src="https://www.5itrade.cn/files/wechat/phone.png"></image>
+      <text>电话沟通</text>
+    </view>
+    <view class="send" catchtap="chooseFileAndSend">
+      <image class="word" src="https://www.5itrade.cn/files/wechat/send.png"></image>
+      <text>发送简历</text>
+    </view>
+  </view>
+</view>
+<!-- 点击分享按钮从底部弹出蒙层 -->
+<view class="mask" catchtap="cancelMask" style="height:{{winHeight}}px;" hidden="{{isShowMask}}">
+  <view class="menuDetail">
+    <view class="itemop freind vertical-center">
+      <view class="left"><image class="img" src="https://www.5itrade.cn/files/wechat/WeChat.png"></image></view>
+      <button class='button' open-type='share'>转发给好友或群聊</button>
+    </view>
+    <view class="itemop report vertical-center" catchtap="saveCanvas">
+      <view class="left"><image class="img" src="https://www.5itrade.cn/files/wechat/cof.png"></image></view>
+      <view class="right">生成朋友圈分享图</view>
+    </view>
+    <view class="cancel" catchtap="cancelMask">取消</view>
+  </view>
+</view>
+<!-- 生成海报 -->
+<canvas hidden="{{portIsShow}}" canvas-id="shareImg" style="position:absolute;left:-1000px;top:0;z-index:66;width:100%;height:{{canvasSize.height + winWidth*364/750}}px"></canvas>
+<!-- 生成二维码 -->
+<canvas hidden="{{portIsShow}}" canvas-id="ewmImg" style="position:absolute;left:-1000px;top:0;width:100px;height:100px"></canvas>
+
+
+
+

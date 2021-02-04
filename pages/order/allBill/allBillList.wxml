@@ -1,0 +1,115 @@
+<!--pages/order/allBill/allBillList.wxml-->
+<import src="../../../content/template/pullRefsh" />
+<view class="mianer" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style="height:{{winHeight}}px">
+  <!-- 新增按钮跳转至新建委托页面 -->
+  <view class="addBill" catchtap="switchBtn">
+    <navigator class="goToPage backImg" style="display:{{btnIsShow ? 'none': ''}}" url="../orderInfo">
+      <image src="https://www.5itrade.cn/files/wechat/add.png"/>
+    </navigator>
+    <navigator class="goToHome backImg" style="display:{{btnIsShow ? 'none': ''}}" url="/pages/home/home" open-type="switchTab">
+      <image src="https://www.5itrade.cn/files/wechat/home.png"/>
+    </navigator>
+    <image src="https://www.5itrade.cn/files/wechat/suspension.png"/>
+  </view>
+  <!-- 模态框 -->
+  <view class="modal" hidden="{{showModal}}" catchtouchmove="preventTouch">
+    <!-- 时间段 -->  
+    <view class="picker_group">
+      <view class="close" bindtap="closeDateModal">×</view>
+      <view class="picker-date">
+        <picker class="date" mode="date" value="{{date1}}"  end="{{date2}}" bindchange="bindDateChange">  
+          <view class="picker"> 
+            <input style="pointer-events:none;"  name='searchDate' placeholder='开始日期' placeholder-class='placeholder' value='{{date1}}'></input> 
+          </view>
+        </picker>  
+        <view class="zhi">至</view> 
+        <picker class="date" mode="date" value="{{date2}}" start="{{date1}}" end="2050-01-01" bindchange="bindDateChange2">  
+          <view class="picker">  
+            <input style="pointer-events:none;" name='searchDate' placeholder='结束日期' placeholder-class='placeholder' value='{{date2}}'></input> 
+          </view>  
+        </picker> 
+      </view>  
+      <view class="btn-group">
+        <view class="btn-detail flex-center">
+          <view class="date-clear" catchtap="clearDate">清空</view>
+          <view class="date-confirm" catchtap="confirmDate">确认</view>
+        </view>
+      </view>      
+    </view>
+  </view>
+  <view class="selection vertical-center">
+    <picker class="select-item angle" bindchange="bindIEflagChange" value="{{IEflag.index}}" range="{{IEflag.items}}">
+      <view class="select-title">{{IEflag.label}}</view>
+    </picker>
+    <picker class="select-item angle" bindchange="bindCustomsChange" value="{{customs.index}}" range="{{customs.items}}">
+      <view class="select-title text-cut customs">{{customs.label}}</view>
+    </picker>
+    <picker class="select-item angle" bindchange="bindStatusChange" value="{{status.index}}" range="{{orderFlag === '1' ? status.items : status.items2}}">
+      <view class="select-title text-cut">{{status.label}}</view>
+    </picker>
+    <view class="select-item selectDate angle" bindtap="selectDate">
+      <view class="select-title text-cut">{{date.label}}</view>
+    </view>
+  </view>
+  <!-- 下拉刷新组件 -->
+  <template is="refresh" data="{{boxHeight,refresh,title,loadingSuccess,startPos,imageAll}}"/>
+  <view class="scroll" style="height:{{winHeight-30}}px;" wx:if="{{entrustList.length > 0}}">
+    <scroll-view scroll-y="{{true}}" style="height:100%" lower-threshold="{{50}}"  
+      bindscrolltoupper="" bindscrolltolower="pullRefsh" bindscroll="">
+      <navigator url="./billDetail?headPid={{item.entrustHeadPid || item.innerNo}}&code={{item.entrustCode || item.ref5}}&IEflag={{item.iEFlag}}" class="infoCard" wx:for="{{entrustList}}" wx:key="{{entrustHeadPid}}">
+        <view class="orderStatus" wx:if="{{orderFlag === '1'}}">
+          <view class="waitOrder order" wx:if="{{item.entrustStatus === '2'}}">
+            <image class="orange" src="https://www.5itrade.cn/files/wechat/Waiting for orders02.png"></image>
+          </view>
+          <view class="acceptOrder order" wx:elif="{{item.entrustStatus === '3'}}">
+            <image class="green" src="https://www.5itrade.cn/files/wechat/Received orders02.png"></image>
+          </view>
+          <view class="acceptOrder save" wx:else>暂存</view>
+        </view>
+        <!-- 接单状态标识 -->
+        <view class="orderStatus orderFlag2" wx:if="{{orderFlag === '2'}}">
+          <view class="acceptOrder status">{{item.statusValue}}</view>
+        </view>
+        <view class="company">
+          <text class="tagout wei" wx:if="{{item.ref5 && orderFlag === '2'}}">委</text>
+          <text class="tagout zi" wx:if="{{orderFlag === '2' && !item.ref5}}">自</text>
+          <text class="name text-cut">{{item.beEntrustCompanyName || item.company || '-'}}</text>
+          <image class="arrow" src="../../../content/images/themes/A/select.png"/>
+        </view>
+        <view class="detail">
+          <view class="status">
+            <view class="tag vertical-center"><image class="inOrOut" src="https://www.5itrade.cn/files/wechat/{{item.iEFlag === 'I'? 'Imported' : 'Exit'}}.png"></image></view>
+            <view class="transWay" wx:if="{{item.transportTypeValue || item.trafModeValue}}">{{item.transportTypeValue || item.trafModeValue}}</view>
+            <view class="time">{{item.createTime || item.rcvDate || ''}}</view>
+          </view>
+          <view class="dec" wx:if="{{item.entrustBusinessValue || item.type}}">{{item.entrustBusinessValue || (item.type === 'invt' ? '核注清单':item.type === 'dec'?  '报关单' : '物流作业')}}</view>
+          <view class="numberInfo flex-center">
+            <view class="items">
+              <view class="num text-cut">{{item.packNo || '-'}}</view>
+              <view class="txt">件数</view>
+            </view>
+            <view class="items">
+              <view class="num text-cut">{{item.grossWt || '-'}}<text style="font-size:12px;margin-left:5px">KG</text></view>
+              <view class="txt">毛重</view>
+            </view>
+            <view class="items">
+              <view class="num text-cut pakage">{{item.wrapTypeValue || '-'}}</view>
+              <view class="txt">包装种类</view>
+            </view>
+          </view>
+          <view class="descrip vertical-center" wx:if="{{item.logFlag}}">
+            <text class="one">货物描述:　</text>
+            <view class="others text-cut">
+              <text class="other">{{item.goodsOutline || ''}}</text>
+              </view>
+            </view>
+        </view>
+      </navigator>
+    </scroll-view>
+  </view>
+  <view class="noData" wx:else>
+    <image src="https://www.5itrade.cn/files/wechat/no_data.png">
+    </image>
+  </view>
+</view>
+

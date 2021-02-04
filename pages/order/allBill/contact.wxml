@@ -1,0 +1,27 @@
+<!--pages/otherActivity/areaDetail/areaDetail.wxml-->
+<scroll-view class="area"
+  scroll-into-view="{{toView}}"
+  scroll-y="{{true}}"
+  scroll-with-animation="{{true}}"
+  enable-back-to-top="{{true}}"
+  style="height: {{winHeight}}px;">
+  <view class="areaDetail" wx:for="{{contactInfo}}" wx:for-item="item1" wx:key="groupName">
+    <view class="title" id="{{item1.groupName}}">
+      <text>{{item1.groupName}}</text>
+    </view>
+    <view class="list">
+      <view class="row" data-user="{{item2}}" catchtap='backgetInfo'  hover-class="clickTap" wx:for="{{item1.users}}" wx:for-item="item2" wx:key="userId">
+        <view class="contry" style='pointer-events: none;' >
+          <view class="name">{{item2.userName}}</view>
+          <view class="number">{{item2.mobile}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!-- 右侧固定区域 -->
+<view class="fixW" bindtap="scrollToAnchor">
+  <view class="sort" wx:for="{{contactInfo}}" data-anchor="{{item.groupName}}" wx:key="id">{{item.groupName}}</view>
+</view>
+
+

@@ -9,6 +9,7 @@ Page({
       trafMode: '',
       transMode: ''
     },
+    btnIsShow: false,
     searchNone: false,
     arr_index: 0,
     a_index: 0,
@@ -70,6 +71,11 @@ Page({
   goTop: function(e) {
     var that = this
     app.utils.goTop(that)
+  },
+  switchBtn() {
+    this.setData({
+      btnIsShow: !this.data.btnIsShow
+    })
   },
   onLoad: function(e) {
     wx.setStorageSync('changeTab', true)

@@ -18,10 +18,18 @@
     <label style='padding-left:10px'>您有{{logisticsAdviceCount}}条新委托邀请，点击查看。</label>
   </view>
 </view>
-<view>
+<!-- <view>
   <image class='img-logistics-add' bindtap='add' src='/content/images/themes/A/logistics_add1.png'></image>
-</view>
-
+</view> -->
+<view class="addBill" catchtap="switchBtn">
+    <navigator class="goToPage backImg" style="display:{{btnIsShow ? 'none': ''}}" url="./add">
+      <image src="https://www.5itrade.cn/files/wechat/add.png"/>
+    </navigator>
+    <navigator class="goToHome backImg" style="display:{{btnIsShow ? 'none': ''}}" url="/pages/home/home" open-type="switchTab">
+      <image src="https://www.5itrade.cn/files/wechat/home.png"/>
+    </navigator>
+    <image src="https://www.5itrade.cn/files/wechat/suspension.png"/>
+  </view>
 <view>
 
   <view wx:if="{{filter_show}}">

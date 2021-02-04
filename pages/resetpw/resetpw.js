@@ -44,10 +44,12 @@ Page({
       },
       password: {
         required: true,
+        pw: true
       },
       passworded: {
         required: true,
-        equalTo: 'password'
+        equalTo: 'password',
+        pw: true
       },
     }
     const messages = {
@@ -59,10 +61,12 @@ Page({
       },
       password: {
         required: "密码不为空",
+        pw: '请输入6-8位数字或字母的密码'
       },
       passworded: {
         required: '确认密码不为空',
         equalTo: "密码不一致",
+        pw: '请输入6-8位数字或字母的密码'
       },
     }
     this.WxValidate = new WxValidate(rules, messages)

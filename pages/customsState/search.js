@@ -8,6 +8,7 @@ Page({
     j: 1,
     isVoice: false,
     isSpeaking: false,
+    decStatus: {},
   },
   onLoad: function(options) {
     app.authorize()
@@ -48,7 +49,8 @@ Page({
   search: function(e) {
     var that = this
     that.setData({
-      disabled: 'disabled'
+      disabled: 'disabled',
+      searchModel: that.data.searchModel
     })
     var that = this
     var entry_id = that.data.searchModel.entry_id
@@ -62,7 +64,7 @@ Page({
       })
     } else {
       var that = this
-      var path = "CustomsState"
+      var path = "ConnectState"
       wx.showLoading({
         title: '加载中',
       })
@@ -71,11 +73,14 @@ Page({
         accessName: '通关状态查询'
       }, function(data) {
         wx.hideLoading()
-        if (data.Data5.ok) {
+        if (data.Data5.isOk) {
+          console.log('***************')
+          console.log(data.Data5.data)
+          console.log('***************')
           that.setData({
-            obj: data.Data5.ENTRY_WORKFLOW[0],
+            decStatus: data.Data5.data.decStatus,
           })
-          if (data.Data5.ENTRY_WORKFLOW[0].length == 0) {
+          if (data.Data5.data.decStatus == null) {
             wx.showToast({
               icon: 'none',
               title: '查无数据',
@@ -86,7 +91,6 @@ Page({
           } else {
             that.setData({
               isShow: true,
-              obj: data.Data5.ENTRY_WORKFLOW[0],
             })
           }
         } else {

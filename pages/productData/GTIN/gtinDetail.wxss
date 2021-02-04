@@ -1,0 +1,36 @@
+/* pages/productData/GTIN/gtinDetail.wxss */
+page {
+  background-color: #f5f5f5;
+}
+swiper,swiper .slide-image,
+.slideImg .slide-image{
+  width: 750rpx;
+  height: 360rpx;
+}
+.main {
+  font-size: 28rpx;
+}
+.main .list {
+  padding: 0 20rpx;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+.main .title {
+  color: #333;
+  font-weight: bold;
+  padding: 20rpx 0;
+}
+.listInfo {
+  color: #999;
+  line-height: 36rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  font-size: 24rpx; 
+  border-top: 1px solid #f5f5f5;
+}
+.listInfo .right {
+  margin-left: 50px;
+  flex: 1;
+  text-align: right;
+}

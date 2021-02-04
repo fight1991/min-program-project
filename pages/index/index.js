@@ -6,12 +6,17 @@ var color = ""
 Page({
   //传送的参数
   data: {
+    timer: '',
+    animation:'',
     searchModel: {
       enable: true,
       PageIndex: 1,
       PageSize: 3,
       category: "",
     },
+    animationData:{},
+    winHeight: app.globalData.winHeight,
+    winWidth:app.globalData.winWidth,
     status: false,
     activitys: [],
     datas1: [],
@@ -25,6 +30,11 @@ Page({
     table: []
   },
   onLoad: function(options) {
+    wx.getSystemInfo({
+      success(res) {
+        console.log(res)
+      }
+    })
     app.authorize()
     var that = this
     app.getUserInfo(function(userInfo) {
@@ -35,6 +45,59 @@ Page({
     })
     app.utils.getSystemInfo(that)
     that.sceneLoad()
+  },
+  // 设置动画
+  getAnimation() {
+    let that = this
+    let animation = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'linear',
+      delay: 0,
+      transformOrigin: '50% 50% 0'
+    })
+    // 横向的最大距离
+    let maxX = this.data.winWidth
+    // 竖直方向的最大距离
+    let maxY = 200
+    animation.translate(-maxX/2 + 45, -100).step({ duration: 3000 })
+    animation.translate(maxX/2, -200).step({ duration: 3000 })
+    animation.translate(22, 0).step({ duration: 3000 })
+    that.setData({
+      animationData: animation.export()
+    })
+    this.data.timer = setInterval(() => {
+      // 横向的最大距离
+      let maxX = this.data.winWidth
+      // 竖直方向的最大距离
+      let maxY = 200
+      animation.translate(-maxX/2 + 45, -100).step({ duration: 3000 })
+      animation.translate(maxX/2, -200).step({ duration: 3000 })
+      animation.translate(22, 0).step({ duration: 3000 })
+      that.setData({
+        animationData: animation.export()
+      })
+    },9000)
+  },
+  // 获取首页轮播图
+  getBannerList () {
+    wx.ajax({
+      url:'API@plat-manager/carouselManager/showCarousel',
+      data:{
+        "code": 'CONFIG:WX_SY_PAGE'
+      },
+      success:res => {
+        console.log(res)
+        if(res.result) {
+          this.setData({
+            activitys:res.result
+          })
+        }else {
+          this.setData({
+            activitys:[]
+          })
+        }
+      }
+    })
   },
   sceneLoad: function() {
     if (wx.getStorageSync("invitation")) {
@@ -135,15 +198,27 @@ Page({
     this.myDialog.hideDialog()
   },
   onShow: function() {
+    if(!this.data.timer) {
+      this.getAnimation()
+    }
     this.getShotcutMenu()
     var path = "Information"
     var that = this
     this.initData(that, 'PolicyLaw', path)
     this.initData(that, 'Information', path)
     this.initData(that, 'IndustryNews', path)
-    this.initActivityData()
+    // this.initActivityData()
+    this.getBannerList()
     this.getStatus()
     console.log(app.utils.formatDateTime(new Date()) + ": app index-page show")
+  },
+  onHide: function() {
+    clearInterval(this.data.timer)
+    this.data.timer = 0
+    this.setData({
+      animationData: {}
+    })
+    // this.data.animation.translate(0, 0).step({duration:3000})
   },
   enterItem: function(e) {
     var url = e.currentTarget.dataset.url
@@ -154,6 +229,12 @@ Page({
     }
     wx.navigateTo({
       url: url + "?title=" + title,
+    })
+  },
+  goCurrentUrl(e) {
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url:'/'+url
     })
   },
   details: function(e) {
@@ -455,14 +536,27 @@ Page({
   },
   getStatus: function() {
     var that = this
-
-    app.httpUtils.get("Activity", {
-      flag: "status",
-      user_id: that.data.userInfo.userName
-    }, function(data) {
-      that.setData({
-        status: data.Data5
-      })
+    wx.ajax({
+      url: 'API@plat-manager/config/queryConfigList',
+      data: {
+        condition: 'WX_MSG_SHOW', 
+        page: {
+          pageSize:10,
+          pageIndex: 1
+        } },
+      success: res => {
+        that.setData({
+          status: res.result[0].configValue === 'true'
+        })
+      }
     })
+    // app.httpUtils.get("Activity", {
+    //   flag: "status",
+    //   user_id: that.data.userInfo.userName
+    // }, function(data) {
+    //   that.setData({
+    //     status: data.Data5
+    //   })
+    // })
   }
 })

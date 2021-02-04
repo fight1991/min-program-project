@@ -1,0 +1,21 @@
+<!--pages/order/allBill/companys.wxml-->
+<view wx:for='{{showData}}' wx:for-item="item" wx:for-index="idx" wx:key='company' wx:if='{{item.contactWay.length>0}}' class='companyParent'>
+  <view class='companyT'>{{item.corpName}}</view>
+  <view wx:for='{{item.contactWay}}' wx:for-item="itemW" wx:key='companyWay' class='companyAdd'>
+  <view catchtap='backdata' data-item='{{itemW}}'>
+  <view class='msg-f'>
+    <view class='msg-img'>
+      <image src='../../../content/images/themes/A/tel.png'/>
+    </view>
+    <view>{{itemW.addressTel}}</view>
+  </view >
+  <view>{{itemW.countryValue + itemW.provinceValue + itemW.cityValue + itemW.address}}</view>
+  </view>
+  </view>
+  <view class="control-btn">
+  <view class="btns open" data-index="{{idx}}" catchtap='showtotal' wx:if="{{totaldata[idx].contactWay.length>2}}">
+          <view class="isOpen">{{iftotal[idx]=== false? '展开':'收起'}}</view>
+          <image style='width: 24rpx;height: 24rpx;' src="https://www.5itrade.cn/files/wechat/{{iftotal[idx]=== true? 'Retract':'Open'}}.png" />
+        </view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+/* pages/otherActivity/areaDetail/areaDetail.wxss */
+page {
+  font-size: 24rpx;
+}
+.clickTap {
+  background-color: #f5f5f5;
+}
+/* 右侧固定区域 */
+.fixW {
+  padding: 4rpx;
+  position: fixed;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+.areaDetail .title {
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: 28rpx;
+  padding-left: 20px;
+  background-color: #f5f5f5;
+}
+.areaDetail .list .row {
+  padding: 0 20px;
+}
+.areaDetail .list .contry {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f5f5f5;
+}
+.areaDetail .list .number {
+  padding-right: 40px;
+  width: 48rpx;
+  text-align: left;
+}

@@ -1,0 +1,109 @@
+<!--pages/order/allBill/deliveryInfo.wxml-->
+<view class="delivery" wx:if='{{orderFlag=="1"}}'>
+  <view class="title">联系人</view>
+  <view class="nameInfo vertical-center">
+    <input type="text" maxlength="20" bindinput="getContactNameBySelf"  placeholder="请选择联系人" placeholder-class="input-placeholder"  value='{{type=="get"?subForm.pickUpGContacts:subForm.deliverGContacts}}'/>
+    <image catchtap="goToContact" class="contactImg" src="https://www.5itrade.cn/files/wechat/Mail list.png" />
+  </view>
+  <view class="title">联系方式</view>
+  <view class="linkWay">
+    <input type="text" maxlength="20" bindinput="getContactTelBySelf" placeholder="请选择联系方式" placeholder-class="input-placeholder" value='{{type=="get"?subForm.pickUpGPhone:subForm.deliverGPhone}}'/>
+  </view>
+  <view class="title">地区信息</view>
+  <view class="addressInfo vertical-center">
+    <view class="section">
+      <picker bindchange="bindCountryChange" value="{{countryuindex}}"  range="{{countrysName}}">
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 95%'>
+            <input class="picker" disabled='true' style='border:unset;' placeholder-style='font-size:10px' placeholder='国家' value="{{countrysName[countryuindex]}}">
+            </input>
+            <!-- <image src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image> -->
+          </view>
+        </picker>
+        <picker bindchange="bindprivChange" disabled="{{privsName.length === 0 ? true:false}}" value="{{privindex}}" range="{{privsName}}" >
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 95%'>
+            <input class="picker" disabled='true' style='border:unset;' placeholder-style='font-size:10px' placeholder='省/州' value="{{privsName[privindex]}}">
+            </input>
+            <!-- <image src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image> -->
+          </view>
+        </picker>
+        <picker bindchange="bindareaChange" disabled="{{areasName.length === 0 ? true:false}}" value="{{areaindex}}" range="{{areasName}}" >
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 95%;'>
+            <input class="picker" disabled='true' style='border:unset;' placeholder-style='font-size:10px' placeholder='市/县' value="{{areasName[areaindex]}}">
+            </input>
+            <!-- <image wx:if='{{areasName.length>0}}' src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image> -->
+          </view>
+        </picker>
+      </view>
+  </view>
+  <view class="title">详细地址</view>
+  <view class="addressDetail">
+    <textarea class="" placeholder="请输入详细地址..." bindinput='inputThis' value='{{type=="get"?subForm.pickUpGAddress:subForm.deliverGAddress}}' placeholder-class="input-placeholder"></textarea>
+  </view>
+</view>
+<view class="delivery" wx:if='{{orderFlag=="2"}}'>
+  <view class="title">联系人</view>
+  <view class="nameInfo vertical-center">
+    <input type="text" maxlength="20" bindinput="getContactNameBySelf"  placeholder="请选择联系人" placeholder-class="input-placeholder"  value='{{type=="get"?subForm.agentSendCarWithBLOBsVO.ref1:subForm.agentSendCarWithBLOBsVO.ref3}}'/>
+    <image catchtap="goToContact" class="contactImg" src="https://www.5itrade.cn/files/wechat/Mail list.png" />
+  </view>
+  <view class="title">联系方式</view>
+  <view class="linkWay">
+    <input type="text" maxlength="20" bindinput="getContactTelBySelf" placeholder="请选择联系方式" placeholder-class="input-placeholder" value='{{type=="get"?subForm.agentSendCarWithBLOBsVO.ref2:subForm.agentSendCarWithBLOBsVO.ref4}}'/>
+  </view>
+  <view class="title">地区信息</view>
+  <view class="addressInfo vertical-center">
+    <view class="section">
+      <picker bindchange="bindCountryChange" value="{{countryuindex}}"  range="{{countrysName}}">
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 96%'>
+            <input class="picker" disabled='true' style='border:unset;' placeholder-style='font-size:10px' placeholder='国家' value="{{countrysName[countryuindex]}}">
+            </input>
+          </view>
+        </picker>
+        <picker bindchange="bindprivChange" value="{{privindex}}" range="{{privsName}}" >
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 96%'>
+            <input class="picker" disabled='true' style='border:unset;' placeholder-style='font-size:10px' placeholder='省/自治区/直辖市' value="{{privsName[privindex]}}">
+            </input>
+          </view>
+        </picker>
+        <picker bindchange="bindareaChange" value="{{areaindex}}" range="{{areasName}}" >
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 98%;margin-left:8%'>
+            <input class="picker" disabled='true' style='border:unset;' placeholder-style='font-size:10px' placeholder='市' value="{{areasName[areaindex]}}">
+            </input>
+          </view>
+        </picker>
+      </view>
+  </view>
+  <view class="title">详细地址</view>
+  <view class="addressDetail">
+    <textarea class="" placeholder="请输入详细地址..." bindinput='inputThis' value='{{type=="get"?subForm.agentSendCarWithBLOBsVO.deliveryAddrS:subForm.agentSendCarWithBLOBsVO.deliveryAddrR}}' placeholder-class="input-placeholder"></textarea>
+  </view>
+</view>
+<view class="history" wx:if='{{orderFlag=="1"}}'>
+  <view class="title">历史记录</view>
+  <view class="linkInfo" wx:for="{{shwostor}}" wx:key='{{"Contacts"+index}}' catchtap='backstor' data-sortitem='{{item}}'>
+    <view class="oneLine vertical-center">
+      <view class="name">{{type=='send'?item.deliverGContacts:item.pickUpGContacts}}</view>
+      <view class="tel vertical-center">
+        <image src="https://www.5itrade.cn/files/wechat/Telephone.png"/>
+        <text>{{type=='send'?item.deliverGPhone:item.pickUpGPhone}}</text>
+      </view>
+    </view>
+    <view class="area">{{type=='send'?(item.deliverGCountryValue+(item.deliverGProvinceValue=='所有'?'':item.deliverGProvinceValue)+item.deliverGCityValue+item.deliverGAddress):(item.pickUpGCountryValue+(item.pickUpGProvinceValue=='所有'?'':item.pickUpGProvinceValue)+item.pickUpGCityValue+item.pickUpGAddress)}}</view>
+  </view>
+</view>
+<view class="history" wx:if='{{orderFlag=="2"}}'>
+  <view class="title">历史记录</view>
+  <view class="linkInfo" wx:for="{{shwostor}}" wx:key='{{"Contacts"+index}}' catchtap='backstor' data-sortitem='{{item}}'>
+    <view class="oneLine vertical-center">
+      <view class="name">{{type=='send'?item.ref3:item.ref1}}</view>
+      <view class="tel vertical-center">
+        <image src="https://www.5itrade.cn/files/wechat/Telephone.png"/>
+        <text>{{type=='send'?item.ref4:item.ref2}}</text>
+      </view>
+    </view>
+    <view class="area">{{type=='send'?(item.deliverGCountryValue+(item.deliverGProvinceValue=='所有'?'':item.deliverGProvinceValue)+item.deliverGCityValue+item.deliveryAddrR):(item.pickUpGCountryValue+(item.pickUpGProvinceValue=='所有'?'':item.pickUpGProvinceValue)+item.pickUpGCityValue+item.deliveryAddrS)}}</view>
+  </view>
+</view>
+<view style='text-align: center;' bindtap='corpFin'>
+    <view class='lic-fin'>完成</view>
+</view>

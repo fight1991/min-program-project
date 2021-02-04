@@ -1,0 +1,52 @@
+<import src="../../content/template/search_back.wxml" />
+<import src="../../content/template/search_topImage.wxml" />
+<form bindsubmit="search" bindreset="reset">
+  <view style='padding-top:5%'>
+    <view class="search-item1" style='margin-bottom:20px'>
+      <label class='search-item-lb'>报关单号</label>
+      <view class="search-item">
+        <input class='search-item-input' type='number' placeholder='请输入报关单号' placeholder-class='placeholder' id="entry_id" value='{{searchModel.entry_id}}' bindinput='bindData'></input>
+        <image src='/content/images/themes/A/ccbascanCode.png' data-scan='entry_id' class="search-item-img" bindtap='scanCode'></image>
+      </view>
+    </view>
+    <view class='search-btns'>
+      <button class="search-btn" disabled='{{disabled}}' formType="submit">查询</button>
+    </view>
+  </view>
+</form>
+<view wx:if="{{isShow}}" style='padding-top:40px' class='list-item'>
+  <view class='list-item-top'>
+    <view class='top-title'>
+      <view class='list-item-title'>通关状态：</view>
+    </view>
+    <view class='top-content'>
+      {{decStatus.time}}    {{decStatus.swStatus}}
+    </view>
+  </view>
+  <view class='list-item-top'>
+    <view class='top-title'>
+      <view class='list-item-title'>国税联网状态：</view>
+    </view>
+    <view class='top-content'>
+      <view class="listview-container">
+        <block wx:for="{{taxStatus}}" wx:key="" data-index='{{index}}'>
+          <view class="playlog-item" bindtap="itemTapped">
+            <view class="content">
+              <text class="course">{{item.time}}</text>
+            </view>
+            <view class="dotline">
+              <!-- 竖线 -->
+              <view class="line" wx:if='{{index!=taxStatus.length-1}}'></view>
+              <!-- 圆点 -->
+              <view class="dot"></view>
+              <!-- 时间戳 -->
+            </view>
+            <view class="content">
+              <text class="course">{{item.name}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

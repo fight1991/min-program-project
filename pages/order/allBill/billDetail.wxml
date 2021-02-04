@@ -1,0 +1,380 @@
+<!-- 头部区域 -->
+<view class="header flex-center" bindtap="getStatus">
+  <view data-index="0" class="label label-statusSource" style="border-bottom:{{style[0]['borderBottom']}};color:{{style[0]['color']}}">状态跟踪</view>
+  <view data-index="1" class="label label-content" style="border-bottom:{{style[1]['borderBottom']}};color:{{style[1]['color']}}">委托内容</view>
+  <view data-index="2" class="label label-license" style="border-bottom:{{style[2]['borderBottom']}};color:{{style[2]['color']}}">随附单据</view>
+</view>
+<!-- 中间滚动区域 -->
+<view class="statusSource" hidden="{{!style[0]['isShow']}}" style="height:{{statusFlag === true ? (winHeight-102):(winHeight-42) }}px">
+  <scroll-view wx:if="{{statusList.length > 0}}"  scroll-y="{{true}}" style="height:100%">
+   <!-- 状态跟踪时间线 -->
+   <view class="timeLine">
+     <view wx:if="{{statusList.length > 1}}" class="statusDetail vertical-center" wx:for="{{statusList}}" wx:key="{{statusStreamPid}}">
+       <view class="left time f12">{{item.createTime}}</view>
+       <view class="right status dot">
+         <view class="statusName f28">{{item.statusName}}</view>
+         <view class="userName f24">{{item.createUserName}}{{item.createCompanyName === '' ? '' : '('+item.createCompanyName+')'}}</view>
+       </view>
+     </view>
+     <view wx:if="{{statusList.length === 1}}" class="statusDetail-single vertical-center" wx:for="{{statusList}}" wx:key="{{statusStreamPid}}">
+       <view class="left time f12">{{item.createTime}}</view>
+       <view class="single-dot">
+         <view class="statusName f28">{{item.statusName}}</view>
+         <view class="userName f24">{{item.createUserName}}{{item.createCompanyName === '' ? '' : '('+item.createCompanyName+')'}}</view>
+       </view>
+     </view>
+   </view>
+  </scroll-view>
+  <scroll-view scroll-y="{{true}}" style="height:100%" wx:else>
+    <view class="noData">
+        <image src="https://www.5itrade.cn/files/wechat/no_data.png"></image>
+    </view>
+  </scroll-view>
+</view>
+<view class="content" hidden="{{!style[1]['isShow']}}" style="height:{{statusFlag === true ? (winHeight-102):(winHeight-42) }}px">
+  <scroll-view wx:if="{{getEntrustDetail.entrustCode || getEntrustDetail.innerNo }}"  scroll-y="{{true}}" style="height:100%">
+    <view class="list-title">{{orderFlag === '1' ? '受托企业' : '委托客户'}}</view>
+    <view class="corpList">
+      <view class="listInfo" wx:if="{{orderFlag === '1'}}" wx:for="{{getEntrustDetail.beEntrustInfoVOs}}" wx:key="{{beEntrustInfoPid}}">
+        <view class="firstLine flex-center">
+          <view class="corpName text-cut f28">{{item.beEntrustCompanyName}}</view>
+          <view class="edit vertical-center">
+            <image class="editImg" catchtap="editEntrustCompany" data-index="{{index}}" wx:if="{{item.beEntrustStatus === '2'}}" src="https://www.5itrade.cn/files/wechat/edit.png"/>          
+          </view>
+          <!-- <view class="status save" wx:if="{{item.beEntrustStatus === '1'}}">{{item.beEntrustStatusValue}}</view> -->
+          <view class="status waitting" wx:if="{{item.beEntrustStatus === '2'}}">{{item.beEntrustStatusValue}}</view>
+          <view class="status accept" wx:if="{{item.beEntrustStatus === '3'}}">{{item.beEntrustStatusValue}}</view>
+          <!-- <view class="status drop" wx:else>{{item.beEntrustStatusValue}}</view> -->
+        </view>
+        <text class="secondLine" wx:if="{{item.entrustBusinessValue}}">{{item.entrustBusinessValue}}</text>
+        <view class="lastLine" wx:if="{{item.note}}">{{item.note}}</view>
+      </view>
+      <view class="listInfo"  wx:if="{{orderFlag === '2'}}">
+        <view class="firstLine flex-center">
+          <view class="corpName f28">{{getEntrustDetail.company}}</view>
+        </view>
+        <text class="secondLine" wx:if="{{getEntrustDetail.type}}">{{getEntrustDetail.type==='dec' ? '报关单': (getEntrustDetail.type==='invt' ? '核注清单':'物流作业')}}</text>
+        <view class="lastLine" wx:if="{{getEntrustDetail.note}}">{{getEntrustDetail.note}}</view>
+      </view>
+    </view>
+    <!-- 第二部分 -->
+    <view class="secondPart part">
+      <!-- 固定展示部分 -->
+      <view class="fixed">
+        <view class="line">
+          <view class="left">{{orderFlag === '1' ? '委托编号' : '接单编号'}} :</view>
+          <view class="right">{{getEntrustDetail.entrustCode || getEntrustDetail.innerNo || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">创建时间 :</view>
+          <view class="right">{{getEntrustDetail.createTime || getEntrustDetail.createDate || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">物流方式 :</view>
+          <view class="right">{{getEntrustDetail.iEFlag === 'I' ? '进口':'出口'}}{{getEntrustDetail.trafModeValue && ('/' + getEntrustDetail.trafModeValue)}}{{logFlag === true && getEntrustDetail.tradeTermsValue ? ('/' + getEntrustDetail.tradeTermsValue) : ''}}</view>
+        </view>
+        <view class="line">
+          <view class="left">提运单号 :</view>
+          <view class="right">{{getEntrustDetail.billNo || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{logFlag}}">
+          <view class="left">货物信息 :</view>
+          <view class="right">{{getEntrustDetail.goodsOutline || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">件数 :</view>
+          <view class="right">{{getEntrustDetail.packNo || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">毛重 :</view>
+          <view class="right">{{getEntrustDetail.grossWt || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">包装种类 :</view>
+          <view class="right">{{getEntrustDetail.wrapTypeValue || '-'}}</view>
+        </view>
+      </view>
+      <!-- 要展开区域开始 -->
+      <view class="openPart" hidden="{{isOpen[0]}}">
+        <view class="line" wx:if="{{decFlag}}">
+          <view class="left">是否拼票 :</view>
+          <view class="right">{{getEntrustDetail.splitFlagValue || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{invtFlag}}">
+          <view class="left">手(账)册编号 :</view>
+          <view class="right">{{getEntrustDetail.manualNo || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{invtFlag}}">
+          <view class="left">料件、成品标志 :</view>
+          <view class="right">{{getEntrustDetail.mtpckEndprdTypecdValue || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{invtFlag}}">
+          <view class="left">清单类型 :</view>
+          <view class="right">{{getEntrustDetail.billtypeValue || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{invtFlag}}">
+          <view class="left">报关标志 :</view>
+          <view class="right">{{getEntrustDetail.ediIdValue || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{decFlag || invtFlag}}">
+          <view class="left">报关单类型 :</view>
+          <view class="right" wx:if="{{orderFlag === '1'}}">{{getEntrustDetail.decTypeValue || '-'}}</view>
+          <view class="right" wx:if="{{orderFlag === '2'}}">{{decFlag ? getEntrustDetail.declTrnrelValue:getEntrustDetail.decTypeValue}}</view>
+        </view>
+      </view>
+      <!-- 要展开区域结束 -->
+      <!-- 控制按钮 -->
+      <view class="control-btn" hidden="{{ logFlag && !decFlag && !invtFlag }}">
+        <view class="btns open" bindtap="justyIsOpen" data-id="0">
+          <view class="isOpen">{{isOpen[0]=== false? '收起':'展开'}}</view>
+          <image src="https://www.5itrade.cn/files/wechat/{{isOpen[0]=== false? 'Retract':'Open'}}.png" />
+        </view>
+      </view>
+    </view>
+    <!-- 第三部分 -->
+    <view class="thirdPart part" wx:if="{{logFlag}}">
+      <view class="fixed" hidden="{{!isOpen[1]}}">
+        <view class="line">
+          <view class="left">提货地 :</view>
+          <view class="right">{{getEntrustDetail.pickUpGCountryValue + getEntrustDetail.pickUpGProvinceValue + getEntrustDetail.pickUpGCityValue + getEntrustDetail.pickUpGAddress || (getEntrustDetail.agentSendCarWithBLOBsVO.pickUpGCountryValue + getEntrustDetail.agentSendCarWithBLOBsVO.pickUpGProvinceValue + getEntrustDetail.agentSendCarWithBLOBsVO.pickUpGCityValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliveryAddrS) || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">送货地 :</view>
+          <view class="right">{{getEntrustDetail.deliverGCountryValue + getEntrustDetail.deliverGProvinceValue + getEntrustDetail.deliverGCityValue + getEntrustDetail.deliverGAddress || (getEntrustDetail.agentSendCarWithBLOBsVO.deliverGCountryValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliverGProvinceValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliverGCityValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliveryAddrR) || '-' }}</view>
+        </view>
+      </view>
+      <!-- 要展开部分开始 -->
+      <view class="openPart" hidden="{{isOpen[1]}}">
+        <view class="line">
+          <view class="left">提货地 :</view>
+          <view class="right">{{getEntrustDetail.pickUpGCountryValue + getEntrustDetail.pickUpGProvinceValue + getEntrustDetail.pickUpGCityValue + getEntrustDetail.pickUpGAddress || (getEntrustDetail.agentSendCarWithBLOBsVO.pickUpGCountryValue + getEntrustDetail.agentSendCarWithBLOBsVO.pickUpGProvinceValue + getEntrustDetail.agentSendCarWithBLOBsVO.pickUpGCityValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliveryAddrS) || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">联系人 :</view>
+          <view class="right">{{getEntrustDetail.pickUpGContacts || getEntrustDetail.agentSendCarWithBLOBsVO.ref1 || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">联系方式 :</view>
+          <view class="right">{{getEntrustDetail.pickUpGPhone || getEntrustDetail.agentSendCarWithBLOBsVO.ref2 || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">送货地 :</view>
+          <view class="right">{{getEntrustDetail.deliverGCountryValue + getEntrustDetail.deliverGProvinceValue + getEntrustDetail.deliverGCityValue + getEntrustDetail.deliverGAddress || (getEntrustDetail.agentSendCarWithBLOBsVO.deliverGCountryValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliverGProvinceValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliverGCityValue + getEntrustDetail.agentSendCarWithBLOBsVO.deliveryAddrR) || '-' }}</view>
+        </view>
+        <view class="line">
+          <view class="left">联系人 :</view>
+          <view class="right">{{getEntrustDetail.deliverGContacts || getEntrustDetail.agentSendCarWithBLOBsVO.ref3 || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">联系方式 :</view>
+          <view class="right">{{getEntrustDetail.deliverGPhone || getEntrustDetail.agentSendCarWithBLOBsVO.ref4 || '-'}}</view>
+        </view>
+      </view>
+      <!-- 控制按钮 -->
+      <view class="control-btn">
+        <view class="btns open" bindtap="justyIsOpen" data-id="1">
+          <view class="isOpen">{{isOpen[1]=== false? '收起':'展开'}}</view>
+          <image src="https://www.5itrade.cn/files/wechat/{{isOpen[1]=== false? 'Retract':'Open'}}.png" />
+        </view>
+      </view>
+    </view>
+    <!-- 第四部分>>>>申报信息 -->
+    <view class="forth part" wx:if="{{decFlag}}">
+      <view class="fixed" hidden="{{!isOpen[2]}}">
+        <view class="line">
+          <view class="left">境内收发货人 :</view>
+          <view class="right">{{getEntrustDetail.tradeName || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">境外收发货人 :</view>
+          <view class="right">{{getEntrustDetail.overseasConsignorCname || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{getEntrustDetail.iEFlag === 'I'}}">
+          <view class="left">消费使用单位 :</view>
+          <view class="right">{{getEntrustDetail.ownerName || '-'}}</view>
+        </view>
+        <view class="line" wx:else>
+          <view class="left">生产销售单位 :</view>
+          <view class="right">{{getEntrustDetail.ownerName || '-'}}</view>
+        </view>
+      </view>
+      <!-- 要展开部分 -->
+      <view class="openPart" hidden="{{isOpen[2]}}">
+        <view class="line">
+          <view class="left">境内收发货人 :</view>
+          <view class="right">{{getEntrustDetail.tradeName || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">海关编码 :</view>
+          <view class="right">{{getEntrustDetail.tradeCode || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">社会信用代码 :</view>
+          <view class="right">{{getEntrustDetail.tradeCoScc || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">境外收发货人 :</view>
+          <view class="right">{{getEntrustDetail.overseasConsignorCname || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">企业代码 :</view>
+          <view class="right" style="word-break:break-all;">{{getEntrustDetail.overseasConsignorCode || '-'}}</view>
+        </view>
+        <view class="line" wx:if="{{getEntrustDetail.iEFlag === 'I'}}">
+          <view class="left">消费使用单位 :</view>
+          <view class="right">{{getEntrustDetail.ownerName || '-'}}</view>
+        </view>
+        <view class="line" wx:else>
+          <view class="left">生产销售单位 :</view>
+          <view class="right">{{getEntrustDetail.ownerName || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">海关编码 :</view>
+          <view class="right">{{getEntrustDetail.ownerCode || '-'}}</view>
+        </view>
+        <view class="line">
+          <view class="left">社会信用代码 :</view>
+          <view class="right">{{getEntrustDetail.ownerCodeScc || '-'}}</view>
+        </view>
+      </view>
+      <!-- 控制按钮 -->
+      <view class="control-btn">
+        <view class="btns open" bindtap="justyIsOpen" data-id="2">
+          <view class="isOpen">{{isOpen[2]=== false? '收起':'展开'}}</view>
+          <image src="https://www.5itrade.cn/files/wechat/{{isOpen[2]=== false? 'Retract':'Open'}}.png" />
+        </view>
+      </view>
+    </view>
+    <!-- 第五部分 -->
+    <view class="fifth part" wx:if="{{invtFlag}}">
+      <!-- 固定展示部分 -->
+      <view class="colose-orderFlag" wx:if="{{orderFlag === '1'}}">
+        <view class="fixed"  hidden="{{!isOpen[3]}}">
+          <view class="line">
+            <view class="left">经营单位 :</view>
+            <view class="right">{{getEntrustDetail.operateName || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">加工单位 :</view>
+            <view class="right">{{getEntrustDetail.processName || '-'}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="colose-orderFlag" wx:else>
+        <view class="fixed"  hidden="{{!isOpen[3]}}">
+          <view class="line">
+            <view class="left">经营单位 :</view>
+            <view class="right">{{ getEntrustDetail.tradeName || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">加工单位 :</view>
+            <view class="right">{{ getEntrustDetail.ownerName || '-'}}</view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 展开部分 -->
+      <view class="open-orderFlag" wx:if="{{orderFlag === '1'}}">
+        <view class="openPart" hidden="{{isOpen[3]}}">
+          <view class="line">
+            <view class="left">经营单位 :</view>
+            <view class="right">{{getEntrustDetail.operateName || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">海关编码 :</view>
+            <view class="right">{{getEntrustDetail.operateCode || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">社会信用代码 :</view>
+            <view class="right">{{getEntrustDetail.operateScc || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">加工单位 :</view>
+            <view class="right">{{getEntrustDetail.processName || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">海关编码 :</view>
+            <view class="right">{{getEntrustDetail.processCode || '-' }}</view>
+          </view>
+          <view class="line">
+            <view class="left">社会信用代码 :</view>
+            <view class="right">{{getEntrustDetail.processScc || '-' }}</view>
+          </view>
+        </view>
+      </view>
+      <view class="open-orderFlag" wx:else>
+        <view class="openPart" hidden="{{isOpen[3]}}">
+          <view class="line">
+            <view class="left">经营单位 :</view>
+            <view class="right">{{ getEntrustDetail.tradeName || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">海关编码 :</view>
+            <view class="right">{{ getEntrustDetail.tradeCode || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">社会信用代码 :</view>
+            <view class="right">{{ getEntrustDetail.tradeCoScc || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">加工单位 :</view>
+            <view class="right">{{ getEntrustDetail.ownerName || '-'}}</view>
+          </view>
+          <view class="line">
+            <view class="left">海关编码 :</view>
+            <view class="right">{{ getEntrustDetail.ownerCode || '-' }}</view>
+          </view>
+          <view class="line">
+            <view class="left">社会信用代码 :</view>
+            <view class="right">{{ getEntrustDetail.ownerCodeScc || '-' }}</view>
+          </view>
+        </view>
+      </view>
+       <!-- 控制按钮 -->
+      <view class="control-btn">
+        <view class="btns open" bindtap="justyIsOpen" data-id="3">
+          <view class="isOpen">{{isOpen[3]=== false? '收起':'展开'}}</view>
+          <image src="https://www.5itrade.cn/files/wechat/{{isOpen[3]=== false? 'Retract':'Open'}}.png" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="{{true}}" style="height:100%" wx:else>
+    <view class="noData">
+        <image src="https://www.5itrade.cn/files/wechat/no_data.png"></image>
+    </view>
+  </scroll-view>
+</view>
+<view class="license" hidden="{{!style[2]['isShow']}}" style="height:{{statusFlag === true ? (winHeight-102):(winHeight-42) }}px">
+  <scroll-view  wx:if="{{getEntrustDetail.sysDocVOs.length > 0 }}"  scroll-y="{{true}}" style="height:100%" lower-threshold="{{50}}">
+    <view catchtap="downLoadLicense" data-url="{{item.fullName}}" data-filetype="{{item.fileType}}" class="licenseInfo flex-center" wx:for="{{getEntrustDetail.sysDocVOs}}" wx:key="{{ seqNo }}">
+      <view class="left vertical-center">
+        <view class="mark vertical-center">
+          <image wx:if="{{ item.fileType === 'png' || item.fileType === 'jpg' }}" src="https://www.5itrade.cn/files/wechat/picture.png" />
+          <image wx:elif="{{ item.fileType === 'pdf' }}" src="https://www.5itrade.cn/files/wechat/pdf.png" />
+          <image wx:elif="{{ item.fileType === 'doc' || item.fileType === 'docx' }}" src="https://www.5itrade.cn/files/wechat/word.png" />
+          <image wx:elif="{{ item.fileType === 'xls' || item.fileType === 'xlsx' }}" src="https://www.5itrade.cn/files/wechat/excel.png" />
+          <image wx:else src="https://www.5itrade.cn/files/wechat/file.png" />
+        </view>
+        <view class="text">
+          <view class="text-up text-cut">{{ item.docTypeValue === null ? '': ("【" + item.docTypeValue + "】")}}{{ item.fileName }}</view>
+          <view class="text-down">{{ item.fileSize + 'KB' + '　' + (item.upTime || '') }}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="{{true}}" style="height:100%" wx:else>
+    <view class="noData">
+        <image src="https://www.5itrade.cn/files/wechat/no_data.png"></image>
+    </view>
+  </scroll-view>
+</view>
+<!-- 底部区域 -->
+<view class="footer flex-center f28" wx:if="{{orderFlag==='1' && statusFlag}}">
+  <view class="edit" bindtap="goToCreatOrder">编辑</view>
+  <view class="submit" bindtap="saveEntrust">提交</view>
+</view>
+<view class="footer flex-center f28" wx:if="{{orderFlag==='2' && statusFlag}}">
+  <view class="edit" bindtap="goToCreatOrder" wx:if="{{refFlag=== 'zi'}}">编辑</view>
+  <view class="submit" bindtap="submitOrder"  style="width:{{refFlag === 'zi' ? '50%' : '100%' }}">提交</view>
+</view>

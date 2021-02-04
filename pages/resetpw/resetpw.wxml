@@ -13,11 +13,11 @@
     </view>
     <view class='input-item'>
       <label class='title' style='padding-left:10px;'>设置新密码</label>
-      <input class='input-item-content' id='password' name='password' value='{{currentUser.password}}' placeholder='请输入新密码' placeholder-class='placeholder' type='password' bindinput='bindData'></input>
+      <input maxlength='8' class='input-item-content' id='password' name='password' value='{{currentUser.password}}' placeholder='请输入新密码' placeholder-class='placeholder' type='password' bindinput='bindData'></input>
     </view>
     <view class='input-item'>
       <label class='title' style='padding-left:10px;'>确认新密码</label>
-      <input class='input-item-content' type='password' id='passworded' name='passworded' placeholder='请重新输入密码' placeholder-class='placeholder' bindinput='bindData'></input>
+      <input maxlength='8' class='input-item-content' type='password' id='passworded' name='passworded' placeholder='请重新输入密码' placeholder-class='placeholder' bindinput='bindData'></input>
     </view>
     <view>
       <button class='btn-save' type='head' formType="submit">重置密码</button>

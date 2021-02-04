@@ -1,0 +1,25 @@
+<!--pages/productData/GTIN/gtinSearch.wxml-->
+<view class="gtinSearch" style="height:{{winHeight}}px;">
+  <!-- 搜索栏 -->
+  <view class="search">
+    <view class="search-item">
+      <icon type="search" color="#fff" class="icon" size="20" />
+      <input type="text" placeholder="请输入产品名称进行查询" placeholder-class="input-placeholder" confirm-type="search" bindinput="getSearchKey" bindconfirm="getResultList"/>
+      <image bindtap="scanCode" class="" src="/content/images/themes/A/saoma.png" mode="aspectFit" lazy-load="{{true}}">
+      </image>
+    </view>
+  </view>
+  <!-- GTIN列表 -->
+  <view class="main" style="height:{{winHeight - 60}}px;">
+    <scroll-view scroll-y="{{true}}" class="view-list" style="height:100%;overflow:scroll" bindscrolltolower="scrolltolower">
+      <view class="gtinList" bindtap="goGtinDetail">
+        <view class="items" wx:for="{{gtinList}}" wx:key="gtin" data-gtin="{{item.gtin}}">
+          <view class="gtinNum" style='pointer-events: none;'>{{item.gtin}}</view>
+          <view class="brandName" style='pointer-events: none;'>{{item.importCorpName}}</view>
+        </view>
+      </view>
+      <view wx:if='{{ hasMore && isLoading }}'  class="loadmore loading">正在加载...</view>
+      <view wx:if='{{ !hasMore }}' class="loadmore">{{title}}</view>
+    </scroll-view>
+  </view>
+</view>

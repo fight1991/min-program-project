@@ -1,0 +1,75 @@
+<!--pages/airQuery/airInfoList.wxml-->
+<scroll-view class="infoList" scroll-y="{{scroll}}" bindscroll="scrollTop" scroll-top="{{scrollTop.scroll_top}}" style='height:{{windowheight}}px'>
+<view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:{{windowheight}}px;'>
+  <!-- 下拉刷新结构 -->
+  <view style="height:{{boxHeight}}px;display:flex;overflow: hidden;justify-content: center;background-color:#f5f5f5;transition: .2s all;text-align: center;font-size: 12px;line-height:{{boxHeight}}px" hidden="{{refresh}}">
+    <view style="position: relative;width:80px;">{{title}}
+      <!-- 加载成功 -->
+      <image hidden="{{imageAll || loadingSuccess}}" style="position: absolute;height:20px;width:20px;top:50%;left:0;transform:translate(-100%,-50%)" src="https://51baoguan.cn/content/images/themes/A/success.png">
+      </image>
+      <!-- 正在加载 -->
+      <image  hidden="{{imageAll || !loadingSuccess}}" style="position: absolute;height:20px;width:20px;top:50%;left:0;transform:translate(-100%,-50%)" src="https://51baoguan.cn/content/images/themes/A/load-more.gif">
+      </image>
+    </view>
+  </view>
+  <!-- 航班动态更新推送区域 -->
+  <view class="airUpdate" hidden="{{type === 'nomal'}}">
+    <view class="text">航班动态更新推送</view>
+    <view class="switch">
+      <switch checked bindchange="switchChange" checked="{{isChecked}}"  />
+    </view>
+  </view>
+  <view class="nodata" hidden="{{formareaInfo.length !== 0 || type == 'nomal' || imgshow}}">
+   <image src="https://www.5itrade.cn/files/wechat/noinst.png" mode="scaleToFill" lazy-load></image>
+  </view>
+  <view class="nodata" hidden="{{formareaInfo.length !== 0 || type == 'interest'|| imgshow}}">
+   <image src="https://www.5itrade.cn/files/wechat/no_data.png" mode="scaleToFill" lazy-load></image>
+  </view>
+  <!-- 航班信息列表区域 -->
+  <view class="airList" wx:for="{{formareaInfo}}" wx:for-index="idx" wx:for-item="item" wx:key='{{"formareaInfo"+idx}}'>
+    <view class="info">
+      <!-- 头部区域 -->
+      <view class="head">
+        <view class="title-left" title='{{item.extFlightno}}'  style=' width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>{{item.extFlightno}}</view>
+        <view class="{{item.attentionFlag==='1'?'title-right-insted':'title-right-noinst'}}"  bindtap='instrorcancel' data-index='{{idx}}'>{{item.attentionFlag==='1'?'已关注':'关注'}}</view>
+      </view>
+      <!-- 中间明细区域 -->
+      <view class="middle">
+        <view class="line oneLine flex" style='font-size:0.6rem'>
+          <view class="type"> {{item.extCrafttype?('机型:'+item.extCrafttype):''}}</view>
+         <view class="positon">{{item.flightCompany?item.flightCompany:''}}</view>
+          <view class="number">{{item.extCraftno?('机号:'+item.extCraftno):''}}</view>
+          <view class="positon">{{item.extStand?('机位:'+item.extStand):''}}</view>
+        </view>
+        <view class="line twoLine flex">
+          <view class="from" style='width:120px'>{{item.fromPlace}}</view>
+          <view class="pass">{{item.extAirwaycn}}</view>
+          <view class="to" style='width:120px;text-align:right;'>{{item.toPlace}}</view>
+        </view>
+        <view class="line threeLine flex">
+          <view class="flyTime">{{item.extRealtakeoff || '—'}}</view>
+          <view class="logo">
+            <image src="/content/images/themes/A/myPlaneBlue2.png" mode="scaleToFill" lazy-load></image>
+          </view>
+          <view class="flyTime" style='text-align:right'>{{item.extReallanding  || '—'}}</view>
+        </view>
+        <view class="line fourLine flex">
+          <view class="fly">实际起飞</view>
+          <view class="arrive">实际到达</view>
+        </view>
+        <view class="line fiveLine flex">
+          <view class="planTime">计划{{item.extPlantakeoff}}</view>
+          <view class="planArrive">计划{{item.extPlanlanding}}</view>
+        </view>
+        <view class="sixLine flex" wx:if='{{item.extAbnormalstate =="延误" && item.extAbnormalreason}}' >延误原因: {{item.extAbnormalreason}}</view>
+      </view>
+      <!-- 底部区域 -->
+      <view class="foot">
+        <view class="onTime" wx:if='{{item.extTask}}'>{{item.extTask}}</view>
+        <view class="flying" wx:if='{{item.extProcessstate}}'>{{item.extProcessstate}}</view>
+        <view class="delay" wx:if='{{item.extAbnormalstate}}'>{{item.extAbnormalstate}}</view>
+      </view>
+    </view>
+  </view>
+  </view>
+</scroll-view>

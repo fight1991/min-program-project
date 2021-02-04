@@ -16,16 +16,16 @@
 </form>
 <view wx:if="{{isShow}}" style='padding-top:40px' class='list-item' data-statu="open">
   <view class='list-item-top'>
-    <label class='list-item-title'>报关单号：{{obj.ENTRY_ID == "" ? "_" : obj.ENTRY_ID}}</label>
+    <label class='list-item-title'>报关单号：{{searchModel.entry_id == "" ? "_" : searchModel.entry_id}}</label>
   </view>
   <view class='list-item-bottom'>
     <label class='list-item-info1'>
-      报关状态：{{obj.ENTRY_STATE == "" ? "_" : obj.ENTRY_STATE}}
+      报关状态：{{decStatus.swStatus == "" ? "_" : decStatus.swStatus}}
     </label>
   </view>
-  <view class='list-item-middle'>
+  <!-- <view class='list-item-middle'>
     <label class='list-item-info1'> 附加信息：{{obj.ENTRY_REMARK == "" ? "_" : obj.ENTRY_REMARK}}</label>
-  </view>
+  </view> -->
 </view>
 <template is="search_back" data="{{style,titles}}" wx:if='{{showBackTo}}' />
 

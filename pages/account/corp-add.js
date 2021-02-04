@@ -17,9 +17,13 @@ Page({
   },
   getData: function() {
     var that = this
-    app.platformApi.commonApi("/corp/getCorpByCond", {
+    app.platformApi.commonApi("/corp/getCorpByCondAssignProp", {
       "corpName": "",
       "sccCode": "",
+      "cusCorpName": "",
+      "returnProps": [
+        "corpId", "corpName"
+      ],
       "tradeCode": ""
     }, function(data) {
       if (data.code == '0000') {

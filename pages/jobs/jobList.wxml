@@ -1,0 +1,16 @@
+<!-- 职位列表开始 -->
+<view class="jobsList">
+  <navigator url="./jobDetails?jobId={{item.jobId}}" class="jobsDetail" wx:for="{{jobList}}" wx:key="{{jobId}}">
+    <image wx:if="{{item.urgentYN === 'Y'}}" class="hurry" src="https://www.5itrade.cn/files/wechat/hurry.png"></image>
+    <view class="title">
+      <view class="left">{{item.jobName}}</view>
+    </view>
+    <view class="items">
+      <text class="place p-10 shuxian" wx:if="{{item.area&&item.area.length > 0}}">{{ item.area }}</text>
+      <text class="study p-10 shuxian" wx:if="{{item.education&&item.education.length > 0}}">{{ item.education }}</text>
+      <text class="year p-10 shuxian" wx:if="{{item.workYears&&item.workYears.length > 0}}">{{item.workYears}}</text>
+      <text class="number p-10">{{item.count > 0? item.count + '人' : ''}}</text>
+    </view>
+    <view class="items company">{{item.companyName}}</view>
+  </navigator>
+</view>

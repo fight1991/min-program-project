@@ -4,13 +4,11 @@ Page({
   data: {
     order_no: '',
     activityId: '20190228',
-    activityModel: {}
+    activityModel: {},
+    priceRemarks:[]
   },
 
   onLoad: function(options) {
-    console.log('****************')
-    console.log(options)
-    console.log('****************')
     var that = this
     if (typeof options.scene != 'undefined' && options.scene != null) {
       this.data.activityId = options.scene
@@ -20,7 +18,7 @@ Page({
         that.getInfo()
       })
     }
-    wx.showLoading({
+    wx.showLoading({ 
       title: '加载中...',
     })
 
@@ -32,10 +30,12 @@ Page({
       'activityId': this.data.activityId
     }, function(result) {
       wx.hideLoading()
-      result.result.activityStartTime = app.utils.dateTimeFormatter4TZ(result.result.activityStartTime).substring(0, 16)
-      result.result.activityEndTime = app.utils.dateTimeFormatter4TZ(result.result.activityEndTime).substring(0, 16)
+      result.result.activityStartTime = app.utils.dateTimeFormatter4TZ(result.result.activityStartTime).substring(0, 11)
+      result.result.activityEndTime = app.utils.dateTimeFormatter4TZ(result.result.activityEndTime).substring(0, 11)
+      result.result.priceRemark = result.result.priceRemark.replace('&','')
       that.setData({
-        activityModel: result.result
+        activityModel: result.result,
+        priceRemarks: result.result.priceRemark.split('&')
       })
       wx.setNavigationBarTitle({
         title: result.result.name,
@@ -108,6 +108,7 @@ Page({
   },
   apply: function() {
     var that = this
+    that.data.activityModel.priceRemark=''
     wx.navigateTo({
       url: 'apply?activityModel=' + JSON.stringify(that.data.activityModel),
       success: function(res) {},
@@ -117,6 +118,7 @@ Page({
   },
   refund: function() {
     var that = this
+    that.data.activityModel.priceRemark = ''
     wx.navigateTo({
       url: 'refund?activityModel=' + JSON.stringify(that.data.activityModel),
       success: function(res) {},

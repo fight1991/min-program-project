@@ -1,0 +1,77 @@
+/* pages/jobs/jobList.wxss */
+page {
+  background-color: #f5f5f5;
+}
+.jobsList {
+  background-color: #fff;
+}
+
+.jobsDetail {
+  position: relative;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 20rpx;
+}
+.jobsDetail:last-child {
+  border-bottom-color: transparent;
+}
+.jobsDetail .hurry {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 92rpx;
+  height: 92rpx;
+}
+.jobsDetail .title {
+  font-size: 32rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.jobsDetail .title .left {
+  margin-right: 20rpx;
+}
+.jobsDetail .title .mark.hight {
+  width: 46rpx;
+  height: 24rpx;
+  background: url("https://www.5itrade.cn/files/wechat/hight.png") no-repeat;
+  background-size: 46rpx 24rpx;
+}
+.jobsDetail .title .mark.middle {
+  width: 46rpx;
+  height: 24rpx;
+  background: url("https://www.5itrade.cn/files/wechat/middle.png") no-repeat;
+  background-size: 46rpx 24rpx;
+}
+.jobsDetail .title .mark.low {
+  width: 46rpx;
+  height: 24rpx;
+  background: url("https://www.5itrade.cn/files/wechat/chuji.png") no-repeat;
+  background-size: 46rpx 24rpx;
+}
+.jobsDetail .items {
+  font-size: 28rpx;
+  color: #666;
+}
+.p-10 {
+  padding: 0 14rpx;
+  position: relative;
+}
+.p-10:first-child {
+  padding-left: 0;
+}
+/* .shuxian:after {
+  content:'';
+  width: 1px;
+  height:20rpx;
+  background-color: #ccc;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+} */
+.items.company {
+  padding-top: 20rpx;
+}

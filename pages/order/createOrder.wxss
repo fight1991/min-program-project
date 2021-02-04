@@ -1,0 +1,113 @@
+/* pages/airQuery/airQuery.wxss */
+page {
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+}
+.form {
+  padding: 20rpx;
+  background-color: #fff;
+}
+.select_group view{
+  display: inline-block;
+  width: 49%;
+  height: 54rpx;
+  background-color:white;
+  color: #1296DB;
+  text-align: center;
+  padding-top:12rpx;
+  border: 2rpx solid #1296DB
+}
+.select_group{
+  display:flex;
+}
+.formContainer {
+  position: relative;
+}
+.section-btn .btn{
+  position: fixed;
+  text-align:center;
+  font-size:16px;
+  height: 45px;
+  line-height: 45px;
+}
+.section-btn .btn view {
+  display: inline-block;
+  width:50vw;
+}
+.section-btn{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index:99999;
+}
+.selected{
+  background-color: #1296DB !important;
+  color: white !important;
+}
+.airimg{
+  display: inline-block;
+  line-height: 10rpx;
+  height: 21rpx;
+  width: 80%;
+  text-align: right;
+  position: relative;
+}
+.airimg image{
+  width: 14rpx;
+  height: 24rpx;
+}
+.section__title {
+  color: #999;
+  margin-bottom: 10rpx;
+  line-height: 40rpx;
+}
+.section__title.category {
+  display: flex;
+  justify-content: space-between;
+}
+.section__title.category text:nth-child(2) {
+  color: red;
+  flex: 1;
+  font-size:48rpx;
+  align-self: flex-end;
+  text-align: right;
+}
+.section {
+  margin-bottom: 10rpx;
+}
+.section input,
+textarea,
+.view-textarea {
+  padding: 10rpx 5rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 3rpx;
+}
+.catePicker .search-item {
+  position: relative;
+}
+
+.input-placeholder {
+  color: #bbb;
+}
+.btn-area {
+  background-color: #f5f5f5;
+}
+.query {
+  background-color: #1296DB;
+  color: #fff;
+  border: none;
+  margin-bottom: 20rpx;
+}
+input{
+  min-height:unset;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+textarea,
+.view-textarea {
+  width: 98%;
+  height: 240rpx;
+}
+input[disabled] {
+  background-color: #f5f5f5;
+}

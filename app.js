@@ -1,8 +1,13 @@
- 
 var httpUtils = require('/utils/http.js')
 var platformApi = require('/utils/PlatformApi.js')
 var utils = require('/utils/util.js')
 var language = require('/utils/language.js')
+//app.js
+import {ajax,upload} from './utils/request.js'
+// 注册网络请求方法
+wx.ajax = ajax
+// 注册图片上传方法
+wx.upload = upload
 App({
   init: function(userInfo, cb) {
     var token = ''
@@ -19,7 +24,7 @@ App({
         key: 'PLATFORM_HOST'
       }, function(data) {
         console.log(data.Data5)
-        // data.Data5 = "https://test.5itrade.cn/"
+        data.Data5 = "https://test.5itrade.cn"
         platformApi.setHostAndToken(data.Data5, token)
         if (cb) {
           cb()
@@ -64,6 +69,7 @@ App({
   },
   globalData: {
     winHeight:400,
+    winWidth: '',
     isAllRecord: false,
     language: 'zh_CN',
     wechat_user: null,
@@ -79,7 +85,7 @@ App({
   onLaunch: function() {
     console.log(utils.formatDateTime(new Date())+": app is start")
     this.globalData.cms_user.host = 'https://51baoguan.cn:8091'
-    //this.globalData.cms_user.theme = 'https://51baoguan.cn:8091/content/images/themes/A/' 
+    this.globalData.cms_user.theme = 'https://51baoguan.cn:8091/content/images/themes/A/' 
     // this.globalData.cms_user.host = 'http://localhost:33796/'
     httpUtils.setApiUrl(this.globalData.cms_user.host + "/api/Interop/")
     var that = this
@@ -87,6 +93,7 @@ App({
       success: function(res) {
         that.globalData.language = res.language
         that.globalData.winHeight = res.windowHeight
+        that.globalData.winWidth = res.windowWidth
       }
     })
   },

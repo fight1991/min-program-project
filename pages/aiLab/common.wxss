@@ -1,0 +1,67 @@
+.show {
+    text-align: left;
+    color: #444;
+    font-size: 0.9em;
+    position: fixed;
+    top:375rpx;
+    width: 730rpx;
+    height: 635rpx;
+    padding-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.warn {
+    color: lightgray;
+    text-align: center;
+}
+
+.operation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.ocr-result {
+    color: #0099aa;
+    text-indent: 40rpx;
+    text-decoration: underline;
+}
+
+.btn-area {
+    width: 750rpx;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding: 0 !important;
+    flex-wrap: wrap;
+}
+
+.op-button {
+    width: 373rpx;
+    height: 373rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0 !important;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    text-align: center;
+    color: #bbb;
+}
+
+.op-button-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+
+}

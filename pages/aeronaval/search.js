@@ -28,7 +28,7 @@ Page({
         searchModel: that.data.searchModel
       })
     }
-    this.data.searchModel.trafMode = options.trafMode
+    this.data.searchModel.traf_mode = options.trafMode
     if (options.trafMode == '海运') {
       this.data.searchModel.accessName = '海运舱单查询'
       wx.setNavigationBarTitle({
@@ -117,10 +117,10 @@ Page({
     var that = this
 
     var url = "ManifestInfo"
-    if (that.data.searchModel.trafMode == '海运') {
+    if (that.data.searchModel.traf_mode == '海运') {
       url = 'ManifestInfoForSea'
 
-    } else if (that.data.searchModel.trafMode == '空运') {
+    } else if (that.data.searchModel.traf_mode == '空运') {
       url = 'ManifestInfoForAir'
     }
     app.httpUtils.get(url, that.data.searchModel, callback)

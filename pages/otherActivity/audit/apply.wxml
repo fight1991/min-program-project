@@ -3,7 +3,7 @@
     <view class='content'>
       <view>
         <label class='item-tip'>*</label>
-        <label class='item-title'>姓名</label>
+        <label class='item-title'>姓名/Name</label>
       </view>
       <view class='input-trade'>
         <input style='height:35px' id='userName' name='userName' value='{{obj.userName}}' bindinput='bindData' maxlength='20'>
@@ -11,15 +11,22 @@
       </view>
       <view>
         <label class='item-tip'>*</label>
-        <label class='item-title'>手机</label>
+        <label class='item-title'>手机/Mobile</label>
       </view>
-      <view class='input-trade'>
-        <input style='height:35px' type='number' id='mobile' name='mobile' value='{{obj.mobile}}' bindinput='bindData'>
+      <view class='input-trade'style='display:flex;'>
+        <div style='height:35px;border-right: 1px solid #ccc;width:75px' bindtap='getQuhao'>
+          <view style='display: flex;align-items: center;justify-content: space-between;border-radius: 3px; height: 35px;width: 90%'>
+            <input class="picker" disabled='true' placeholder='区号' value="+{{mobileZone}}" >
+            </input>
+             <image src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image>
+          </view>
+        </div>
+        <input style='height:35px;padding-left:10px' type='number' id='mobile' name='mobile' value='{{obj.mobile}}' bindinput='bindData'>
         </input>
       </view>
       <view>
         <label class='item-tip'>*</label>
-        <label class='item-title'>验证码</label>
+        <label class='item-title'>验证码/CAPTCHA</label>
       </view>
       <view class='input-trade' style='display:flex;justify-content: space-between;padding-right:5px'>
         <input style='height:35px;width:70%' id='code' name='code' value='{{obj.code}}' bindinput='bindData' maxlength='4'>
@@ -28,7 +35,7 @@
       </view>
       <view>
         <label class='item-tip'>*</label>
-        <label class='item-title'>企业名称</label>
+        <label class='item-title'>企业名称/Company Name</label>
       </view>
       <view class='input-trade'>
         <input style='height:35px' id='corpName' name='corpName' value='{{obj.corpName}}' bindinput='bindData' maxlength='50'>
@@ -36,7 +43,7 @@
       </view>
       <view>
         <label class='item-tip'></label>
-        <label class='item-title'>企业邮箱</label>
+        <label class='item-title'>企业邮箱/E-mail</label>
       </view>
       <view class='input-trade'>
         <input style='height:35px' id='corpEmail' name='corpEmail' value='{{obj.corpEmail}}' bindinput='bindData' maxlength='30'>
@@ -44,33 +51,40 @@
       </view>
       <view>
         <label class='item-tip'></label>
-        <label class='item-title'>职位</label>
+        <label class='item-title'>职位/Position</label>
       </view>
       <view class='input-trade'>
         <input style='height:35px' id='position' name='position' value='{{obj.position}}' bindinput='bindData' maxlength='20'>
         </input>
       </view>
       <view>
-        <label class='item-title'>地址</label>
+        <label class='item-title'>地址/Address</label>
       </view>
       <view class="section">
-        <picker bindchange="bindPickerChange" value="{{index1}}" range="{{cityName1}}">
+      <picker bindchange="bindPickerChange" value="{{index1}}"  range="{{countryname}}">
           <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 90%'>
-            <input class="picker" placeholder='省/自治区/直辖市' value="{{cityName1[index1]}}">
+            <input class="picker" disabled='true' placeholder-style='font-size:10px' placeholder='国家' value="{{countryname[index1]}}">
             </input>
-            <image src='/content/images/themes/A/select.png' style="height:10px;width:15px;padding-right: 5px"></image>
+            <image src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image>
           </view>
         </picker>
-        <picker bindchange="bindPickerChange4City" value="{{index2}}" range="{{cityName2}}">
-          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 90%;margin-left:8%'>
-            <input class="picker" placeholder='市' value="{{cityName2[index2]}}">
+        <picker bindchange="bindPickerChangeP" value="{{index2}}" range="{{provinceName}}" >
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 90%'>
+            <input class="picker" disabled='true' placeholder-style='font-size:10px' placeholder='省/自治区/直辖市' value="{{provinceName[index2]}}">
             </input>
-            <image src='/content/images/themes/A/select.png' style="height:10px;width:15px;padding-right: 5px"></image>
+            <image src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image>
+          </view>
+        </picker>
+        <picker bindchange="bindPickerChange4City" value="{{index3}}" range="{{cityName2}}">
+          <view style='display: flex;align-items: center;justify-content: space-between;border: 1px solid #d8d8d8;border-radius: 3px; height: 35px;width: 90%;margin-left:8%'>
+            <input class="picker" disabled='true' placeholder-style='font-size:10px' placeholder='市' value="{{cityName2[index3]}}">
+            </input>
+            <image src='/content/images/themes/A/select.png' style="height:8px;width:12px;padding-right: 5px"></image>
           </view>
         </picker>
       </view>
       <view class='input-trade'>
-        <input style='height:35px' placeholder='详细地址' placeholder-class='placeholder-class' id='addressDetail' name='addressDetail' value='{{obj.addressDetail}}' bindinput='bindData' maxlength='100'>
+        <input style='height:35px' placeholder='详细地址/Detailed address' placeholder-class='placeholder-class' id='addressDetail' name='addressDetail' value='{{obj.addressDetail}}' bindinput='bindData' maxlength='100'>
         </input>
       </view>
       <view class='tips'>
@@ -79,7 +93,7 @@
     </view>
   </view>
   <view class='buttons'>
-    <button class='button' formType="submit">提交报名</button>
+    <button class='button' formType="submit">提交报名/Sign Up</button>
   </view>
 
 </form>

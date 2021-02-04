@@ -1,0 +1,37 @@
+<!--pages/airQuery/airQuery.wxml-->
+<view>
+<view class="form" hover-class="none" hover-stop-propagation="false">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section__title"><i style='color:red'>*</i>企业名称</view>
+        <input name="input" bindinput='getCorps' readOnly='true' id='beEntrustCompanyScc' name='beEntrustCompanyScc' value='{{subForm.beEntrustCompanyName}}' >
+        </input>
+        <view class='corplist' wx:if='{{showcorps}}'>
+          <view wx:for="{{corpArr}}" wx:key="corpId" wx:if='{{item.sccCode}}'  class='corpcell' bindtap='selectCorp' data-corp='{{item}}'>{{item.corpName}}</view>
+        </view>
+    </view>
+    <view class="section" wx:if="{{orderFlag == '1'}}">
+      <view class="section__title"><i style='color:red'>*</i>委托事项</view>
+      <view  class='select_group'>
+      <view bindtap='selectCheck' data-checkdata='entrustBusiness-dec' class="{{subForm.entrustBusiness=='dec'?'selected':''}}"> 报关单</view>
+      <view bindtap='selectCheck' style='border-left:unset;border-right:unset;' data-checkdata='entrustBusiness-invt' class="{{subForm.entrustBusiness=='invt'?'selected':''}}">核注清单</view>
+      <view bindtap='selectCheck' data-checkdata='entrustBusiness-log' class="{{subForm.entrustBusiness=='log'?'selected':''}}">物流作业</view>
+      </view>
+    </view>
+    
+    <view class="section" wx:if="{{orderFlag == '1' && !showcorps}}">
+      <view class="section__title">备注</view>
+      <textarea  bindinput="inputNote" maxlength='255' style='width:100%' value='{{subForm.note}}' />
+    </view>
+  </form>
+</view>
+<view class="footer" style="display:{{type === 'edit'? 'flex':'block'}}">
+  <view style='text-align: center;width:50%' wx:if="{{type === 'edit'}}" bindtap='delCorp'>
+    <view class='lic-fin lic-del'>删除</view>
+  </view>
+  <view style="text-align: center;width:{{(type === 'edit')? '50%':'100%'}}" bindtap='corpFin'>
+    <view class='lic-fin'>完成</view>
+  </view>
+</view>
+</view>
+

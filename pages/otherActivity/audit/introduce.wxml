@@ -45,8 +45,8 @@
     <view wx:else class='item' style='font: 25px microsoft yahei;font-weight: bold;'>
       免费
     </view>
-    <view class='item' style='font: 12px microsoft yahei;color: #9a9a9a;'>
-      {{activityModel.priceRemark==null?'':activityModel.priceRemark}}
+    <view wx:for="{{priceRemarks}}" wx:for-item="item" wx:key="" style='text-align:justify;width:84%;margin-left: 8%;font: 12px microsoft yahei;color: #9a9a9a;text-indent: 2em;'>
+      {{item}}
     </view>
   </view>
   <view class='item' wx:if="{{activityModel.price>0}}">

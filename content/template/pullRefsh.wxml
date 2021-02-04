@@ -1,0 +1,13 @@
+<!-- 下拉刷新结构 -->
+<template name="refresh">
+  <view style="height:{{boxHeight}}px;display:flex;overflow: hidden;justify-content: center;background-color:#f5f5f5;transition: .2s all;text-align: center;font-size: 12px;line-height:{{boxHeight}}px" hidden="{{refresh}}">
+    <view style="position: relative;width:80px;">{{title}}
+      <!-- 加载成功 -->
+      <image hidden="{{imageAll || loadingSuccess}}" style="position: absolute;height:20px;width:20px;top:50%;left:0;transform:translate(-100%,-50%)" src="https://51baoguan.cn/content/images/themes/A/success.png">
+      </image>
+      <!-- 正在加载 -->
+      <image  hidden="{{imageAll || !loadingSuccess}}" style="position: absolute;height:20px;width:20px;top:50%;left:0;transform:translate(-100%,-50%)" src="https://51baoguan.cn/content/images/themes/A/load-more.gif">
+      </image>
+    </view>
+  </view>
+</template>

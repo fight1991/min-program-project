@@ -1,0 +1,54 @@
+/* 垂直方向居中 */
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+/* 水平方向均分 */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 字体大小 */
+.f24 {
+  font-size: 24rpx;
+}
+.f28 {
+  font-size: 28rpx;
+}
+.f32 {
+  font-size: 32rpx;
+}
+.f36 {
+  font-size: 36rpx;
+}
+.f40 {
+  font-size: 40rpx;
+}
+.light-c {
+  color: #ccc;
+}
+.light-6 {
+  color: #666;
+}
+.light-3 {
+  color: #333;
+}
+/* 文字溢出省略号 */
+.text-cut {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 下拉实体箭头 */
+.angle:after { 
+  content:'';
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top-color: black;
+  position: absolute;
+  right: 4rpx;
+  top:50%;
+  transform: translateY(-25%);
+}

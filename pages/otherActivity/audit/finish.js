@@ -12,8 +12,8 @@ Page({
     })
   }, 
   finish: function() {
-    wx.navigateBack({
-      delta: 2,
+    wx.reLaunch({
+      url: '/pages/accountBind/accountBind'
     })
   }
 })

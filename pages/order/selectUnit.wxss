@@ -1,0 +1,118 @@
+/* pages/airQuery/airQuery.wxss */
+page {
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+  height: 100%;
+}
+.form {
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.select_group view{
+  display: inline-block;
+  width: 32.5%;
+  height: 54rpx;
+  background-color:white;
+  color: #1296DB;
+  text-align: center;
+  padding-top:12rpx;
+  border: 2rpx solid #1296DB
+}
+.selected{
+  background-color: #1296DB !important;
+  color: white !important;
+}
+.lic-fin {
+  margin:30rpx;
+  font-size: 40rpx;
+  border-radius: 5px;
+  background-color: #1296DB;
+  color: #fff;
+  padding: 20rpx;
+}
+.section__title {
+  color: #999;
+  margin-bottom: 10rpx;
+  line-height: 40rpx;
+}
+.section__title.category {
+  display: flex;
+  justify-content: space-between;
+}
+.section {
+  margin-bottom: 10rpx;
+}
+.section input {
+  padding: 10rpx 5rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 3rpx;
+}
+.corptip{
+  background-color: #1296DB;
+  font-size: 24rpx;
+  display: inline-block;
+  color: white;
+  border-radius: 4rpx;
+  margin:8rpx;
+  padding:4rpx 8rpx;
+}
+.input-placeholder {
+  color: #bbb;
+}
+
+.btn-area {
+  background-color: #f5f5f5;
+}
+.addcorpbtn{
+  margin-top: 20rpx;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  color:#1296DB;
+  font-size: 30rpx;
+}
+.corplist{
+  position: absolute;
+  width:100vw;
+  left: 0;
+  background-color: white;
+  z-index: 99999;
+  border:1 solid #ccc;
+  padding:10rpx;
+  height:87%;
+  overflow: auto; 
+}
+.corpcell{
+  padding:15rpx 16rpx;
+  border-bottom:1px solid #eee;
+  margin-right:26rpx;
+  font-size:25rpx;
+  color:#777;
+}
+input{
+  min-height:unset;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.histip{
+  font-size: 35rpx;
+  margin:30rpx
+}
+.histips{
+  margin:30rpx;
+  height:350rpx;
+  overflow: auto;
+}
+.histips view{
+  background-color:rgb(213, 222, 236);
+  margin:12rpx 10rpx;
+  display:inline-block;
+  padding:17rpx 30rpx;
+  border-radius:90rpx;
+  font-size:25rpx;
+  max-width:80vw;
+  word-wrap:break-word;
+
+
+}

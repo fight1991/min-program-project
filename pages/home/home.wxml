@@ -1,14 +1,15 @@
 <view style='height:100%;'>
   <view bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' style='height:100%;'>
     <view class='icons-view' style='height:100%;'>
-      <view class="table" wx:for="{{tables}}" wx:for-item="table" wx:for-index="i">
+      <view class="table" wx:for="{{tables}}" wx:for-item="table" wx:for-index="i" wx:key="title">
         <view wx:if='{{table.title!=""}}' class="th">
           <view class='th-title'></view>
           {{table.title}}
         </view>
-        <view class='tr  {{j==0?"tr-top":""}}' wx:for="{{table.rows}}" wx:for-index="j" wx:for-item="row">
-          <view class='td' wx:for="{{row}}" wx:for-item="item" wx:for-index="n" bindtap='enterItem' data-url='{{item.url}}' bind:touchstart="touchBegin" bind:touchend="touchOver" data-tb='{{i}}' data-tr='{{j}}' data-td='{{n}}'>
-            <image class='td-image' wx:if="{{item.normal.length>0}}" src="{{item.state==true?'https://51baoguan.cn/content/images/themes/A/'+item.normal:'https://51baoguan.cn/content/images/themes/A/'+item.pressed}}"></image>
+        <view class='tr  {{j==0?"tr-top":""}}' wx:for="{{table.rows}}" wx:for-index="j" wx:for-item="row" wx:key="j">
+          <view class='td' wx:for="{{row}}" wx:for-item="item" wx:for-index="n" bindtap='enterItem' wx:key="n" data-url='{{item.url}}' bind:touchstart="touchBegin" bind:touchend="touchOver" data-tb='{{i}}' data-tr='{{j}}' data-td='{{n}}'>
+            <image class='td-image' wx:if="{{item.normal.length>0 && item.source === 'wx' }}" src="{{item.normal}}"></image>            
+            <image class='td-image' wx:if="{{item.normal.length>0 && item.source === undefined }}" src="{{item.state==true?'https://51baoguan.cn/content/images/themes/A/'+item.normal:'https://51baoguan.cn/content/images/themes/A/'+item.pressed}}"></image>
             <view wx:if="{{logisticsAdviceCount>0&&item.name=='接单邀请'}}" class='float_div'>{{logisticsAdviceCount}}</view>
             <view class='td-title'>{{item.name.length>4?item.name1:item.name}}</view>
             <view style='margin-top: 0;' class='table-view' wx:if="{{item.name.length>4}}">{{item.name2}}</view>

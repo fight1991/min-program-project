@@ -41,5 +41,5 @@
       <button class='button' disabled='{{disabled}}' bindtap='confirm'>提交</button>
     </view>
   </view>
-
+s  
 </view>

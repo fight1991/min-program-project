@@ -1,0 +1,41 @@
+<!--pages/productData/GTIN/gtinDetail.wxml-->
+<view class="main">
+  <!-- 轮播区域 -->
+  <swiper
+    indicator-dots="{{true}}"
+    autoplay="{{true}}"
+    interval="{{3000}}"
+    duration="{{1000}}"
+    circular="{{true}}"
+    wx:if="{{gtinInfo.urls.length > 1}}">
+    <block wx:for="{{gtinInfo.urls}}" wx:key="*this">
+      <swiper-item bindtap="previewImage">
+        <image src="{{item}}" class="slide-image" mode="aspectFit" binderror="remindError"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="slideImg" wx:if="{{gtinInfo.urls.length === 1}}" bindtap="previewImage">
+    <image src="{{gtinInfo.urls[0]}}" class="slide-image" mode="aspectFit" binderror="remindError"/>
+  </view>
+  <view class="list">
+    <view class="title">条码信息</view>
+    <view class="listInfo" wx:for="{{gtinInfo.gtinCodeInfo}}" wx:key="propValue" wx:if="{{item.propValue}}">
+      <view class="left">{{ item.propName }}</view>
+      <view class="right">{{ item.propValue }}</view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="title">中文信息</view>
+    <view class="listInfo" wx:for="{{gtinInfo.chnInfo}}" wx:key="propName" wx:if="{{item.propValue}}">
+      <view class="left">{{item.propName}}</view>
+      <view class="right">{{item.propValue}}</view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="title">原文信息(原产国语言)</view>
+    <view class="listInfo" wx:for="{{gtinInfo.originInfo}}" wx:key="propName" wx:if="{{gtinInfo.originInfo.length > 0 && item.propValue}}">
+      <view class="left">{{item.propName}}</view>
+      <view class="right">{{item.propValue}}</view>
+    </view>
+  </view>
+</view>

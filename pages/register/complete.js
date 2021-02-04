@@ -6,7 +6,10 @@ Page({
     bindSource: [],
     ischange: false,
     corpInfos: [],
-    corpInfo: { corpId: '', corpName:''}
+    corpInfo: {
+      corpId: '',
+      corpName: ''
+    }
   },
   onLoad: function(options) {
     console.log(options)
@@ -18,11 +21,11 @@ Page({
         password: options.password,
         user_id: options.mobile, //账号默认注册手机号
         email_address: '',
-        note:''
+        note: ''
       }
     })
     this.getCorpInfos()
-  }, 
+  },
   itemtap: function(e) {
     var corpId = e.target.id
     this.data.currentUser.note = e.currentTarget.dataset.corpname
@@ -35,7 +38,7 @@ Page({
       currentUser: this.data.currentUser
     })
   },
-  closeSelect: function () {
+  closeSelect: function() {
     this.setData({
       bindSource: []
     })
@@ -77,18 +80,18 @@ Page({
     const rules = {
       user_name: {
         required: true,
-      },
-      note: {
-        required: true,
-      },
+      }
+      // note: {
+      //   required: true,
+      // },
     }
     const messages = {
       user_name: {
         required: '【真实姓名】不能为空',
-      },
-      note: {
-        required: '【公司全称】不能为空',
-      },
+      }
+      // note: {
+      //   required: '【公司全称】不能为空',
+      // },
     }
     this.WxValidate = new WxValidate(rules, messages)
   },
@@ -100,18 +103,17 @@ Page({
     })
   },
   switchChange: function(e) {
-    console.log('switch2 发生 change 事件，携带值为', e.detail.value)
     this.setData({
       ischange: e.detail.value
     })
   },
   nextstep: function(e) {
-    var that = this  
+    var that = this
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       this.showModal(error)
       return false
-    } else { 
+    } else {
       console.log(that.data.currentUser)
       app.httpUtils.post('Register', that.data.currentUser, function(data) {
         if (data.Success) {
@@ -120,7 +122,7 @@ Page({
             title: '注册成功'
           })
           wx.reLaunch({
-            url: '../../pages/accountBind/accountBind'
+            url: '../../pages/index/index'
           })
         } else {
           wx.showToast({
@@ -131,14 +133,22 @@ Page({
         }
       })
     }
-  }, 
+  },
   getCorpInfos: function() {
+    wx.showLoading({
+      title: '加载中...',
+    })
     var that = this
-    app.platformApi.commonApi("/corp/getCorpByCond", {
+    app.platformApi.commonApi("/corp/getCorpByCondAssignProp", {
       "corpName": "",
       "sccCode": "",
+      "cusCorpName":"",
+      "returnProps": [
+        "corpId", "corpName"
+      ],
       "tradeCode": ""
     }, function(data) {
+      wx.hideLoading()
       console.log(data)
       if (data.code == "0000") {
         that.setData({

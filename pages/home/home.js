@@ -40,6 +40,92 @@ Page({
               state: true,
               url: "../manifestInfoSure/search?from=home"
             }
+          ], [{
+            name: app.translater("通关联网状态查询"),
+            normal: "home/contentStatus_normal.png",
+            pressed: "home/contentStatus_pressed",
+            state: true,
+            url: "../connectState/connectState"
+          },
+          {
+            id: "",
+            name: "",
+            normal: "",
+            pressed: "",
+            state: false,
+            url: ""
+          },
+          {
+            id: "",
+            name: "",
+            normal: "",
+            pressed: "",
+            state: false,
+            url: ""
+          },
+          {
+            id: "",
+            name: "",
+            normal: "",
+            pressed: "",
+            state: false,
+            url: ""
+          },
+          {
+            id: "",
+            name: "",
+            normal: "",
+            pressed: "",
+            state: false,
+            url: ""
+          }
+          ]
+        ]
+      },
+      {
+        title: "委托管理",
+        rows: [
+          [
+            {
+              name: app.translater("委托"),
+              normal: "https://www.5itrade.cn/files/wechat/entrust.png",
+              pressed: "https://www.5itrade.cn/files/wechat/entrust.png",
+              state: true,
+              url: "../order/allBill/allBillList?orderFlag=1",
+              source:'wx'
+            },
+            {
+              name: app.translater("接单"),
+              normal: "https://www.5itrade.cn/files/wechat/receive.png",
+              pressed: "https://www.5itrade.cn/files/wechat/receive.png",
+              state: true,
+              url: "../order/allBill/allBillList?orderFlag=2",
+              source:'wx'
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            }
           ]
         ]
       },
@@ -76,7 +162,7 @@ Page({
               normal: "home/flight-normal.png",
               pressed: "home/flight-pressed.png",
               state: true,
-              url: "/pages/todayDynamic/todayDynamic"
+              url: "../airQuery/airQuery"
             },
             {
               id: "",
@@ -304,6 +390,98 @@ Page({
             },
           ]
         ]
+      },
+      {
+        title: "商品资料库",
+        rows: [
+          [{
+              name: app.translater("GTIN查询"),
+              normal: "/content/images/themes/A/GTIN.png",
+              pressed: "/content/images/themes/A/GTIN.png",
+              state: true,
+              url: "../productData/GTIN/gtinSearch",
+              source:'wx'
+            },
+            {
+              name: app.translater("商品数据库"),
+              normal: "https://www.5itrade.cn/files/wechat/GTINDB_search.png",
+              pressed: "https://www.5itrade.cn/files/wechat/GTINDB_search.png",
+              state: true,
+              url: "../productData/proDataBase/DBSearch",
+              source:'wx'
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            }
+          ]
+        ]
+      },
+      {
+        title: "AI实验室",
+        rows: [
+          [{
+            name: app.translater("身份证识别"),
+            normal: "https://www.5itrade.cn/files/wechat/aiLab/idCard-s.png",
+            pressed: "https://www.5itrade.cn/files/wechat/aiLab/idCard-s.png",
+            state: true,
+            url: "../aiLab/ocr/idCard/index",
+            source:'wx'
+          },
+            {
+              name: app.translater("营业执照识别"),
+              normal: "https://www.5itrade.cn/files/wechat/aiLab/bizLicense-s.png",
+              pressed: "https://www.5itrade.cn/files/wechat/aiLab/bizLicense-s.png",
+              state: true,
+              url: "../aiLab/ocr/bizLicense/index",
+              source:'wx'
+            },
+            {
+              name: app.translater("报关单识别"),
+              normal: "https://www.5itrade.cn/files/wechat/aiLab/customs-s.png",
+              pressed: "https://www.5itrade.cn/files/wechat/aiLab/customs-s.png",
+              state: true,
+              url: "../aiLab/ocr/customs/index",
+              source:'wx'
+            },
+            {
+              name: app.translater("图片倾斜矫正"),
+              normal: "https://www.5itrade.cn/files/wechat/aiLab/correction-s.png",
+              pressed: "https://www.5itrade.cn/files/wechat/aiLab/correction-s.png",
+              state: true,
+              url: "../aiLab/cv/correction/index",
+              source:'wx'
+            },
+            {
+              id: "",
+              name: "",
+              normal: "",
+              pressed: "",
+              state: false,
+              url: ""
+            }
+          ]
+        ]
       }
     ]
   },
@@ -324,10 +502,13 @@ Page({
     var that = this
     var rows = []
     that.data.tables.forEach(function(vals, index) {
-      vals.rows[0].forEach(function(val, index) {
-        val.name1 = val.name.substring(0, 4)
-        val.name2 = val.name.substring(4)
+      vals.rows.forEach(function (valss, index){
+        valss.forEach(function (val, index) {
+          val.name1 = val.name.substring(0, 4)
+          val.name2 = val.name.substring(4)
+        })
       })
+
     })
     that.setData({
       tables: that.data.tables

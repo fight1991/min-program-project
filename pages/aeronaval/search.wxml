@@ -29,7 +29,7 @@
       <view class="search-item1" style='margin-bottom:5px'>
         <label class='search-item-lb'>航班/航次</label>
         <view class="search-item">
-          <input class='search-item-input' placeholder='请输入航班/航次' placeholder-class='placeholder' id="traf_mode" value='{{searchModel.traf_mode}}' bindinput='bindData'></input>
+          <input class='search-item-input' placeholder='请输入航班/航次' placeholder-class='placeholder' id="voyage_no" value='{{searchModel.voyage_no}}' bindinput='bindData'></input>
           <label class='search-item-img'></label>
         </view>
       </view>

@@ -19,7 +19,8 @@ Page({
       "isError": false,
       "msg": ""
     },
-    isLogin: true
+    isLogin: true,
+    flag:''
   },
   initData: function() {
     var that = this
@@ -46,11 +47,18 @@ Page({
       if (data.Success) {
         console.log(app.utils.formatDateTime(new Date()) + ": app auto login success")
         that.setUserInfo(data.Data5)
-        wx.reLaunch({
-          url: '../../pages/index/index'
-        })
+         // 跳转到人才招聘详情
+            if(that.data.flag === 'resume') {
+              wx.reLaunch({
+                url: '/pages/jobs/jobDetails?from=zp'
+              })
+            }else {
+              wx.reLaunch({
+                url: '../../pages/index/index'
+              })
+            }
+       
       } else {
-        console.log(app.utils.formatDateTime(new Date()) + ": app auto login failed")
         that.setData({
           isLoading: false
         })
@@ -81,17 +89,36 @@ Page({
       key: 'unionid',
       data: data.PlatformToken,
     })
+    wx.setStorage({
+      key:'mobile',
+      data: data.Mobile
+    })
+    wx.setStorage({
+      key:'userName',
+      data: data.UserName
+    })
+    wx.setStorage({
+      key:'userId',
+      data: data.UserID
+    })
   },
   onReady: function() {
     //获得impower组件
     this.impower = this.selectComponent("#dialog");
   },
   onLoad: function(options) {
+    console.log('---------',options)
     app.init()
     console.log(app.utils.formatDateTime(new Date()) + ": app login-page Load")
 
     if (this.sceneLoad(options)) {
       return
+    }
+    // 判断是否从人才招聘过来的
+    if(options.flag === 'resume') {
+      this.setData({
+        flag: 'resume'
+      })
     }
     console.log(wx.getStorageSync("logPid"))
     wx.removeStorageSync("logPid")
@@ -156,6 +183,7 @@ Page({
       title: '登录中...',
     })
     if (that.data.isLogin) {
+      let reg = /^[0-9a-zA-Z]{6,8}$/
       if (this.data.ischange) {
         if (!this.data.currentUser.hasOwnProperty("userName") || this.data.currentUser.userName.length == 0) {
           this.showErr('用户名不能为空')
@@ -164,6 +192,11 @@ Page({
         }
         if (!this.data.currentUser.hasOwnProperty("password") || this.data.currentUser.password.length == 0) {
           this.showErr('密码不能为空')
+          wx.hideLoading()
+          return
+        }
+        if (!reg.test(this.data.currentUser.password)) {
+          this.showErr('请输入6-8位数字或字母的密码')
           wx.hideLoading()
           return
         }
@@ -176,9 +209,16 @@ Page({
             if (data.Data5.Sites.length == 0) {
               that.showErr('企业信息尚未维护') 
             }
-            wx.reLaunch({
-              url: '../../pages/index/index'
-            })
+            // 跳转到人才招聘详情
+            if(that.data.flag === 'resume') {
+              wx.reLaunch({
+                url: '/pages/jobs/jobDetails?from=zp'
+              })
+            }else {
+              wx.reLaunch({
+                url: '../../pages/index/index'
+              })
+            }
           } else {
             that.showErr(data.ErrorMessage)
           }
@@ -201,9 +241,17 @@ Page({
               if (data.Data5.Sites.length == 0) {
                 that.showErr('企业信息尚未维护')
               }
+             
+            // 跳转到人才招聘详情
+            if(that.data.flag === 'resume') {
+              wx.reLaunch({
+                url: '/pages/jobs/jobDetails?from=zp'
+              })
+            }else {
               wx.reLaunch({
                 url: '../../pages/index/index'
               })
+            }
             } else {
               that.showErr(data.ErrorMessage)
             }

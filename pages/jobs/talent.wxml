@@ -1,0 +1,61 @@
+
+<view class="main">
+  <!-- 轮播图区域 -->
+  <swiper
+  indicator-dots="{{true}}"
+  autoplay="{{true}}"
+  interval="{{5000}}"
+  duration="{{2000}}"
+  circular="{{true}}"
+>
+  <block wx:for="{{bannerList}}" wx:key="{{imageUrl}}">
+    <swiper-item>
+      <image src="{{item.imageUrl}}" class="slide-image" mode="aspectFit"/>
+    </swiper-item>
+  </block>
+</swiper>
+  <!-- 关务新征程模块 -->
+  <view class="area m-b">
+    <view class="big-title">
+      <image class="left" src="https://www.5itrade.cn/files/wechat/header02.png"></image>
+      <text>关务新征程</text>
+      <image class="right" src="https://www.5itrade.cn/files/wechat/header03.png"></image>
+    </view>
+    <view class="detail" wx:for="{{newList}}" wx:key="{{id}}">
+      <view class="text">{{item.text}}</view>
+      <view class="bgcImg">
+        <view class="little-title">
+          <view class="number">{{index + 1}}</view>
+          <view class="title">{{item.title}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 企业介绍模块 -->
+  <view class="introduce m-b">
+    <view class="big-title">
+      <image class="left" src="https://www.5itrade.cn/files/wechat/header02.png"></image>
+      <text>公司介绍</text>
+      <image class="right" src="https://www.5itrade.cn/files/wechat/header03.png"></image>
+    </view>
+    <view class="logo flex" bindtap="gotoCompanyDetail">
+      <image class="company" data-type="lx" src="https://www.5itrade.cn/files/wechat/lsshine.png"></image>
+      <image class="company" data-type="jg" src="https://www.5itrade.cn/files/wechat/jglogo.png"></image>
+      <image class="company" data-type="lxyn" src="https://www.5itrade.cn/files/wechat/longnows.png"></image>
+    </view>
+  </view>
+  <!-- 职位信息模块 -->
+  <view class="area m-b jobs">
+    <view class="big-title">
+      <image class="left" src="https://www.5itrade.cn/files/wechat/header02.png"></image>
+      <text>职位信息</text>
+      <image class="right" src="https://www.5itrade.cn/files/wechat/header03.png"></image>
+    </view>
+    <navigator url="./jobList?jobType={{item.jobType}}" class="detail jobs-items" wx:if="{{ jobTypeList.length > 0 }}" wx:for="{{jobTypeList}}" wx:key="{{jobType}}">
+      <image class="hurry" hidden="{{item.urgentYN !== 'Y'}}" src="https://www.5itrade.cn/files/wechat/hurry.png"></image>
+      <view class="jobs-title">{{item.jobName}}</view>
+      <view class="jobs-place">{{item.area}}</view>
+    </navigator>
+    <view class="detail jobs-items nojobs" wx:if="{{ jobTypeList.length === 0 }}"> 暂无职位信息 </view>
+  </view>
+</view>

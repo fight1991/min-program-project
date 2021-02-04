@@ -1,0 +1,72 @@
+@import '../../content/wxss/base';
+page {
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+}
+.lic-box{
+  border-bottom: 1rpx solid #ccc;
+  padding:30rpx 20rpx;
+}
+.lic-part {
+  height: 80rpx;
+  width: 80rpx;
+}
+.lic-part image{
+  height: 80rpx;
+  width: 80rpx;
+}
+.pic{
+  width: 80rpx;
+  height: 80rpx;
+}
+.filetitle{
+ color: #333;
+ flex: 1;
+ margin-left: 30rpx;
+ width: 26%;
+}
+.filename{
+  width: 75%;
+  font-size: 32rpx;
+  padding-bottom: 6rpx;
+}
+.sname{
+  color:#666;
+  padding-top: 6rpx;
+}
+.option{
+  height:40rpx;
+  width:40rpx;
+}
+.option image{
+  height:40rpx;
+  width:40rpx;
+}
+.lic-btn{
+  background-color: white;
+  margin-top:20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  padding:20rpx;
+
+}
+.lic-btn image{
+  width:40rpx;
+  height:40rpx;
+}
+.btn-img{
+  position: relative;
+  top:4rpx;
+}
+.lic-btn view{
+  display: inline-block;
+  color: #1296DB;
+}
+.lic-fin {
+  margin:60rpx 20rpx;
+  font-size: 40rpx;
+  border-radius: 5px;
+  background-color: #1296DB;
+  color: #fff;
+  padding: 20rpx;
+}

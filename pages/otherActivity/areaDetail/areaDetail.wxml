@@ -1,0 +1,27 @@
+<!--pages/otherActivity/areaDetail/areaDetail.wxml-->
+<scroll-view class="area"
+  scroll-into-view="{{toView}}"
+  scroll-y="{{true}}"
+  scroll-with-animation="{{true}}"
+  enable-back-to-top="{{true}}"
+  style="height: {{winHeight}}px;"
+  bindtap="goToApply">
+  <view class="areaDetail" wx:for="{{areaInfo}}" wx:for-item="item1" wx:key="firstLetter">
+    <view class="title" id="{{item1.firstLetter}}">
+      <text>{{item1.firstLetter}}</text>
+    </view>
+    <view class="list">
+      <view class="row" data-code="{{item2.code}}" data-mobileZone="{{item2.mobileZone}}" hover-class="clickTap" wx:for="{{item1.uniqueCountry}}" wx:for-item="item2" wx:key="code">
+        <view class="contry" style='pointer-events: none;' >
+          <view class="name">{{item2.name}}</view>
+          <view class="number">+{{item2.mobileZone}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!-- 右侧固定区域 -->
+<view class="fixW" bindtap="scrollToAnchor">
+  <view class="sort" wx:for="{{areaInfo}}" data-anchor="{{item.firstLetter}}" wx:key="id">{{item.firstLetter}}</view>
+</view>
+

@@ -1,0 +1,120 @@
+/* pages/airQuery/airQuery.wxss */
+page {
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+  height: 100%;
+}
+.form {
+  padding: 20rpx;
+  background-color: #fff;
+}
+.select_group view{
+  display: inline-block;
+  width: 32.5%;
+  height: 54rpx;
+  background-color:white;
+  color: #1296DB;
+  text-align: center;
+  padding-top:12rpx;
+  border: 2rpx solid #1296DB
+}
+.selected{
+  background-color: #1296DB !important;
+  color: white !important;
+}
+.footer {
+  bottom:0rpx;
+  position:fixed;
+  width:100vw;
+}
+.lic-fin {
+  margin-top:100rpx;
+  font-size: 40rpx;
+  background-color: #1296DB;
+  color: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.lic-del {
+  background-color: #fff;
+  color: red;
+}
+.section__title {
+  color: #999;
+  margin-bottom: 10rpx;
+  line-height: 40rpx;
+}
+.section__title.category {
+  display: flex;
+  justify-content: space-between;
+}
+.section {
+  margin-bottom: 10rpx;
+}
+.section input,textarea {
+  padding: 10rpx 5rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 3rpx;
+}
+.corptip{
+  background-color: #1296DB;
+  font-size: 24rpx;
+  display: inline-block;
+  color: white;
+  border-radius: 4rpx;
+  margin:8rpx;
+  padding:4rpx 8rpx;
+}
+.input-placeholder {
+  color: #bbb;
+}
+
+.btn-area {
+  background-color: #f5f5f5;
+}
+.addcorpbtn{
+  margin-top: 20rpx;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  color:#1296DB;
+  font-size: 30rpx;
+}
+.corplist{
+  position: absolute;
+  width:100vw;
+  left: 0;
+  background-color: white;
+  z-index: 99999;
+  border:1 solid #ccc;
+  padding:10rpx;
+  height:87%;
+  overflow: auto; 
+
+}
+.corpcell{
+  padding:15rpx 16rpx;
+  border-bottom:1px solid #eee;
+  margin-right:26rpx;
+  font-size:25rpx;
+  color:#777;
+}
+.btn view{
+  display: inline-block;
+  width: 50vw;
+  text-align: center;
+  padding:30rpx 0px;
+  font-size: 40rpx;
+}
+input{
+  min-height:unset;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.corpname{
+  font-size: 30rpx;
+}
+.corpmark{
+  margin-top:16rpx;
+  font-size: 24rpx;
+}

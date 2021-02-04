@@ -1,0 +1,30 @@
+<!--pages/airQuery/airQuery.wxml-->
+<view class="form" hover-class="none" hover-stop-propagation="false">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section__title">航班号</view>
+      <input name="input" placeholder="请输入完整的航班号" maxlength='10' bindinput="inputflightNo" id='flightNo' name='flightNo' value='{{obj.flightNo}}' placeholder-class="input-placeholder" />
+    </view>
+    <view class="section">
+      <view class="section__title">出发时间</view>
+      <picker bindchange="bindDateChange" disabled='true' value="{{date}}" bindchange='inputdata' class="catePicker" mode="date" >
+        <view class="picker">
+          <view class="search-item">
+            <input disabled="{{index === '0' ? true:false }}" id='searchDate' name='searchDate' placeholder='请选择出发时间' placeholder-class='placeholder' value='{{obj.searchDate}}'></input>
+          </view>
+        </view>
+      </picker>
+    </view>
+  </form>
+</view>
+
+<view class="myfocus" hover-class="none" hover-stop-propagation="false">
+  <button class="query" bindtap="goToAirList" data-type='nomal'>查询</button>
+  <button class="btn-focus" bindtap="goToAirList" data-type='interest'>
+  <view class='airimg'>
+  <image src="/content/images/themes/A/airsel.png"></image>
+  </view>
+  我关注的航班
+  </button>
+</view>
+

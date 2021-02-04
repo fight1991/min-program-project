@@ -64,6 +64,7 @@
 }
 .btn2 {
   margin-top: 20px;
+  margin-bottom: 20px;
   font: 16px microsoft yahei;
   color: #fff;
   width: 90%;

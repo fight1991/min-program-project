@@ -1,3 +1,6 @@
+page{
+  height: 100%
+}
 .placeholder {
   color: #aaa;
   font-size: 12px;

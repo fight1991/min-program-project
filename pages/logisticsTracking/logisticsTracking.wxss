@@ -445,3 +445,35 @@ page {
   width: 15px;
   padding-right: 10px;
 }
+/* 新增按钮样式开始 */
+.addBill {
+  position: absolute;
+  bottom: 100rpx;
+  right: 30rpx;
+  width: 122rpx;
+  height: 122rpx;
+  z-index: 55;
+  color: #fff;
+}
+.addBill>image {
+  width: 122rpx;
+  height: 122rpx;
+}
+.backImg {
+  position: absolute;
+  width: 98rpx;
+  height:98rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.backImg image {
+  width: 98rpx;
+  height:98rpx;
+}
+.goToPage {
+  top: -98rpx;
+  
+}
+.goToHome {
+  top: -200rpx;
+}

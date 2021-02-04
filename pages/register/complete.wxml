@@ -1,5 +1,5 @@
-<view>
-  <form bindsubmit="nextstep">
+<view style='height:100%' bindtap='closeSelect'>
+  <form bindsubmit="nextstep" >
     <view class='input-item'> 
       <label class='require-icon'>*</label>
       <label class='title'>真实姓名</label>
@@ -10,13 +10,13 @@
       <input class='input-item-content' id='email_address' name='email_address' value='{{currentUser.email_address}}' placeholder='请输入个人邮箱' placeholder-class='placeholder'  bindinput='bindData'></input>
     </view>
     <view class='input-item'>
-      <label class='require-icon'>*</label>
-      <label class='title' >公司全称</label>
+      <!-- <label class='require-icon'>*</label> -->
+      <label class='title' style='padding-left:10px;'>公司全称</label>
       <view style='position: relative;  flex-grow: 2;'>
-      <input class='input-item-content-name' id='note' name='note' value='{{currentUser.note}}' placeholder='请输入公司全称' placeholder-class='placeholder'  bindinput='bindDataAndFilter' bindblur='closeSelect'></input>
+      <input class='input-item-content-name' id='note' name='note' value='{{currentUser.note}}' placeholder='请输入公司全称' placeholder-class='placeholder'  bindinput='bindDataAndFilter'></input>
       <scroll-view scroll-y="true" class="scrollview" data-index='{{index}}' wx:if="{{bindSource.length>0}}">
               <view wx:for="{{bindSource}}">
-                <view id="{{item.corpId}}" bindtap="itemtap" data-corpName='{{item.corpName}}' data-indexs='{{index}}' class="itemview">{{item.corpName}}</view>
+                <view id="{{item.corpId}}" catchtap="itemtap" data-corpName='{{item.corpName}}' data-indexs='{{index}}' class="itemview">{{item.corpName}}</view>
               </view>
             </scroll-view>
       </view>      

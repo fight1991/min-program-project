@@ -1,0 +1,299 @@
+/* pages/order/allBill/allBillList.wxss */
+@import '../../../content/wxss/base';
+page {
+  background-color:#F5F5F5;
+  font-size: 24rpx;
+}
+.mianer {
+  position: relative;
+}
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,.4);
+  /* background-color: pink; */
+  width: 750rpx;
+  height: 100%;
+  z-index: 88;
+}
+
+.selection {
+  padding: 0 10rpx;
+}
+.selection .customs {
+  width: 80%;
+}
+.infoCard {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin: 10rpx 20rpx 30rpx;
+  padding: 20rpx 14rpx;
+  position: relative;
+}
+.select-item {
+  width: 25%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  position: relative;
+}
+.select-item:first-child {
+  width: 20%;
+}
+.select-item:last-child {
+  width: 30%;
+}
+.selectDate {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.order,.save {
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+}
+.orderFlag2 .status {
+  position: absolute;
+  right: 12rpx;
+  color: #FDAA31;
+  top: 26rpx;
+  padding: 6rpx 10rpx;
+}
+.order,.order image{
+  width: 28rpx;
+  height: 76rpx;
+}
+.infoCard .save {
+  top: 30rpx;
+  padding: 6rpx 10rpx;
+  background-color: #999;
+  color: #fff;
+  border-radius: 6rpx;
+}
+.infoCard .company {
+  font-size: 32rpx;
+  display: flex;
+  font-weight:bold;
+  align-items: center;
+}
+.tagout {
+  width: 32rpx;
+  height: 32rpx;
+  padding: 10rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #1196DB;
+  line-height: 32rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  margin-right: 8rpx;
+  vertical-align: middle;
+}
+.zi {
+  background-color: #B56FFE;
+}
+.name {
+  vertical-align: middle;
+  width: 400rpx;
+}
+.arrow {
+  width: 28rpx;
+  height: 16rpx;
+  transform: rotate(-90deg);
+  margin-left: 10rpx;
+  vertical-align: middle;
+  margin-top: 4rpx;
+}
+
+.detail {
+  padding: 30rpx 20rpx 10rpx;
+}
+.detail .status {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #666;
+}
+.inOrOut {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 24rpx;
+}
+.dec,.transWay {
+  padding: 0 4rpx;
+  font-size: 24rpx;
+  border-radius: 6rpx;
+  margin-right: 40rpx;
+}
+.dec {
+  color: #FDAA31;
+  padding: 20rpx 0;
+}
+.transWay {
+  border: 1px solid #72BFE4;
+  color: #72BFE4;
+}
+.numberInfo .items {
+  text-align: center;
+  width: 33%;
+}
+.numberInfo .items .txt {
+  color: #666;
+  padding-top: 6rpx;
+}
+.numberInfo .items .num {
+  font-size: 18px;
+  font-weight: bolder;
+}
+.numberInfo .items .num text {
+  font-size: 24rpx;
+  color: #222;
+}
+.numberInfo {
+  padding: 0rpx 30rpx 30rpx;
+  align-items: flex-end;
+}
+.numberInfo .items .pakage {
+  font-size: 28rpx;
+  color: #222;
+}
+.descrip {
+  margin-top: 10rpx;
+}
+.descrip .one {
+  color: #333;
+  width: 128rpx;
+}
+.descrip .others {
+  color: #222;
+  font-size: 28rpx;
+  font-weight: bold;
+  width: 300rpx;
+}
+/* 模态框区域 */
+
+.picker_group {
+  border-radius: 10rpx;
+  padding: 80rpx 40rpx 0;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  z-index:99;
+  transform: translateX(-50%);
+	color: #666;
+	text-align: center;
+	font-size: 28rpx;
+	background-color: #f5f5f5;
+}
+.picker-date {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.picker_group .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+
+.zhi {
+	padding: 0 20rpx;
+}
+.date {
+	height: 60rpx;
+	box-sizing: border-box;
+	width: 200rpx;
+	border-bottom: 1px solid #1196DB;
+}
+.picker {
+	display: flex;
+	align-items: center;
+}
+input,.picker {
+ height: 60rpx;
+ min-height: 60rpx;
+ line-height: 60rpx;
+}
+.placeholder {
+	line-height: 60rpx;
+	font-size: 24rpx;
+}
+.btn-group {
+  padding: 20rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20rpx 0;
+}
+.date-clear,
+.date-confirm {
+  padding: 10rpx 30rpx;
+  border-radius: 10rpx;
+}
+.date-clear {
+  border: 1px solid #1196DB;
+  color: #1196DB;
+  margin-right: 20rpx;
+}
+.date-confirm {
+ border: 1px solid #1196DB;
+ background-color: #1196DB;
+ color: #fff;
+ margin-left: 20rpx;
+}
+/* 新增按钮样式开始 */
+.addBill {
+  position: absolute;
+  bottom: 100rpx;
+  right: 30rpx;
+  width: 122rpx;
+  height: 122rpx;
+  z-index: 55;
+  color: #fff;
+}
+.addBill>image {
+  width: 122rpx;
+  height: 122rpx;
+}
+.backImg {
+  position: absolute;
+  width: 98rpx;
+  height:98rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.backImg image {
+  width: 98rpx;
+  height:98rpx;
+}
+.goToPage {
+  top: -98rpx;
+  
+}
+.goToHome {
+  top: -200rpx;
+}
+.noData {
+  width: 320rpx;
+  height: 360rpx;
+  padding: 20rpx;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%)
+}
+.noData image {
+  width: 320rpx;
+  height: 360rpx;
+}

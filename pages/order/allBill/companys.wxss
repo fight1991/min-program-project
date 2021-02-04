@@ -1,0 +1,57 @@
+/* pages/order/allBill/companys.wxss */
+page {
+  font-size: 24rpx;
+  background-color: #f5f5f5;
+}
+.companyT {
+  padding: 10px 20px;
+  font-size:38rpx;
+  font-weight:600;
+  border-bottom: 1px solid #eee
+}
+.companyParent{
+  margin-top: 20rpx;
+  background-color: white;
+}
+.companyAdd view{
+  padding:20rpx 40rpx 0rpx 0rpx;
+  font-size:32rpx;
+  word-wrap: break-word;
+}
+.companyAdd{
+  border-bottom: 1px solid #eee;
+  padding-left:40rpx;
+  padding-bottom: 20rpx;
+}
+.msg-f view{
+  display: inline-block;
+}
+.msg-f .msg-img{
+  position: relative;
+  display: inline-block;
+  top:5rpx;
+  padding-right:10rpx;
+
+  margin-left: 10rpx;
+}
+.msg-f image{
+  width:30rpx;
+  height:30rpx;
+}
+.control-btn, .btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btns {
+  width: 100rpx;
+  padding: 20rpx 0 10rpx;
+}
+.control-btn image {
+  width: 24rpx;
+  height: 24rpx;
+}
+.control-btn .isOpen {
+  color: #1195DD;
+  margin-right: 10rpx;
+}

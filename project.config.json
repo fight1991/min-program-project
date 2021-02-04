@@ -5,12 +5,15 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"checkSiteMap": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.5.0",
 	"appid": "wx559ad0e80995947c",
 	"projectname": "ccba",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,12 +31,89 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
-					"name": "other",
-					"pathName": "pages/otherActivity/audit/finish"
+					"name": "creatorder",
+					"pathName": "pages/order/createOrder",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "allBillList",
+					"pathName": "pages/order/allBill/allBillList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "委托详情",
+					"pathName": "pages/order/allBill/billDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系人页面吗",
+					"pathName": "pages/order/allBill/contact",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提送货信息",
+					"pathName": "pages/order/allBill/deliveryInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "人才招聘",
+					"pathName": "pages/jobs/jobDetails",
+					"query": "jobId=9",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ai lab",
+					"pathName": "pages/aiLab/aiLab",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/aiLab/cv/correction/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/logisticsTracking/tailor",
+					"pathName": "pages/logisticsTracking/tailor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/logisticsTracking/pickUp",
+					"pathName": "pages/logisticsTracking/pickUp",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"scene": null
 				}
 			]
 		}

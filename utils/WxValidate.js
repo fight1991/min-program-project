@@ -54,6 +54,7 @@ class WxValidate {
         min: this.formatTpl('请输入不小于 {0} 的数值。'),
         max: this.formatTpl('请输入不大于 {0} 的数值。'),
         range: this.formatTpl('请输入范围在 {0} 到 {1} 之间的数值。'),
+        pw:'请输入6-8位字母或数字的密码'
       }
     }
   }
@@ -174,6 +175,10 @@ class WxValidate {
       range(value, param) {
         return that.optional(value) || (value >= param[0] && value <= param[1])
       },
+      // 验证密码6-8位数字或字母
+      pw(value) {
+        return that.optional(value) || /^[a-zA-Z0-9]{6,8}$/.test(value)
+      }
     }
   }
 

@@ -1,0 +1,123 @@
+/* pages/airQuery/airInfoList.wxss */
+page {
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+}
+.airUpdate {
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30px;
+  background-color: #fff;
+  font-size: 28rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+  line-height: 60rpx;
+  margin: 10px 0 0 0;
+}
+/* 航班信息明细样式开始 */
+.airList .info {
+  margin:10px 10px 10px 10px;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.airList .info .head,
+.airList .info .middle,
+.airList .info .foot {
+  padding: 20rpx 40rpx;
+}
+.airList .info .head {
+  font-size: 32rpx;
+  height: 100rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f5f5f5;
+}
+.flyTime{
+  width:50px
+}
+.airList .info .foot {
+  display: flex;
+  border-top: 1px solid #f5f5f5;
+}
+.nodata{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.nodata image{
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%,-50%);
+  width: 150px;
+  height: 150px;
+}
+  
+.airList .info .foot .onTime,
+.airList .info .foot .flying,
+.airList .info .foot .delay {
+  color: #1195dd;
+  font-size: 20rpx;
+  border: 1px solid #1195dd;
+  padding: 5rpx;
+  margin-right: 10rpx;
+  border-radius: 4rpx;
+}
+.airList .info .foot .delay {
+  border: 1px solid #f71100;
+  color: #f71100;
+}
+.airList .info .flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 12rpx 0;
+  align-items: center;
+}
+.head .title-right-insted {
+  font-size: 24rpx;
+  padding: 0 10px;
+  color:#999;
+  border: 1px solid #999;
+  line-height: 56rpx;
+  border-radius: 5px;
+}
+.head .title-right-noinst {
+  font-size: 24rpx;
+  padding: 0 10px;
+  color:#1195dd;
+  border: 1px solid #1195dd;
+  line-height: 56rpx;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.airList .info .twoLine {
+  font-size:32rpx;
+  height: 40rpx;
+  line-height:40rpx;
+}
+.airList .info .threeLine {
+  font-size:38rpx;
+}
+.airList .info .fourLine,
+.airList .info .fiveLine,
+.airList .info .sixLine {
+  color: #999;
+  padding: 7rpx 0;
+}
+.airList .info .twoLine .pass {
+  color: #1195dd;
+  font-size: 24rpx;
+}
+.threeLine .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.threeLine .logo image{
+  width: 124rpx;
+  height: 40rpx;
+}

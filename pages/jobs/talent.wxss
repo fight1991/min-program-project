@@ -1,0 +1,132 @@
+/* pages/recruit/talent.wxss */
+page {
+  background-color: #f5f5f5;
+}
+.m-b {
+  margin-bottom: 30rpx;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+swiper-item {
+  background-color: #fff;
+}
+swiper,swiper .slide-image{
+  width: 750rpx;
+  height: 380rpx;
+}
+.area,.introduce {
+  padding: 20rpx 20rpx;
+  background-color: #fff;
+}
+.big-title {
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+  padding: 20rpx 0 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.big-title image {
+  width: 128rpx;
+  height: 8rpx;
+}
+.big-title text {
+  padding: 0 20rpx;
+}
+.little-title {
+  font-size: 28rpx;
+  line-height: 44rpx;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail {
+  position: relative;
+  padding: 40rpx 20rpx 20rpx;
+  border-radius: 10rpx;
+  border: 1px solid #f5f5f5;
+  margin-bottom: 60rpx;
+  box-shadow: 0px 2px 5px #f5f5f5;
+}
+.detail:last-child {
+  margin-bottom:20rpx;
+}
+.detail .text {
+  font-size: 24rpx;
+  text-indent: 48rpx;
+  line-height: 40rpx;
+  color: #666;
+}
+.detail .bgcImg {
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 0%;
+  position: absolute;
+  width: 453rpx;
+  height: 46rpx;
+  background: url("https://www.5itrade.cn/files/wechat/header01.png") no-repeat;
+  background-size: 453rpx 46rpx;
+}
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo image {
+  width: 220rpx;
+  height: 110rpx;
+}
+.detail .bgcImg .number {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 10rpx;
+  font-size: 24rpx;
+  color: #32B5E8;
+  line-height: 30rpx;
+}
+.jobs {
+  font-size: 24rpx;
+}
+.jobs-items {
+  position: relative;
+  color: #666;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.jobs-items .jobs-title {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.jobs-items .jobs-place {
+  color: #999;
+}
+.jobs-items .jobs-company {
+  color: #999;
+  margin-top: 20rpx;
+}
+.introduce .big-title,
+.jobs .big-title {
+  padding-top: 0;
+  padding-bottom: 20rpx;
+}
+.jobs-items .hurry {
+  width: 62rpx;
+  height: 62rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 10rpx 0;
+}
+.nojobs {
+  padding: 20rpx;
+  text-align: center;
+}

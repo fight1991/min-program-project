@@ -1,0 +1,60 @@
+<!--pages/index/index.wxml-->
+<!--<swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">-->
+<!--<swiper-item class="title" style="background-color: mediumslateblue">-->
+<!--<view>AI LAB#</view>-->
+<!--</swiper-item>-->
+<!--<swiper-item class="title" style="background-color: black">-->
+<!--<view>AI LAB#</view>-->
+<!--</swiper-item>-->
+<!--</swiper>-->
+<view style="margin:0;padding:0;width: 750rpx; height: 360rpx;">
+    <image style="width: 750rpx; height: 360rpx;" mode="aspectFit"
+           src="https://www.5itrade.cn/files/wechat/aiLab/banner_AI.jpg"></image>
+</view>
+<view class="swiper-tab">
+    <view class="tab-item {{currentTab===0 ? 'on' : ''}}" data-current="0" bindtap="switchNav">文字识别</view>
+    <view class="tab-item {{currentTab===1 ? 'on' : ''}}" data-current="1" bindtap="switchNav">图像处理</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight - 30}}px"
+        bindchange="bindChange">
+    <swiper-item>
+        <view class="btn-area">
+            <navigator class="op-button" url="/pages/aiLab/ocr/idCard/index" open-type="navigate" hover-class="navigator-hover">
+                <view class="op-button-box">
+                    <image class="op-button-img" src="https://www.5itrade.cn/files/wechat/aiLab/idCard.png"></image>
+                    <view class="op-button-title">身份证识别</view>
+                </view>
+            </navigator>
+            <navigator class="op-button" url="/pages/aiLab/ocr/bizLicense/index" open-type="navigate" hover-class="navigator-hover">
+                <view class="op-button-box">
+                    <image class="op-button-img"
+                           src="https://www.5itrade.cn/files/wechat/aiLab/bizLicense.png"></image>
+                    <view class="op-button-title">营业执照识别</view>
+                </view>
+            </navigator>
+            <navigator class="op-button" style="align-self: flex-start;" url="/pages/aiLab/ocr/customs/index" open-type="navigate" hover-class="navigator-hover">
+                <view class="op-button-box">
+                    <image class="op-button-img"
+                           src="https://www.5itrade.cn/files/wechat/aiLab/customs.png"></image>
+                    <view class="op-button-title">报关单识别</view>
+                </view>
+            </navigator>
+            <view class="op-button">
+            </view>
+        </view>
+    </swiper-item>
+    <swiper-item>
+        <view class="btn-area">
+            <navigator class="op-button" style="align-self: flex-start;" url="/pages/aiLab/cv/correction/index" open-type="navigate" hover-class="navigator-hover">
+                <view class="op-button-box">
+                    <image class="op-button-img"
+                           src="https://www.5itrade.cn/files/wechat/aiLab/correction.png"></image>
+                    <view class="op-button-title">倾斜矫正</view>
+                </view>
+            </navigator>
+            <view class="op-button">
+            </view>
+        </view>
+    </swiper-item>
+</swiper>

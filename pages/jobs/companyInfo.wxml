@@ -1,0 +1,27 @@
+<!--pages/jobs/companyInfo.wxml-->
+<view class="logo">
+  <image src="{{logoUrl[0]}}" mode="aspectFit"></image>
+</view>
+<view class="main">
+  <view class="corpName">
+    <view class="corpTitle">{{corpName}}</view>
+    <view class="little">{{englishName}}</view>
+  </view>
+  <!-- 文本区域 -->
+  <view class="text" wx:for="{{introduce}}" wx:key="{{id}}">
+    {{item.text}}
+  </view>
+</view>
+<!-- 下方图片区域 -->
+  <view class="img" wx:for="{{imgUrl}}" wx:key="*this" wx:if="{{type === 'lx'}}">
+    <image src="{{item}}" wx:if="{{index === 0}}" style="height:{{710*361/692}}rpx"></image>
+    <image src="{{item}}" wx:if="{{index === 1}}" style="height:{{710*299/690}}rpx"></image>
+  </view>
+  <view class="img" wx:for="{{imgUrl}}" wx:key="*this" wx:if="{{type === 'jg'}}">
+    <image src="{{item}}" style="height:{{710*370/660}}rpx"></image>
+  </view>
+  <view class="topTitle" wx:if="{{type === 'lxyn'}}">合作案例</view>
+   <view class="img" wx:for="{{imgUrl}}" wx:key="{{url}}" wx:if="{{type === 'lxyn'}}">
+     <view class="title">{{item.title}}</view>
+    <image src="{{item.url}}" style="height:{{710*item.height/item.width}}rpx"></image>
+  </view>

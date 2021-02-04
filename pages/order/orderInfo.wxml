@@ -1,0 +1,82 @@
+<!--pages/airQuery/airQuery.wxml-->
+<view style='height:100%'>
+<view class="form" hover-class="none" hover-stop-propagation="false">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view class="section">
+      <view class="section__title"><i style='color:red'>*</i>进出口标识</view>
+      <view  class='select_group'>
+      <view bindtap='selectCheck'  data-checkdata='iEFlag-I' class="{{subForm.iEFlag=='I'&&(orderFlag=='2'&&isEdit)?'unAbleselected':((orderFlag=='2'&&isEdit)?'unAble':subForm.iEFlag=='I'?'selected':'')}}"> 进口</view>
+      <view bindtap='selectCheck'  data-checkdata='iEFlag-E' class="{{subForm.iEFlag=='E'&&(orderFlag=='2'&&isEdit)?'unAbleselected':((orderFlag=='2'&&isEdit)?'unAble':subForm.iEFlag=='E'?'selected':'')}}">出口</view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">运输方式</view>
+      <picker bindchange="bindtranChange" value="{{transindex}}" range="{{transArray}}">
+        <view class="picker">
+        <input name="input"  maxlength='10' readOnly='true' id='flightNo' name='flightNo' value='{{transArray[transindex]}}' style="pointer-events:none;" >
+        </input>
+        </view>
+      </picker>
+    </view>
+    <view class="section">
+      <view class="section__title">提运单号</view>
+      <input name="input"  maxlength='32' bindinput="inputbillNo" id='billNo' name='billNo' value='{{subForm.billNo}}' />
+    </view>
+  </form>
+</view>
+<view wx:if="{{orderFlag=='1'}}">
+<view style='margin-top:20rpx;background-color:white;font-size:32rpx;font-weight: 600;padding:10px;border-bottom:1rpx solid #eee' >
+  <view >
+  <i style='color:red'>*</i>
+  受托企业
+      </view>
+</view>
+<view  style='background-color:white;padding:30rpx;position:relative;' wx:for="{{subForm.beEntrustInfoVOs}}" bindtap='toCorpbtn'  data-corp='{{item}}' wx:key="beEntrustCompanyName"  data-type='edit' data-idx='{{index}}' >
+  <view class='corpname' style="pointer-events:none;width:80vw;">
+  {{item.beEntrustCompanyName}}
+  </view>
+  <view class='corptip' style="pointer-events:none">
+    {{item.entrustBusiness=='dec'?'报关单':item.entrustBusiness=='invt'?'核注清单':'物流作业'}}
+  </view>
+  <view class='corpmark' style="pointer-events:none">
+    {{item.note}}
+  </view>
+</view>
+<view bindtap='toCorpbtn' class='addcorpbtn' data-type='new'>
+      +新增受托企业
+</view>
+</view>
+<view wx:if="{{orderFlag=='2'}}">
+  <view style='margin-top:20rpx;background-color:white;font-size:30rpx;' >
+      <view style='border-bottom:1rpx solid #eee;padding:10px;' catchtap='toCorpbtn'>
+      <i style='color:red'>*</i>
+      委托客户
+      <view class='selectcorp'> {{subForm.company}}</view>
+      <view class='airimg' >
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+      </view>
+      <view class="section" style='padding:20rpx;'>
+      <view class="section__title"><i style='color:red'>*</i> 接单类型</view>
+      <view  class='select_group'>
+      <view bindtap='selectCheck' style='width:32.5%' data-checkdata='type-dec' class="{{subForm.type=='dec'?'selected':''}}"> 报关单</view>
+      <view bindtap='selectCheck'  style='border-left:unset;border-right:unset; width:32.5%;' data-checkdata='type-invt' class="{{subForm.type=='invt'?'selected':''}}">核注清单</view>
+      <view bindtap='selectCheck'  style='width:32.5%'  data-checkdata='type-log' class="{{subForm.type=='log'?'selected':''}}">物流作业</view>
+      </view>
+    </view>
+    <view style='padding:0px 20rpx;'>
+    <view class="section__title">备注</view>
+    <textarea placeholder='请输入备注' style='height:200rpx;width:99%' name='note' id='note' bindinput='inputNote' value='{{subForm.note}}'></textarea>
+    </view>
+</view>
+</view>
+<view style='bottom:0rpx;position:fixed;'>
+    <view class='btn'>
+    <view bindtap='saveOrder' wx:if="{{orderFlag === '1'}}" style='background-color:white;color:#1296DB'>暂存</view>
+    <view bindtap='receiveDec' wx:else style='background-color:white;color:#1296DB'>暂存</view>
+    <view bindtap='gouToStep2' style='background-color:#1296DB;color:white'>下一步</view>
+    </view>
+</view>
+</view>
+

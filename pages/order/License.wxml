@@ -1,0 +1,28 @@
+<view>
+  <view style='background-color:white;' wx:for='{{files}}' wx:key="url">
+    <view class='lic-box flex-center' >
+      <view class='lic-part pic'>
+        <image wx:if="{{ item.fileType === 'png' || item.fileType === 'jpg' }}" src="https://www.5itrade.cn/files/wechat/picture.png" />
+        <image wx:elif="{{ item.fileType === 'pdf' }}" src="https://www.5itrade.cn/files/wechat/pdf.png" />
+        <image wx:elif="{{ item.fileType === 'doc' || item.fileType === 'docx' }}" src="https://www.5itrade.cn/files/wechat/word.png" />
+        <image wx:elif="{{ item.fileType === 'xls' || item.fileType === 'xlsx' }}" src="https://www.5itrade.cn/files/wechat/excel.png" />
+        <image wx:else src="https://www.5itrade.cn/files/wechat/file.png" />
+      </view>
+      <view class='filetitle'>
+        <view class='filename text-cut'>{{item.fileName}}</view>
+        <!-- <view style='position:relative;top:-48rpx;height:0;left:374rpx;'>{{'　' + item.type}}</view> -->
+        <view class='sname' style=''>{{item.fileSize + 'KB　　' +  item.upTime}}</view>
+      </view>
+      <view class='lic-part option' catchtap='delectFile' data-file='{{item}}'>
+        <image src='https://www.5itrade.cn/files/wechat/delblue.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='lic-btn' catchtap="chooseFileAndUpload">
+    <view class='btn-img'><image src='https://www.5itrade.cn/files/wechat/upload.png'></image></view>
+    <view >上传文件</view>
+  </view>
+   <view style='text-align: center;' catchtap='subFile'>
+    <view class='lic-fin'>完成</view>
+  </view>
+</view>

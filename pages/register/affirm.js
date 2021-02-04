@@ -18,19 +18,23 @@ Page({
     const rules = {
       password: {
         required: true,
+        pw: true
       },
       oncepassword: {
         required: true,
-        equalTo: 'password'
+        equalTo: 'password',
+        pw: true
       },
     }
     const messages = {
       password: {
         required: '密码不为空',
+        pw: '请输入6-8位数字或字母的密码'
       },
       oncepassword: {
         required: '确认密码不为空',
-        equalTo:'确认密码与密码不一致'
+        equalTo:'确认密码与密码不一致',
+        minlength: '请输入6-8位数字或字母的密码'
       },
     }
     this.WxValidate = new WxValidate(rules, messages)

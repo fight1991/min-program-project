@@ -12,32 +12,58 @@ Page({
     code_tips: "获取验证码",
     enable: true,
     currProvince: '',
+    currCountry:'',
     currCity: '',
-    cityName2: []
+    mobileZone:'',//电话前缀
+    cityName2: [],
+    currQuhao:'',
+    countryname: [], 
+    provinceName:[],
   },
   onLoad: function(options) {
-    that = this
+    let that = this
+    // 如果是从地区列表跳转过来的,读取本地信息
+    let temp = wx.getStorageSync('formData')
+    if (options.mobileZone && temp) {
+      // 读取本地信息
+      this.setData({
+        obj: JSON.parse(temp)
+      })
+    }
+    
     that.setData({
       activityModel: JSON.parse(options.activityModel),
-      activityId: JSON.parse(options.activityModel).activityId
+      activityId: JSON.parse(options.activityModel).activityId,
+      mobileZone: options.mobileZone ? options.mobileZone:'86'
     })
     wx.setNavigationBarTitle({
       title: that.data.activityModel.name,
     })
     this.initValidate()
-    app.platformApi.dictionary("/dictionary/getArea", {
+    app.platformApi.dictionary("/dictionary/cascadeGetArea", {
       codeId: "0",
       type: '0'
     }, function(data) {
-      var cityName = []
+      var countryName = []
+      that.setData({
+        allcountry: data.result,
+        index1: 0
+      })
+      that.bindPickerChange({ detail: { value: 0 } })
       data.result.forEach(function(value) {
-        cityName.push(value.cityName)
+        countryName.push(value.name)
+        if (value.code == options.code){
+          that.setData({
+            index1: data.result.indexOf(value)
+          })
+          that.bindPickerChange({ detail: { value: data.result.indexOf(value) } })
+        }
       })
       wx.hideLoading()
       that.setData({
-        cityName1: cityName,
-        provinces: data.result
+        countryname: countryName
       })
+      
     })
   },
   onShow: function() {
@@ -48,15 +74,17 @@ Page({
     if (!that.data.enable) {
       return
     }
-    if (typeof that.data.obj.mobile == 'undefind' || that.data.obj.mobile.trim() == '') {
-      wx.showToast({
-        icon: 'none',
-        title: '请填写手机号',
-      })
-    } else if (/^1[3456789]\d{9}$/.test(that.data.obj.mobile.trim())) {
+    // if (typeof that.data.obj.mobile == 'undefind' || that.data.obj.mobile.trim() == '') {
+    //   wx.showToast({
+    //     icon: 'none',
+    //     title: '请填写手机号',
+    //   })
+    // } else 
+    if (that.data.obj.mobile.trim().length>0) {
       app.platformApi.commonApi("/login/getValidateCode", {
         mobile: that.data.obj.mobile,
-        type: that.data.activityModel.saveValidateCode
+        type: that.data.activityModel.saveValidateCode,
+        mobileZone: that.data.mobileZone
       }, function(data) {
         if (data.code == "0000") {
           wx.showToast({
@@ -93,7 +121,7 @@ Page({
     } else {
       wx.showToast({
         icon: 'none',
-        title: '手机号格式不正确',
+        title: '请输入手机号码',
       })
     }
   },
@@ -105,7 +133,8 @@ Page({
       },
       mobile: {
         required: true,
-        tel: true
+        digits: true
+        // tel: true
       },
       code: {
         required: true,
@@ -127,7 +156,7 @@ Page({
         required: "姓名不为空",
       },
       mobile: {
-        required: "手机号不为空",
+        required: "手机号不为空"
       },
       code: {
         required: "验证码不为空",
@@ -163,6 +192,8 @@ Page({
     that.data.obj.activityId = that.data.activityId
     that.data.obj.payNumber = that.data.order_no
     that.data.obj.payType = 'WX'
+    that.data.obj.country = that.data.currCountry,
+    that.data.obj.mobileZone = that.data.mobileZone
     wx.showLoading({
       title: '提交中...',
     })
@@ -178,35 +209,86 @@ Page({
       }
     })
   },
-  bindPickerChange(e) {
-    that = this
-    this.setData({
-      index1: e.detail.value,
-      currProvince: that.data.provinces[e.detail.value].codeId,
-      currCity: ''
-    })
-    app.platformApi.dictionary("/dictionary/getArea", {
-      codeId: that.data.currProvince,
-      type: '2'
-    }, function(data) {
-      var cityName = []
-      data.result.forEach(function(value) {
-        cityName.push(value.cityName)
+  getAllQuhao(code){
+    app.platformApi.dictionary("/dictionary/getAreaGroup", {
+    }, function (data) {
+      let quhao = []
+      data.result.forEach(function (value) {
+        quhao = [quhao, ...value.uniqueCountry]
       })
       wx.hideLoading()
       that.setData({
-        cityName2: cityName,
-        city: data.result,
-        index2: 0,
-        currCity: data.result[0].codeId
+        allQuhaos: quhao
+      })
+    })
+  },
+  bindPickerChangeP(e) {
+    that = this
+    this.setData({
+      index2: e.detail.value,
+      currProvince: that.data.provinces[e.detail.value].code
+    })
+    app.platformApi.dictionary("/dictionary/cascadeGetArea", {
+      code: that.data.provinces[e.detail.value].code,
+      type: '2'
+    }, function (data) {
+      var CityName = []
+      data.result.forEach(function (value) {
+        CityName.push(value.name)
+      })
+      wx.hideLoading()
+      that.setData({
+        cityName2: CityName,
+        citys: data.result,
+        index3: 0,
+        currCity: data.result[0].codeId || ''
       })
     })
 
   },
+  bindPickerChange(e) {
+    that = this
+    this.setData({
+      index1: e.detail.value,
+      currCountry: that.data.allcountry[e.detail.value].code,
+      currProvince: '',
+      index2:'',
+      index3: '',
+      currCity: '',
+      cityName2:[],
+      provinceName:[],
+      provinces:[]
+    })
+    app.platformApi.dictionary("/dictionary/cascadeGetArea", {
+      code: that.data.currCountry,
+      type: '1'
+    }, function (data) {
+      var ProvinceName = []
+      data.result.forEach(function (value) {
+        ProvinceName.push(value.name)
+      })
+        that.setData({
+          provinceName: ProvinceName,
+          provinces: data.result,
+          currCity: ''
+        })
+      
+      wx.hideLoading()
+    })
+
+  },
+  getQuhao(){
+    wx.redirectTo({
+      url: '../areaDetail/areaDetail?activityModel=' + JSON.stringify(this.data.activityModel),
+    })
+    let formData = JSON.stringify(this.data.obj)
+    // 保存表单信息
+    wx.setStorageSync('formData', formData)
+  },
   bindPickerChange4City(e) {
     that = this
     this.setData({
-      index2: e.detail.value,
+      index3: e.detail.value,
       currCity: that.data.city[e.detail.value].codeId
     })
   },
@@ -220,7 +302,8 @@ Page({
     app.platformApi.activity("/activity/checkSubmit", {
       code: that.data.obj.code,
       mobile: that.data.obj.mobile,
-      activityId: that.data.activityId
+      activityId: that.data.activityId,
+      mobileZone: that.data.mobileZone
     }, function(data) {
       if (data.code == '0000') {
         if (that.data.activityModel.price>0) {

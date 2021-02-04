@@ -1,0 +1,210 @@
+/* pages/jobs/jobDetails.wxss */
+@import '../../content/wxss/base';
+page {
+  background-color: #f5f5f5;
+  font-size: 12px;
+}
+.block {
+  border-bottom: 1px solid #F2F2F2;
+  background-color: #fff;
+  padding: 20px 20rpx 30rpx;
+}
+.block:last-child {
+  border-bottom: 1px solid transparent;
+}
+.jobName {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10rpx 0 20rpx;
+}
+.title {
+  font-size: 14px;
+  color: #444;
+  font-weight: bold;
+  padding: 10rpx 0;
+}
+.detail,.colorCommon{
+  margin-bottom: 20rpx;
+  color: #666;
+}
+.colorCommon {
+  display: flex;
+}
+.colorCommon .left {
+  width: 102rpx;
+  /* text-align: justify;
+  text-align-last: justify; */
+}
+
+/* .salary .left {
+  text-align: justify;
+  text-align-last: justify;
+} */
+.colorCommon .right {
+  flex:1;
+}
+.colorCommon:last-child {
+  margin-bottom: 0;
+}
+.colorCommon .uniq {
+  padding: 0 4rpx;
+}
+.block .iconItems image {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+/* .shuxian:after {
+  content:'';
+  width: 1px;
+  height:20rpx;
+  background-color: #ccc;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+} */
+.p-10 {
+  padding: 5px 0;
+  position: relative;
+  margin-right: 10px;
+}
+.item {
+  padding: 10rpx 0;
+  color: #666;
+}
+.main {
+  position: relative;
+  padding-bottom: 45px;
+  box-sizing: border-box;
+}
+.fixed {
+  font-size: 14px;
+  width: 100%;
+  position: absolute;
+  z-index: 77;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  background-color: #fff;
+}
+.share image,
+.telPhone image,
+.send image {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+.share image {
+  margin-right: 10px;
+}
+.telPhone,.send,.share {
+  width: 33.3%;
+  line-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.telPhone {
+  color:#fff;
+  background-color: #1195DD;
+}
+.send,.share {
+  color: #1195DD;
+}
+.mask {
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 750rpx;
+  background-color: rgba(0,0,0,.5);
+}
+.menuDetail {
+  background-color: #fff;
+  width: 750rpx;
+  color: #222;
+  font-size: 16px;
+  position: absolute;
+  bottom:0;
+  left:0;
+  z-index: 666;
+}
+.menuDetail button {
+  color: #222!important;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  text-align: left;
+  background-color: #fff;
+  line-height: 60px;
+  border-radius: none;
+  /* position: static; */
+}
+.menuDetail button::after,
+.share button::after{ 
+  border: none; 
+}
+.share button {
+  background-color: #fff;
+  color: #1195DD;
+  margin: 0;
+  font-size: 14px;
+  padding: 0;
+  width: 100%;
+}
+.other {
+  flex-wrap: wrap;
+}
+.fixed button {
+  line-height: 45px;
+}
+.noLogin {
+  position: relative;
+}
+.noLogin image{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 777;
+}
+.menuDetail .itemop {
+  padding: 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.menuDetail .item:last-child {
+  border-bottom: 1px solid transparent;
+}
+.menuDetail .cancel {
+  text-align: center;
+  line-height: 60px;
+}
+.menuDetail .left {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+.menuDetail .img {
+  width: 40px;
+  height: 40px;
+}
+.noData {
+  width: 320rpx;
+  height: 360rpx;
+  padding: 20rpx;
+  /* margin: 50px auto 0; */
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%)
+}
+.noData image {
+  width: 320rpx;
+  height: 360rpx;
+}

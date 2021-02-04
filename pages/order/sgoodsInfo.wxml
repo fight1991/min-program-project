@@ -1,0 +1,119 @@
+<!--pages/order/sgoodsInfo.wxml-->
+<view class='msg-tip' wx:if="{{isContainLog}}">
+  <view class='goods_title'  catchtap='sendgetAdress' data-type='get' data-title='提货信息' >
+    提货信息
+    <view class='airimg'>
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont'>
+    <view class='msg-f'>
+    <view style='font-size:38rpx'>{{orderFlag=='1'?subForm.pickUpGContacts:subForm.agentSendCarWithBLOBsVO.ref1}}</view>
+    <view class='msg-img' wx:if="{{orderFlag=='1'?subForm.pickUpGPhone:subForm.agentSendCarWithBLOBsVO.ref2}}">
+    <image src='../../content/images/themes/A/tel.png'/>
+    </view>
+    <view>
+      {{orderFlag=='1'?subForm.pickUpGPhone:subForm.agentSendCarWithBLOBsVO.ref2}}
+    </view>
+    </view>
+    <view wx:if="{{orderFlag=='1'}}">{{subForm.pickUpGCountryValue+(subForm.pickUpGProvinceValue=='所有'?'':subForm.pickUpGProvinceValue)+subForm.pickUpGCityValue+subForm.pickUpGAddress}}
+    </view>
+    <view wx:if="{{orderFlag=='2'}}">{{(subForm.agentSendCarWithBLOBsVO.pickUpGCountryValue+(subForm.agentSendCarWithBLOBsVO.pickUpGProvinceValue=='所有'?'':subForm.agentSendCarWithBLOBsVO.pickUpGProvinceValue)+subForm.agentSendCarWithBLOBsVO.pickUpGCityValue+subForm.agentSendCarWithBLOBsVO.deliveryAddrS) || ''}}
+    </view>
+  </view>
+</view>
+<view class='msg-tip' wx:if="{{isContainLog}}">
+  <view class='goods_title' catchtap='sendgetAdress' data-type='send' data-title='送货信息'>
+    送货信息
+    <view class='airimg' >
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont'>
+    <view class='msg-f'>
+    <view style='font-size:38rpx'>{{orderFlag=='1'?subForm.deliverGContacts:subForm.agentSendCarWithBLOBsVO.ref3}}</view>
+    <view class='msg-img' wx:if="{{orderFlag=='1'?subForm.deliverGPhone:subForm.agentSendCarWithBLOBsVO.ref4}}">
+    <image src='../../content/images/themes/A/tel.png'/>
+    </view>
+    <view>
+      {{orderFlag=='1'?subForm.deliverGPhone:subForm.agentSendCarWithBLOBsVO.ref4}}
+    </view>
+    </view>
+    <view wx:if="{{orderFlag=='1'}}">{{subForm.deliverGCountryValue+(subForm.deliverGProvinceValue=='所有'?'':subForm.deliverGProvinceValue)+subForm.deliverGCityValue+subForm.deliverGAddress}}
+    </view>
+    <view wx:if="{{orderFlag=='2'}}">{{(subForm.agentSendCarWithBLOBsVO.deliverGCountryValue+(subForm.agentSendCarWithBLOBsVO.deliverGProvinceValue=='所有'?'':subForm.agentSendCarWithBLOBsVO.deliverGProvinceValue)+subForm.agentSendCarWithBLOBsVO.deliverGCityValue+subForm.agentSendCarWithBLOBsVO.deliveryAddrR) || ''}}
+    </view>
+  </view>
+</view>
+<view class='msg-tip' wx:if="{{isContainDec}}" catchtap='gorogetAdress' data-type='inside' data-title="境内收发货人">
+  <view class='goods_title'>
+    境内收发货人
+    <view class='airimg'>
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont'>
+    <view >
+    {{subForm.tradeName}}
+    </view>
+  </view>
+</view>
+<view class='msg-tip' wx:if="{{isContainDec}}" catchtap='gorogetAdress' data-type='outside' data-title="境外收发货人">
+  <view class='goods_title'>
+    境外收发货人
+    <view class='airimg'>
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont' >
+    <view>
+    {{subForm.overseasConsignorCname}}
+    </view>
+  </view>
+</view>
+<view class='msg-tip' wx:if="{{isContainDec}}" catchtap='gorogetAdress' data-type='cususe' data-title="{{subForm.iEFlag === 'I'?'消费使用单位':'生产销售单位'}}">
+  <view class='goods_title'>
+    {{subForm.iEFlag === 'I'?'消费使用单位':'生产销售单位'}}
+    <view class='airimg'>
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont'>
+    <view style='padding-top:10rpx;'>{{subForm.ownerName}}
+    </view>
+  </view>
+</view>
+<view class='msg-tip' wx:if="{{isContainInvt}}" catchtap='gorogetAdress' data-type='operate' data-title="经营单位">
+  <view class='goods_title'>
+    经营单位
+    <view class='airimg'>
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont'>
+    <view style='padding-top:10rpx;'>{{orderFlag=='1'?subForm.operateName:subForm.tradeName }}
+    </view>
+  </view>
+</view>
+<view class='msg-tip' wx:if="{{isContainInvt}}" catchtap='gorogetAdress' style='margin-bottom:100rpx' data-type='process' data-title="加工单位">
+  <view class='goods_title'>
+    加工单位
+    <view class='airimg'>
+      <image src='/content/images/themes/A/arrows_right.png' ></image>
+    </view>
+  </view>
+  <view class='msg-cont'>
+    <view style='padding-top:10rpx;'>{{orderFlag=='1'?subForm.processName:subForm.ownerName}}
+    </view>
+  </view>
+</view>
+<view style='heigth:100rpx;'></view>
+<view style='bottom:0rpx;position: fixed;'>
+    <view class='btn'>
+      <view wx:if="{{orderFlag === '1'}}" bindtap='saveOrder' data-type='0' style='background-color:white;color:#1296DB'>暂存</view>
+      <view wx:if="{{orderFlag === '2'}}" bindtap='receiveDec' data-type='0' style='background-color:white;color:#1296DB'>暂存</view>
+      <view wx:if="{{orderFlag === '1'}}" bindtap='saveOrder' data-type='1' style='background-color:#1296DB;color:white'>提交</view>
+      <view wx:if="{{orderFlag === '2' && innerNo !== ''}}" bindtap='submitOrder' data-type='1' style='background-color:#1296DB;color:white'>提交</view>
+      <view wx:if="{{orderFlag === '2' && innerNo === ''}}" bindtap='receiveDec2' data-type='1' style='background-color:#1296DB;color:white'>提交</view>
+    </view>
+</view>
